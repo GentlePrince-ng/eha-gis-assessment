@@ -244,7 +244,11 @@ RULES = [
     ("QA08a null island (0,0)",        "exclude",   "qa08_status = 'null_island'"),
     ("QA08b transposed, corrected",    "correct",   "qa08_status = 'transposed_corrected'"),
     ("QA08b transposed, uncorrob.",    "exclude",   "qa08_status = 'transposed_uncorroborated'"),
-    ("QA08c outside area, unexplained","exclude",   "qa08_status = 'outside_area'"),
+    # QA08c is a finding, not a corruption: median 10.7 km outside the state
+    # boundary, up to 70 km, overwhelmingly on post-campaign dates and
+    # concentrated in the eight teams whose loggers were never switched off.
+    # Real movement outside the operational area, not a bad coordinate.
+    ("QA08c outside operational area", "exclude",   "qa08_status = 'outside_area'"),
 ]
 
 
