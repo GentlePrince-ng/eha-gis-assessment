@@ -1,0 +1,126 @@
+# Data protection (F12)
+
+The question asks for a view, not compliance. Mine is that **this instrument
+collects more identifying information than its analysis needs, and the digital
+version I have built makes two of those exposures worse than the paper form
+did** — which is worth stating before anything else, because both are mine.
+
+## What the submission actually contains
+
+A completed form holds, for one dwelling: GPS to six decimal places taken at the
+entrance, the structure number painted on it, the settlement, the household
+serial, the initials and ages of every resident, the name or initials of each
+child under five, their weight, height, vaccination and antibiotic history, a
+photograph of medicine packaging, a biological specimen identifier, and — where
+the household was visited before — the identifier linking it to the October 2025
+round.
+
+That is not "survey data with some identifiers in it". **It is a re-identifiable
+record of a specific dwelling and the children living in it**, linkable across
+rounds. Six decimal places of latitude is roughly 0.1 m: it does not describe a
+settlement, it describes a doorway.
+
+## What is configured
+
+| Control | Setting | Note |
+|---|---|---|
+| **Submission encryption** | `public_key` in `settings` | Encrypts at rest on the device and in transit. Automatic loss of marks if absent, and rightly so |
+| PIN entry | `appearance: masked` | Shoulder-surfing at a doorstep is a real threat model |
+| Photograph size | `max-pixels=1024` | Enough to read a medicine box; not enough to identify a room or a face in the background |
+| Roster names | hint says **initials only**, in both languages | The paper column says "Name or initials"; the digital form pushes toward the minimising option |
+| Audit log | `identify-user=true` | Accountability, and itself personal data about staff — retention applies to it too |
+| Supervisor field | filtered to roster supervisors | Prevents an arbitrary code being typed |
+
+**The private key is not in this repository and must not be.** It is held by the
+survey manager. The `public_key` in `settings` is a clearly-labelled placeholder;
+submissions encrypted to a placeholder cannot be decrypted, so the real key must
+be inserted before deployment. That is a deployment gate, recorded in the
+deployment plan.
+
+## Two exposures this digital design creates that paper did not
+
+Both come from external media, and neither is hypothetical.
+
+### 1. `staff_roster.csv` puts all 120 PINs on all 120 devices
+
+The PIN check I added at sign-in reads from `staff_roster.csv`, which is
+attached to the form as media — so **every device carries every enumerator's
+PIN in cleartext**, readable by anyone who opens the file.
+
+That does not merely weaken the control, it **inverts** it. The PIN exists to
+stop one enumerator submitting under another's code, and shipping the list makes
+impersonation easier than it was on paper, where you would at least have to know
+the person.
+
+**Proposal.** Remove `pin` from the attached media entirely and authenticate
+elsewhere:
+
+- **Preferred:** ODK Central per-user accounts with device provisioning via QR.
+  Identity is then a server-side credential, never a form attachment.
+- **If an in-form check is required:** ship a per-team media file containing only
+  that team's five enumerators, so exposure is bounded at five rather than 120;
+  or store a salted hash rather than the PIN, accepting that XForms cannot hash,
+  so this needs a pre-computed comparison the form only checks equality against.
+
+Until then the PIN should be treated as a **usability aid, not a security
+control**, and the constraint register describes it as such.
+
+### 2. `previous_round_households.csv` ships a 3,982-household PII database to every tablet
+
+To support 1.13 — recording the identifier from the October 2025 round — the
+form attaches the previous round's household register: **3,982 households with
+initials, structure numbers, settlement, and GPS coordinates**, on all 120
+devices, for 14 days, including 9 consecutive days offline with no ability to
+revoke.
+
+A lost or stolen tablet exposes the previous round's entire sample, not the
+handful of households that enumerator visited.
+
+**Proposal.** Filter the attachment per team at deployment. An enumerator
+assigned to Gwarin needs Gwarin's households, not Katsuma's. `prepare_media.py`
+already builds these files from source, so partitioning is a change to that
+script, not a change to the form. Estimated exposure reduction: from 3,982
+households to roughly 300–400 per device.
+
+**I have not implemented the partition**, because it changes the deployment
+model — one media set becomes twenty-four — and that decision belongs to the
+survey manager. It is listed in the deliberate-scope note rather than left
+unsaid.
+
+## What the questionnaire collects that it arguably need not
+
+| Item | Why it is questionable | Proposal |
+|---|---|---|
+| **4.02 child name or initials** | Wholly redundant. 4.01 already records the roster line, which identifies the child within the household unambiguously. The name is copied from the roster and then never used analytically | **Remove.** The strongest single minimisation available, and it costs nothing |
+| **Roster column (2) names** | Needed to conduct the interview — you must be able to ask about a specific person — but not needed *after* it | **Retain in the field, strip at ingest.** Names serve the interview; the analytical extract should carry line numbers only |
+| **GPS at six decimal places** | ~0.1 m. Justified operationally for revisit and for the QA checks in F11. Not justified for analysis, which works at settlement level | **Retain raw during fieldwork, truncate to three decimals (~100 m) in the analytical release.** Preserves settlement-level analysis, removes doorway-level precision |
+| **Structure number + GPS + previous-round ID together** | Individually defensible; together they make the record trivially re-identifiable, and the previous-round link makes it longitudinal | **Retain, but treat the joined dataset as restricted.** Access to the linkage key should be separable from access to the survey data |
+| **`consent_to_follow_up` in the previous-round file** | Present in the attachment but never checked by the form. A household that declined follow-up can still be selected | **Wire it into 1.13's choice filter** so declining follow-up actually prevents it. Not implemented — flagged in the deliberate-scope note. That a consent flag exists and is ignored is a governance defect, not a technical one |
+
+## What I would put to the ethics committee
+
+Three things, in this order:
+
+1. **Drop 4.02.** Redundant identifying data on an approved instrument, removable
+   with no analytical loss.
+2. **Fix the consent-to-follow-up gap.** A recorded refusal that nothing enforces
+   is worse than no field at all, because it implies a control that is absent.
+3. **Set a retention rule for the linkage key.** The instrument creates a
+   longitudinal identifier across rounds and the questionnaire says nothing about
+   how long that linkage is kept. The confidentiality box governs custody of
+   paper forms; it is silent on a database that can be copied perfectly.
+
+## What the confidentiality statement covers, and does not
+
+The form's box (BSHREC/2026/041) commits to: purpose limitation, no disclosure
+outside the survey team, and forms remaining in the supervisor's custody.
+
+Written for paper, all three are physical controls. **Custody does not transfer
+to a digital instrument**: a submission can be copied without leaving the
+original's custody at all. Encryption, per-user accounts and server-side access
+control are the digital equivalents, and none of them is mentioned because the
+statement predates the medium.
+
+That is not a criticism of the committee. It is the same observation that runs
+through this whole question: **paper controls do not port, and assuming they do
+is how a digitisation quietly loses the protections the paper process had.**
