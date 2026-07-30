@@ -105,6 +105,26 @@ def survey_rows() -> list[dict]:
            "constraint_message::English (en)":
            "PIN does not match this enumerator code."})
 
+    # specimen_label_allocation is referenced by the serial-range constraint via
+    # instance(). pyxform only DECLARES an external instance when a question uses
+    # the select_one_from_file *type* - an instance() call inside a constraint is
+    # invisible to it. Without this row the lookup resolves to an empty nodeset,
+    # number() of empty is NaN, and the constraint rejects every valid serial.
+    # ODK Validate does not catch it; it surfaces only when the form is loaded
+    # with its media attached.
+    #
+    # Rather than declare a dummy, this is made a real field step: the enumerator
+    # confirms the label book issued to their team before starting. The filter
+    # leaves exactly one option, so it is one tap, and it catches a team working
+    # from the wrong book - which is the error the check digit cannot detect.
+    row(type="select_one_from_file specimen_label_allocation.csv",
+        name="q0_label_range",
+        **{"label::Hausa (ha)": "Tabbatar da littafin lakabin ƙungiyar ka",
+           "label::English (en)":
+           "Confirm the specimen label book issued to your team"},
+        required="yes", choice_filter="team_code=${enum_team}",
+        appearance="minimal")
+
     row(type="note", name="team_note",
         **{"label::Hausa (ha)": "Ƙungiya: ${enum_team}  |  LGA: ${enum_lga}",
            "label::English (en)": "Team: ${enum_team}  |  LGA: ${enum_lga}"})
