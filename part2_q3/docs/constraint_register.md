@@ -169,8 +169,8 @@ severely malnourished children the survey exists to count.
 | | |
 |---|---|
 | **Action** | blocks |
-| **Rule** | `regex(., '^[0-9]{6}$') and number(.) >= number(instance('specimen_label_allocation')/root/item[team_code=${enum_team}]/range_start) and number(.) <= number(instance('specimen_label_allocation')/root/item[team_code=${enum_team}]/range_end)` |
-| **Message shown** | Serial is not within the range allocated to your team. Check the label. |
+| **Rule** | `regex(., '^[0-9]{6}$') and number(.) >= number(instance('specimen_label_allocation')/root/item[team_code=${enum_team}]/range_start) and number(.) <= number(instance('specimen_label_allocation')/root/item[team_code=${enum_team}]/range_end) and count(/data/child/s5_specimen[q5_03_label_serial = current()/.]) = 1 and count(${last-saved#q5_03_label_serial}[. = current()/.]) = 0` |
+| **Message shown** | Label rejected: it is either outside your team's allocated range, already used for another child in this household, or the label used in your previous submission. Check the label book. |
 | **What it prevents** | A specimen recorded against a label from outside the team's allocation, which the laboratory cannot reconcile - and an unreconcilable specimen is discarded and the child revisited. |
 | **Source** | Reference data |
 | **Detail** | range_start and range_end per team in specimen_label_allocation.csv. Six digits enforced by regex. |

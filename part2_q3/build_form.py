@@ -72,6 +72,10 @@ def survey_rows() -> list[dict]:
     row(type="start", name="start_time")
     row(type="end", name="end_time")
     row(type="today", name="today_date")
+    # Stamped into the DATA, not only the submission metadata. Central records
+    # the version, but metadata is the first thing lost when someone reshapes an
+    # export in Excel - and a mixed-version round is exactly when that matters.
+    row(type="calculate", name="form_version", calculation=f"'{FORM_VERSION}'")
     row(type="deviceid", name="device_id")
     row(type="audit", name="audit",
         parameters="track-changes=true identify-user=true "
