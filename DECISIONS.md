@@ -106,11 +106,80 @@ CRS, and the choice must be stated on the map, in the README and in the methods 
 
 ## D-004 — Track quality assurance thresholds
 
-**Decided:** *(pending — one entry per rule)*
-
 Rules **flag**, they do not delete. The pack states twice that records must not be silently
-dropped. Each rule records: threshold, source, rows affected, and whether it excludes a
-point from coverage attribution or merely marks it.
+dropped. Each rule records threshold, source, rows affected, and whether it excludes a point
+from coverage attribution or merely marks it. Full evidence and the rejected options are in
+`part1_q1/docs/qa_rule_options.md`.
+
+### D-004a — Campaign window: 9–13 March 2026
+
+**Source:** stated in the pack README. Not a judgement call.
+**Effect:** excludes. 633,207 of 929,733 stored records (68%) fall outside it — several
+loggers ran continuously to 29 March.
+
+### D-004b — Duty hours: 07:00–16:59
+
+**Decided** by Solomon, 30 July.
+
+**Source:** measured from this campaign. Earliest first-fix across team-days clusters at
+07:09–07:38; collision-collapsed team-minutes per hour plateau at 08:00–14:59 (~9,100–9,440)
+against an overnight baseline of ~4,000–5,100 left by loggers never switched off.
+
+**Rejected:** 06:00–18:59 — retains roughly two idle hours each side; reported as a
+sensitivity instead. Per-team-day first-to-last-fix — circular for the eight runaway
+loggers, whose "day" is 24 hours, which is precisely the cohort needing constraint.
+
+**Honest caveat:** the evening taper never reaches zero, so no time window cleanly separates
+work from idle logging. The window is a proxy; the e-tally reconciliation is what tests it.
+
+### D-004c — Implausible speed: 15 km/h, on reported *and* implied speed
+
+**Source:** measured. Reported speed is bimodal with nothing between 6 and 120 km/h — **any
+threshold in that range flags the same 1,437 points.** Median reported speed is 4.0 km/h,
+99th percentile 5.58, consistent with house-to-house walking.
+
+**Why 15:** far above sustained walking, far below the implausible cluster — and the real
+argument is that *the result does not depend on the threshold*.
+
+**Two rules, not one:** reported speed is the logger's own claim; implied speed is derived
+from consecutive positions. A point can fail one without the other, and flagging both
+catches teleports the logger reported as stationary. Implied speed is only evaluable on
+conflict-free consecutive minutes; where it cannot be evaluated it is recorded as null, not
+as passing.
+
+### D-004d — Positional accuracy: **no exclusion**
+
+**Decided** by Solomon, 30 July.
+
+**Source:** measured. Every candidate cut touches exactly the same eight teams — no
+normal-tier point exceeds 15 m — and a 30 m cut removes ~62% of each of their tracks.
+
+**Rejected:** any fixed cut. It confounds the rule with the finding: those eight teams would
+appear to have visited almost nothing, and since most of their work is in Idi-Oro the urban
+LGA absorbs a coverage loss that the analyst created. A data-quality rule must not
+manufacture a programmatic finding.
+
+**Instead:** accuracy is carried into attribution, where a point's search tolerance scales
+with its own reported error. Accuracy becomes a property of the measurement rather than a
+gate on it.
+
+**Defence if challenged.** The counter is real: retaining low-quality fixes lets them
+attribute to settlements and inflate coverage. The answer is not to argue it away but to
+report coverage both ways and quantify the movement — see D-004f.
+
+### D-004e — Fix-sequence gaps: 5 minutes interruption, 15 minutes outage
+
+**Source:** the 60-second nominal rate is stated in the pack README. 108,686 of 108,742
+conflict-free intervals are exactly 60 s, and every other gap is a whole-minute multiple —
+dropped fixes, not clock drift. Counts barely move across a 3× threshold change (155 above
+5 min, 111 above 15 min), so the finding is again insensitive to the cut.
+
+### D-004f — Sensitivity reporting is mandatory, not optional
+
+Because D-004b and D-004d are judgement calls that move the headline, coverage is reported
+under both duty windows and both accuracy treatments. If coverage is stable the thresholds
+stop being a vulnerability; if it is not, that instability is itself a finding for the
+decision brief, because it tells the Incident Manager how far to trust the number.
 
 ---
 
