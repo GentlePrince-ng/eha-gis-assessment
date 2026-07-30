@@ -1,0 +1,21 @@
+# The supplied data pack is not redistributed. See README for where to place it.
+data/
+eHA_Assessment_Data_Pack_v4_CANDIDATE/
+
+# Built artefacts — rebuilt from raw by run_all.py, never committed
+part1_q1/outputs/*.duckdb
+part1_q1/outputs/*.duckdb.wal
+part1_q1/outputs/*.gpkg
+part1_q1/outputs/*.parquet
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# OS
+Thumbs.db
+.DS_Store
+~$*

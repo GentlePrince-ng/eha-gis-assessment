@@ -1,0 +1,24 @@
+# Pinned at the versions this pipeline was developed and validated against.
+# Python 3.12.10
+
+# Store and tabular
+duckdb==1.5.5
+pandas==3.0.5
+numpy==2.5.1
+openpyxl==3.1.5
+
+# Spatial
+geopandas==1.1.4
+shapely==2.1.2
+pyproj==3.7.2
+fiona==1.10.1
+
+# Spatial statistics (Getis-Ord Gi*, Local Moran's I, spatial weights)
+libpysal==4.15.0
+esda==2.10.0
+
+# Cartography
+matplotlib==3.11.1
+
+# XLSForm validation (Part 2 Q3)
+pyxform==4.5.0
