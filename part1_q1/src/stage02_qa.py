@@ -40,6 +40,8 @@ SPEED_LIMIT_KMH = 15.0       # D-004c
 GAP_INTERRUPTION_S = 300     # D-004e, 5 minutes
 GAP_OUTAGE_S = 900           # D-004e, 15 minutes
 ACCURACY_TIER_BOUNDARY_M = 20.0   # D-004d: labels the two logger tiers, excludes nothing
+CORROBORATION_RADIUS_M = 500      # D-008
+CORROBORATION_WINDOW_MIN = 10     # D-008
 
 
 def build_qa_table(con: duckdb.DuckDBPyConnection) -> None:
@@ -126,9 +128,92 @@ def build_qa_table(con: duckdb.DuckDBPyConnection) -> None:
         """
     )
 
-    # A point is usable for coverage attribution when no *excluding* rule fires.
-    # Accuracy (QA05), conflicts (QA06) and gaps (QA07) deliberately do not
-    # exclude - they are carried forward for the attribution stage to weigh.
+
+def apply_geographic_validity(con: duckdb.DuckDBPyConnection) -> None:
+    """Rule QA08 — coordinates that are geographically impossible (DECISIONS.md D-008).
+
+    Two defects that every other rule passes, because a null-island record has a
+    plausible accuracy, a walking speed, an in-window timestamp and a clean
+    60-second interval. Only geography catches them.
+
+    Membership is derived from the state polygon rather than a hardcoded bounding
+    box: a point is *transposed* if it lies outside the state as supplied and
+    inside it once the axes are exchanged. The rule therefore states its own
+    logic instead of embedding magic numbers.
+
+    Transposed points are corrected only where corroborated — the swapped
+    position must fall within CORROBORATION_RADIUS_M of another fix by the same
+    team within CORROBORATION_WINDOW_MIN. Correction is scripted, applied here
+    rather than to the source file, keeps the original coordinates alongside,
+    and is reversible.
+    """
+    con.execute(
+        f"""
+        CREATE OR REPLACE TEMP TABLE geo_status AS
+        SELECT
+            t.point_id, t.team_id, t.ts, t.longitude, t.latitude,
+            CASE
+                WHEN t.longitude = 0 AND t.latitude = 0 THEN 'null_island'
+                WHEN NOT st_within(st_point(t.longitude, t.latitude), s.geom)
+                     AND st_within(st_point(t.latitude, t.longitude), s.geom) THEN 'transposed'
+                WHEN NOT st_within(st_point(t.longitude, t.latitude), s.geom) THEN 'outside_area'
+                ELSE 'ok'
+            END AS status
+        FROM track_point t CROSS JOIN state s;
+
+        -- Corroboration: does the swapped position sit near a contemporaneous
+        -- fix by the same team? Only geometrically sound points may corroborate.
+        CREATE OR REPLACE TEMP TABLE corroborated AS
+        SELECT b.point_id
+        FROM geo_status b
+        JOIN geo_status g
+          ON  g.team_id = b.team_id
+         AND  g.status  = 'ok'
+         AND  g.ts BETWEEN b.ts - INTERVAL {CORROBORATION_WINDOW_MIN} MINUTE
+                       AND b.ts + INTERVAL {CORROBORATION_WINDOW_MIN} MINUTE
+        WHERE b.status = 'transposed'
+        GROUP BY b.point_id
+        HAVING min(st_distance_sphere(
+                   st_point(b.latitude, b.longitude),
+                   st_point(g.longitude, g.latitude))) <= {CORROBORATION_RADIUS_M};
+        """
+    )
+
+    con.execute(
+        """
+        ALTER TABLE track_qa ADD COLUMN qa08_status  VARCHAR;
+        ALTER TABLE track_qa ADD COLUMN longitude_use DOUBLE;
+        ALTER TABLE track_qa ADD COLUMN latitude_use  DOUBLE;
+
+        UPDATE track_qa q SET
+            qa08_status = CASE
+                WHEN g.status = 'transposed' AND c.point_id IS NOT NULL
+                     THEN 'transposed_corrected'
+                WHEN g.status = 'transposed' THEN 'transposed_uncorroborated'
+                ELSE g.status
+            END,
+            -- Corrected coordinates for downstream use. The originals stay
+            -- untouched in track_point; nothing is overwritten.
+            longitude_use = CASE WHEN g.status='transposed' AND c.point_id IS NOT NULL
+                                 THEN g.latitude  ELSE g.longitude END,
+            latitude_use  = CASE WHEN g.status='transposed' AND c.point_id IS NOT NULL
+                                 THEN g.longitude ELSE g.latitude  END
+        FROM geo_status g
+        LEFT JOIN corroborated c ON c.point_id = g.point_id
+        WHERE q.point_id = g.point_id;
+        """
+    )
+
+
+def set_usability(con: duckdb.DuckDBPyConnection) -> None:
+    """A point is usable when no *excluding* rule fires.
+
+    Accuracy (QA05), conflicts (QA06) and gaps (QA07) deliberately do not
+    exclude - they are carried forward for the attribution stage to weigh.
+    QA08 excludes only what cannot be repaired: null island, points outside the
+    area with no transposition explanation, and the transposed points whose
+    correction could not be corroborated.
+    """
     con.execute(
         """
         ALTER TABLE track_qa ADD COLUMN use_for_coverage BOOLEAN;
@@ -136,7 +221,8 @@ def build_qa_table(con: duckdb.DuckDBPyConnection) -> None:
             NOT qa01_out_of_window
         AND NOT qa02_out_of_duty_hours
         AND NOT qa03_speed_reported
-        AND NOT coalesce(qa04_speed_implied, FALSE);
+        AND NOT coalesce(qa04_speed_implied, FALSE)
+        AND qa08_status IN ('ok', 'transposed_corrected');
         """
     )
 
@@ -155,6 +241,10 @@ RULES = [
     ("QA06 minute in dispute",         "flag only", "qa06_timestamp_conflict"),
     ("QA07 gap > 5 min",               "flag only", "coalesce(qa07_gap_interruption, FALSE)"),
     ("QA07 gap > 15 min",              "flag only", "coalesce(qa07_gap_outage, FALSE)"),
+    ("QA08a null island (0,0)",        "exclude",   "qa08_status = 'null_island'"),
+    ("QA08b transposed, corrected",    "correct",   "qa08_status = 'transposed_corrected'"),
+    ("QA08b transposed, uncorrob.",    "exclude",   "qa08_status = 'transposed_uncorroborated'"),
+    ("QA08c outside area, unexplained","exclude",   "qa08_status = 'outside_area'"),
 ]
 
 
@@ -175,6 +265,8 @@ def main() -> None:
     con.execute("INSTALL spatial; LOAD spatial;")
 
     build_qa_table(con)
+    apply_geographic_validity(con)
+    set_usability(con)
 
     total = con.execute("SELECT count(*) FROM track_qa").fetchone()[0]
     usable = con.execute(

@@ -46,6 +46,10 @@ K_ACCURACY = 2.0               # D-005
 # Dwell thresholds reported side by side. "Visited" is a judgement about how much
 # presence constitutes a visit, so the result is given at several values rather
 # than at one silently chosen number.
+DWELL_MINUTES = 5              # D-009 - the headline definition of "visited"
+
+# Reported alongside it, because the choice moves the number and the reader is
+# entitled to see how much.
 DWELL_THRESHOLDS_MIN = [1, 3, 5, 10, 15]
 
 
@@ -54,9 +58,11 @@ def load_usable_points(con: duckdb.DuckDBPyConnection) -> pd.DataFrame:
     return con.execute(
         """
         SELECT q.point_id, q.team_id, q.ts, q.accuracy_m,
-               t.longitude, t.latitude
+               -- longitude_use/latitude_use carry the QA08 correction where one
+               -- was applied, and the original coordinates everywhere else. The
+               -- source values in track_point are never overwritten.
+               q.longitude_use AS longitude, q.latitude_use AS latitude
         FROM track_qa q
-        JOIN track_point t USING (point_id)
         WHERE q.use_for_coverage
         """
     ).df()
@@ -207,7 +213,27 @@ def main() -> None:
     print(f"  median distance to settlement    "
           f"{attribution.distance_m.median():>10.1f} m")
 
-    print("\n  Settlements judged visited, by dwell threshold")
+    corrected = con.execute(
+        "SELECT count(*) FROM track_qa WHERE qa08_status = 'transposed_corrected'"
+    ).fetchone()[0]
+    print(f"  of which QA08-corrected fixes    {corrected:>10,}")
+
+    headline = con.execute(
+        f"""SELECT count(*) FROM (
+              SELECT settlement_id FROM settlement_visit
+              GROUP BY settlement_id HAVING sum(dwell_minutes) >= {DWELL_MINUTES})"""
+    ).fetchone()[0]
+    planned = con.execute("SELECT count(*) FROM settlement").fetchone()[0]
+    claimed = con.execute("SELECT count(DISTINCT settlement_id) FROM etally").fetchone()[0]
+
+    print(f"\n  VISITED  (dwell >= {DWELL_MINUTES} min)          {headline:>10,}"
+          f"   of {planned:,} planned ({100*headline/planned:.1f}%)")
+    print(f"  CLAIMED  (e-tally)               {claimed:>10,}"
+          f"   of {planned:,} planned ({100*claimed/planned:.1f}%)")
+    print(f"  UNRECONCILED GAP                 {claimed-headline:>10,}"
+          f"   settlements claimed with no qualifying track")
+
+    print("\n  Sensitivity - the dwell threshold moves the number, not the finding")
     print("  " + "-" * 64)
     print(coverage_by_dwell(con).to_string(index=False))
 
