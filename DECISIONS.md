@@ -95,12 +95,61 @@ in the rule table with its count, which is what the question asks for.
 
 ---
 
-## D-003 — Projected coordinate reference system
+## D-003 — Projected coordinate reference system: EPSG:32632, WGS 84 / UTM zone 32N
 
-**Decided:** *(pending)*
+**Decided** by Solomon, 30 July. Full measurement table in
+`part1_q1/docs/crs_and_tolerance_options.md`.
 
-Everything arrives EPSG:4326. Every distance, buffer and area operation needs a projected
-CRS, and the choice must be stated on the map, in the README and in the methods note.
+**Source:** measured against true geodesic distance on the WGS84 ellipsoid (`pyproj.Geod`)
+over 4,000 settlement pairs, and geodesic polygon area over 40 wards. UTM 32N: 7.8 m median
+distance error, 0.13 m at short range, −0.031% on ward area.
+
+**Rejected — Web Mercator (EPSG:3857):** 1,382.6 m median distance error and **17.5 m even
+at short range**, which is a third of a 50 m tolerance, plus 4.44% on ward area.
+
+**Rejected — Africa Albers (ESRI:102022):** the best area projection measured (0.000%
+median) and the worst for distance (1,737.1 m). Right tool, wrong job — this analysis is
+dominated by buffers and distances. Remains the correct choice if an area-normalised
+statistic is ever needed; at this extent UTM's 0.03% area error makes that unnecessary.
+
+**Rejected — Minna / Nigeria Mid Belt (EPSG:26332):** nominally 0.3 m better than UTM across
+4,000 pairs, which is far below GPS noise and therefore not a reason to prefer it. The
+deciding factor is **datum**: the tracks are GPS, hence WGS84, and UTM 32N is WGS84-based,
+so reprojection is a pure map projection with no datum change. EPSG:26332 sits on the Minna
+datum (Clarke 1880) and would introduce a datum transformation carrying its own
+metre-order uncertainty, for no measurable gain.
+
+**Also checked:** the study area spans 6.954–8.429°E, entirely inside zone 32 (6°–12°E), so
+UTM's real weakness — straddling a zone boundary — does not arise here.
+
+---
+
+## D-005 — Attribution tolerance: accuracy-scaled, `50 m + 2 × reported accuracy`
+
+**Decided** by Solomon, 30 July. Normal-tier points get ≈ 66 m, degraded-tier ≈ 122 m.
+
+**The measurement that decided it.** Compared at equivalent reach:
+
+| Method | Settlements visited | Ambiguous points |
+|---|---|---|
+| Fixed 100 m | 1,069 | 501 |
+| Scaled, base 50 m | 1,071 | 253 |
+
+Same coverage, half the ambiguity. The scaled rule **dominates** the fixed rule on both
+axes rather than trading between them — which independently vindicates D-004d, since the
+accuracy information a fixed cut discards is demonstrably doing work.
+
+**Why base 50 m:** at 50 m only 1.6% of settlements have overlapping buffers (42 of 2,562),
+so ambiguity is structurally small before accuracy widens it. Settlement spacing bounds the
+choice: median nearest neighbour 734 m, 5th percentile 194 m, 1st percentile 79 m.
+
+**Why k = 2:** approximately a 95% radius if reported accuracy is a 1-sigma horizontal
+error, the usual convention for a GPS accuracy field. **This is an assumption about the
+logger firmware, not a documented property of these devices**, and the methods note says so.
+
+**Not claimed:** a tighter urban tolerance. Idi-Oro's median nearest-neighbour distance is
+669 m against 734–834 m in the rural LGAs, so the usual "settlements are packed closer in
+town" argument is not supported by this data.
 
 ---
 
