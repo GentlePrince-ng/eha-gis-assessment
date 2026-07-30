@@ -420,6 +420,17 @@ def survey_rows() -> list[dict]:
            "constraint_message::English (en)":
            "Weight must be between 2.0 and 30.0 kg for a child aged 9-59 months."})
 
+    row(type="note", name="weight_implausible_warn",
+        **{"label::Hausa (ha)":
+           "⚠ Wannan nauyin ba kasafai ake gani ba ga yaro mai watanni "
+           "${q4_03_age_months}. Sake auna don tabbatarwa.",
+           "label::English (en)":
+           "⚠ This weight is outside the usual range for a child aged "
+           "${q4_03_age_months} months. Re-weigh to confirm, then record what "
+           "you measure."},
+        relevant="${q4_05_weight_status} = 'measured' and "
+                 "(${q4_05_weight_kg} < 5.0 or ${q4_05_weight_kg} > 28.0)")
+
     row(type="select_one measured", name="q4_06_height_status",
         **{"label::Hausa (ha)": "An auna tsayin yaron?",
            "label::English (en)": "4.06 Was the child measured?"}, required="yes")
@@ -430,6 +441,17 @@ def survey_rows() -> list[dict]:
         **{"constraint_message::Hausa (ha)": "Tsayi tsakanin 45.0 zuwa 130.0 cm.",
            "constraint_message::English (en)":
            "Height must be between 45.0 and 130.0 cm for a child aged 9-59 months."})
+
+    row(type="note", name="height_implausible_warn",
+        **{"label::Hausa (ha)":
+           "⚠ Wannan tsayin ba kasafai ake gani ba ga yaro mai watanni "
+           "${q4_03_age_months}. Sake auna don tabbatarwa.",
+           "label::English (en)":
+           "⚠ This height is outside the usual range for a child aged "
+           "${q4_03_age_months} months. Re-measure to confirm, then record what "
+           "you measure."},
+        relevant="${q4_06_height_status} = 'measured' and "
+                 "(${q4_06_height_cm} < 60.0 or ${q4_06_height_cm} > 125.0)")
 
     # WHO measurement convention: recumbent under 24 months, standing at 24+.
     row(type="select_one measure_position", name="q4_07_position",
