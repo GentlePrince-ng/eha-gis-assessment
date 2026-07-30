@@ -1,0 +1,24 @@
+name,label,label_ha,aware_category,list_version
+__PLACEHOLDER__,*** PLACEHOLDER LIST - NOT FOR DEPLOYMENT (see defect E1) ***,*** JERIN GWAJI - BA DON AIKI BA ***,,PLACEHOLDER-WHO-AWaRe-2023
+J01CA04,Amoxicillin (Access),Amoxicillin,Access,PLACEHOLDER-WHO-AWaRe-2023
+J01CR02,Amoxicillin + clavulanic acid (Access),Amoxicillin da clavulanic acid,Access,PLACEHOLDER-WHO-AWaRe-2023
+J01CE02,Phenoxymethylpenicillin (Access),Phenoxymethylpenicillin,Access,PLACEHOLDER-WHO-AWaRe-2023
+J01CF04,Cloxacillin (Access),Cloxacillin,Access,PLACEHOLDER-WHO-AWaRe-2023
+J01EE01,Cotrimoxazole (Access),Cotrimoxazole,Access,PLACEHOLDER-WHO-AWaRe-2023
+J01AA02,Doxycycline (Access),Doxycycline,Access,PLACEHOLDER-WHO-AWaRe-2023
+J01FF01,Clindamycin (Access),Clindamycin,Access,PLACEHOLDER-WHO-AWaRe-2023
+J01XD01,Metronidazole (Access),Metronidazole,Access,PLACEHOLDER-WHO-AWaRe-2023
+J01GB03,Gentamicin (Access),Gentamicin,Access,PLACEHOLDER-WHO-AWaRe-2023
+J01DB04,Cefazolin (Access),Cefazolin,Access,PLACEHOLDER-WHO-AWaRe-2023
+J01FA10,Azithromycin (Watch),Azithromycin,Watch,PLACEHOLDER-WHO-AWaRe-2023
+J01FA09,Clarithromycin (Watch),Clarithromycin,Watch,PLACEHOLDER-WHO-AWaRe-2023
+J01FA01,Erythromycin (Watch),Erythromycin,Watch,PLACEHOLDER-WHO-AWaRe-2023
+J01MA02,Ciprofloxacin (Watch),Ciprofloxacin,Watch,PLACEHOLDER-WHO-AWaRe-2023
+J01MA12,Levofloxacin (Watch),Levofloxacin,Watch,PLACEHOLDER-WHO-AWaRe-2023
+J01DD04,Ceftriaxone (Watch),Ceftriaxone,Watch,PLACEHOLDER-WHO-AWaRe-2023
+J01DD08,Cefixime (Watch),Cefixime,Watch,PLACEHOLDER-WHO-AWaRe-2023
+J01DC02,Cefuroxime (Watch),Cefuroxime,Watch,PLACEHOLDER-WHO-AWaRe-2023
+J01DH51,Imipenem + cilastatin (Watch),Imipenem da cilastatin,Watch,PLACEHOLDER-WHO-AWaRe-2023
+J01XA01,Vancomycin (Watch),Vancomycin,Watch,PLACEHOLDER-WHO-AWaRe-2023
+OTHER96,Other - specify (Unclassified),Wani magani - bayyana,Unclassified,PLACEHOLDER-WHO-AWaRe-2023
+DK98,Do not know which medicine (Unclassified),Ban san wane magani ba,Unclassified,PLACEHOLDER-WHO-AWaRe-2023
