@@ -184,8 +184,15 @@ intended for analysis.
 The completion notes define: **8 / 98** = does not know; **9 / 99** = asked, no answer
 obtained; **96** = Other. Three collisions follow from that rule.
 
-### D1 — 6.02 code 9 is "No facility or bush" and also means "no answer"
+### D1 — 6.02 codes 8 AND 9 both collide
 **Severity: high.**
+
+**Corrected after a systematic scan.** This entry originally named code 9 only.
+`scan_sentinels.py` checks every coding category against the declared sentinels
+and found **six collisions across four questions**, not three — code `8` also
+collides in both 6.01 and 6.02 (`Bucket` and `Unprotected spring` respectively).
+Written from reading, the first pass missed them. See `docs/coding_scheme.md`
+for the full table; the scan is now the authority.
 
 6.02 has nine categories and its ninth is `No facility or bush . . . 9`. In a single-digit
 field, 9 is the standard no-answer sentinel. **Open defecation — the single most important
