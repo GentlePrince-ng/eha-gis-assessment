@@ -1,0 +1,2525 @@
+name,label,settlement_type,ward_code,lga_code
+S01324,Adwade,Hamlet,W018,LGA02
+S01361,Agludu,Settlement,W018,LGA02
+S01338,Bangofa-Kudu,Village,W018,LGA02
+S01354,Bidefa,Village,W018,LGA02
+S01326,Biduru,Settlement,W018,LGA02
+S01364,Bitija,Hamlet,W018,LGA02
+S01363,Bitina,Village,W018,LGA02
+S01340,Biwadu-Gabas,Settlement,W018,LGA02
+S01330,Daduna,Hamlet,W018,LGA02
+S01367,Doluko,Village,W018,LGA02
+S01329,Enluri,Settlement,W018,LGA02
+S01347,Ennadu,Settlement,W018,LGA02
+S01350,Enwatu,Settlement,W018,LGA02
+S01343,Enyoko,Village,W018,LGA02
+S01325,Fadeba,Village,W018,LGA02
+S01327,Faluna,Village,W018,LGA02
+S01341,Gungode,Settlement,W018,LGA02
+S01353,Gungofa,Village,W018,LGA02
+S01348,Ibbeja,Hamlet,W018,LGA02
+S01344,Ibnani-Kudu,Hamlet,W018,LGA02
+S01362,Irkowo,Village,W018,LGA02
+S01349,Irnata-Yamma,Hamlet,W018,LGA02
+S01337,Iryoru,Village,W018,LGA02
+S01358,Jidusa,Hamlet,W018,LGA02
+S01336,Jikotu-Kudu,Hamlet,W018,LGA02
+S01335,Jiritu,Settlement,W018,LGA02
+S01352,Kangoko,Village,W018,LGA02
+S01332,Kubema,Settlement,W018,LGA02
+S01360,Kukota-Yamma,Hamlet,W018,LGA02
+S01339,Kuwawo,Village,W018,LGA02
+S01346,Lowama-Gabas,Village,W018,LGA02
+S01323,Majita,Settlement,W018,LGA02
+S01366,Mangona,Settlement,W018,LGA02
+S01370,Marawo,Village,W018,LGA02
+S01365,Nubeshi,Hamlet,W018,LGA02
+S01333,Nudude,Village,W018,LGA02
+S01345,Nuwawa,Hamlet,W018,LGA02
+S01359,Nuyotu-Gabas,Hamlet,W018,LGA02
+S01357,Olmafa-Tsakiya,Hamlet,W018,LGA02
+S01356,Risawa-Gabas,Village,W018,LGA02
+S01334,Tariba,Village,W018,LGA02
+S01351,Tatsiru,Hamlet,W018,LGA02
+S01322,Umluri,Hamlet,W018,LGA02
+S01328,Ummale,Village,W018,LGA02
+S01369,Umriba,Village,W018,LGA02
+S01368,Wajitu-Arewa,Village,W018,LGA02
+S01342,Yebafa,Village,W018,LGA02
+S01355,Zanawa,Hamlet,W018,LGA02
+S01331,Zawaru,Village,W018,LGA02
+S00938,Bijiru,Village,W012,LGA02
+S00941,Doyoru,Village,W012,LGA02
+S00949,Ennale,Village,W012,LGA02
+S00930,Enngoni-Yamma,Village,W012,LGA02
+S00935,Ensawo,Village,W012,LGA02
+S00932,Habatu,Hamlet,W012,LGA02
+S00944,Haluta,Village,W012,LGA02
+S00952,Ibdushi,Hamlet,W012,LGA02
+S00946,Ibmawa,Village,W012,LGA02
+S00929,Jikoko,Village,W012,LGA02
+S00940,Kabafa-Yamma,Hamlet,W012,LGA02
+S00948,Kamasa,Village,W012,LGA02
+S00927,Kujifa,Village,W012,LGA02
+S00934,Kurisa,Hamlet,W012,LGA02
+S00943,Kuriwo,Village,W012,LGA02
+S00942,Kushaba,Settlement,W012,LGA02
+S00947,Mazana,Settlement,W012,LGA02
+S00936,Nuderi,Hamlet,W012,LGA02
+S00939,Okngori,Settlement,W012,LGA02
+S00931,Rijidu,Hamlet,W012,LGA02
+S00928,Satside,Village,W012,LGA02
+S00926,Sungodu,Village,W012,LGA02
+S00933,Tawako,Village,W012,LGA02
+S00937,Umsale,Village,W012,LGA02
+S00945,Umtiwo,Village,W012,LGA02
+S00951,Wamama,Settlement,W012,LGA02
+S00950,Zakota,Hamlet,W012,LGA02
+S00881,Adyowo,Hamlet,W011,LGA02
+S00895,Aglayi,Village,W011,LGA02
+S00888,Bibafa,Settlement,W011,LGA02
+S00882,Bimaba-Kofar,Settlement,W011,LGA02
+S00887,Biwaba,Settlement,W011,LGA02
+S00910,Bizatu,Village,W011,LGA02
+S00901,Dayoni-Kudu,Settlement,W011,LGA02
+S00875,Dazaba,Hamlet,W011,LGA02
+S00914,Doshawo,Hamlet,W011,LGA02
+S00912,Endefa,Hamlet,W011,LGA02
+S00900,Enjiwa,Settlement,W011,LGA02
+S00879,Enluwa,Urban block,W011,LGA02
+S00906,Ennashi,Settlement,W011,LGA02
+S00890,Entina,Hamlet,W011,LGA02
+S00918,Enwade,Hamlet,W011,LGA02
+S00908,Falami,Hamlet,W011,LGA02
+S00880,Farani,Settlement,W011,LGA02
+S00920,Farasa,Hamlet,W011,LGA02
+S00872,Fayowo,Village,W011,LGA02
+S00874,Guderu,Village,W011,LGA02
+S00905,Gurawa,Settlement,W011,LGA02
+S00915,Gurija,Hamlet,W011,LGA02
+S00876,Guzafa,Hamlet,W011,LGA02
+S00903,Halaru,Settlement,W011,LGA02
+S00897,Ibdeta,Village,W011,LGA02
+S00873,Ibsharu,Village,W011,LGA02
+S00925,Ibtsiwa,Village,W011,LGA02
+S00907,Jibari,Village,W011,LGA02
+S00922,Jideri,Village,W011,LGA02
+S00899,Jinani,Hamlet,W011,LGA02
+S00911,Kuride,Village,W011,LGA02
+S00896,Kuyoko,Village,W011,LGA02
+S00886,Lodeja,Hamlet,W011,LGA02
+S00894,Lolade,Village,W011,LGA02
+S00891,Lowatu,Village,W011,LGA02
+S00923,Nulako,Village,W011,LGA02
+S00913,Nuradu,Hamlet,W011,LGA02
+S00924,Oktina,Village,W011,LGA02
+S00889,Oktsini,Hamlet,W011,LGA02
+S00892,Olbeba,Village,W011,LGA02
+S00921,Olbemi-Kudu,Hamlet,W011,LGA02
+S00917,Olmami,Village,W011,LGA02
+S00884,Ribawa,Hamlet,W011,LGA02
+S00885,Riduko,Village,W011,LGA02
+S00883,Ritsiba,Hamlet,W011,LGA02
+S00904,Sadedu,Hamlet,W011,LGA02
+S00898,Saduri-Gabas,Settlement,W011,LGA02
+S00893,Sashaba,Hamlet,W011,LGA02
+S00916,Suzayi,Hamlet,W011,LGA02
+S00902,Talawo,Village,W011,LGA02
+S00877,Umlawo,Hamlet,W011,LGA02
+S00878,Wazami,Hamlet,W011,LGA02
+S00909,Zabale,Settlement,W011,LGA02
+S00919,Zalasa,Village,W011,LGA02
+S00864,Agngoja,Village,W010,LGA02
+S00857,Baludu-Gabas,Hamlet,W010,LGA02
+S00843,Bibeyi,Village,W010,LGA02
+S00866,Bilade,Hamlet,W010,LGA02
+S00837,Biyomi,Hamlet,W010,LGA02
+S00840,Dajile,Urban block,W010,LGA02
+S00853,Dobesa,Urban block,W010,LGA02
+S00862,Dolari,Village,W010,LGA02
+S00831,Enluru,Village,W010,LGA02
+S00855,Entima-Sabo,Hamlet,W010,LGA02
+S00847,Fariwa-Tsakiya,Village,W010,LGA02
+S00856,Gudeja,Settlement,W010,LGA02
+S00839,Guluma,Settlement,W010,LGA02
+S00867,Hamasa-Tudun,Hamlet,W010,LGA02
+S00868,Ibbawo,Hamlet,W010,LGA02
+S00826,Ibyofa,Village,W010,LGA02
+S00850,Irmana-Sabo,Village,W010,LGA02
+S00858,Jiyole-Yamma,Village,W010,LGA02
+S00833,Kasani,Village,W010,LGA02
+S00829,Kutsiwo,Settlement,W010,LGA02
+S00848,Lodewa,Hamlet,W010,LGA02
+S00836,Madeko,Hamlet,W010,LGA02
+S00851,Okbami,Village,W010,LGA02
+S00841,Okkoni,Village,W010,LGA02
+S00860,Okmami,Village,W010,LGA02
+S00846,Okshata,Hamlet,W010,LGA02
+S00861,Okwaba,Hamlet,W010,LGA02
+S00870,Okyosa,Hamlet,W010,LGA02
+S00828,Okzade,Village,W010,LGA02
+S00849,Ribefa,Village,W010,LGA02
+S00863,Sarawo,Settlement,W010,LGA02
+S00832,Satsisa-Tudun,Village,W010,LGA02
+S00869,Sulushi,Village,W010,LGA02
+S00852,Susaba-Kofar,Village,W010,LGA02
+S00834,Susayi,Village,W010,LGA02
+S00854,Tasana,Hamlet,W010,LGA02
+S00865,Tashade-Gabas,Urban block,W010,LGA02
+S00845,Tawawo,Hamlet,W010,LGA02
+S00830,Tazari,Village,W010,LGA02
+S00844,Umnani,Village,W010,LGA02
+S00859,Waludu-Kofar,Hamlet,W010,LGA02
+S00827,Watishi,Village,W010,LGA02
+S00838,Yewami,Village,W010,LGA02
+S00835,Zaraja,Village,W010,LGA02
+S00842,Zashako,Village,W010,LGA02
+S00871,Zazaba,Hamlet,W010,LGA02
+S00398,Adlawo,Village,W005,LGA02
+S00407,Agmaru,Hamlet,W005,LGA02
+S00390,Agsasa,Village,W005,LGA02
+S00378,Agzadu,Village,W005,LGA02
+S00388,Daladu,Settlement,W005,LGA02
+S00391,Danani,Settlement,W005,LGA02
+S00395,Ekkofa,Village,W005,LGA02
+S00403,Ekngofa,Settlement,W005,LGA02
+S00400,Eksana,Hamlet,W005,LGA02
+S00405,Enmashi,Hamlet,W005,LGA02
+S00383,Entsina,Village,W005,LGA02
+S00393,Farawa-Kofar,Settlement,W005,LGA02
+S00401,Gungowa,Village,W005,LGA02
+S00374,Gusayi,Village,W005,LGA02
+S00372,Haluta-Tudun,Village,W005,LGA02
+S00402,Hasayi,Village,W005,LGA02
+S00370,Ibluko-Tudun,Village,W005,LGA02
+S00385,Ibluwo,Village,W005,LGA02
+S00392,Jidule,Hamlet,W005,LGA02
+S00406,Katside,Hamlet,W005,LGA02
+S00373,Loduwo,Village,W005,LGA02
+S00381,Lorako,Settlement,W005,LGA02
+S00399,Matiyi,Settlement,W005,LGA02
+S00387,Nusadu,Settlement,W005,LGA02
+S00389,Nuyole,Village,W005,LGA02
+S00394,Olbana-Tsakiya,Village,W005,LGA02
+S00377,Olduyi-Kudu,Village,W005,LGA02
+S00369,Oljina,Hamlet,W005,LGA02
+S00380,Olriri,Village,W005,LGA02
+S00396,Olrishi,Settlement,W005,LGA02
+S00371,Ririyi,Hamlet,W005,LGA02
+S00404,Sakosa,Settlement,W005,LGA02
+S00379,Suzawo,Settlement,W005,LGA02
+S00382,Tatidu,Hamlet,W005,LGA02
+S00397,Uzjimi,Village,W005,LGA02
+S00384,Yemani,Hamlet,W005,LGA02
+S00376,Yerita,Hamlet,W005,LGA02
+S00386,Yezatu,Hamlet,W005,LGA02
+S00375,Zajina,Hamlet,W005,LGA02
+S00966,Adrale,Village,W013,LGA02
+S00957,Adsako,Village,W013,LGA02
+S00971,Agtisa,Village,W013,LGA02
+S00993,Badudu,Hamlet,W013,LGA02
+S00970,Bangotu,Hamlet,W013,LGA02
+S00954,Bibedu,Hamlet,W013,LGA02
+S00955,Datina,Village,W013,LGA02
+S00974,Dazashi,Hamlet,W013,LGA02
+S00959,Dodetu,Hamlet,W013,LGA02
+S00953,Dolule-Tsakiya,Settlement,W013,LGA02
+S00967,Ekjimi,Village,W013,LGA02
+S00976,Ekyoni,Village,W013,LGA02
+S00963,Enbewa-Tsakiya,Village,W013,LGA02
+S00984,Enlawo-Tudun,Settlement,W013,LGA02
+S00958,Fatima-Kudu,Hamlet,W013,LGA02
+S00965,Fatsiwa,Village,W013,LGA02
+S00995,Gubale,Urban block,W013,LGA02
+S00994,Gushatu,Village,W013,LGA02
+S00992,Gutsitu-Kudu,Hamlet,W013,LGA02
+S00988,Ibtsina,Village,W013,LGA02
+S00991,Irduja,Settlement,W013,LGA02
+S00956,Irjiba-Yamma,Hamlet,W013,LGA02
+S00977,Irzawo,Hamlet,W013,LGA02
+S00989,Jingona,Hamlet,W013,LGA02
+S00961,Kajita,Village,W013,LGA02
+S00960,Kalama,Settlement,W013,LGA02
+S00986,Kawadu,Settlement,W013,LGA02
+S00980,Kudewo-Yamma,Village,W013,LGA02
+S00975,Kurita,Village,W013,LGA02
+S00973,Kushadu,Hamlet,W013,LGA02
+S00987,Lozayi,Hamlet,W013,LGA02
+S00978,Mangoko,Village,W013,LGA02
+S00969,Mawana,Village,W013,LGA02
+S00982,Okmaja,Settlement,W013,LGA02
+S00981,Ringomi,Settlement,W013,LGA02
+S00985,Salako,Hamlet,W013,LGA02
+S00990,Salude-Sabo,Village,W013,LGA02
+S00968,Sayoma,Hamlet,W013,LGA02
+S00983,Surima-Gabas,Settlement,W013,LGA02
+S00972,Sushafa,Settlement,W013,LGA02
+S00979,Talata-Tsakiya,Settlement,W013,LGA02
+S00964,Uzdusa-Kudu,Hamlet,W013,LGA02
+S00962,Uzsana-Gabas,Settlement,W013,LGA02
+S00997,Zasami-Tsakiya,Village,W013,LGA02
+S00996,Zashayi,Hamlet,W013,LGA02
+S01237,Adtidu,Urban block,W016,LGA02
+S01264,Aglana,Hamlet,W016,LGA02
+S01239,Aglashi,Hamlet,W016,LGA02
+S01234,Agngowa,Settlement,W016,LGA02
+S01238,Agrishi,Village,W016,LGA02
+S01255,Bakoko-Gabas,Village,W016,LGA02
+S01268,Bakori,Village,W016,LGA02
+S01233,Birafa,Village,W016,LGA02
+S01267,Biwako-Sabo,Settlement,W016,LGA02
+S01248,Dalawa,Hamlet,W016,LGA02
+S01275,Damawa,Settlement,W016,LGA02
+S01246,Doluta,Hamlet,W016,LGA02
+S01252,Dongori,Village,W016,LGA02
+S01247,Fazaru,Hamlet,W016,LGA02
+S01272,Gushawa,Village,W016,LGA02
+S01258,Gutide,Hamlet,W016,LGA02
+S01253,Habaja,Village,W016,LGA02
+S01260,Hajishi,Village,W016,LGA02
+S01240,Haraja,Village,W016,LGA02
+S01256,Ibngoni,Village,W016,LGA02
+S01274,Ibtsiri,Village,W016,LGA02
+S01232,Irraja,Urban block,W016,LGA02
+S01265,Kawade,Settlement,W016,LGA02
+S01270,Lotsiko,Village,W016,LGA02
+S01251,Lotsimi,Village,W016,LGA02
+S01276,Nujija,Settlement,W016,LGA02
+S01271,Nulude,Village,W016,LGA02
+S01263,Nuriri,Village,W016,LGA02
+S01245,Nuwashi,Village,W016,LGA02
+S01254,Okkoma,Hamlet,W016,LGA02
+S01243,Okyoja,Village,W016,LGA02
+S01249,Olbena,Settlement,W016,LGA02
+S01236,Oljitu,Settlement,W016,LGA02
+S01242,Olratu,Village,W016,LGA02
+S01266,Ribata,Hamlet,W016,LGA02
+S01273,Riyota,Village,W016,LGA02
+S01259,Subeja,Village,W016,LGA02
+S01257,Suriyi,Settlement,W016,LGA02
+S01231,Tadefa,Village,W016,LGA02
+S01261,Talufa,Hamlet,W016,LGA02
+S01262,Tangoshi,Village,W016,LGA02
+S01269,Umtiyi,Village,W016,LGA02
+S01235,Uzjiba,Village,W016,LGA02
+S01250,Wadena-Arewa,Village,W016,LGA02
+S01244,Wajifa,Hamlet,W016,LGA02
+S01277,Yemasa-Gabas,Village,W016,LGA02
+S01241,Zaluyi,Hamlet,W016,LGA02
+S00822,Agdeko,Hamlet,W009,LGA02
+S00796,Agmade,Settlement,W009,LGA02
+S00825,Agsani,Hamlet,W009,LGA02
+S00818,Agshari,Village,W009,LGA02
+S00823,Bazawo,Hamlet,W009,LGA02
+S00807,Domade,Village,W009,LGA02
+S00805,Dorashi,Settlement,W009,LGA02
+S00803,Fanashi,Settlement,W009,LGA02
+S00798,Gubako,Village,W009,LGA02
+S00820,Ibzade-Arewa,Village,W009,LGA02
+S00809,Irngoma-Arewa,Settlement,W009,LGA02
+S00817,Jijiwo,Hamlet,W009,LGA02
+S00814,Kasami,Village,W009,LGA02
+S00791,Kujidu,Settlement,W009,LGA02
+S00824,Loduma-Tudun,Village,W009,LGA02
+S00795,Mabadu,Settlement,W009,LGA02
+S00804,Madena,Village,W009,LGA02
+S00793,Malako,Hamlet,W009,LGA02
+S00789,Matsima,Hamlet,W009,LGA02
+S00794,Mayoru,Settlement,W009,LGA02
+S00811,Okbani,Village,W009,LGA02
+S00821,Oktini,Urban block,W009,LGA02
+S00810,Okzaru,Village,W009,LGA02
+S00806,Ribeta,Village,W009,LGA02
+S00792,Rikoma,Village,W009,LGA02
+S00799,Rikotu,Hamlet,W009,LGA02
+S00812,Rilayi,Village,W009,LGA02
+S00797,Ringosa-Gabas,Village,W009,LGA02
+S00816,Sawade,Urban block,W009,LGA02
+S00808,Sawawa,Village,W009,LGA02
+S00801,Tadetu-Gabas,Settlement,W009,LGA02
+S00819,Tatishi-Arewa,Settlement,W009,LGA02
+S00815,Umshade-Yamma,Hamlet,W009,LGA02
+S00800,Uzdemi,Village,W009,LGA02
+S00813,Uzshaja-Arewa,Village,W009,LGA02
+S00790,Uztsimi,Village,W009,LGA02
+S00802,Wayole-Kofar,Hamlet,W009,LGA02
+S00788,Zayoma,Urban block,W009,LGA02
+S00339,Agbeja,Village,W004,LGA02
+S00337,Agrale,Village,W004,LGA02
+S00362,Agtsiwa,Urban block,W004,LGA02
+S00330,Baritu,Village,W004,LGA02
+S00331,Bawari-Yamma,Village,W004,LGA02
+S00360,Dangoja,Village,W004,LGA02
+S00344,Datsisa-Arewa,Hamlet,W004,LGA02
+S00363,Dolaja,Village,W004,LGA02
+S00332,Ekbade,Hamlet,W004,LGA02
+S00358,Ekdeja,Hamlet,W004,LGA02
+S00351,Eklufa,Settlement,W004,LGA02
+S00347,Fabemi-Kofar,Village,W004,LGA02
+S00345,Falama,Village,W004,LGA02
+S00352,Falana,Village,W004,LGA02
+S00350,Fanadu,Village,W004,LGA02
+S00334,Gubatu-Kudu,Hamlet,W004,LGA02
+S00335,Halani,Settlement,W004,LGA02
+S00340,Hatiwo-Sabo,Hamlet,W004,LGA02
+S00367,Ibdule,Village,W004,LGA02
+S00355,Ibsasa,Hamlet,W004,LGA02
+S00329,Ibshaja,Hamlet,W004,LGA02
+S00361,Irjina,Village,W004,LGA02
+S00336,Jimaba,Village,W004,LGA02
+S00356,Katima,Hamlet,W004,LGA02
+S00338,Kunawo,Hamlet,W004,LGA02
+S00348,Lolutu,Village,W004,LGA02
+S00366,Losadu-Tudun,Village,W004,LGA02
+S00365,Lotide-Kofar,Hamlet,W004,LGA02
+S00342,Okbele,Hamlet,W004,LGA02
+S00343,Oklale,Village,W004,LGA02
+S00349,Oltiwo-Sabo,Hamlet,W004,LGA02
+S00364,Sangoru-Sabo,Village,W004,LGA02
+S00353,Sushadu-Yamma,Village,W004,LGA02
+S00357,Umjiri,Urban block,W004,LGA02
+S00359,Uzbede,Village,W004,LGA02
+S00354,Uzbede-Yamma,Hamlet,W004,LGA02
+S00333,Uzyowa,Hamlet,W004,LGA02
+S00368,Yedena,Village,W004,LGA02
+S00346,Yedude,Hamlet,W004,LGA02
+S00341,Yetsisa,Hamlet,W004,LGA02
+S01523,Adlufa,Village,W021,LGA02
+S01552,Agsawo,Hamlet,W021,LGA02
+S01542,Daluta,Settlement,W021,LGA02
+S01514,Daradu-Kudu,Village,W021,LGA02
+S01518,Ekshadu,Village,W021,LGA02
+S01540,Ekshashi,Village,W021,LGA02
+S01522,Fangota,Village,W021,LGA02
+S01544,Hadele-Arewa,Hamlet,W021,LGA02
+S01529,Hakoma,Village,W021,LGA02
+S01539,Hakosa,Settlement,W021,LGA02
+S01547,Ibbayi,Village,W021,LGA02
+S01549,Iblumi,Hamlet,W021,LGA02
+S01538,Ibshami,Hamlet,W021,LGA02
+S01545,Ibtide-Tudun,Village,W021,LGA02
+S01515,Irbaja,Hamlet,W021,LGA02
+S01534,Irngode,Hamlet,W021,LGA02
+S01536,Irraba,Village,W021,LGA02
+S01533,Irtide,Settlement,W021,LGA02
+S01526,Jiriyi,Settlement,W021,LGA02
+S01517,Jisami,Hamlet,W021,LGA02
+S01554,Kamawo,Village,W021,LGA02
+S01528,Kujija,Village,W021,LGA02
+S01550,Kungosa-Arewa,Village,W021,LGA02
+S01543,Lolashi,Hamlet,W021,LGA02
+S01520,Maberi-Kofar,Hamlet,W021,LGA02
+S01521,Majija-Gabas,Hamlet,W021,LGA02
+S01530,Mawani,Hamlet,W021,LGA02
+S01524,Nuzaba,Village,W021,LGA02
+S01546,Okshatu,Village,W021,LGA02
+S01548,Salaja,Hamlet,W021,LGA02
+S01541,Sayofa,Hamlet,W021,LGA02
+S01535,Sazale,Hamlet,W021,LGA02
+S01527,Sungode,Settlement,W021,LGA02
+S01531,Wasale,Village,W021,LGA02
+S01532,Watiyi,Village,W021,LGA02
+S01516,Yebeba,Settlement,W021,LGA02
+S01525,Yengode,Hamlet,W021,LGA02
+S01537,Yengona,Village,W021,LGA02
+S01553,Zadewo,Village,W021,LGA02
+S01519,Zasale,Village,W021,LGA02
+S01551,Zazako,Village,W021,LGA02
+S01207,Admashi,Hamlet,W015,LGA01
+S01202,Adsana,Village,W015,LGA01
+S01177,Adtsina,Hamlet,W015,LGA01
+S01128,Agyowa-Tudun,Hamlet,W015,LGA01
+S01174,Agyowo,Village,W015,LGA01
+S01158,Bariyi,Hamlet,W015,LGA01
+S01206,Bashashi,Hamlet,W015,LGA01
+S01191,Bibako,Hamlet,W015,LGA01
+S01111,Bikoja-Tsakiya,Settlement,W015,LGA01
+S01133,Bisaja,Urban block,W015,LGA01
+S01163,Bishale,Village,W015,LGA01
+S01230,Bitile,Hamlet,W015,LGA01
+S01120,Bitsiyi,Village,W015,LGA01
+S01156,Daluna,Urban block,W015,LGA01
+S01145,Dangode,Village,W015,LGA01
+S01188,Darile-Arewa,Village,W015,LGA01
+S01168,Dasharu,Urban block,W015,LGA01
+S01228,Dawako,Village,W015,LGA01
+S01137,Dayoja,Hamlet,W015,LGA01
+S01135,Dobeko,Hamlet,W015,LGA01
+S01098,Domadu,Urban block,W015,LGA01
+S01183,Domari,Hamlet,W015,LGA01
+S01195,Dorana,Urban block,W015,LGA01
+S01131,Doriba,Urban block,W015,LGA01
+S01192,Doritu,Village,W015,LGA01
+S01109,Dosashi,Village,W015,LGA01
+S01210,Dowawa-Yamma,Urban block,W015,LGA01
+S01186,Ekdema,Village,W015,LGA01
+S01144,Ekjiyi-Arewa,Hamlet,W015,LGA01
+S01160,Eklawa,Village,W015,LGA01
+S01189,Ekratu-Kudu,Village,W015,LGA01
+S01223,Ektide,Village,W015,LGA01
+S01200,Ektina,Urban block,W015,LGA01
+S01146,Enmale,Village,W015,LGA01
+S01117,Enngoni,Settlement,W015,LGA01
+S01130,Ensharu,Village,W015,LGA01
+S01099,Entiyi,Village,W015,LGA01
+S01194,Enwama,Urban block,W015,LGA01
+S01172,Fanasa,Settlement,W015,LGA01
+S01220,Fatsiwo-Yamma,Urban block,W015,LGA01
+S01204,Gulawo,Village,W015,LGA01
+S01208,Gungole,Hamlet,W015,LGA01
+S01096,Haberi,Settlement,W015,LGA01
+S01178,Hajile-Kudu,Urban block,W015,LGA01
+S01141,Ibkole,Hamlet,W015,LGA01
+S01127,Ibrasa,Urban block,W015,LGA01
+S01140,Irbetu,Hamlet,W015,LGA01
+S01122,Irdeko,Urban block,W015,LGA01
+S01097,Irjina-Kudu,Village,W015,LGA01
+S01148,Irmako,Settlement,W015,LGA01
+S01108,Iryoko,Hamlet,W015,LGA01
+S01227,Irzami,Hamlet,W015,LGA01
+S01190,Jikoni,Urban block,W015,LGA01
+S01134,Jilari,Settlement,W015,LGA01
+S01106,Jirashi,Urban block,W015,LGA01
+S01175,Jizani,Settlement,W015,LGA01
+S01147,Kanale,Village,W015,LGA01
+S01153,Karatu-Arewa,Urban block,W015,LGA01
+S01166,Kariba,Hamlet,W015,LGA01
+S01180,Kazani,Village,W015,LGA01
+S01215,Kudumi-Kudu,Urban block,W015,LGA01
+S01199,Kuluta,Settlement,W015,LGA01
+S01161,Kumako-Sabo,Village,W015,LGA01
+S01125,Kutiru,Village,W015,LGA01
+S01219,Kuwawa,Hamlet,W015,LGA01
+S01138,Lobeyi-Arewa,Urban block,W015,LGA01
+S01222,Lodeshi,Village,W015,LGA01
+S01132,Lojiwo,Settlement,W015,LGA01
+S01114,Lokota,Village,W015,LGA01
+S01198,Losawo,Urban block,W015,LGA01
+S01143,Loyoni,Settlement,W015,LGA01
+S01201,Loyoru-Sabo,Hamlet,W015,LGA01
+S01126,Manana,Village,W015,LGA01
+S01185,Marana,Hamlet,W015,LGA01
+S01224,Nurifa,Settlement,W015,LGA01
+S01221,Nutide,Urban block,W015,LGA01
+S01101,Okkowo,Village,W015,LGA01
+S01129,Okrawa,Village,W015,LGA01
+S01187,Okyode,Village,W015,LGA01
+S01152,Olbale-Tsakiya,Hamlet,W015,LGA01
+S01211,Olduwo,Settlement,W015,LGA01
+S01179,Oljiba,Urban block,W015,LGA01
+S01103,Olnafa,Urban block,W015,LGA01
+S01196,Olshani,Village,W015,LGA01
+S01110,Oltsija,Settlement,W015,LGA01
+S01142,Olwawo-Gabas,Village,W015,LGA01
+S01155,Olzawo,Urban block,W015,LGA01
+S01203,Rideshi,Urban block,W015,LGA01
+S01118,Riduma,Settlement,W015,LGA01
+S01229,Rikoni-Sabo,Urban block,W015,LGA01
+S01197,Rikoyi,Village,W015,LGA01
+S01115,Rinata,Village,W015,LGA01
+S01213,Sadewo,Village,W015,LGA01
+S01173,Saludu,Settlement,W015,LGA01
+S01169,Salushi,Urban block,W015,LGA01
+S01162,Sarayi-Kofar,Hamlet,W015,LGA01
+S01209,Sashale,Hamlet,W015,LGA01
+S01164,Sashayi,Urban block,W015,LGA01
+S01104,Satsiri,Village,W015,LGA01
+S01225,Suritu-Gabas,Urban block,W015,LGA01
+S01136,Suzade-Tudun,Village,W015,LGA01
+S01124,Tajile,Village,W015,LGA01
+S01116,Tanaba,Village,W015,LGA01
+S01170,Tasadu,Village,W015,LGA01
+S01214,Tasaja,Hamlet,W015,LGA01
+S01119,Tatsina,Hamlet,W015,LGA01
+S01205,Tatsiwo,Settlement,W015,LGA01
+S01157,Tawale,Urban block,W015,LGA01
+S01226,Umduko,Urban block,W015,LGA01
+S01217,Umlafa-Kofar,Hamlet,W015,LGA01
+S01182,Umlatu,Hamlet,W015,LGA01
+S01171,Ummade,Hamlet,W015,LGA01
+S01100,Umtimi,Village,W015,LGA01
+S01165,Umwama-Arewa,Settlement,W015,LGA01
+S01113,Uzdeko,Hamlet,W015,LGA01
+S01181,Uzjita-Kudu,Hamlet,W015,LGA01
+S01176,Uzraja,Hamlet,W015,LGA01
+S01149,Uzride,Urban block,W015,LGA01
+S01095,Uztija,Hamlet,W015,LGA01
+S01193,Uzwashi,Village,W015,LGA01
+S01123,Wadeko,Urban block,W015,LGA01
+S01216,Wamashi,Village,W015,LGA01
+S01107,Wangofa,Settlement,W015,LGA01
+S01102,Wasaja,Urban block,W015,LGA01
+S01218,Wasako,Urban block,W015,LGA01
+S01154,Yeduyi,Village,W015,LGA01
+S01112,Yejile,Urban block,W015,LGA01
+S01167,Yelade,Hamlet,W015,LGA01
+S01139,Yeluwa-Tudun,Village,W015,LGA01
+S01184,Yeshasa,Village,W015,LGA01
+S01105,Yezadu,Hamlet,W015,LGA01
+S01212,Yezari-Kudu,Hamlet,W015,LGA01
+S01121,Zaduna,Hamlet,W015,LGA01
+S01150,Zanaja-Arewa,Settlement,W015,LGA01
+S01151,Zayole,Urban block,W015,LGA01
+S01159,Zazayi-Tudun,Hamlet,W015,LGA01
+S00606,Adduma,Village,W007,LGA01
+S00604,Adtiri,Village,W007,LGA01
+S00540,Adzafa-Yamma,Hamlet,W007,LGA01
+S00585,Agbasa-Sabo,Urban block,W007,LGA01
+S00543,Agjiko,Village,W007,LGA01
+S00548,Agshatu,Urban block,W007,LGA01
+S00539,Baduri,Hamlet,W007,LGA01
+S00611,Bakode,Village,W007,LGA01
+S00632,Banadu,Urban block,W007,LGA01
+S00655,Basaba,Village,W007,LGA01
+S00617,Basaru,Hamlet,W007,LGA01
+S00583,Bideba,Hamlet,W007,LGA01
+S00537,Bikofa-Arewa,Hamlet,W007,LGA01
+S00616,Bitsitu-Arewa,Hamlet,W007,LGA01
+S00570,Dabeko-Tsakiya,Settlement,W007,LGA01
+S00541,Dadeyi,Settlement,W007,LGA01
+S00556,Dashawa,Urban block,W007,LGA01
+S00626,Datitu,Hamlet,W007,LGA01
+S00644,Dayode,Settlement,W007,LGA01
+S00613,Dazaja,Hamlet,W007,LGA01
+S00654,Doduru,Settlement,W007,LGA01
+S00566,Dokowa,Settlement,W007,LGA01
+S00569,Doludu,Village,W007,LGA01
+S00589,Doluri,Village,W007,LGA01
+S00619,Doriru,Hamlet,W007,LGA01
+S00573,Dosasa-Tudun,Village,W007,LGA01
+S00595,Ekdusa,Settlement,W007,LGA01
+S00614,Ekduwo,Village,W007,LGA01
+S00615,Ekkoyi,Village,W007,LGA01
+S00657,Eklade,Settlement,W007,LGA01
+S00646,Ekluwa,Hamlet,W007,LGA01
+S00659,Ektsitu,Hamlet,W007,LGA01
+S00572,Ekwana,Village,W007,LGA01
+S00633,Ennawa,Village,W007,LGA01
+S00591,Ensashi,Urban block,W007,LGA01
+S00622,Entsishi,Village,W007,LGA01
+S00630,Enwadu,Urban block,W007,LGA01
+S00546,Enzako,Settlement,W007,LGA01
+S00567,Fabema,Village,W007,LGA01
+S00577,Fatini-Kofar,Village,W007,LGA01
+S00582,Gushama,Urban block,W007,LGA01
+S00652,Harani,Urban block,W007,LGA01
+S00598,Ibjimi-Sabo,Village,W007,LGA01
+S00597,Ibkoba,Village,W007,LGA01
+S00580,Ibshako,Village,W007,LGA01
+S00636,Ibwasa,Urban block,W007,LGA01
+S00565,Irbata-Sabo,Hamlet,W007,LGA01
+S00618,Irbefa-Arewa,Settlement,W007,LGA01
+S00627,Irluri,Village,W007,LGA01
+S00623,Irngoni,Village,W007,LGA01
+S00624,Irrishi,Village,W007,LGA01
+S00594,Jilama,Settlement,W007,LGA01
+S00593,Jiyoma,Hamlet,W007,LGA01
+S00631,Kabale,Village,W007,LGA01
+S00609,Kabani,Settlement,W007,LGA01
+S00568,Kangoma,Urban block,W007,LGA01
+S00574,Kangoru,Village,W007,LGA01
+S00552,Kawako-Tudun,Hamlet,W007,LGA01
+S00557,Kutsifa,Village,W007,LGA01
+S00650,Kuwale,Village,W007,LGA01
+S00608,Kuyoba,Hamlet,W007,LGA01
+S00586,Lobeko,Urban block,W007,LGA01
+S00575,Lodutu,Village,W007,LGA01
+S00535,Lolata,Hamlet,W007,LGA01
+S00588,Loludu,Village,W007,LGA01
+S00621,Makotu,Village,W007,LGA01
+S00555,Malusa,Village,W007,LGA01
+S00620,Nunaja,Village,W007,LGA01
+S00638,Nusashi,Village,W007,LGA01
+S00656,Okbaba-Tsakiya,Urban block,W007,LGA01
+S00558,Okdutu,Village,W007,LGA01
+S00590,Okshadu,Village,W007,LGA01
+S00653,Oktiri-Gabas,Village,W007,LGA01
+S00610,Oktiwo,Village,W007,LGA01
+S00536,Oktsiko,Settlement,W007,LGA01
+S00587,Oljile,Village,W007,LGA01
+S00599,Olngosa,Urban block,W007,LGA01
+S00549,Oltija,Village,W007,LGA01
+S00649,Ribemi-Tsakiya,Settlement,W007,LGA01
+S00643,Ririwa-Sabo,Urban block,W007,LGA01
+S00612,Ritsiko,Village,W007,LGA01
+S00545,Sabemi-Sabo,Village,W007,LGA01
+S00563,Saberi-Tudun,Village,W007,LGA01
+S00601,Saraba,Settlement,W007,LGA01
+S00592,Sariwa-Gabas,Village,W007,LGA01
+S00547,Sasharu,Village,W007,LGA01
+S00640,Sazaja,Hamlet,W007,LGA01
+S00559,Suberu-Sabo,Hamlet,W007,LGA01
+S00562,Sujitu,Village,W007,LGA01
+S00651,Sushana-Arewa,Village,W007,LGA01
+S00637,Sutita,Hamlet,W007,LGA01
+S00625,Suyoru,Village,W007,LGA01
+S00603,Talani,Village,W007,LGA01
+S00628,Tanade,Hamlet,W007,LGA01
+S00641,Tanafa-Yamma,Village,W007,LGA01
+S00607,Tasari,Settlement,W007,LGA01
+S00642,Tayosa,Village,W007,LGA01
+S00542,Umlale,Village,W007,LGA01
+S00554,Ummari,Hamlet,W007,LGA01
+S00564,Umngole,Urban block,W007,LGA01
+S00538,Umrami-Arewa,Hamlet,W007,LGA01
+S00605,Uzdetu-Arewa,Hamlet,W007,LGA01
+S00584,Uznatu,Urban block,W007,LGA01
+S00602,Uzraba-Kofar,Hamlet,W007,LGA01
+S00629,Uztiru,Settlement,W007,LGA01
+S00647,Uztsile-Tudun,Urban block,W007,LGA01
+S00561,Uzwaja,Urban block,W007,LGA01
+S00571,Uzyole,Hamlet,W007,LGA01
+S00551,Wabele,Urban block,W007,LGA01
+S00553,Wabema-Yamma,Urban block,W007,LGA01
+S00658,Waduna,Village,W007,LGA01
+S00634,Wadusa,Urban block,W007,LGA01
+S00579,Wanasa,Village,W007,LGA01
+S00560,Waraba,Settlement,W007,LGA01
+S00639,Waratu,Hamlet,W007,LGA01
+S00544,Warita-Tsakiya,Village,W007,LGA01
+S00576,Yebawa,Village,W007,LGA01
+S00581,Yejija-Yamma,Urban block,W007,LGA01
+S00635,Yenani,Village,W007,LGA01
+S00600,Yenayi,Urban block,W007,LGA01
+S00550,Yeriri,Settlement,W007,LGA01
+S00648,Yewafa,Settlement,W007,LGA01
+S00645,Yezako-Kofar,Hamlet,W007,LGA01
+S00578,Zabeta,Hamlet,W007,LGA01
+S00596,Zashari,Urban block,W007,LGA01
+S01009,Addedu,Urban block,W014,LGA01
+S01088,Adlata,Settlement,W014,LGA01
+S01080,Adngodu,Village,W014,LGA01
+S01083,Agbele,Hamlet,W014,LGA01
+S01011,Agjima,Village,W014,LGA01
+S01089,Agzani,Urban block,W014,LGA01
+S01063,Banafa,Hamlet,W014,LGA01
+S01018,Barile,Village,W014,LGA01
+S01030,Batsiba-Tudun,Settlement,W014,LGA01
+S01012,Bidude,Urban block,W014,LGA01
+S01008,Bilatu-Tudun,Urban block,W014,LGA01
+S01062,Dabemi,Village,W014,LGA01
+S01038,Dajiyi,Village,W014,LGA01
+S00998,Damade,Settlement,W014,LGA01
+S01068,Datsiwa,Village,W014,LGA01
+S01085,Dayoshi,Settlement,W014,LGA01
+S01002,Dayoyi-Kofar,Village,W014,LGA01
+S01026,Dokoja,Hamlet,W014,LGA01
+S01006,Donasa,Village,W014,LGA01
+S01033,Dosani-Tudun,Village,W014,LGA01
+S01092,Doyodu,Village,W014,LGA01
+S01005,Eksani,Urban block,W014,LGA01
+S01073,Eksatu-Gabas,Settlement,W014,LGA01
+S01032,Ekwawa,Hamlet,W014,LGA01
+S01020,Ekyoni-Sabo,Hamlet,W014,LGA01
+S01093,Ekyoyi,Village,W014,LGA01
+S01052,Enbatu,Village,W014,LGA01
+S01040,Enduma-Kofar,Urban block,W014,LGA01
+S01024,Enlana,Urban block,W014,LGA01
+S01053,Ennata,Village,W014,LGA01
+S01071,Enrami,Village,W014,LGA01
+S01065,Enshana,Village,W014,LGA01
+S01021,Farata,Urban block,W014,LGA01
+S01081,Fatsimi,Urban block,W014,LGA01
+S01043,Fayoba,Village,W014,LGA01
+S01057,Gulawa,Settlement,W014,LGA01
+S01082,Guluyi,Urban block,W014,LGA01
+S01023,Guraja,Village,W014,LGA01
+S01039,Guyona-Kofar,Village,W014,LGA01
+S01061,Hanami,Village,W014,LGA01
+S01069,Hazayi,Village,W014,LGA01
+S01001,Ibtini-Kofar,Settlement,W014,LGA01
+S01041,Ibzashi,Village,W014,LGA01
+S01070,Irdeni-Arewa,Village,W014,LGA01
+S01025,Irdude,Urban block,W014,LGA01
+S01087,Irlushi-Kudu,Village,W014,LGA01
+S01059,Irwata,Settlement,W014,LGA01
+S01028,Jidetu,Hamlet,W014,LGA01
+S01054,Jidude,Village,W014,LGA01
+S01004,Jiduyi-Sabo,Village,W014,LGA01
+S01037,Kabeyi-Arewa,Village,W014,LGA01
+S01010,Kangona,Village,W014,LGA01
+S01029,Kuyowa,Urban block,W014,LGA01
+S01003,Lokoba-Tudun,Village,W014,LGA01
+S01090,Lolani,Village,W014,LGA01
+S01046,Losami,Settlement,W014,LGA01
+S01076,Matsiwo,Hamlet,W014,LGA01
+S01036,Mazama,Urban block,W014,LGA01
+S01000,Nudule,Village,W014,LGA01
+S01042,Nungoko-Tudun,Village,W014,LGA01
+S01031,Nurima,Urban block,W014,LGA01
+S01035,Okberi,Village,W014,LGA01
+S01060,Okdedu,Settlement,W014,LGA01
+S01051,Okshami-Yamma,Village,W014,LGA01
+S01013,Olngoru,Village,W014,LGA01
+S01045,Rilana,Settlement,W014,LGA01
+S01016,Rimadu,Village,W014,LGA01
+S01015,Rinaru,Hamlet,W014,LGA01
+S01050,Rishayi,Settlement,W014,LGA01
+S01091,Ritiru,Hamlet,W014,LGA01
+S01048,Sabeni,Hamlet,W014,LGA01
+S01058,Salatu,Hamlet,W014,LGA01
+S01079,Salude,Hamlet,W014,LGA01
+S01064,Sanatu,Urban block,W014,LGA01
+S01007,Sawashi,Hamlet,W014,LGA01
+S01078,Subafa,Settlement,W014,LGA01
+S01072,Sukoyi,Village,W014,LGA01
+S01017,Sumari,Village,W014,LGA01
+S01027,Suwama,Hamlet,W014,LGA01
+S01044,Suyoshi,Hamlet,W014,LGA01
+S01094,Taluba,Village,W014,LGA01
+S01049,Talusa,Urban block,W014,LGA01
+S01067,Tanani,Village,W014,LGA01
+S01055,Umjidu,Village,W014,LGA01
+S01056,Ummafa,Settlement,W014,LGA01
+S01086,Umrina,Settlement,W014,LGA01
+S01075,Uzkoba,Village,W014,LGA01
+S01084,Uzlule,Hamlet,W014,LGA01
+S00999,Uzsami-Arewa,Village,W014,LGA01
+S01074,Waride-Tsakiya,Village,W014,LGA01
+S01034,Wayode,Village,W014,LGA01
+S01022,Yekoja,Village,W014,LGA01
+S01014,Yerile,Settlement,W014,LGA01
+S01047,Yetide,Hamlet,W014,LGA01
+S01066,Zabeba-Kudu,Hamlet,W014,LGA01
+S01019,Zaderu-Kudu,Settlement,W014,LGA01
+S01077,Zashatu-Kudu,Hamlet,W014,LGA01
+S00187,Adkoyi,Village,W002,LGA01
+S00210,Adraba-Tudun,Village,W002,LGA01
+S00182,Agbade,Hamlet,W002,LGA01
+S00134,Agdede,Hamlet,W002,LGA01
+S00176,Agjiyi,Village,W002,LGA01
+S00191,Agyole-Tsakiya,Urban block,W002,LGA01
+S00145,Agyoyi-Tudun,Village,W002,LGA01
+S00124,Bakowa,Settlement,W002,LGA01
+S00128,Bakoyi,Village,W002,LGA01
+S00164,Balani,Village,W002,LGA01
+S00215,Balutu-Kudu,Settlement,W002,LGA01
+S00146,Bawawo,Village,W002,LGA01
+S00184,Bibeko,Settlement,W002,LGA01
+S00186,Bibemi-Gabas,Village,W002,LGA01
+S00199,Bijidu,Village,W002,LGA01
+S00220,Biluri,Village,W002,LGA01
+S00175,Dadesa,Hamlet,W002,LGA01
+S00150,Dakoba,Hamlet,W002,LGA01
+S00201,Daluwa,Hamlet,W002,LGA01
+S00139,Dangowo,Urban block,W002,LGA01
+S00165,Dariko,Hamlet,W002,LGA01
+S00130,Dariru,Urban block,W002,LGA01
+S00160,Dasatu-Tsakiya,Village,W002,LGA01
+S00154,Datsiwo,Village,W002,LGA01
+S00218,Ekluri-Tsakiya,Village,W002,LGA01
+S00190,Ekshayi,Village,W002,LGA01
+S00194,Enmari,Village,W002,LGA01
+S00206,Fadeja,Village,W002,LGA01
+S00173,Fakowo,Village,W002,LGA01
+S00198,Fangoni,Urban block,W002,LGA01
+S00185,Fangosa,Village,W002,LGA01
+S00168,Fashadu,Urban block,W002,LGA01
+S00136,Gulani,Village,W002,LGA01
+S00140,Guyoba,Village,W002,LGA01
+S00178,Habale,Urban block,W002,LGA01
+S00151,Hamade,Village,W002,LGA01
+S00158,Hangoshi,Urban block,W002,LGA01
+S00200,Hawale,Village,W002,LGA01
+S00153,Iblawa-Kofar,Urban block,W002,LGA01
+S00152,Ibngona-Arewa,Hamlet,W002,LGA01
+S00177,Ibritu,Village,W002,LGA01
+S00217,Ibtsiyi,Hamlet,W002,LGA01
+S00163,Ibwari,Settlement,W002,LGA01
+S00121,Irbafa,Settlement,W002,LGA01
+S00174,Irbema,Hamlet,W002,LGA01
+S00180,Irngomi,Hamlet,W002,LGA01
+S00188,Jidedu,Urban block,W002,LGA01
+S00157,Jimashi,Settlement,W002,LGA01
+S00162,Jitsifa,Hamlet,W002,LGA01
+S00202,Kudema-Gabas,Settlement,W002,LGA01
+S00213,Kuyoma,Village,W002,LGA01
+S00161,Kuzaru,Urban block,W002,LGA01
+S00172,Lobemi,Hamlet,W002,LGA01
+S00133,Loduja,Village,W002,LGA01
+S00138,Lorade-Sabo,Urban block,W002,LGA01
+S00137,Lotisa,Hamlet,W002,LGA01
+S00143,Lowade,Hamlet,W002,LGA01
+S00123,Mabani,Village,W002,LGA01
+S00195,Mashafa,Village,W002,LGA01
+S00129,Nudeja-Sabo,Village,W002,LGA01
+S00216,Okbako,Village,W002,LGA01
+S00125,Okmari,Urban block,W002,LGA01
+S00208,Okzatu,Hamlet,W002,LGA01
+S00127,Ollawo,Hamlet,W002,LGA01
+S00171,Olmami-Yamma,Urban block,W002,LGA01
+S00170,Olrita,Hamlet,W002,LGA01
+S00141,Ribafa,Hamlet,W002,LGA01
+S00148,Ribaja,Village,W002,LGA01
+S00207,Rizani,Village,W002,LGA01
+S00212,Sanana,Village,W002,LGA01
+S00166,Sarishi-Arewa,Urban block,W002,LGA01
+S00189,Satisa,Settlement,W002,LGA01
+S00131,Sazashi,Village,W002,LGA01
+S00214,Suduru-Gabas,Hamlet,W002,LGA01
+S00149,Sularu,Village,W002,LGA01
+S00155,Sunako,Urban block,W002,LGA01
+S00169,Surasa,Hamlet,W002,LGA01
+S00193,Takofa,Village,W002,LGA01
+S00132,Tangowa-Arewa,Village,W002,LGA01
+S00167,Umluwo,Village,W002,LGA01
+S00211,Uzkotu,Settlement,W002,LGA01
+S00205,Uznashi,Urban block,W002,LGA01
+S00126,Uzshani,Hamlet,W002,LGA01
+S00219,Uztsija,Village,W002,LGA01
+S00204,Waluwo,Hamlet,W002,LGA01
+S00147,Watsiyi,Hamlet,W002,LGA01
+S00183,Wayoru-Sabo,Village,W002,LGA01
+S00135,Yebede,Village,W002,LGA01
+S00156,Yelata,Settlement,W002,LGA01
+S00197,Yetiba,Village,W002,LGA01
+S00142,Yetsina,Urban block,W002,LGA01
+S00209,Yetsiwa-Kudu,Village,W002,LGA01
+S00179,Yezawo,Village,W002,LGA01
+S00122,Zajija,Village,W002,LGA01
+S00192,Zajitu,Village,W002,LGA01
+S00196,Zakotu-Tsakiya,Hamlet,W002,LGA01
+S00159,Zashaja,Urban block,W002,LGA01
+S00203,Zatija,Hamlet,W002,LGA01
+S00181,Zayowo,Village,W002,LGA01
+S00144,Zazashi,Village,W002,LGA01
+S00106,Adbaru,Settlement,W001,LGA01
+S00085,Adbeta,Hamlet,W001,LGA01
+S00080,Adnade-Kofar,Village,W001,LGA01
+S00068,Adrija-Sabo,Village,W001,LGA01
+S00037,Adtsitu,Village,W001,LGA01
+S00097,Agbawo,Urban block,W001,LGA01
+S00092,Agtsiko-Gabas,Village,W001,LGA01
+S00059,Agwako,Hamlet,W001,LGA01
+S00111,Biduja-Sabo,Hamlet,W001,LGA01
+S00015,Binako,Settlement,W001,LGA01
+S00017,Biriyi,Urban block,W001,LGA01
+S00006,Bishaja-Gabas,Hamlet,W001,LGA01
+S00026,Dabedu,Hamlet,W001,LGA01
+S00077,Dajisa,Village,W001,LGA01
+S00042,Damako,Hamlet,W001,LGA01
+S00065,Danasa,Hamlet,W001,LGA01
+S00008,Danashi,Urban block,W001,LGA01
+S00118,Donadu,Settlement,W001,LGA01
+S00047,Dorita,Village,W001,LGA01
+S00004,Dosari,Village,W001,LGA01
+S00104,Dotina,Village,W001,LGA01
+S00088,Ekrafa,Urban block,W001,LGA01
+S00012,Ekrari,Hamlet,W001,LGA01
+S00119,Ekshani,Village,W001,LGA01
+S00110,Ekyosa,Village,W001,LGA01
+S00010,Enjiru,Urban block,W001,LGA01
+S00116,Enriru-Kofar,Settlement,W001,LGA01
+S00044,Ensama,Hamlet,W001,LGA01
+S00113,Enyowa,Village,W001,LGA01
+S00094,Fakoshi,Hamlet,W001,LGA01
+S00084,Faluni,Village,W001,LGA01
+S00060,Fanaja,Hamlet,W001,LGA01
+S00019,Fasatu,Hamlet,W001,LGA01
+S00075,Fashale-Kofar,Hamlet,W001,LGA01
+S00114,Gubade-Tsakiya,Urban block,W001,LGA01
+S00108,Guludu,Village,W001,LGA01
+S00074,Guluna,Settlement,W001,LGA01
+S00070,Gungoshi,Settlement,W001,LGA01
+S00020,Guwami-Yamma,Urban block,W001,LGA01
+S00087,Hadema,Hamlet,W001,LGA01
+S00002,Haduni,Urban block,W001,LGA01
+S00098,Halusa,Hamlet,W001,LGA01
+S00081,Haluyi,Hamlet,W001,LGA01
+S00053,Hatsiwo,Village,W001,LGA01
+S00120,Hazatu,Urban block,W001,LGA01
+S00023,Ibdutu,Village,W001,LGA01
+S00055,Ibmaja,Village,W001,LGA01
+S00056,Ibrawo,Urban block,W001,LGA01
+S00112,Ibshade,Settlement,W001,LGA01
+S00090,Irdema,Hamlet,W001,LGA01
+S00102,Irduri,Hamlet,W001,LGA01
+S00033,Irlatu-Gabas,Settlement,W001,LGA01
+S00050,Irluko,Settlement,W001,LGA01
+S00062,Irsadu-Sabo,Hamlet,W001,LGA01
+S00072,Irzatu,Urban block,W001,LGA01
+S00039,Jideni,Village,W001,LGA01
+S00089,Jiduja,Village,W001,LGA01
+S00022,Jimawa,Village,W001,LGA01
+S00034,Jitifa,Hamlet,W001,LGA01
+S00049,Kadudu,Village,W001,LGA01
+S00082,Kaladu,Village,W001,LGA01
+S00105,Kaluja,Urban block,W001,LGA01
+S00029,Kangofa,Village,W001,LGA01
+S00046,Kasama-Tudun,Settlement,W001,LGA01
+S00095,Kashako,Hamlet,W001,LGA01
+S00051,Kulama,Village,W001,LGA01
+S00011,Kushatu,Hamlet,W001,LGA01
+S00093,Lobaba,Settlement,W001,LGA01
+S00041,Lodule,Village,W001,LGA01
+S00078,Lolale,Hamlet,W001,LGA01
+S00054,Loshaja,Village,W001,LGA01
+S00035,Makole-Arewa,Village,W001,LGA01
+S00100,Mashasa,Village,W001,LGA01
+S00024,Mashashi,Settlement,W001,LGA01
+S00109,Numawa,Village,W001,LGA01
+S00083,Nuwaja,Urban block,W001,LGA01
+S00057,Nuwani,Urban block,W001,LGA01
+S00096,Okkotu,Urban block,W001,LGA01
+S00032,Okmaba,Village,W001,LGA01
+S00021,Okmata-Sabo,Village,W001,LGA01
+S00115,Okngowa,Village,W001,LGA01
+S00064,Okwadu,Village,W001,LGA01
+S00086,Ollale,Urban block,W001,LGA01
+S00018,Oltiko,Settlement,W001,LGA01
+S00099,Ribeni,Village,W001,LGA01
+S00036,Ridewo-Gabas,Settlement,W001,LGA01
+S00063,Ringowa,Urban block,W001,LGA01
+S00027,Riwayi,Village,W001,LGA01
+S00073,Riyoma-Gabas,Urban block,W001,LGA01
+S00013,Rizadu,Village,W001,LGA01
+S00091,Saluru,Village,W001,LGA01
+S00117,Sarade,Village,W001,LGA01
+S00067,Sayowa,Hamlet,W001,LGA01
+S00040,Sazafa,Urban block,W001,LGA01
+S00101,Suludu-Arewa,Urban block,W001,LGA01
+S00001,Surawa,Village,W001,LGA01
+S00030,Suriru,Hamlet,W001,LGA01
+S00071,Sutiwo,Village,W001,LGA01
+S00048,Taduri,Village,W001,LGA01
+S00076,Tarani,Urban block,W001,LGA01
+S00066,Tararu-Gabas,Urban block,W001,LGA01
+S00043,Taritu,Village,W001,LGA01
+S00052,Tasama,Village,W001,LGA01
+S00103,Tashade-Kudu,Hamlet,W001,LGA01
+S00058,Umratu,Village,W001,LGA01
+S00038,Umsayi,Village,W001,LGA01
+S00016,Umzashi,Urban block,W001,LGA01
+S00045,Uzbena,Village,W001,LGA01
+S00007,Uzduma,Urban block,W001,LGA01
+S00009,Uzrita,Hamlet,W001,LGA01
+S00005,Wabade,Village,W001,LGA01
+S00025,Wamade,Village,W001,LGA01
+S00031,Wamako,Urban block,W001,LGA01
+S00079,Warana,Hamlet,W001,LGA01
+S00003,Watiru,Hamlet,W001,LGA01
+S00107,Wawatu,Urban block,W001,LGA01
+S00028,Yerifa,Settlement,W001,LGA01
+S00069,Zakole-Arewa,Urban block,W001,LGA01
+S00014,Zasafa,Urban block,W001,LGA01
+S00061,Zawatu,Hamlet,W001,LGA01
+S01460,Adngoba,Village,W020,LGA01
+S01509,Agmasa,Village,W020,LGA01
+S01473,Agmawa,Hamlet,W020,LGA01
+S01431,Agzaba,Village,W020,LGA01
+S01494,Bikoyi,Village,W020,LGA01
+S01453,Bingoyi,Urban block,W020,LGA01
+S01512,Bisaru,Urban block,W020,LGA01
+S01490,Biyoba,Urban block,W020,LGA01
+S01501,Dabeba,Village,W020,LGA01
+S01429,Darana-Arewa,Hamlet,W020,LGA01
+S01481,Domade-Yamma,Village,W020,LGA01
+S01506,Enjisa,Village,W020,LGA01
+S01425,Ensaba,Village,W020,LGA01
+S01467,Gukori,Hamlet,W020,LGA01
+S01448,Gumawa,Hamlet,W020,LGA01
+S01443,Gusade-Kofar,Village,W020,LGA01
+S01464,Hajidu,Hamlet,W020,LGA01
+S01447,Halata,Village,W020,LGA01
+S01477,Hamako-Kofar,Village,W020,LGA01
+S01480,Hasale,Urban block,W020,LGA01
+S01463,Hayole,Village,W020,LGA01
+S01424,Ibbasa,Village,W020,LGA01
+S01438,Ibwadu,Settlement,W020,LGA01
+S01475,Ibwaja,Village,W020,LGA01
+S01436,Ibyosa,Hamlet,W020,LGA01
+S01508,Irjitu,Hamlet,W020,LGA01
+S01458,Irshani,Settlement,W020,LGA01
+S01483,Irtsishi,Village,W020,LGA01
+S01440,Jidudu,Hamlet,W020,LGA01
+S01432,Jiradu,Urban block,W020,LGA01
+S01486,Jirale,Urban block,W020,LGA01
+S01497,Jisafa,Settlement,W020,LGA01
+S01449,Jiwako,Village,W020,LGA01
+S01433,Jiwatu,Village,W020,LGA01
+S01489,Kaludu-Sabo,Village,W020,LGA01
+S01442,Kaluyi,Hamlet,W020,LGA01
+S01472,Kashashi-Gabas,Hamlet,W020,LGA01
+S01435,Kudena,Village,W020,LGA01
+S01456,Kujidu-Kofar,Village,W020,LGA01
+S01493,Kukoru,Urban block,W020,LGA01
+S01470,Lobale,Settlement,W020,LGA01
+S01510,Lodushi,Village,W020,LGA01
+S01451,Lojini-Tsakiya,Urban block,W020,LGA01
+S01441,Lolako,Village,W020,LGA01
+S01428,Mabema,Hamlet,W020,LGA01
+S01452,Mamadu,Hamlet,W020,LGA01
+S01505,Matsiko,Village,W020,LGA01
+S01504,Nurima-Yamma,Hamlet,W020,LGA01
+S01502,Nusade,Urban block,W020,LGA01
+S01474,Nusale,Hamlet,W020,LGA01
+S01485,Nushaja,Urban block,W020,LGA01
+S01465,Nutiri,Hamlet,W020,LGA01
+S01495,Okmayi,Village,W020,LGA01
+S01511,Oknani,Settlement,W020,LGA01
+S01466,Olmata,Village,W020,LGA01
+S01479,Risani-Gabas,Urban block,W020,LGA01
+S01488,Sabawo,Village,W020,LGA01
+S01450,Sabewo-Gabas,Urban block,W020,LGA01
+S01496,Sabeyi,Village,W020,LGA01
+S01482,Saduma,Urban block,W020,LGA01
+S01437,Sanami,Hamlet,W020,LGA01
+S01487,Sayoba-Kofar,Village,W020,LGA01
+S01471,Sazami-Yamma,Hamlet,W020,LGA01
+S01434,Sudeja-Tsakiya,Urban block,W020,LGA01
+S01439,Suduri,Urban block,W020,LGA01
+S01469,Suluja-Tudun,Village,W020,LGA01
+S01507,Susade-Tudun,Urban block,W020,LGA01
+S01446,Tabami,Village,W020,LGA01
+S01430,Taberu,Hamlet,W020,LGA01
+S01476,Tayoni,Hamlet,W020,LGA01
+S01503,Umbaba,Hamlet,W020,LGA01
+S01492,Umdumi-Tudun,Hamlet,W020,LGA01
+S01427,Ummasa-Tudun,Urban block,W020,LGA01
+S01500,Umsade,Hamlet,W020,LGA01
+S01478,Umshako,Village,W020,LGA01
+S01491,Uzngoni-Kofar,Village,W020,LGA01
+S01454,Uzrani,Urban block,W020,LGA01
+S01459,Wabawa,Settlement,W020,LGA01
+S01484,Wajiri,Urban block,W020,LGA01
+S01445,Wakoba,Hamlet,W020,LGA01
+S01426,Warashi,Village,W020,LGA01
+S01444,Yenatu,Urban block,W020,LGA01
+S01499,Yerifa-Arewa,Urban block,W020,LGA01
+S01457,Yeyode,Village,W020,LGA01
+S01498,Zabeni,Settlement,W020,LGA01
+S01461,Zabetu-Gabas,Hamlet,W020,LGA01
+S01513,Zakoja,Settlement,W020,LGA01
+S01468,Zamayi,Village,W020,LGA01
+S01462,Zatsima,Hamlet,W020,LGA01
+S01455,Zazata,Urban block,W020,LGA01
+S00453,Adlashi,Village,W006,LGA01
+S00484,Adngoyi,Village,W006,LGA01
+S00440,Adtsiwa-Tsakiya,Settlement,W006,LGA01
+S00529,Adyoyi,Urban block,W006,LGA01
+S00466,Agrade,Hamlet,W006,LGA01
+S00523,Agrifa,Settlement,W006,LGA01
+S00420,Badede,Urban block,W006,LGA01
+S00444,Bakota,Village,W006,LGA01
+S00528,Bamaba,Village,W006,LGA01
+S00483,Bawako,Urban block,W006,LGA01
+S00448,Bayode,Settlement,W006,LGA01
+S00454,Bazasa,Village,W006,LGA01
+S00413,Bideyi,Settlement,W006,LGA01
+S00488,Biluba,Village,W006,LGA01
+S00458,Bilufa,Urban block,W006,LGA01
+S00414,Bitsiri,Hamlet,W006,LGA01
+S00438,Biyoru,Hamlet,W006,LGA01
+S00509,Damashi,Urban block,W006,LGA01
+S00419,Dangowa,Village,W006,LGA01
+S00481,Dodufa-Tudun,Settlement,W006,LGA01
+S00534,Ekrayi,Village,W006,LGA01
+S00411,Enbewa,Hamlet,W006,LGA01
+S00442,Enlale,Hamlet,W006,LGA01
+S00434,Ennawa-Gabas,Hamlet,W006,LGA01
+S00504,Enngori,Hamlet,W006,LGA01
+S00470,Enzawo,Urban block,W006,LGA01
+S00409,Famako,Village,W006,LGA01
+S00501,Fanawo,Village,W006,LGA01
+S00493,Fashana,Settlement,W006,LGA01
+S00517,Fawaba,Village,W006,LGA01
+S00521,Fazana,Hamlet,W006,LGA01
+S00424,Gubemi,Urban block,W006,LGA01
+S00445,Gunana,Village,W006,LGA01
+S00457,Gurita,Hamlet,W006,LGA01
+S00412,Gutina,Village,W006,LGA01
+S00474,Gutina-Tsakiya,Hamlet,W006,LGA01
+S00518,Hajiri,Hamlet,W006,LGA01
+S00416,Hakowo,Village,W006,LGA01
+S00472,Harasa,Hamlet,W006,LGA01
+S00439,Hasawo,Hamlet,W006,LGA01
+S00467,Hazadu,Settlement,W006,LGA01
+S00530,Ibbefa,Village,W006,LGA01
+S00507,Ibdeba,Hamlet,W006,LGA01
+S00436,Ibduko,Urban block,W006,LGA01
+S00460,Ibluna,Settlement,W006,LGA01
+S00446,Ibnani,Village,W006,LGA01
+S00499,Ibngodu,Village,W006,LGA01
+S00490,Ibsayi,Urban block,W006,LGA01
+S00443,Ibtiba,Settlement,W006,LGA01
+S00498,Ibzadu,Settlement,W006,LGA01
+S00514,Irlufa-Gabas,Hamlet,W006,LGA01
+S00468,Jibena-Kudu,Hamlet,W006,LGA01
+S00430,Jimani,Hamlet,W006,LGA01
+S00487,Jirita,Hamlet,W006,LGA01
+S00511,Jiyoni,Village,W006,LGA01
+S00533,Kadetu,Village,W006,LGA01
+S00452,Kalude,Village,W006,LGA01
+S00477,Kalule,Village,W006,LGA01
+S00496,Kalushi,Village,W006,LGA01
+S00441,Kangotu,Village,W006,LGA01
+S00494,Kasashi,Village,W006,LGA01
+S00431,Katsidu,Settlement,W006,LGA01
+S00425,Kawama,Hamlet,W006,LGA01
+S00432,Kazaru,Hamlet,W006,LGA01
+S00479,Kungoma-Tsakiya,Settlement,W006,LGA01
+S00450,Kuwadu,Hamlet,W006,LGA01
+S00408,Longoko,Hamlet,W006,LGA01
+S00520,Lorata,Settlement,W006,LGA01
+S00459,Lorisa,Village,W006,LGA01
+S00522,Losale,Village,W006,LGA01
+S00512,Loyode,Village,W006,LGA01
+S00503,Nudeja,Settlement,W006,LGA01
+S00482,Nuwade,Hamlet,W006,LGA01
+S00428,Okderu,Urban block,W006,LGA01
+S00478,Okkona,Hamlet,W006,LGA01
+S00418,Oknami,Settlement,W006,LGA01
+S00435,Okrasa,Village,W006,LGA01
+S00469,Oksawa,Urban block,W006,LGA01
+S00513,Okshami,Hamlet,W006,LGA01
+S00485,Okzashi-Tsakiya,Hamlet,W006,LGA01
+S00505,Oldeko,Hamlet,W006,LGA01
+S00447,Ollule,Village,W006,LGA01
+S00516,Olzaja,Village,W006,LGA01
+S00463,Risaja,Hamlet,W006,LGA01
+S00451,Subafa-Sabo,Village,W006,LGA01
+S00437,Subatu,Hamlet,W006,LGA01
+S00427,Sujimi,Village,W006,LGA01
+S00526,Sujiri,Village,W006,LGA01
+S00508,Sukona,Village,W006,LGA01
+S00492,Suludu,Urban block,W006,LGA01
+S00480,Sulufa-Yamma,Urban block,W006,LGA01
+S00426,Sungofa,Village,W006,LGA01
+S00497,Sungori-Arewa,Urban block,W006,LGA01
+S00506,Surashi-Kudu,Urban block,W006,LGA01
+S00527,Sushata,Hamlet,W006,LGA01
+S00491,Sutsija,Settlement,W006,LGA01
+S00429,Sutsiri,Urban block,W006,LGA01
+S00417,Sutsiwa,Hamlet,W006,LGA01
+S00456,Talaru,Urban block,W006,LGA01
+S00489,Tangoma,Village,W006,LGA01
+S00525,Tayona,Village,W006,LGA01
+S00423,Umdemi-Tudun,Village,W006,LGA01
+S00422,Umlami,Urban block,W006,LGA01
+S00524,Umnana-Tudun,Hamlet,W006,LGA01
+S00510,Umtima,Hamlet,W006,LGA01
+S00455,Umwana,Village,W006,LGA01
+S00502,Uzwata-Yamma,Urban block,W006,LGA01
+S00532,Wabeyi,Urban block,W006,LGA01
+S00473,Waduru,Hamlet,W006,LGA01
+S00464,Waludu,Settlement,W006,LGA01
+S00461,Wasawa,Village,W006,LGA01
+S00465,Washata,Hamlet,W006,LGA01
+S00410,Watsija,Village,W006,LGA01
+S00462,Wayoni,Urban block,W006,LGA01
+S00415,Yedeja-Arewa,Urban block,W006,LGA01
+S00515,Yeduri,Urban block,W006,LGA01
+S00476,Yelaja,Settlement,W006,LGA01
+S00519,Yeluta,Hamlet,W006,LGA01
+S00531,Yengomi,Hamlet,W006,LGA01
+S00421,Zadele-Gabas,Village,W006,LGA01
+S00433,Zajiyi,Urban block,W006,LGA01
+S00471,Zamari,Urban block,W006,LGA01
+S00486,Zanaru,Urban block,W006,LGA01
+S00475,Zarija,Hamlet,W006,LGA01
+S00495,Zashashi,Village,W006,LGA01
+S00449,Zayoru,Village,W006,LGA01
+S00500,Zazana,Urban block,W006,LGA01
+S00254,Adkomi,Village,W003,LGA01
+S00252,Admako,Settlement,W003,LGA01
+S00278,Adnama,Hamlet,W003,LGA01
+S00240,Adnashi,Hamlet,W003,LGA01
+S00279,Adrana,Village,W003,LGA01
+S00255,Adsashi,Village,W003,LGA01
+S00284,Adtile,Village,W003,LGA01
+S00317,Agmami,Hamlet,W003,LGA01
+S00326,Agmashi,Hamlet,W003,LGA01
+S00318,Agtsiru,Urban block,W003,LGA01
+S00250,Bajifa,Settlement,W003,LGA01
+S00311,Bajimi,Village,W003,LGA01
+S00321,Bakota-Yamma,Village,W003,LGA01
+S00327,Bawawa-Kofar,Hamlet,W003,LGA01
+S00271,Bishana,Settlement,W003,LGA01
+S00293,Biwawo,Village,W003,LGA01
+S00272,Dalama,Hamlet,W003,LGA01
+S00270,Damana,Hamlet,W003,LGA01
+S00305,Darayi,Hamlet,W003,LGA01
+S00237,Dashami-Kofar,Village,W003,LGA01
+S00281,Datiwo,Settlement,W003,LGA01
+S00256,Datsisa,Village,W003,LGA01
+S00226,Dodemi,Village,W003,LGA01
+S00228,Doduja,Settlement,W003,LGA01
+S00298,Dokori,Hamlet,W003,LGA01
+S00269,Dolata-Kofar,Village,W003,LGA01
+S00287,Donadu-Gabas,Hamlet,W003,LGA01
+S00264,Dozawa,Hamlet,W003,LGA01
+S00223,Ekshafa,Urban block,W003,LGA01
+S00235,Ekwawo,Urban block,W003,LGA01
+S00277,Enbemi,Urban block,W003,LGA01
+S00285,Enrishi-Tsakiya,Urban block,W003,LGA01
+S00324,Ensayi,Village,W003,LGA01
+S00299,Enshawa,Urban block,W003,LGA01
+S00230,Entile-Yamma,Village,W003,LGA01
+S00267,Entsini,Urban block,W003,LGA01
+S00307,Fabako,Village,W003,LGA01
+S00282,Fazaba,Settlement,W003,LGA01
+S00244,Gubeta,Urban block,W003,LGA01
+S00306,Gudele,Settlement,W003,LGA01
+S00280,Gulasa-Sabo,Village,W003,LGA01
+S00242,Gulushi,Settlement,W003,LGA01
+S00224,Gusaru,Urban block,W003,LGA01
+S00320,Gusawo,Village,W003,LGA01
+S00261,Guwani-Kofar,Urban block,W003,LGA01
+S00221,Habefa,Hamlet,W003,LGA01
+S00315,Ibnari,Settlement,W003,LGA01
+S00288,Ibtsija,Settlement,W003,LGA01
+S00266,Irbata,Urban block,W003,LGA01
+S00227,Irduru,Hamlet,W003,LGA01
+S00286,Jijita,Hamlet,W003,LGA01
+S00304,Jilusa,Village,W003,LGA01
+S00239,Jimaja,Village,W003,LGA01
+S00276,Jinata,Village,W003,LGA01
+S00325,Kamadu,Village,W003,LGA01
+S00273,Kamata,Urban block,W003,LGA01
+S00234,Karawa,Village,W003,LGA01
+S00310,Karitu,Village,W003,LGA01
+S00262,Kudewa-Kofar,Hamlet,W003,LGA01
+S00292,Kukodu,Village,W003,LGA01
+S00323,Kulale,Village,W003,LGA01
+S00247,Lobadu,Settlement,W003,LGA01
+S00259,Lobani-Tudun,Settlement,W003,LGA01
+S00231,Lonaba,Village,W003,LGA01
+S00289,Lozawa,Settlement,W003,LGA01
+S00316,Mabaru,Hamlet,W003,LGA01
+S00249,Manadu,Hamlet,W003,LGA01
+S00222,Nuduta,Hamlet,W003,LGA01
+S00265,Okrina,Urban block,W003,LGA01
+S00232,Olbawo,Urban block,W003,LGA01
+S00238,Olkoshi,Urban block,W003,LGA01
+S00300,Olluyi,Settlement,W003,LGA01
+S00274,Olnaba-Sabo,Urban block,W003,LGA01
+S00283,Olnata,Hamlet,W003,LGA01
+S00290,Olnayi,Village,W003,LGA01
+S00319,Rikoshi,Urban block,W003,LGA01
+S00312,Rilafa,Village,W003,LGA01
+S00291,Riluna,Hamlet,W003,LGA01
+S00246,Rimafa-Kudu,Urban block,W003,LGA01
+S00225,Rinaja,Village,W003,LGA01
+S00245,Ritsima-Tsakiya,Hamlet,W003,LGA01
+S00263,Sabaru,Hamlet,W003,LGA01
+S00248,Suderu,Hamlet,W003,LGA01
+S00313,Suduwo,Village,W003,LGA01
+S00253,Sukosa,Village,W003,LGA01
+S00309,Sulade,Village,W003,LGA01
+S00243,Surifa,Settlement,W003,LGA01
+S00251,Susama,Urban block,W003,LGA01
+S00314,Suyoko,Village,W003,LGA01
+S00295,Tabewa-Tudun,Village,W003,LGA01
+S00260,Tadedu,Village,W003,LGA01
+S00229,Tajija,Hamlet,W003,LGA01
+S00328,Tamami-Kofar,Village,W003,LGA01
+S00308,Umjiwa-Kudu,Hamlet,W003,LGA01
+S00303,Umkoru,Village,W003,LGA01
+S00297,Umnata,Hamlet,W003,LGA01
+S00241,Umnawo,Hamlet,W003,LGA01
+S00296,Uzbata,Village,W003,LGA01
+S00268,Uzkowo,Urban block,W003,LGA01
+S00294,Uzlako,Settlement,W003,LGA01
+S00258,Uzmashi,Settlement,W003,LGA01
+S00257,Uzyori,Urban block,W003,LGA01
+S00275,Uzyosa-Kudu,Hamlet,W003,LGA01
+S00233,Yengole-Gabas,Hamlet,W003,LGA01
+S00236,Yetija,Settlement,W003,LGA01
+S00301,Yetsiwa,Village,W003,LGA01
+S00322,Yezaba,Village,W003,LGA01
+S00302,Zabayi-Yamma,Village,W003,LGA01
+S00694,Addudu,Village,W008,LGA01
+S00688,Adjiwo,Hamlet,W008,LGA01
+S00663,Adlari-Kofar,Hamlet,W008,LGA01
+S00764,Adshasa,Settlement,W008,LGA01
+S00667,Adyole,Village,W008,LGA01
+S00683,Agbadu,Urban block,W008,LGA01
+S00678,Aglama,Urban block,W008,LGA01
+S00697,Agngoba,Village,W008,LGA01
+S00753,Agwama,Village,W008,LGA01
+S00733,Agzari,Urban block,W008,LGA01
+S00728,Badesa,Urban block,W008,LGA01
+S00714,Bajita,Hamlet,W008,LGA01
+S00687,Batsisa,Hamlet,W008,LGA01
+S00740,Bayomi,Village,W008,LGA01
+S00703,Bikota,Village,W008,LGA01
+S00702,Bilaba,Village,W008,LGA01
+S00776,Biluwo-Yamma,Village,W008,LGA01
+S00700,Birari,Hamlet,W008,LGA01
+S00699,Biriko,Village,W008,LGA01
+S00741,Bitsiko,Urban block,W008,LGA01
+S00705,Dajiwa,Village,W008,LGA01
+S00746,Daluru-Arewa,Hamlet,W008,LGA01
+S00695,Darana,Hamlet,W008,LGA01
+S00666,Datita,Hamlet,W008,LGA01
+S00763,Dazako,Village,W008,LGA01
+S00684,Dobaja,Village,W008,LGA01
+S00713,Dojimi,Hamlet,W008,LGA01
+S00710,Ekluyi-Kofar,Village,W008,LGA01
+S00762,Enduta,Village,W008,LGA01
+S00786,Enkoru-Yamma,Hamlet,W008,LGA01
+S00664,Enlaru,Urban block,W008,LGA01
+S00748,Enngoko,Village,W008,LGA01
+S00725,Entita,Village,W008,LGA01
+S00719,Entsima,Hamlet,W008,LGA01
+S00676,Entsina-Kofar,Village,W008,LGA01
+S00745,Enyoba,Hamlet,W008,LGA01
+S00686,Enyosa,Hamlet,W008,LGA01
+S00775,Fabawo,Hamlet,W008,LGA01
+S00706,Faduwa,Urban block,W008,LGA01
+S00701,Fajile,Village,W008,LGA01
+S00677,Falushi,Hamlet,W008,LGA01
+S00744,Famatu,Village,W008,LGA01
+S00674,Fasaru,Urban block,W008,LGA01
+S00736,Fashaba,Village,W008,LGA01
+S00685,Fazaja-Sabo,Settlement,W008,LGA01
+S00712,Gulako,Urban block,W008,LGA01
+S00679,Gulawa-Tudun,Village,W008,LGA01
+S00668,Gunatu-Gabas,Village,W008,LGA01
+S00680,Gurata,Village,W008,LGA01
+S00784,Hababa,Hamlet,W008,LGA01
+S00739,Hakoko,Settlement,W008,LGA01
+S00767,Halule,Village,W008,LGA01
+S00729,Hamata,Settlement,W008,LGA01
+S00672,Hangodu-Kudu,Urban block,W008,LGA01
+S00698,Hasani,Village,W008,LGA01
+S00721,Ibdema,Urban block,W008,LGA01
+S00754,Ibduja,Urban block,W008,LGA01
+S00757,Ibkodu,Hamlet,W008,LGA01
+S00722,Irjitu-Kofar,Village,W008,LGA01
+S00696,Irngosa,Hamlet,W008,LGA01
+S00772,Irrako,Settlement,W008,LGA01
+S00665,Irsale,Hamlet,W008,LGA01
+S00723,Irtsiru,Settlement,W008,LGA01
+S00682,Irzari,Village,W008,LGA01
+S00662,Jibena,Village,W008,LGA01
+S00681,Jimadu,Village,W008,LGA01
+S00752,Jitile,Village,W008,LGA01
+S00720,Jiwale,Hamlet,W008,LGA01
+S00779,Katsimi,Village,W008,LGA01
+S00673,Kawaja,Urban block,W008,LGA01
+S00709,Kayomi,Hamlet,W008,LGA01
+S00692,Kurana,Village,W008,LGA01
+S00751,Kusayi,Urban block,W008,LGA01
+S00769,Kushata,Village,W008,LGA01
+S00755,Kutsile,Village,W008,LGA01
+S00691,Kuwashi,Hamlet,W008,LGA01
+S00765,Lomashi,Hamlet,W008,LGA01
+S00670,Lotsina,Hamlet,W008,LGA01
+S00785,Makowo-Kofar,Settlement,W008,LGA01
+S00737,Maludu,Village,W008,LGA01
+S00773,Mashadu,Urban block,W008,LGA01
+S00671,Mazatu,Urban block,W008,LGA01
+S00787,Nudede,Urban block,W008,LGA01
+S00690,Nulade-Sabo,Village,W008,LGA01
+S00717,Nurari,Village,W008,LGA01
+S00669,Nushafa,Urban block,W008,LGA01
+S00783,Nuyoko,Hamlet,W008,LGA01
+S00738,Nuzashi,Hamlet,W008,LGA01
+S00758,Oktsiyi,Hamlet,W008,LGA01
+S00724,Okwale,Village,W008,LGA01
+S00750,Oldede-Yamma,Urban block,W008,LGA01
+S00661,Oldema,Village,W008,LGA01
+S00760,Olluri,Village,W008,LGA01
+S00770,Olrari,Village,W008,LGA01
+S00780,Oltsini,Urban block,W008,LGA01
+S00689,Olwatu,Urban block,W008,LGA01
+S00771,Rideru,Village,W008,LGA01
+S00768,Rilami,Hamlet,W008,LGA01
+S00734,Riluko,Urban block,W008,LGA01
+S00782,Ringoshi-Arewa,Village,W008,LGA01
+S00660,Riratu,Settlement,W008,LGA01
+S00730,Sasari,Hamlet,W008,LGA01
+S00749,Subadu,Hamlet,W008,LGA01
+S00774,Susako,Settlement,W008,LGA01
+S00747,Sutsiwo-Kudu,Hamlet,W008,LGA01
+S00693,Tangosa-Tudun,Settlement,W008,LGA01
+S00726,Tasale,Hamlet,W008,LGA01
+S00756,Tasata,Village,W008,LGA01
+S00716,Tasayi-Tudun,Settlement,W008,LGA01
+S00759,Tatsishi,Urban block,W008,LGA01
+S00742,Tawana,Village,W008,LGA01
+S00707,Umdena,Urban block,W008,LGA01
+S00777,Umdule,Hamlet,W008,LGA01
+S00715,Umnaja,Village,W008,LGA01
+S00766,Umngosa,Hamlet,W008,LGA01
+S00743,Umshade-Sabo,Urban block,W008,LGA01
+S00778,Umtija,Urban block,W008,LGA01
+S00727,Uzmasa,Hamlet,W008,LGA01
+S00731,Uzshawa,Hamlet,W008,LGA01
+S00711,Waduja,Hamlet,W008,LGA01
+S00704,Walatu,Urban block,W008,LGA01
+S00718,Yedufa,Settlement,W008,LGA01
+S00761,Yekota,Settlement,W008,LGA01
+S00781,Yetsifa-Kofar,Village,W008,LGA01
+S00675,Zabafa,Village,W008,LGA01
+S00708,Zaberu,Urban block,W008,LGA01
+S00735,Zaduko-Arewa,Village,W008,LGA01
+S00732,Zakotu,Village,W008,LGA01
+S02077,Adyoko-Sabo,Village,W032,LGA04
+S02078,Adzaja,Village,W032,LGA04
+S02087,Agbami,Village,W032,LGA04
+S02064,Agdena,Village,W032,LGA04
+S02085,Agngotu,Village,W032,LGA04
+S02097,Agsale,Hamlet,W032,LGA04
+S02086,Agsayi,Village,W032,LGA04
+S02091,Balari,Village,W032,LGA04
+S02084,Bijitu,Village,W032,LGA04
+S02054,Biwasa,Village,W032,LGA04
+S02070,Dokoshi,Village,W032,LGA04
+S02099,Dozama,Village,W032,LGA04
+S02076,Ekdeba,Village,W032,LGA04
+S02096,Ekjisa,Village,W032,LGA04
+S02082,Enbana,Village,W032,LGA04
+S02053,Fajiyi,Village,W032,LGA04
+S02079,Gukowo,Settlement,W032,LGA04
+S02093,Guzayi,Settlement,W032,LGA04
+S02049,Habefa-Tudun,Hamlet,W032,LGA04
+S02081,Halale,Village,W032,LGA04
+S02067,Haluma-Yamma,Settlement,W032,LGA04
+S02080,Ibjisa-Tudun,Hamlet,W032,LGA04
+S02094,Ibkoko,Hamlet,W032,LGA04
+S02055,Ibkole-Sabo,Settlement,W032,LGA04
+S02074,Jingode,Settlement,W032,LGA04
+S02071,Kawako,Village,W032,LGA04
+S02088,Kurawa,Village,W032,LGA04
+S02057,Kushafa,Village,W032,LGA04
+S02072,Kutisa,Hamlet,W032,LGA04
+S02058,Kuyoshi,Village,W032,LGA04
+S02089,Kuzasa,Hamlet,W032,LGA04
+S02062,Longosa,Village,W032,LGA04
+S02073,Losaru,Hamlet,W032,LGA04
+S02066,Mabeko,Village,W032,LGA04
+S02092,Matsitu,Hamlet,W032,LGA04
+S02068,Nuraba-Yamma,Settlement,W032,LGA04
+S02060,Okshawa,Settlement,W032,LGA04
+S02052,Oktsiru,Village,W032,LGA04
+S02063,Oldeni,Village,W032,LGA04
+S02083,Olshadu,Village,W032,LGA04
+S02090,Oltimi,Hamlet,W032,LGA04
+S02059,Ritimi,Village,W032,LGA04
+S02098,Sangole,Village,W032,LGA04
+S02050,Suwale-Yamma,Hamlet,W032,LGA04
+S02051,Tashako,Village,W032,LGA04
+S02095,Umbena-Kofar,Village,W032,LGA04
+S02069,Umlaja,Urban block,W032,LGA04
+S02075,Uzzaru,Village,W032,LGA04
+S02061,Yebami,Village,W032,LGA04
+S02056,Yejija,Hamlet,W032,LGA04
+S02065,Zadedu,Village,W032,LGA04
+S02219,Adbaru-Gabas,Village,W035,LGA04
+S02266,Agdewa,Hamlet,W035,LGA04
+S02218,Agkoni,Village,W035,LGA04
+S02236,Agmata,Village,W035,LGA04
+S02259,Batiko-Kofar,Village,W035,LGA04
+S02274,Batsiri,Village,W035,LGA04
+S02239,Bilule,Village,W035,LGA04
+S02242,Binaba,Village,W035,LGA04
+S02272,Bishata,Hamlet,W035,LGA04
+S02269,Dasayi,Urban block,W035,LGA04
+S02220,Dawayi,Village,W035,LGA04
+S02229,Dotiru,Village,W035,LGA04
+S02251,Ekdeta,Settlement,W035,LGA04
+S02261,Ekmani,Village,W035,LGA04
+S02271,Ekwatu-Sabo,Hamlet,W035,LGA04
+S02235,Ekzako,Hamlet,W035,LGA04
+S02257,Enmaba,Hamlet,W035,LGA04
+S02247,Enmayi,Urban block,W035,LGA04
+S02248,Famaja-Kudu,Urban block,W035,LGA04
+S02241,Fariwo,Settlement,W035,LGA04
+S02234,Fashami,Urban block,W035,LGA04
+S02256,Gukotu,Hamlet,W035,LGA04
+S02226,Gurawo-Kofar,Hamlet,W035,LGA04
+S02265,Hanale,Village,W035,LGA04
+S02246,Ibngoru,Hamlet,W035,LGA04
+S02276,Ibsade,Village,W035,LGA04
+S02254,Irbale,Settlement,W035,LGA04
+S02237,Irlaba,Village,W035,LGA04
+S02231,Kaderi,Village,W035,LGA04
+S02240,Kalani,Village,W035,LGA04
+S02268,Kanako-Gabas,Hamlet,W035,LGA04
+S02277,Kubade,Hamlet,W035,LGA04
+S02263,Kukoko,Village,W035,LGA04
+S02275,Kumani,Village,W035,LGA04
+S02243,Kunadu,Village,W035,LGA04
+S02225,Loduni,Village,W035,LGA04
+S02245,Nuduma-Tsakiya,Village,W035,LGA04
+S02267,Nudushi,Hamlet,W035,LGA04
+S02260,Nunana,Village,W035,LGA04
+S02270,Nushade,Village,W035,LGA04
+S02273,Oljidu,Hamlet,W035,LGA04
+S02221,Olyotu,Hamlet,W035,LGA04
+S02264,Sulayi,Hamlet,W035,LGA04
+S02232,Suyoko-Tudun,Hamlet,W035,LGA04
+S02222,Suzatu,Hamlet,W035,LGA04
+S02258,Takoja-Arewa,Settlement,W035,LGA04
+S02227,Talafa,Village,W035,LGA04
+S02244,Tarimi,Village,W035,LGA04
+S02224,Tasata-Sabo,Village,W035,LGA04
+S02253,Umdesa,Hamlet,W035,LGA04
+S02255,Uzbasa,Village,W035,LGA04
+S02233,Uzjiko-Kudu,Hamlet,W035,LGA04
+S02252,Uzmaja-Kudu,Village,W035,LGA04
+S02230,Uznari,Village,W035,LGA04
+S02223,Uzshami,Village,W035,LGA04
+S02217,Washashi,Settlement,W035,LGA04
+S02250,Yerako-Sabo,Village,W035,LGA04
+S02262,Zalana,Village,W035,LGA04
+S02249,Zangota-Tudun,Village,W035,LGA04
+S02238,Zashatu,Village,W035,LGA04
+S02228,Zatsiri-Sabo,Village,W035,LGA04
+S02520,Addutu,Urban block,W040,LGA04
+S02523,Adkowa-Gabas,Village,W040,LGA04
+S02510,Adlude,Village,W040,LGA04
+S02473,Adride-Tudun,Hamlet,W040,LGA04
+S02517,Agduwa,Village,W040,LGA04
+S02488,Agzayi-Gabas,Village,W040,LGA04
+S02499,Babako,Village,W040,LGA04
+S02484,Bazako,Village,W040,LGA04
+S02498,Bidude-Kudu,Settlement,W040,LGA04
+S02496,Dadushi,Hamlet,W040,LGA04
+S02486,Dakofa-Yamma,Village,W040,LGA04
+S02481,Dakoko,Hamlet,W040,LGA04
+S02478,Darako,Village,W040,LGA04
+S02504,Dolade-Tudun,Hamlet,W040,LGA04
+S02494,Domale,Village,W040,LGA04
+S02489,Dotisa,Village,W040,LGA04
+S02483,Eklami-Gabas,Village,W040,LGA04
+S02513,Ekmako,Hamlet,W040,LGA04
+S02505,Ekngotu-Kudu,Village,W040,LGA04
+S02506,Ekrishi-Tudun,Settlement,W040,LGA04
+S02485,Enyode,Hamlet,W040,LGA04
+S02516,Fajimi,Settlement,W040,LGA04
+S02514,Gulutu,Settlement,W040,LGA04
+S02493,Guyosa,Village,W040,LGA04
+S02475,Haluko,Village,W040,LGA04
+S02518,Hanaja,Settlement,W040,LGA04
+S02503,Harashi,Settlement,W040,LGA04
+S02474,Ibbale,Village,W040,LGA04
+S02524,Ibjiba-Yamma,Village,W040,LGA04
+S02479,Irngodu,Settlement,W040,LGA04
+S02519,Kazami-Tsakiya,Settlement,W040,LGA04
+S02477,Lodefa-Tsakiya,Village,W040,LGA04
+S02522,Marami,Village,W040,LGA04
+S02500,Okduri-Tudun,Village,W040,LGA04
+S02487,Okkoba,Village,W040,LGA04
+S02476,Olrale,Village,W040,LGA04
+S02480,Rikodu,Village,W040,LGA04
+S02511,Riyoma,Village,W040,LGA04
+S02495,Sakodu,Village,W040,LGA04
+S02501,Sangota-Kofar,Hamlet,W040,LGA04
+S02509,Sarayi,Village,W040,LGA04
+S02502,Sasami,Village,W040,LGA04
+S02492,Sawaru,Village,W040,LGA04
+S02512,Suderi,Urban block,W040,LGA04
+S02490,Sujidu-Yamma,Settlement,W040,LGA04
+S02508,Sutishi,Hamlet,W040,LGA04
+S02521,Tamama,Settlement,W040,LGA04
+S02507,Uzjita,Village,W040,LGA04
+S02472,Uzmaja,Hamlet,W040,LGA04
+S02515,Uzrisa,Village,W040,LGA04
+S02497,Watsiko,Village,W040,LGA04
+S02491,Zadefa-Kudu,Village,W040,LGA04
+S02482,Zashata,Village,W040,LGA04
+S01663,Bishani,Hamlet,W024,LGA04
+S01638,Dadeta,Village,W024,LGA04
+S01660,Doduta,Village,W024,LGA04
+S01655,Enwawa-Sabo,Village,W024,LGA04
+S01649,Faduta,Village,W024,LGA04
+S01637,Fatsisa,Hamlet,W024,LGA04
+S01645,Fazale,Village,W024,LGA04
+S01669,Ibshana,Hamlet,W024,LGA04
+S01666,Irrayi,Hamlet,W024,LGA04
+S01639,Irtiwo,Village,W024,LGA04
+S01644,Irwaja,Hamlet,W024,LGA04
+S01670,Jiluna,Village,W024,LGA04
+S01640,Kabema,Village,W024,LGA04
+S01648,Kamaru,Village,W024,LGA04
+S01659,Kutsiba,Village,W024,LGA04
+S01667,Kuyoyi,Hamlet,W024,LGA04
+S01662,Longoba,Hamlet,W024,LGA04
+S01642,Lotsiwo,Hamlet,W024,LGA04
+S01654,Olmaba,Village,W024,LGA04
+S01658,Rinashi,Village,W024,LGA04
+S01657,Risashi,Village,W024,LGA04
+S01656,Satsishi-Kudu,Hamlet,W024,LGA04
+S01652,Sungota,Village,W024,LGA04
+S01650,Suwaru,Hamlet,W024,LGA04
+S01661,Taride,Village,W024,LGA04
+S01636,Tazasa,Village,W024,LGA04
+S01646,Umduta,Village,W024,LGA04
+S01647,Umluba,Settlement,W024,LGA04
+S01651,Umngona,Village,W024,LGA04
+S01641,Uzkodu-Sabo,Village,W024,LGA04
+S01668,Uzngomi,Village,W024,LGA04
+S01665,Uzyoba,Hamlet,W024,LGA04
+S01653,Warile,Village,W024,LGA04
+S01643,Yengori,Village,W024,LGA04
+S01664,Yetiri,Hamlet,W024,LGA04
+S02278,Adduri,Urban block,W036,LGA04
+S02303,Agbashi,Settlement,W036,LGA04
+S02307,Agtitu-Tudun,Village,W036,LGA04
+S02292,Banatu,Village,W036,LGA04
+S02282,Bibaba-Kudu,Village,W036,LGA04
+S02298,Biduma,Urban block,W036,LGA04
+S02297,Domako,Village,W036,LGA04
+S02306,Ekwasa,Village,W036,LGA04
+S02293,Ekwata,Hamlet,W036,LGA04
+S02283,Enbedu,Village,W036,LGA04
+S02299,Fadesa,Hamlet,W036,LGA04
+S02285,Hasatu,Settlement,W036,LGA04
+S02305,Ibsharu-Gabas,Hamlet,W036,LGA04
+S02294,Irjimi,Hamlet,W036,LGA04
+S02311,Kulaja,Village,W036,LGA04
+S02300,Kurile-Gabas,Settlement,W036,LGA04
+S02309,Kutima,Hamlet,W036,LGA04
+S02301,Lodewo,Village,W036,LGA04
+S02284,Malaba,Village,W036,LGA04
+S02290,Malusa-Arewa,Village,W036,LGA04
+S02302,Nuzako,Village,W036,LGA04
+S02279,Okdefa,Village,W036,LGA04
+S02281,Oktide,Village,W036,LGA04
+S02287,Olbede,Hamlet,W036,LGA04
+S02312,Olbewa,Hamlet,W036,LGA04
+S02280,Olyoru,Village,W036,LGA04
+S02291,Ringofa-Kofar,Village,W036,LGA04
+S02286,Riwako,Village,W036,LGA04
+S02310,Sarafa,Hamlet,W036,LGA04
+S02308,Sudena,Settlement,W036,LGA04
+S02296,Tamadu,Settlement,W036,LGA04
+S02295,Uzmata-Kofar,Hamlet,W036,LGA04
+S02289,Uzrifa,Settlement,W036,LGA04
+S02288,Wanawo,Hamlet,W036,LGA04
+S02304,Zashale-Yamma,Village,W036,LGA04
+S02467,Agriwo,Village,W039,LGA04
+S02455,Agsashi,Hamlet,W039,LGA04
+S02461,Agyoshi,Settlement,W039,LGA04
+S02446,Agzashi,Village,W039,LGA04
+S02440,Dakosa,Village,W039,LGA04
+S02464,Dosharu-Kofar,Village,W039,LGA04
+S02462,Dowadu-Kudu,Village,W039,LGA04
+S02441,Enjina,Village,W039,LGA04
+S02471,Enyole,Hamlet,W039,LGA04
+S02459,Enyota,Settlement,W039,LGA04
+S02425,Fajifa,Village,W039,LGA04
+S02431,Guduyi,Village,W039,LGA04
+S02469,Guwari,Hamlet,W039,LGA04
+S02443,Guzade,Village,W039,LGA04
+S02453,Hanana,Village,W039,LGA04
+S02436,Ibberi-Yamma,Village,W039,LGA04
+S02465,Kasafa,Settlement,W039,LGA04
+S02426,Kasayi,Village,W039,LGA04
+S02424,Katiyi,Village,W039,LGA04
+S02428,Kudumi-Kofar,Village,W039,LGA04
+S02434,Kuridu,Village,W039,LGA04
+S02452,Kushawa,Hamlet,W039,LGA04
+S02437,Lowale,Village,W039,LGA04
+S02454,Mashatu,Village,W039,LGA04
+S02432,Nujina,Village,W039,LGA04
+S02429,Nunani,Village,W039,LGA04
+S02458,Nuzayi,Village,W039,LGA04
+S02444,Okrani,Village,W039,LGA04
+S02470,Ringodu-Yamma,Village,W039,LGA04
+S02445,Risawa-Yamma,Village,W039,LGA04
+S02439,Sashadu,Hamlet,W039,LGA04
+S02430,Satiba,Hamlet,W039,LGA04
+S02427,Sazana,Hamlet,W039,LGA04
+S02447,Sazata,Village,W039,LGA04
+S02450,Sudule,Village,W039,LGA04
+S02466,Tadeko,Village,W039,LGA04
+S02457,Takoma,Village,W039,LGA04
+S02468,Umbetu-Sabo,Hamlet,W039,LGA04
+S02460,Umnadu,Village,W039,LGA04
+S02448,Umtsifa-Kofar,Village,W039,LGA04
+S02449,Uzsayi,Hamlet,W039,LGA04
+S02435,Uzwade,Settlement,W039,LGA04
+S02463,Waduni,Village,W039,LGA04
+S02451,Wajidu,Village,W039,LGA04
+S02433,Warifa-Sabo,Village,W039,LGA04
+S02438,Wasawo-Sabo,Village,W039,LGA04
+S02442,Watsitu,Village,W039,LGA04
+S02456,Wazawo,Hamlet,W039,LGA04
+S01687,Agriko,Village,W025,LGA04
+S01697,Birasa,Hamlet,W025,LGA04
+S01698,Bitsini,Village,W025,LGA04
+S01675,Dangowo-Gabas,Hamlet,W025,LGA04
+S01696,Dawawo,Hamlet,W025,LGA04
+S01683,Doduba,Urban block,W025,LGA04
+S01701,Dowami,Village,W025,LGA04
+S01690,Ekjidu,Village,W025,LGA04
+S01688,Enkowa-Kudu,Settlement,W025,LGA04
+S01679,Hawaru,Village,W025,LGA04
+S01686,Ibmayi,Settlement,W025,LGA04
+S01704,Ibzana,Settlement,W025,LGA04
+S01693,Irbewa-Yamma,Village,W025,LGA04
+S01692,Irngona,Village,W025,LGA04
+S01705,Iryoma,Hamlet,W025,LGA04
+S01677,Jibeyi-Arewa,Village,W025,LGA04
+S01680,Jishari,Village,W025,LGA04
+S01694,Kulana,Village,W025,LGA04
+S01674,Kulani,Village,W025,LGA04
+S01678,Longotu,Village,W025,LGA04
+S01685,Majima,Hamlet,W025,LGA04
+S01672,Oklafa,Village,W025,LGA04
+S01681,Ritsisa,Hamlet,W025,LGA04
+S01676,Riwadu,Hamlet,W025,LGA04
+S01699,Sajiba-Tudun,Village,W025,LGA04
+S01703,Sushayi,Village,W025,LGA04
+S01689,Suzama,Village,W025,LGA04
+S01695,Tatiri,Hamlet,W025,LGA04
+S01673,Uzlaja,Village,W025,LGA04
+S01684,Uzsani-Tudun,Hamlet,W025,LGA04
+S01691,Uzshatu,Village,W025,LGA04
+S01702,Wakomi,Settlement,W025,LGA04
+S01700,Wasayi-Kofar,Settlement,W025,LGA04
+S01682,Yedewo,Village,W025,LGA04
+S01671,Zakode,Hamlet,W025,LGA04
+S01706,Zamale,Village,W025,LGA04
+S01377,Adrishi,Village,W019,LGA04
+S01406,Adshako,Village,W019,LGA04
+S01413,Agyona,Hamlet,W019,LGA04
+S01417,Baride,Village,W019,LGA04
+S01405,Batishi,Village,W019,LGA04
+S01396,Bayowa-Kudu,Village,W019,LGA04
+S01374,Bazaru,Hamlet,W019,LGA04
+S01384,Bidudu,Urban block,W019,LGA04
+S01383,Bikotu,Urban block,W019,LGA04
+S01420,Biluru,Hamlet,W019,LGA04
+S01380,Dalade,Urban block,W019,LGA04
+S01400,Danayi,Hamlet,W019,LGA04
+S01378,Dazasa,Hamlet,W019,LGA04
+S01397,Doderu,Village,W019,LGA04
+S01389,Doradu,Hamlet,W019,LGA04
+S01422,Ekbaja,Village,W019,LGA04
+S01393,Eksawa,Hamlet,W019,LGA04
+S01386,Ektsija,Village,W019,LGA04
+S01381,Endeta,Hamlet,W019,LGA04
+S01414,Fatsina-Kofar,Settlement,W019,LGA04
+S01411,Gutini,Settlement,W019,LGA04
+S01372,Haduta,Hamlet,W019,LGA04
+S01385,Hajiru,Village,W019,LGA04
+S01390,Ibbewo,Village,W019,LGA04
+S01419,Ibjiwo,Hamlet,W019,LGA04
+S01416,Ibtifa-Sabo,Hamlet,W019,LGA04
+S01398,Irbetu-Tsakiya,Village,W019,LGA04
+S01382,Kazayi-Kudu,Village,W019,LGA04
+S01391,Kuyoja-Tudun,Settlement,W019,LGA04
+S01421,Lolari-Sabo,Village,W019,LGA04
+S01375,Lotifa-Sabo,Hamlet,W019,LGA04
+S01415,Nuluwa,Settlement,W019,LGA04
+S01403,Nunawa-Kofar,Village,W019,LGA04
+S01408,Nurimi-Tudun,Village,W019,LGA04
+S01373,Nuyoru,Hamlet,W019,LGA04
+S01423,Olbashi,Hamlet,W019,LGA04
+S01379,Oldena,Settlement,W019,LGA04
+S01409,Olshaba,Village,W019,LGA04
+S01412,Rinasa,Settlement,W019,LGA04
+S01387,Ritsima,Hamlet,W019,LGA04
+S01407,Sasadu,Settlement,W019,LGA04
+S01401,Suzani-Kudu,Hamlet,W019,LGA04
+S01402,Taluyi,Hamlet,W019,LGA04
+S01395,Tangodu-Gabas,Hamlet,W019,LGA04
+S01371,Umriko-Kofar,Village,W019,LGA04
+S01399,Umshashi,Hamlet,W019,LGA04
+S01392,Uzjima,Village,W019,LGA04
+S01394,Waduwo,Hamlet,W019,LGA04
+S01410,Watsina,Hamlet,W019,LGA04
+S01418,Wazaja,Settlement,W019,LGA04
+S01388,Yetsita,Hamlet,W019,LGA04
+S01376,Yewaba,Village,W019,LGA04
+S01404,Zamani,Hamlet,W019,LGA04
+S01837,Agngoko,Hamlet,W028,LGA04
+S01820,Agyoja,Hamlet,W028,LGA04
+S01799,Bajile,Urban block,W028,LGA04
+S01841,Barashi,Village,W028,LGA04
+S01819,Bibema,Village,W028,LGA04
+S01843,Biberi,Settlement,W028,LGA04
+S01800,Bijiwo,Village,W028,LGA04
+S01831,Bishashi,Village,W028,LGA04
+S01804,Bitsita-Kudu,Village,W028,LGA04
+S01826,Dotsiba-Kudu,Village,W028,LGA04
+S01823,Ekkoshi,Settlement,W028,LGA04
+S01795,Ennaba,Hamlet,W028,LGA04
+S01809,Enradu,Hamlet,W028,LGA04
+S01836,Famayi,Village,W028,LGA04
+S01821,Gukoshi,Settlement,W028,LGA04
+S01839,Gutsile,Village,W028,LGA04
+S01792,Guwawo,Village,W028,LGA04
+S01811,Hamani,Village,W028,LGA04
+S01796,Harini-Kudu,Village,W028,LGA04
+S01842,Ibdemi,Hamlet,W028,LGA04
+S01822,Ibduwo,Village,W028,LGA04
+S01812,Iryoja,Village,W028,LGA04
+S01827,Jimale,Settlement,W028,LGA04
+S01793,Jirafa,Village,W028,LGA04
+S01815,Jiwashi,Settlement,W028,LGA04
+S01824,Jizaba,Village,W028,LGA04
+S01834,Kajitu,Settlement,W028,LGA04
+S01833,Kasaru,Village,W028,LGA04
+S01818,Kashadu,Settlement,W028,LGA04
+S01816,Mariba,Hamlet,W028,LGA04
+S01835,Mayole,Settlement,W028,LGA04
+S01817,Nuduwo,Hamlet,W028,LGA04
+S01830,Nutifa-Tudun,Hamlet,W028,LGA04
+S01840,Okdudu,Settlement,W028,LGA04
+S01810,Okjishi,Hamlet,W028,LGA04
+S01806,Okmana,Hamlet,W028,LGA04
+S01808,Oljita,Hamlet,W028,LGA04
+S01829,Olsharu,Village,W028,LGA04
+S01805,Satsina,Village,W028,LGA04
+S01825,Sukodu-Kofar,Settlement,W028,LGA04
+S01802,Tajisa-Tsakiya,Hamlet,W028,LGA04
+S01807,Talayi,Settlement,W028,LGA04
+S01838,Umtsisa,Hamlet,W028,LGA04
+S01813,Umyoni,Village,W028,LGA04
+S01801,Uzkodu,Village,W028,LGA04
+S01828,Wabewo,Village,W028,LGA04
+S01832,Watina,Village,W028,LGA04
+S01794,Yetsiri,Village,W028,LGA04
+S01814,Yezashi,Hamlet,W028,LGA04
+S01797,Zabeja,Village,W028,LGA04
+S01803,Zasani-Yamma,Village,W028,LGA04
+S01798,Zazami,Village,W028,LGA04
+S01914,Admaja,Hamlet,W029,LGA04
+S01903,Adshayi,Settlement,W029,LGA04
+S01872,Agberi,Hamlet,W029,LGA04
+S01867,Agwaja,Hamlet,W029,LGA04
+S01863,Balaba,Hamlet,W029,LGA04
+S01879,Banawo,Settlement,W029,LGA04
+S01880,Batsidu,Village,W029,LGA04
+S01899,Batsina,Village,W029,LGA04
+S01886,Batsiwa,Village,W029,LGA04
+S01869,Bijija,Village,W029,LGA04
+S01923,Dabashi,Village,W029,LGA04
+S01868,Dadeshi,Urban block,W029,LGA04
+S01877,Dajifa,Hamlet,W029,LGA04
+S01847,Dajitu-Yamma,Village,W029,LGA04
+S01884,Dodude,Village,W029,LGA04
+S01918,Dongofa-Yamma,Settlement,W029,LGA04
+S01844,Dozasa,Village,W029,LGA04
+S01890,Ekdutu,Urban block,W029,LGA04
+S01898,Ekmama,Village,W029,LGA04
+S01895,Entsifa,Village,W029,LGA04
+S01922,Enwani-Arewa,Hamlet,W029,LGA04
+S01901,Fabawa,Hamlet,W029,LGA04
+S01897,Fadusa,Hamlet,W029,LGA04
+S01861,Famata,Hamlet,W029,LGA04
+S01904,Fayoma,Urban block,W029,LGA04
+S01887,Gubata,Hamlet,W029,LGA04
+S01892,Gubewo,Village,W029,LGA04
+S01860,Haduwa,Village,W029,LGA04
+S01917,Haraja-Kudu,Village,W029,LGA04
+S01911,Harimi,Village,W029,LGA04
+S01852,Hawani,Village,W029,LGA04
+S01864,Ibbana,Village,W029,LGA04
+S01913,Irnari-Kudu,Village,W029,LGA04
+S01871,Irriko,Hamlet,W029,LGA04
+S01866,Jideyi,Village,W029,LGA04
+S01894,Jikode,Village,W029,LGA04
+S01882,Jikowa,Settlement,W029,LGA04
+S01907,Jingota,Village,W029,LGA04
+S01900,Kabade,Hamlet,W029,LGA04
+S01885,Kaduna,Village,W029,LGA04
+S01919,Kasale,Village,W029,LGA04
+S01862,Kayoma-Gabas,Village,W029,LGA04
+S01875,Kazaba,Village,W029,LGA04
+S01850,Kazari,Village,W029,LGA04
+S01865,Kumale,Hamlet,W029,LGA04
+S01883,Kutiba-Kudu,Settlement,W029,LGA04
+S01878,Loduwo-Kofar,Settlement,W029,LGA04
+S01902,Losaja-Yamma,Settlement,W029,LGA04
+S01891,Loshashi,Village,W029,LGA04
+S01921,Mabawa,Settlement,W029,LGA04
+S01876,Malaru,Hamlet,W029,LGA04
+S01859,Matsifa,Village,W029,LGA04
+S01915,Nuberu,Village,W029,LGA04
+S01909,Nuduri,Village,W029,LGA04
+S01855,Nukoma,Settlement,W029,LGA04
+S01905,Okbeta,Village,W029,LGA04
+S01873,Okluma-Tudun,Village,W029,LGA04
+S01845,Okshasa,Settlement,W029,LGA04
+S01856,Olduni,Urban block,W029,LGA04
+S01888,Ollule-Gabas,Hamlet,W029,LGA04
+S01910,Rilama,Urban block,W029,LGA04
+S01849,Ritide,Hamlet,W029,LGA04
+S01906,Sabeja,Village,W029,LGA04
+S01851,Saduwo-Tsakiya,Settlement,W029,LGA04
+S01846,Sawadu,Hamlet,W029,LGA04
+S01881,Sulale,Village,W029,LGA04
+S01912,Tasami,Settlement,W029,LGA04
+S01893,Tasashi,Hamlet,W029,LGA04
+S01924,Umngode,Settlement,W029,LGA04
+S01858,Umrima-Tsakiya,Hamlet,W029,LGA04
+S01916,Umsani-Kofar,Village,W029,LGA04
+S01870,Uzduta,Village,W029,LGA04
+S01896,Uzmata,Village,W029,LGA04
+S01854,Wabama,Hamlet,W029,LGA04
+S01920,Wanawa,Settlement,W029,LGA04
+S01848,Wariyi,Village,W029,LGA04
+S01889,Watsima-Tudun,Hamlet,W029,LGA04
+S01874,Wawayi-Kofar,Village,W029,LGA04
+S01908,Yeluru,Village,W029,LGA04
+S01853,Yeraba,Village,W029,LGA04
+S01857,Zawana,Hamlet,W029,LGA04
+S01935,Adberu,Village,W030,LGA04
+S01928,Addude,Settlement,W030,LGA04
+S01964,Bashasa-Sabo,Hamlet,W030,LGA04
+S01950,Biduja,Village,W030,LGA04
+S01941,Biluja,Hamlet,W030,LGA04
+S01939,Bizadu,Hamlet,W030,LGA04
+S01958,Doberi,Hamlet,W030,LGA04
+S01981,Dolako,Village,W030,LGA04
+S01930,Eklutu,Hamlet,W030,LGA04
+S01971,Fabani,Village,W030,LGA04
+S01963,Fadena,Village,W030,LGA04
+S01925,Fakotu,Settlement,W030,LGA04
+S01952,Fangowo,Hamlet,W030,LGA04
+S01954,Gukodu,Settlement,W030,LGA04
+S01961,Hajita,Village,W030,LGA04
+S01946,Halumi,Settlement,W030,LGA04
+S01945,Haritu,Hamlet,W030,LGA04
+S01986,Hayoshi,Village,W030,LGA04
+S01933,Ibngofa-Gabas,Settlement,W030,LGA04
+S01969,Ibsaba,Hamlet,W030,LGA04
+S01962,Ibtija,Hamlet,W030,LGA04
+S01955,Ibyode,Village,W030,LGA04
+S01947,Irdemi,Village,W030,LGA04
+S01979,Irluna,Village,W030,LGA04
+S01938,Jinadu,Village,W030,LGA04
+S01957,Jingosa,Urban block,W030,LGA04
+S01975,Jirana,Hamlet,W030,LGA04
+S01974,Kaluba,Urban block,W030,LGA04
+S01934,Karata,Settlement,W030,LGA04
+S01983,Kudeko,Village,W030,LGA04
+S01977,Kushama,Hamlet,W030,LGA04
+S01948,Lokoma,Village,W030,LGA04
+S01976,Nubedu,Hamlet,W030,LGA04
+S01968,Nukona,Hamlet,W030,LGA04
+S01985,Nulule,Urban block,W030,LGA04
+S01978,Nuzari,Settlement,W030,LGA04
+S01989,Ollawa,Urban block,W030,LGA04
+S01956,Oltsiwa,Settlement,W030,LGA04
+S01927,Ringoru,Village,W030,LGA04
+S01959,Riyodu,Settlement,W030,LGA04
+S01929,Riyoyi,Settlement,W030,LGA04
+S01932,Salawo,Hamlet,W030,LGA04
+S01944,Satsiyi-Gabas,Hamlet,W030,LGA04
+S01987,Sawayi,Hamlet,W030,LGA04
+S01972,Subewo,Hamlet,W030,LGA04
+S01943,Suriri,Village,W030,LGA04
+S01960,Taladu,Village,W030,LGA04
+S01988,Tamawa,Village,W030,LGA04
+S01926,Umbafa,Village,W030,LGA04
+S01973,Umdedu,Village,W030,LGA04
+S01965,Umjiru,Hamlet,W030,LGA04
+S01966,Umluri-Sabo,Village,W030,LGA04
+S01940,Ummatu,Village,W030,LGA04
+S01984,Umrade,Hamlet,W030,LGA04
+S01931,Umrifa,Village,W030,LGA04
+S01980,Umwade,Village,W030,LGA04
+S01949,Uzdude,Village,W030,LGA04
+S01936,Uzzashi,Village,W030,LGA04
+S01953,Walumi,Village,W030,LGA04
+S01982,Wamawa,Settlement,W030,LGA04
+S01967,Watside,Village,W030,LGA04
+S01937,Yelafa,Hamlet,W030,LGA04
+S01970,Yengoru,Village,W030,LGA04
+S01951,Yewatu,Settlement,W030,LGA04
+S01942,Zangori-Sabo,Settlement,W030,LGA04
+S01320,Adberi,Village,W017,LGA03
+S01285,Adduna,Settlement,W017,LGA03
+S01321,Agkoja,Village,W017,LGA03
+S01278,Agrimi,Settlement,W017,LGA03
+S01299,Doshasa,Village,W017,LGA03
+S01287,Dotsile,Hamlet,W017,LGA03
+S01290,Fariwo-Gabas,Hamlet,W017,LGA03
+S01281,Gudeba,Hamlet,W017,LGA03
+S01294,Habayi,Village,W017,LGA03
+S01283,Habeba-Tudun,Village,W017,LGA03
+S01282,Hanatu,Hamlet,W017,LGA03
+S01310,Hasani-Kofar,Hamlet,W017,LGA03
+S01306,Hatsima-Tudun,Hamlet,W017,LGA03
+S01292,Irduma-Gabas,Hamlet,W017,LGA03
+S01318,Irmami,Hamlet,W017,LGA03
+S01319,Kajiba,Village,W017,LGA03
+S01313,Kangode,Village,W017,LGA03
+S01303,Kutiko,Hamlet,W017,LGA03
+S01302,Lojiwa,Village,W017,LGA03
+S01300,Lokofa-Yamma,Hamlet,W017,LGA03
+S01307,Lotina-Tudun,Village,W017,LGA03
+S01288,Lotiru-Tsakiya,Village,W017,LGA03
+S01295,Maberu,Hamlet,W017,LGA03
+S01311,Makoni,Village,W017,LGA03
+S01304,Mamasa,Village,W017,LGA03
+S01308,Olsani,Village,W017,LGA03
+S01312,Sakoja-Arewa,Village,W017,LGA03
+S01286,Saluba,Village,W017,LGA03
+S01316,Saluna,Village,W017,LGA03
+S01296,Sariwa,Village,W017,LGA03
+S01289,Umdudu-Sabo,Hamlet,W017,LGA03
+S01291,Umjima-Arewa,Settlement,W017,LGA03
+S01317,Umrafa,Village,W017,LGA03
+S01315,Uzrama-Arewa,Village,W017,LGA03
+S01280,Uztide,Village,W017,LGA03
+S01297,Uztsisa-Kudu,Village,W017,LGA03
+S01301,Walade,Village,W017,LGA03
+S01305,Wangori,Hamlet,W017,LGA03
+S01298,Wasadu,Village,W017,LGA03
+S01279,Yebeba-Tudun,Hamlet,W017,LGA03
+S01314,Yedeyi,Village,W017,LGA03
+S01284,Yeyotu,Hamlet,W017,LGA03
+S01309,Zakona,Settlement,W017,LGA03
+S01293,Zawama,Village,W017,LGA03
+S01781,Agmana,Village,W027,LGA03
+S01783,Badeko,Village,W027,LGA03
+S01755,Bakodu,Settlement,W027,LGA03
+S01785,Baluko,Village,W027,LGA03
+S01756,Bangoni,Settlement,W027,LGA03
+S01774,Damafa,Village,W027,LGA03
+S01784,Dongoyi,Hamlet,W027,LGA03
+S01787,Ekkota-Sabo,Hamlet,W027,LGA03
+S01767,Eklafa,Village,W027,LGA03
+S01782,Ensadu,Village,W027,LGA03
+S01773,Haluni,Village,W027,LGA03
+S01786,Harana,Village,W027,LGA03
+S01761,Hariko-Yamma,Village,W027,LGA03
+S01757,Ibsaru,Village,W027,LGA03
+S01778,Ibwama,Hamlet,W027,LGA03
+S01764,Irdushi-Kudu,Village,W027,LGA03
+S01790,Irkona,Hamlet,W027,LGA03
+S01769,Irshaja-Sabo,Urban block,W027,LGA03
+S01788,Irtitu,Settlement,W027,LGA03
+S01776,Kabaja,Hamlet,W027,LGA03
+S01772,Lodeyi,Village,W027,LGA03
+S01765,Okshawo,Village,W027,LGA03
+S01770,Oldedu,Hamlet,W027,LGA03
+S01766,Olngori,Village,W027,LGA03
+S01779,Oltidu,Village,W027,LGA03
+S01758,Ridudu,Hamlet,W027,LGA03
+S01760,Rilana-Kudu,Hamlet,W027,LGA03
+S01768,Rinana,Village,W027,LGA03
+S01780,Sakowo,Village,W027,LGA03
+S01789,Sunari-Tsakiya,Hamlet,W027,LGA03
+S01763,Tangodu,Village,W027,LGA03
+S01762,Umyota,Hamlet,W027,LGA03
+S01759,Uzluru,Hamlet,W027,LGA03
+S01791,Wakoma-Yamma,Village,W027,LGA03
+S01771,Yengodu,Village,W027,LGA03
+S01775,Yeyori-Arewa,Hamlet,W027,LGA03
+S01777,Zashaba,Hamlet,W027,LGA03
+S02184,Adngota,Settlement,W034,LGA03
+S02199,Adshale,Settlement,W034,LGA03
+S02203,Adzawa,Village,W034,LGA03
+S02188,Agshama,Hamlet,W034,LGA03
+S02191,Agyosa-Yamma,Hamlet,W034,LGA03
+S02196,Baberi-Kudu,Village,W034,LGA03
+S02170,Biradu,Hamlet,W034,LGA03
+S02176,Bitsina,Hamlet,W034,LGA03
+S02195,Biyode,Hamlet,W034,LGA03
+S02204,Ekjiba,Settlement,W034,LGA03
+S02205,Ekluwo,Village,W034,LGA03
+S02177,Ekraru,Village,W034,LGA03
+S02212,Ekrile,Settlement,W034,LGA03
+S02178,Ekzaru,Village,W034,LGA03
+S02198,Enbani,Village,W034,LGA03
+S02216,Enshade,Village,W034,LGA03
+S02206,Enshadu,Village,W034,LGA03
+S02208,Enwafa-Gabas,Hamlet,W034,LGA03
+S02189,Famaba,Hamlet,W034,LGA03
+S02187,Gujimi,Village,W034,LGA03
+S02192,Gunari,Settlement,W034,LGA03
+S02174,Guzana,Village,W034,LGA03
+S02202,Hajiko,Village,W034,LGA03
+S02166,Halayi,Hamlet,W034,LGA03
+S02179,Hatiwo,Hamlet,W034,LGA03
+S02169,Ibrifa,Hamlet,W034,LGA03
+S02175,Irdutu-Kofar,Settlement,W034,LGA03
+S02183,Irmawo-Kofar,Settlement,W034,LGA03
+S02215,Jibeja-Sabo,Settlement,W034,LGA03
+S02207,Kuberi,Hamlet,W034,LGA03
+S02167,Lolaba,Village,W034,LGA03
+S02210,Loratu-Arewa,Village,W034,LGA03
+S02209,Losashi,Settlement,W034,LGA03
+S02193,Nujishi,Hamlet,W034,LGA03
+S02211,Okngodu,Hamlet,W034,LGA03
+S02197,Olderu,Hamlet,W034,LGA03
+S02168,Olnaba,Settlement,W034,LGA03
+S02182,Oltishi,Village,W034,LGA03
+S02181,Sabayi,Village,W034,LGA03
+S02180,Sadeko-Gabas,Hamlet,W034,LGA03
+S02172,Sukotu,Village,W034,LGA03
+S02171,Umngota-Kudu,Village,W034,LGA03
+S02200,Umshayi,Village,W034,LGA03
+S02164,Umtsiko-Tudun,Hamlet,W034,LGA03
+S02190,Uztiko,Hamlet,W034,LGA03
+S02165,Uztiwa,Hamlet,W034,LGA03
+S02214,Uzyotu,Village,W034,LGA03
+S02201,Wabayi,Hamlet,W034,LGA03
+S02185,Watsima,Hamlet,W034,LGA03
+S02186,Wazana-Tudun,Village,W034,LGA03
+S02194,Yekoma,Village,W034,LGA03
+S02173,Yekosa,Village,W034,LGA03
+S02213,Zangowo,Village,W034,LGA03
+S01732,Addudu-Kudu,Village,W026,LGA03
+S01736,Adduwo,Settlement,W026,LGA03
+S01737,Adkowa,Village,W026,LGA03
+S01717,Adrari,Hamlet,W026,LGA03
+S01713,Adtsima,Village,W026,LGA03
+S01730,Adzaba,Village,W026,LGA03
+S01728,Agdesa,Hamlet,W026,LGA03
+S01724,Baberu-Tsakiya,Hamlet,W026,LGA03
+S01709,Balayi,Village,W026,LGA03
+S01741,Bamani,Village,W026,LGA03
+S01743,Bamawo,Hamlet,W026,LGA03
+S01748,Bangofa,Village,W026,LGA03
+S01711,Bibewa,Settlement,W026,LGA03
+S01735,Bikowo,Village,W026,LGA03
+S01745,Donama,Hamlet,W026,LGA03
+S01751,Enngoba,Village,W026,LGA03
+S01727,Fajiru,Village,W026,LGA03
+S01747,Guwami,Hamlet,W026,LGA03
+S01744,Guyoshi,Village,W026,LGA03
+S01723,Ibjidu,Settlement,W026,LGA03
+S01714,Ibraja,Hamlet,W026,LGA03
+S01708,Irnani,Village,W026,LGA03
+S01738,Irrani,Village,W026,LGA03
+S01707,Jibasa,Hamlet,W026,LGA03
+S01754,Jikoshi,Settlement,W026,LGA03
+S01729,Jiriwa,Village,W026,LGA03
+S01715,Jitsiri,Urban block,W026,LGA03
+S01753,Kabewa,Village,W026,LGA03
+S01750,Kalari,Hamlet,W026,LGA03
+S01731,Kurama,Village,W026,LGA03
+S01721,Longota,Village,W026,LGA03
+S01726,Manama,Village,W026,LGA03
+S01733,Olzadu-Kofar,Village,W026,LGA03
+S01739,Olzawa,Settlement,W026,LGA03
+S01725,Risale,Hamlet,W026,LGA03
+S01718,Saberi,Village,W026,LGA03
+S01749,Sajiri,Hamlet,W026,LGA03
+S01746,Suriwo,Hamlet,W026,LGA03
+S01742,Sutisa,Village,W026,LGA03
+S01710,Tasawo,Village,W026,LGA03
+S01720,Tawatu,Settlement,W026,LGA03
+S01740,Uzkori,Hamlet,W026,LGA03
+S01719,Uzwafa,Hamlet,W026,LGA03
+S01716,Wadeyi,Village,W026,LGA03
+S01712,Wajile,Village,W026,LGA03
+S01722,Wawana,Hamlet,W026,LGA03
+S01734,Yemafa,Village,W026,LGA03
+S01752,Yengoko,Hamlet,W026,LGA03
+S02359,Adshade-Sabo,Village,W037,LGA03
+S02337,Adzawo,Village,W037,LGA03
+S02336,Agnade,Village,W037,LGA03
+S02324,Agtsimi-Kudu,Village,W037,LGA03
+S02356,Birawo,Village,W037,LGA03
+S02329,Bishasa,Village,W037,LGA03
+S02327,Bizade-Kofar,Village,W037,LGA03
+S02361,Bizaru,Hamlet,W037,LGA03
+S02350,Dazari,Settlement,W037,LGA03
+S02353,Dozari-Sabo,Urban block,W037,LGA03
+S02345,Ekraba,Settlement,W037,LGA03
+S02318,Ekzaba,Hamlet,W037,LGA03
+S02326,Faraja,Hamlet,W037,LGA03
+S02319,Gutiri,Village,W037,LGA03
+S02323,Gutsifa,Village,W037,LGA03
+S02354,Hakoyi,Village,W037,LGA03
+S02358,Hangoru,Hamlet,W037,LGA03
+S02344,Hatifa,Settlement,W037,LGA03
+S02330,Ibderu,Village,W037,LGA03
+S02333,Irzata,Village,W037,LGA03
+S02338,Jijiba,Village,W037,LGA03
+S02316,Jishawa,Village,W037,LGA03
+S02360,Kademi,Settlement,W037,LGA03
+S02325,Kadule,Village,W037,LGA03
+S02351,Kakowa,Hamlet,W037,LGA03
+S02355,Kamaba-Arewa,Village,W037,LGA03
+S02320,Kutina,Village,W037,LGA03
+S02332,Kuyowo-Yamma,Village,W037,LGA03
+S02328,Lodeja-Tsakiya,Village,W037,LGA03
+S02340,Lotsishi,Village,W037,LGA03
+S02346,Matidu,Hamlet,W037,LGA03
+S02315,Nulama-Kofar,Village,W037,LGA03
+S02349,Nunani-Kudu,Hamlet,W037,LGA03
+S02362,Nushadu,Village,W037,LGA03
+S02314,Nutsifa-Gabas,Hamlet,W037,LGA03
+S02334,Oktsiba,Village,W037,LGA03
+S02342,Oktsimi-Gabas,Hamlet,W037,LGA03
+S02343,Olbako,Hamlet,W037,LGA03
+S02313,Olluru,Village,W037,LGA03
+S02348,Sabafa,Hamlet,W037,LGA03
+S02317,Sasade-Tsakiya,Village,W037,LGA03
+S02335,Suridu,Settlement,W037,LGA03
+S02322,Umbede,Village,W037,LGA03
+S02321,Umduja-Kofar,Village,W037,LGA03
+S02339,Umluyi,Hamlet,W037,LGA03
+S02357,Wajiwo,Village,W037,LGA03
+S02352,Wangoshi,Hamlet,W037,LGA03
+S02331,Warako-Yamma,Village,W037,LGA03
+S02347,Washari,Village,W037,LGA03
+S02341,Yerana,Hamlet,W037,LGA03
+S02396,Adluta,Village,W038,LGA03
+S02382,Adrisa,Hamlet,W038,LGA03
+S02383,Agduyi,Village,W038,LGA03
+S02403,Agjima-Kudu,Hamlet,W038,LGA03
+S02365,Barifa,Hamlet,W038,LGA03
+S02377,Bisawa,Village,W038,LGA03
+S02370,Bizari,Village,W038,LGA03
+S02397,Dalani-Gabas,Settlement,W038,LGA03
+S02385,Dashatu,Village,W038,LGA03
+S02394,Domama,Settlement,W038,LGA03
+S02418,Ektiyi,Hamlet,W038,LGA03
+S02371,Enduyi,Village,W038,LGA03
+S02412,Fanale,Village,W038,LGA03
+S02375,Farayi,Settlement,W038,LGA03
+S02404,Fawashi,Village,W038,LGA03
+S02378,Habeshi,Village,W038,LGA03
+S02400,Haduri,Village,W038,LGA03
+S02380,Hangowo,Village,W038,LGA03
+S02398,Hazawa,Hamlet,W038,LGA03
+S02422,Ibjifa,Urban block,W038,LGA03
+S02363,Ibmafa,Village,W038,LGA03
+S02399,Ibshata-Kudu,Settlement,W038,LGA03
+S02374,Irriwo,Village,W038,LGA03
+S02413,Jidede,Village,W038,LGA03
+S02415,Jikoja-Tudun,Hamlet,W038,LGA03
+S02388,Jitsija,Hamlet,W038,LGA03
+S02406,Kabako-Sabo,Settlement,W038,LGA03
+S02410,Makofa,Village,W038,LGA03
+S02402,Mangodu,Settlement,W038,LGA03
+S02369,Mayona,Settlement,W038,LGA03
+S02419,Mazako,Village,W038,LGA03
+S02414,Nuberu-Yamma,Urban block,W038,LGA03
+S02390,Nulatu,Village,W038,LGA03
+S02408,Nurishi,Village,W038,LGA03
+S02420,Oldetu,Village,W038,LGA03
+S02392,Olsadu,Village,W038,LGA03
+S02409,Rirawo,Urban block,W038,LGA03
+S02417,Ritsiru,Village,W038,LGA03
+S02411,Riyoja,Village,W038,LGA03
+S02405,Sanawo,Village,W038,LGA03
+S02421,Sawatu,Settlement,W038,LGA03
+S02379,Sushatu-Arewa,Hamlet,W038,LGA03
+S02376,Sutile,Village,W038,LGA03
+S02395,Tabata,Village,W038,LGA03
+S02372,Umjide,Village,W038,LGA03
+S02393,Umrawo,Hamlet,W038,LGA03
+S02384,Uzbatu,Village,W038,LGA03
+S02391,Uzbeja,Village,W038,LGA03
+S02401,Uzkoshi,Village,W038,LGA03
+S02367,Uzyode,Urban block,W038,LGA03
+S02387,Wamani-Yamma,Hamlet,W038,LGA03
+S02381,Wangowa,Settlement,W038,LGA03
+S02389,Watide,Settlement,W038,LGA03
+S02416,Yedeja,Village,W038,LGA03
+S02366,Yesari,Village,W038,LGA03
+S02423,Yezawa,Settlement,W038,LGA03
+S02368,Zabadu,Hamlet,W038,LGA03
+S02373,Zabashi,Urban block,W038,LGA03
+S02407,Zajishi,Hamlet,W038,LGA03
+S02386,Zakoma,Village,W038,LGA03
+S02364,Zaluna-Arewa,Urban block,W038,LGA03
+S02011,Adluba-Tsakiya,Hamlet,W031,LGA03
+S01993,Adsharu,Urban block,W031,LGA03
+S02012,Adyodu,Hamlet,W031,LGA03
+S01994,Agbaba,Hamlet,W031,LGA03
+S02032,Babena,Hamlet,W031,LGA03
+S02001,Batsitu-Kudu,Village,W031,LGA03
+S02040,Bawawo-Kofar,Village,W031,LGA03
+S02034,Bishari,Hamlet,W031,LGA03
+S02005,Bitsiba,Hamlet,W031,LGA03
+S01996,Dararu,Village,W031,LGA03
+S02019,Dobawo,Village,W031,LGA03
+S02021,Dongodu,Settlement,W031,LGA03
+S02022,Dorisa,Hamlet,W031,LGA03
+S02020,Ekdewa,Village,W031,LGA03
+S02031,Ekjishi-Sabo,Village,W031,LGA03
+S02007,Ekngoshi,Village,W031,LGA03
+S02003,Ekradu,Village,W031,LGA03
+S02044,Enkota-Kudu,Urban block,W031,LGA03
+S02008,Enlari,Village,W031,LGA03
+S02028,Ennami-Sabo,Hamlet,W031,LGA03
+S02016,Faladu-Yamma,Village,W031,LGA03
+S02004,Gukoyi,Hamlet,W031,LGA03
+S02046,Gurami,Village,W031,LGA03
+S01998,Hadele,Hamlet,W031,LGA03
+S02002,Hasaru-Kudu,Settlement,W031,LGA03
+S01992,Ibriwo,Village,W031,LGA03
+S01999,Irbari,Settlement,W031,LGA03
+S02024,Irtiru,Village,W031,LGA03
+S02018,Kabashi,Settlement,W031,LGA03
+S01990,Kalawa,Village,W031,LGA03
+S02045,Kubaja,Settlement,W031,LGA03
+S02013,Kulako-Yamma,Village,W031,LGA03
+S02042,Lonata-Kudu,Village,W031,LGA03
+S02014,Mangona-Gabas,Village,W031,LGA03
+S02025,Masayi,Village,W031,LGA03
+S02010,Nuluri,Village,W031,LGA03
+S02047,Nurashi,Village,W031,LGA03
+S02036,Nurija,Village,W031,LGA03
+S02015,Oksale,Village,W031,LGA03
+S02035,Oldeshi,Settlement,W031,LGA03
+S02038,Ribesa,Settlement,W031,LGA03
+S02029,Rikosa,Hamlet,W031,LGA03
+S02048,Sariri,Village,W031,LGA03
+S02017,Sujide,Village,W031,LGA03
+S02043,Sujide-Gabas,Urban block,W031,LGA03
+S02041,Sumama,Hamlet,W031,LGA03
+S02033,Tashata,Village,W031,LGA03
+S02023,Umnayi-Kofar,Village,W031,LGA03
+S01995,Uzraba,Village,W031,LGA03
+S02030,Uzwawo,Village,W031,LGA03
+S02000,Wangoyi,Hamlet,W031,LGA03
+S02026,Wazata,Hamlet,W031,LGA03
+S02009,Yeladu,Hamlet,W031,LGA03
+S02037,Yemata,Urban block,W031,LGA03
+S02039,Yengoni,Village,W031,LGA03
+S01997,Zademi,Hamlet,W031,LGA03
+S02006,Zamaja,Settlement,W031,LGA03
+S02027,Zarisa,Hamlet,W031,LGA03
+S01991,Zayole-Kofar,Hamlet,W031,LGA03
+S01576,Adkona,Settlement,W022,LGA03
+S01565,Adlutu,Village,W022,LGA03
+S01557,Bashani,Hamlet,W022,LGA03
+S01559,Bibaru,Village,W022,LGA03
+S01582,Bikoru,Village,W022,LGA03
+S01585,Dazama-Tsakiya,Village,W022,LGA03
+S01577,Dobaru,Village,W022,LGA03
+S01570,Ekrishi,Village,W022,LGA03
+S01571,Enraja,Hamlet,W022,LGA03
+S01573,Habami,Hamlet,W022,LGA03
+S01555,Haradu,Village,W022,LGA03
+S01587,Ibnasa,Settlement,W022,LGA03
+S01581,Irlani-Gabas,Village,W022,LGA03
+S01556,Jikoru,Village,W022,LGA03
+S01567,Jitiko-Kofar,Settlement,W022,LGA03
+S01566,Karimi-Kudu,Village,W022,LGA03
+S01563,Kuluna,Village,W022,LGA03
+S01572,Kungona,Village,W022,LGA03
+S01579,Kuzade-Sabo,Village,W022,LGA03
+S01578,Lomaba,Village,W022,LGA03
+S01564,Okngotu,Village,W022,LGA03
+S01568,Oktishi,Village,W022,LGA03
+S01562,Okyoshi,Hamlet,W022,LGA03
+S01580,Ringoni,Village,W022,LGA03
+S01584,Rizana,Settlement,W022,LGA03
+S01569,Saluwo,Hamlet,W022,LGA03
+S01560,Sujiyi-Yamma,Village,W022,LGA03
+S01583,Suwaja,Hamlet,W022,LGA03
+S01575,Tatsiri,Hamlet,W022,LGA03
+S01574,Tawasa,Urban block,W022,LGA03
+S01558,Umshari,Hamlet,W022,LGA03
+S01588,Umtsidu,Village,W022,LGA03
+S01561,Uzjide,Settlement,W022,LGA03
+S01589,Wabami,Hamlet,W022,LGA03
+S01586,Walashi-Kudu,Village,W022,LGA03
+S01621,Adbeyi,Hamlet,W023,LGA03
+S01602,Adluna,Settlement,W023,LGA03
+S01611,Aglushi,Hamlet,W023,LGA03
+S01594,Agsatu,Village,W023,LGA03
+S01593,Agshaja,Village,W023,LGA03
+S01597,Agshashi,Settlement,W023,LGA03
+S01605,Dabale-Arewa,Hamlet,W023,LGA03
+S01600,Dashami,Hamlet,W023,LGA03
+S01626,Dosani,Settlement,W023,LGA03
+S01601,Dotima-Kofar,Village,W023,LGA03
+S01606,Ekrimi,Urban block,W023,LGA03
+S01618,Fadeni,Village,W023,LGA03
+S01607,Fanatu,Village,W023,LGA03
+S01591,Fangona,Village,W023,LGA03
+S01609,Fatsima,Village,W023,LGA03
+S01622,Gubasa,Village,W023,LGA03
+S01619,Guriwa,Village,W023,LGA03
+S01635,Halana,Urban block,W023,LGA03
+S01633,Hangona,Hamlet,W023,LGA03
+S01592,Ibdeko,Hamlet,W023,LGA03
+S01620,Ibnami,Village,W023,LGA03
+S01624,Irnako,Village,W023,LGA03
+S01614,Jilani-Gabas,Hamlet,W023,LGA03
+S01603,Karawo,Hamlet,W023,LGA03
+S01634,Kujiyi,Village,W023,LGA03
+S01628,Kurasa,Village,W023,LGA03
+S01629,Lorina,Village,W023,LGA03
+S01604,Lozatu-Tudun,Settlement,W023,LGA03
+S01610,Marari,Village,W023,LGA03
+S01625,Marari-Kofar,Village,W023,LGA03
+S01613,Marashi,Village,W023,LGA03
+S01608,Matita,Hamlet,W023,LGA03
+S01598,Mazani-Gabas,Urban block,W023,LGA03
+S01632,Numatu,Village,W023,LGA03
+S01612,Nungoma,Village,W023,LGA03
+S01631,Nuritu,Settlement,W023,LGA03
+S01623,Risatu,Hamlet,W023,LGA03
+S01617,Tajifa,Hamlet,W023,LGA03
+S01615,Tazawa,Village,W023,LGA03
+S01596,Umladu,Village,W023,LGA03
+S01599,Umnasa,Village,W023,LGA03
+S01630,Uzdudu,Village,W023,LGA03
+S01616,Uznaba,Hamlet,W023,LGA03
+S01595,Wariru,Village,W023,LGA03
+S01627,Yeshako-Arewa,Settlement,W023,LGA03
+S01590,Yetsile-Sabo,Settlement,W023,LGA03
+S02113,Adkoba,Village,W033,LGA03
+S02147,Adluja,Village,W033,LGA03
+S02116,Adshami,Hamlet,W033,LGA03
+S02151,Adshata,Village,W033,LGA03
+S02127,Adtini,Village,W033,LGA03
+S02142,Balawo-Kofar,Hamlet,W033,LGA03
+S02159,Baluri,Village,W033,LGA03
+S02130,Batiru,Hamlet,W033,LGA03
+S02106,Dabewa-Yamma,Village,W033,LGA03
+S02162,Dayoni,Hamlet,W033,LGA03
+S02119,Dodeta,Village,W033,LGA03
+S02114,Dorasa,Village,W033,LGA03
+S02121,Ekbashi,Urban block,W033,LGA03
+S02137,Ekluma,Village,W033,LGA03
+S02124,Ekrama,Village,W033,LGA03
+S02132,Ektsina,Village,W033,LGA03
+S02136,Enrashi-Kudu,Hamlet,W033,LGA03
+S02145,Enshaja,Village,W033,LGA03
+S02157,Falako,Hamlet,W033,LGA03
+S02156,Faluwa-Sabo,Village,W033,LGA03
+S02110,Fangodu,Village,W033,LGA03
+S02146,Gutimi,Settlement,W033,LGA03
+S02115,Haberi-Yamma,Urban block,W033,LGA03
+S02148,Hasana,Settlement,W033,LGA03
+S02105,Ibbemi,Village,W033,LGA03
+S02143,Ibkomi,Hamlet,W033,LGA03
+S02107,Ibkoru,Settlement,W033,LGA03
+S02135,Irdufa,Village,W033,LGA03
+S02118,Irshasa,Hamlet,W033,LGA03
+S02123,Kadeta,Settlement,W033,LGA03
+S02126,Kajiwo,Village,W033,LGA03
+S02103,Kanawa,Hamlet,W033,LGA03
+S02104,Kariri,Settlement,W033,LGA03
+S02100,Katsini,Village,W033,LGA03
+S02133,Kazashi,Village,W033,LGA03
+S02144,Kudeja,Village,W033,LGA03
+S02149,Kujide,Village,W033,LGA03
+S02155,Lobeba-Kofar,Settlement,W033,LGA03
+S02131,Lorami,Hamlet,W033,LGA03
+S02112,Lozaru-Sabo,Settlement,W033,LGA03
+S02108,Nulale,Village,W033,LGA03
+S02117,Nulusa,Village,W033,LGA03
+S02129,Nuluwo,Hamlet,W033,LGA03
+S02101,Nutita,Hamlet,W033,LGA03
+S02128,Oldede,Hamlet,W033,LGA03
+S02158,Oljimi,Hamlet,W033,LGA03
+S02140,Olsami,Village,W033,LGA03
+S02160,Ribaba,Hamlet,W033,LGA03
+S02161,Ribawo,Village,W033,LGA03
+S02125,Rijimi,Village,W033,LGA03
+S02111,Rijiri,Settlement,W033,LGA03
+S02109,Risale-Sabo,Village,W033,LGA03
+S02120,Subewa-Kudu,Hamlet,W033,LGA03
+S02139,Tademi,Hamlet,W033,LGA03
+S02138,Umduma,Village,W033,LGA03
+S02141,Umlari,Village,W033,LGA03
+S02153,Umnade,Hamlet,W033,LGA03
+S02150,Uzdede,Hamlet,W033,LGA03
+S02102,Yenade,Settlement,W033,LGA03
+S02152,Yezawa-Gabas,Urban block,W033,LGA03
+S02163,Zamaru,Village,W033,LGA03
+S02122,Zangoma,Hamlet,W033,LGA03
+S02134,Zarari,Village,W033,LGA03
+S02154,Zayoba,Settlement,W033,LGA03
