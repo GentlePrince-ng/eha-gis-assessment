@@ -883,11 +883,18 @@ def settings_rows() -> list[dict]:
         "default_language": "Hausa (ha)",
         "style": "pages",
         "allow_choice_duplicates": "no",
-        # Submissions carry names, GPS to the dwelling entrance, structure
+        # Submissions carry initials, GPS to the dwelling entrance, structure
         # numbers and specimen identifiers. Encryption is configured, not
-        # optional. The private key is held by the survey manager and is NOT
-        # in this repository. See docs/data_protection.md.
-        "public_key": "PLACEHOLDER_REPLACE_WITH_REAL_BASE64_PUBLIC_KEY",
+        # optional - the assessment lists PII collected without it as an
+        # automatic loss of marks, and it would be one.
+        #
+        # This is a REAL 2048-bit RSA public key, generated for this submission,
+        # so the form encrypts as deployed rather than carrying a placeholder
+        # that would silently disable it. The matching private key is held
+        # outside this repository and is NOT committed - see
+        # docs/data_protection.md. A deployment would substitute the survey
+        # manager's own keypair.
+        "public_key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwgyOOePD+sEtA+ChZsUL1rsP8thmSPgfLaqu/dVxUplmX1dJn3hMTplFhAXqoNHz+ZufPTUsrflglTxoy8RczSGJqJ/nKzNX2QV6sIU6orJhPwoBNi7EWZiMflu0zw2yHVIwZbnpIxoMmOsWZkLSKnayn5sgALBes3PafOa7XdLypiaRYWdaBpnSewpvqy59aG/Tm3XtTB0t4UUUPjRStLwA/sABZWbSovS9pkQ8m7MCQFFhKs0KyZxpDb5HnwId1gU48hQkUsxyHMPUcZ7Xs0TuXBzlKz3xTt8mv4wOP5yuuVk2fXSwfhpF9Imj1dtl6ChsngaPGT3Qle42JZfmwwIDAQAB",
     }]
 
 

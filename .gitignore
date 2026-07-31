@@ -19,3 +19,7 @@ venv/
 Thumbs.db
 .DS_Store
 ~$*
+
+# Private key for form encryption - never committed
+*.pem
+keys/
