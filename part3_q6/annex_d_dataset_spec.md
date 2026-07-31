@@ -2,12 +2,12 @@
 
 Excluded from the Q6 page limit.
 
-**Generated, not described.** `session_90min/make_dataset.py` produces all three
+**Generated, not described.** `annex_b_session_in_full/make_dataset.py` produces all three
 datasets from a fixed seed, so a colleague delivering the course in my absence
 gets exactly the files the model answer and the rubric expect. A specification in
 prose would drift from the file within one revision.
 
-    python part3/session_90min/make_dataset.py
+    python part3_q6/annex_b_session_in_full/make_dataset.py
 
 | Dataset | Used for | Seed |
 |---|---|---|

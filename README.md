@@ -72,7 +72,10 @@ part1_q1/
 part2_q3/
   form/           XLSForm and its conversion output
   docs/           constraint register, defect report, test plan, codebook
-part3/            Q5 and Q6 written responses, plus the 90-minute session artefact
+part3_q5/         Q5 written response
+part3_q6/         Q6 written response and Annexes A-E
+  annex_b_session_in_full/   the 90-minute session: guide, briefs,
+                             model answer, dataset generator
 writeup/          the single combined response document
 ```
 
