@@ -69,8 +69,15 @@ NAME_STEMS = ["Uzoyosa", "Adwade", "Balawo", "Yeluwa", "Sokmiri", "Maljiwo",
 SUFFIXES = ["", " North", " South", " Central", " Model", " Rural"]
 
 
-def main() -> None:
-    rng = random.Random(SEED)
+def build(seed: int) -> list[dict]:
+    """Build one dataset. Same defect PROFILE for any seed; different values.
+
+    This is what makes D-PRE and D-POST parallel forms rather than merely
+    similar: the defect counts are structural, not random, so the two
+    administrations of the assessment present the same difficulty. Only the
+    values differ, so a participant cannot pass the post-test from memory.
+    """
+    rng = random.Random(seed)
     rows = []
 
     for i in range(1, N_ROWS + 1):
@@ -127,29 +134,60 @@ def main() -> None:
             r["longitude"] = r["longitude"].replace(".", ",", 1)
 
     rng.shuffle(rows)
+    return rows
 
-    with OUT.open("w", newline="", encoding="utf-8") as fh:
-        w = csv.DictWriter(fh, fieldnames=list(rows[0].keys()))
-        w.writeheader()
-        w.writerows(rows)
 
-    dup_ids = len(rows) - len({r["facility_id"] for r in rows})
-    print(f"\n  {OUT.name}")
-    print(f"  rows                    {len(rows):>5}")
-    print(f"  distinct facility_id    {len({r['facility_id'] for r in rows}):>5}")
-    print(f"  duplicate id rows       {dup_ids:>5}")
-    print(f"  missing coordinates     "
-          f"{sum(1 for r in rows if not r['longitude']):>5}")
-    print(f"  staff_total = 999       "
-          f"{sum(1 for r in rows if r['staff_total'] == '999'):>5}")
-    print(f"  names with whitespace   "
-          f"{sum(1 for r in rows if r['facility_name'] != r['facility_name'].strip()):>5}")
-    print(f"  lga_name variants       "
-          f"{len({r['lga_name'] for r in rows}):>5}   (4 real LGAs)")
-    print(f"  facility_type variants  "
-          f"{len({r['facility_type'] for r in rows}):>5}   (3 real types)")
-    print(f"  comma in longitude      "
-          f"{sum(1 for r in rows if ',' in r['longitude']):>5}")
+def profile(rows: list[dict]) -> dict[str, int]:
+    """The defect profile. Two datasets are parallel forms when these match."""
+    return {
+        "rows": len(rows),
+        "distinct facility_id": len({r["facility_id"] for r in rows}),
+        "duplicate id rows": len(rows) - len({r["facility_id"] for r in rows}),
+        "missing coordinates": sum(1 for r in rows if not r["longitude"]),
+        "staff_total = 999": sum(1 for r in rows if r["staff_total"] == "999"),
+        "whitespace in name": sum(
+            1 for r in rows if r["facility_name"] != r["facility_name"].strip()),
+        "lga_name variants": len({r["lga_name"] for r in rows}),
+        "facility_type variants": len({r["facility_type"] for r in rows}),
+        "comma in longitude": sum(1 for r in rows if "," in r["longitude"]),
+    }
+
+
+# D1 is the teaching dataset for Days 2 and 3, quoted exactly in the model
+# answer. D-PRE and D-POST are the parallel forms for the assessment (Annex C).
+DATASETS = {
+    "D1_facilities_raw.csv": SEED,
+    "D_PRE_facilities_raw.csv": SEED + 101,
+    "D_POST_facilities_raw.csv": SEED + 202,
+}
+
+
+def main() -> None:
+    built = {}
+    for filename, seed in DATASETS.items():
+        rows = build(seed)
+        with (HERE / filename).open("w", newline="", encoding="utf-8") as fh:
+            writer = csv.DictWriter(fh, fieldnames=list(rows[0].keys()))
+            writer.writeheader()
+            writer.writerows(rows)
+        built[filename] = profile(rows)
+
+    keys = list(next(iter(built.values())).keys())
+    names = list(built)
+    width = max(len(k) for k in keys)
+
+    print("\n  Defect profile - the three datasets must match to be parallel forms")
+    print("  " + "-" * (width + 3 * 14))
+    print(f"  {'':<{width}}" + "".join(f"{n.replace('_facilities_raw.csv',''):>14}" for n in names))
+    for key in keys:
+        print(f"  {key:<{width}}" + "".join(f"{built[n][key]:>14,}" for n in names))
+    print("  " + "-" * (width + 3 * 14))
+
+    identical = all(len({built[n][k] for n in names}) == 1 for k in keys)
+    print(f"  profiles identical across all three:  {identical}")
+    if not identical:
+        raise SystemExit("Datasets are NOT parallel forms - profiles differ")
+    print("  values differ, so the post-test cannot be passed from memory")
 
 
 if __name__ == "__main__":
