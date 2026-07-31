@@ -1,0 +1,204 @@
+facility_id,facility_name,facility_type,lga_name,ward_name,longitude,latitude,staff_total
+HF0107,Maljiwo Central PHC,Primary Health Center,IDI-ORO,Sokmiri,"7,722418",11.307926,10
+HF0072,Jostile Rural Health Post,Health Post, Gwarin,Sokmiri,7.181399,10.987318,22
+HF0158,Kungomi Model PHC,Primary health centre,Katsuma ,Sokmiri,7.732073,10.571070,4
+HF0192,Daibewo Central Health Post,Health post,idi-oro,Balawo,7.565687,11.152563,18
+HF0195,  Ngenuta Rural Health Post ,Health post,Katsuma,Balawo,8.188323,11.286362,14
+HF0127,Baluru Model PHC,Primary Health Center, Gwarin,Yeluwa,8.346067,10.826976,20
+HF0188,Uzoyosa North Cottage Hospital,Cottage hospital,Ilela ,Hanjile,8.330023,11.141223,5
+HF0171,Lokshasa North Cottage Hospital,Cottage hospital,KATSUMA,Daberi,7.024086,10.463388,7
+HF0116,Zamjidu Rural Cottage Hospital,Cottage hospital,GWARIN,Daibewo,7.452773,11.170498,15
+HF0110,Baluru North PHC,Primary health centre,ILELA,Tasayi,8.234214,11.330393,2
+HF0132,Tasayi Rural Cottage Hospital,Cottage hospital,GWARIN,Lokshasa,7.102607,10.702864,17
+HF0040,  Balawo North Cottage Hospital ,Cottage hospital,KATSUMA,Kungomi,8.253398,11.429753,5
+HF0019,Balawo North Health Post,Health post,Idi-Oro,Hanjile,8.414265,11.384127,2
+HF0009,  Yeluwa Model Health Post ,Health Post,Katsuma,Maljiwo,6.973567,11.266354,7
+HF0018,Baluru Model Health Post,HEALTH POST,Idi-oro,Ngenuta,7.401577,10.662072,12
+HF0006,  Maljiwo Health Post ,Health Post,KATSUMA,Hanjile,8.241005,10.638918,17
+HF0071,Adwade Central Cottage Hospital,Cottage Hospital,IDI-ORO,Maljiwo,8.019448,10.874857,20
+HF0087,Lokshasa Cottage Hospital,Cottage Hospital,Katsuma,Sokmiri,8.302020,11.191170,19
+HF0023,Jostile Model PHC,PHC,Idi-Oro,Dazata,7.728547,11.512426,16
+HF0115,Dazata Rural Health Post,Health post,ILELA,Daibewo,6.957126,11.205242,17
+HF0092,Yeluwa South Cottage Hospital,Cottage Hospital,Ilela,Balawo,6.978882,11.316078,13
+HF0082,Ngenuta North Cottage Hospital,Cottage hospital,Ilela,Baluru,7.765100,10.648449,24
+HF0193,Tasayi South Cottage Hospital,Cottage hospital,Idi Oro,Dazata,7.727284,10.676384,19
+HF0175,Daibewo North Health Post,Health post,idi-oro,Jostile,7.944745,11.145860,4
+HF0067,Maljiwo South PHC,PHC,KATSUMA,Uzoyosa,7.524469,11.191365,18
+HF0134,Yeluwa Cottage Hospital,Cottage Hospital,Idi Oro,Ngenuta,7.559450,10.471758,20
+HF0026,Zamjidu PHC,PHC,Katsuma ,Maljiwo,8.403400,11.433535,20
+HF0045,Zamjidu North Health Post,HEALTH POST,ILELA,Tasayi,7.779052,10.776983,15
+HF0020,Yeluwa Model PHC,Primary health centre,ILELA,Sokmiri,7.783747,11.479565,24
+HF0190,Yeluwa Model Cottage Hospital,Cottage Hospital,IDI-ORO,Dazata,7.813242,10.924001,21
+HF0140,Jostile North Cottage Hospital,Cottage hospital,Katsuma,Baluru,,,10
+HF0035,  Lokshasa South Health Post ,Health post,Katsuma,Ngenuta,7.462430,10.373161,12
+HF0122,Uzoyosa South PHC,Primary Health Centre,idi-oro,Zamjidu,7.392648,10.621742,20
+HF0105,  Daibewo South Health Post ,Health Post,gwarin,Dazata,8.179181,11.229419,6
+HF0163,Ngenuta North Health Post,HEALTH POST,Idi-oro,Suwade,"7,695202",10.653963,20
+HF0144,Kungomi Health Post,HEALTH POST,Katsuma ,Tasayi,7.796272,11.502757,10
+HF0133,Yeluwa Rural PHC,PHC,IDI-ORO,Lokshasa,7.966786,11.488599,20
+HF0150,Daibewo Rural PHC,Primary Health Center,Ilela,Daibewo,6.989040,10.513878,17
+HF0083,Baluru North Cottage Hospital,Cottage Hospital,ILELA,Jostile,7.253096,11.535896,8
+HF0146,  Daibewo Central Cottage Hospital ,Cottage Hospital,Ilela,Lokshasa,7.353356,11.198139,21
+HF0137,Baluru North Cottage Hospital,Cottage Hospital,Katsuma,Uzoyosa,7.698430,10.862475,18
+HF0037,Jostile Rural PHC,PHC,idi-oro,Uzoyosa,7.283132,10.889369,8
+HF0111,Daberi Model PHC,Primary Health Center,Gwarin,Ngenuta,"7,348278",10.557786,18
+HF0124,Daberi South PHC,Primary health centre,Katsuma,Yeluwa,8.198987,11.073650,11
+HF0046,Zamjidu Model PHC,Primary health centre,Katsuma,Dazata,8.215980,10.398678,19
+HF0089,Sokmiri Central PHC,Primary health centre,GWARIN,Balawo,7.038111,11.376176,14
+HF0152,Dazata Rural PHC,PHC,Ilela ,Suwade,"8,105975",11.495772,9
+HF0173,Adwade Rural Cottage Hospital,Cottage hospital,Gwarin,Yeluwa,7.247323,11.194440,11
+HF0119,Yeluwa Rural PHC,PHC,Idi-Oro,Maljiwo,7.405636,10.976293,10
+HF0101,Daberi Rural Health Post,Health post,Katsuma,Tasayi,8.305030,11.204117,18
+HF0154,  Uzoyosa Health Post ,HEALTH POST,Idi-Oro,Hanjile,7.437767,10.932283,8
+HF0060,Dazata South PHC,Primary Health Centre,Gwarin,Baluru,7.590672,11.416015,5
+HF0142,  Uzoyosa Cottage Hospital ,Cottage Hospital,Idi Oro,Tasayi,7.145408,11.012989,2
+HF0118,  Adwade North PHC ,Primary health centre,Idi-Oro,Uzoyosa,8.193647,11.075491,4
+HF0161,  Zamjidu Health Post ,Health Post, Gwarin,Suwade,7.922218,10.388557,17
+HF0084,Uzoyosa North Cottage Hospital,Cottage Hospital,Idi-Oro,Jostile,7.859470,11.245697,15
+HF0053,Lokshasa Model Cottage Hospital,Cottage Hospital,ILELA,Lokshasa,8.039517,11.484811,14
+HF0028,Jostile Cottage Hospital,Cottage Hospital,gwarin,Sokmiri,8.026051,10.922375,6
+HF0098,Adwade Model Health Post,HEALTH POST,Katsuma ,Daberi,7.240497,10.731321,5
+HF0113,Uzoyosa South PHC,PHC,Idi-oro,Lokshasa,11.236873,7.966442,11
+HF0196,Sokmiri Rural PHC,Primary Health Center,KATSUMA,Maljiwo,,,12
+HF0073,Daibewo Central Health Post,Health post,gwarin,Baluru,7.244671,11.416890,21
+HF0174,Sokmiri North Cottage Hospital,Cottage Hospital,Gwarin,Adwade,6.968070,11.430535,6
+HF0182,Adwade Rural Cottage Hospital,Cottage Hospital,Katsuma ,Balawo,7.226718,11.452229,12
+HF0139,Maljiwo Central PHC,Primary Health Centre,ilela,Daibewo,8.309133,10.771979,10
+HF0121,Maljiwo Cottage Hospital,Cottage Hospital,Idi-oro,Jostile,7.360518,11.268218,5
+HF0076,Balawo Rural PHC,Primary health centre,ilela,Uzoyosa,7.634179,10.413221,4
+HF0051,Hanjile North PHC,Primary health centre,GWARIN,Ngenuta,7.510403,11.552172,9
+HF0095,Maljiwo Cottage Hospital,Cottage Hospital,idi-oro,Baluru,7.779522,11.228572,18
+HF0181,Zamjidu South Cottage Hospital,Cottage hospital,Katsuma,Kungomi,7.565931,10.737014,10
+HF0050,Yeluwa South Health Post,HEALTH POST,KATSUMA,Balawo,8.273364,11.211994,15
+HF0128,Uzoyosa Health Post,HEALTH POST,KATSUMA,Yeluwa,7.149093,10.676424,7
+HF0153,  Baluru Rural Cottage Hospital ,Cottage Hospital, Gwarin,Dazata,8.317533,10.822213,3
+HF0155,  Adwade Rural Health Post ,Health post,GWARIN,Sokmiri,8.088275,11.027521,11
+HF0086,Tasayi Model Health Post,HEALTH POST,Katsuma ,Ngenuta,8.121828,11.517440,8
+HF0010,Ngenuta Model Cottage Hospital,Cottage hospital,Idi-Oro,Jostile,7.718572,10.796666,18
+HF0043,Baluru South Cottage Hospital,Cottage hospital,KATSUMA,Jostile,7.663738,11.504962,21
+HF0180,Kungomi Central Health Post,HEALTH POST,Ilela ,Zamjidu,8.167280,11.419080,5
+HF0143,Balawo Central Health Post,Health Post,Ilela,Tasayi,8.134294,10.446801,15
+HF0016,Daibewo South Health Post,Health Post,ilela,Yeluwa,7.590272,10.475178,21
+HF0007,Daberi Health Post,Health Post, Gwarin,Lokshasa,8.295845,11.141937,2
+HF0066,Maljiwo Central PHC,Primary Health Center,Katsuma,Suwade,7.723769,11.024549,2
+HF0167,Sokmiri South Health Post,Health Post,Katsuma,Yeluwa,7.536575,10.824036,22
+HF0038,Yeluwa South Cottage Hospital,Cottage hospital,Idi-Oro,Yeluwa,8.097752,11.359160,17
+HF0008,Uzoyosa South Health Post,Health post,Idi Oro,Sokmiri,8.242522,11.471239,7
+HF0002,Daibewo Model Cottage Hospital,Cottage Hospital,Ilela,Jostile,8.398972,11.461036,23
+HF0003,Adwade Model Health Post,Health Post,KATSUMA,Dazata,8.312815,11.478557,10
+HF0097,Balawo North Cottage Hospital,Cottage hospital,idi-oro,Zamjidu,7.758235,11.505975,16
+HF0064,Daberi Rural Health Post,Health Post,GWARIN,Hanjile,7.911983,10.810124,7
+HF0036,Maljiwo North PHC,Primary health centre,ILELA,Ngenuta,7.815891,11.541782,9
+HF0148,Daibewo Rural Cottage Hospital,Cottage Hospital,Katsuma ,Uzoyosa,8.311945,10.850383,2
+HF0065,Uzoyosa North Cottage Hospital,Cottage hospital,Ilela,Hanjile,7.713324,10.557652,5
+HF0129,Balawo Rural PHC,Primary health centre,Katsuma ,Maljiwo,7.487801,10.928367,23
+HF0063,  Lokshasa Rural Health Post ,Health Post,ILELA,Uzoyosa,8.348922,11.410199,13
+HF0012,Zamjidu PHC,PHC,KATSUMA,Jostile,7.599490,10.749979,8
+HF0070,Maljiwo Health Post,Health post,Katsuma ,Lokshasa,8.229609,11.089809,999
+HF0141,Balawo Central Health Post,Health Post,ILELA,Baluru,7.812194,11.546756,3
+HF0030,Adwade North PHC,PHC,gwarin,Uzoyosa,7.509688,10.390960,22
+HF0183,Tasayi Central PHC,Primary Health Center,Ilela,Tasayi,7.968631,10.812320,5
+HF0135,Dazata North Health Post,Health Post,Katsuma,Tasayi,8.282061,11.567347,7
+HF0093,Zamjidu Health Post,Health post,Idi Oro,Daibewo,7.556039,11.252644,21
+HF0170,  Uzoyosa Model Cottage Hospital ,Cottage Hospital,GWARIN,Balawo,7.627503,10.975731,14
+HF0099,Daibewo PHC,PHC,Katsuma,Tasayi,7.182061,10.373678,10
+HF0156,Ngenuta North PHC,PHC,Idi-Oro,Ngenuta,8.262341,10.516198,13
+HF0015,Zamjidu PHC,Primary Health Center,IDI-ORO,Tasayi,7.748447,11.386402,8
+HF0024,Daberi South Health Post,HEALTH POST,idi-oro,Dazata,8.001331,11.127180,4
+HF0085,Suwade Rural PHC,Primary Health Center, Gwarin,Hanjile,8.062493,10.985296,2
+HF0185,Adwade South Health Post,Health Post,Idi-Oro,Lokshasa,8.212298,10.653418,2
+HF0197,Hanjile Central Cottage Hospital,Cottage Hospital,Katsuma,Kungomi,7.024628,11.400941,14
+HF0059,Balawo South Health Post,Health post,GWARIN,Sokmiri,8.046128,11.554789,19
+HF0108,Dazata Model Cottage Hospital,Cottage Hospital,GWARIN,Suwade,,,20
+HF0145,Sokmiri Rural Cottage Hospital,Cottage Hospital,Ilela ,Balawo,8.361688,11.259546,6
+HF0096,Jostile South PHC,Primary Health Center,Idi-oro,Yeluwa,7.154271,11.372405,14
+HF0032,Adwade South Cottage Hospital,Cottage hospital,Gwarin,Maljiwo,8.188807,11.546794,7
+HF0164,  Adwade North Cottage Hospital ,Cottage hospital,Ilela ,Lokshasa,8.256468,10.983863,18
+HF0034,Adwade PHC,Primary health centre,Katsuma,Ngenuta,8.266703,10.585536,999
+HF0021,Yeluwa Rural PHC,Primary health centre,idi-oro,Lokshasa,6.955842,11.428888,17
+HF0088,Tasayi PHC,Primary health centre,Gwarin,Adwade,7.750975,11.539625,6
+HF0054,Daibewo Rural Cottage Hospital,Cottage hospital,Katsuma,Maljiwo,10.572564,7.687763,22
+HF0057,Balawo Model PHC,Primary health centre,KATSUMA,Ngenuta,7.510198,11.109336,16
+HF0147,Zamjidu Model PHC,Primary health centre, Gwarin,Yeluwa,7.432532,10.459487,5
+HF0114,Zamjidu Central PHC,Primary health centre,Idi-oro,Baluru,7.195497,10.423193,10
+HF0058,Uzoyosa Central PHC,Primary Health Centre,KATSUMA,Daberi,7.178827,10.773681,4
+HF0090,Balawo South PHC,PHC,KATSUMA,Lokshasa,7.803178,11.497055,16
+HF0149,Ngenuta Central Cottage Hospital,Cottage hospital,Idi Oro,Balawo,8.151866,10.701623,21
+HF0157,  Daibewo South Health Post ,HEALTH POST,GWARIN,Uzoyosa,7.587901,11.039029,7
+HF0198,Yeluwa South Health Post,Health Post,ilela,Kungomi,7.545958,10.400616,24
+HF0138,  Lokshasa Central PHC ,Primary Health Centre,Katsuma,Ngenuta,7.575542,11.121010,18
+HF0094,Balawo South Health Post,Health post,Idi Oro,Balawo,7.796692,10.412135,14
+HF0169,Adwade South Cottage Hospital,Cottage Hospital,GWARIN,Adwade,8.035211,11.244470,999
+HF0069,  Uzoyosa South Health Post ,Health Post,Idi-Oro,Balawo,7.138884,10.528856,8
+HF0130,Sokmiri Rural PHC,PHC,gwarin,Lokshasa,7.237535,10.588944,9
+HF0123,Adwade Model Cottage Hospital,Cottage Hospital,IDI-ORO,Tasayi,8.039134,10.685002,22
+HF0047,Ngenuta Central Health Post,HEALTH POST,Katsuma,Hanjile,7.232821,11.368944,10
+HF0080,Ngenuta Central Cottage Hospital,Cottage Hospital,Katsuma,Adwade,8.152503,10.492870,20
+HF0017,Daberi Central Health Post,Health Post,ilela,Daibewo,7.850893,10.878360,2
+HF0078,Tasayi South Cottage Hospital,Cottage hospital,Ilela ,Maljiwo,6.998822,11.268185,16
+HF0027,Tasayi South Health Post,Health Post,Idi-oro,Yeluwa,7.465043,10.489047,9
+HF0109,Balawo Rural PHC,Primary Health Center,GWARIN,Adwade,8.027838,11.525925,19
+HF0191,Adwade South Health Post,Health post,Katsuma,Ngenuta,8.156758,10.636159,6
+HF0175,Daibewo North Health Post ,Health post,idi-oro,Jostile,7.944745,11.145860,8
+HF0126,Jostile Central Health Post,Health post, Gwarin,Adwade,7.708556,10.800140,19
+HF0117,Daberi Model Health Post,HEALTH POST,Ilela,Lokshasa,7.413806,10.895789,8
+HF0168,Hanjile Rural Health Post,Health Post,Gwarin,Yeluwa,8.216433,10.887424,22
+HF0077,Kungomi Model Health Post,HEALTH POST,Idi-oro,Suwade,7.423665,10.415911,4
+HF0005,Daberi South Cottage Hospital,Cottage Hospital,Katsuma,Zamjidu,8.114120,11.265912,3
+HF0013,Balawo Rural PHC,Primary Health Centre, Gwarin,Balawo,8.015987,11.291756,24
+HF0014,Zamjidu Cottage Hospital,Cottage Hospital,Ilela ,Balawo,7.140581,11.430278,14
+HF0194,Daberi North Health Post ,HEALTH POST,gwarin,Maljiwo,8.127654,10.601590,26
+HF0131,Kungomi Rural PHC,PHC,IDI-ORO,Balawo,7.938576,11.461953,9
+HF0042,Ngenuta Central Health Post,Health Post,ILELA,Baluru,7.181405,10.946655,19
+HF0194,Daberi North Health Post,HEALTH POST,gwarin,Maljiwo,8.127654,10.601590,20
+HF0025,Sokmiri Rural Cottage Hospital,Cottage hospital,Katsuma,Dazata,7.974033,10.460153,4
+HF0125,Suwade Rural PHC,Primary health centre,idi-oro,Maljiwo,7.693122,11.147552,8
+HF0048,Lokshasa Model PHC,Primary Health Center,Idi-Oro,Zamjidu,8.001427,10.665962,17
+HF0074,Adwade North Cottage Hospital,Cottage Hospital,Ilela ,Daberi,8.073541,11.091027,20
+HF0187,Ngenuta North PHC,Primary Health Centre,Katsuma,Baluru,8.426998,10.386567,6
+HF0056,Yeluwa Model Health Post,Health Post,Idi-Oro,Jostile,8.290567,10.897102,9
+HF0001,Daibewo Model Health Post,Health Post,Idi-Oro,Kungomi,8.252078,10.795026,2
+HF0184,Dazata North PHC,Primary health centre,Idi Oro,Daibewo,7.526843,11.181762,10
+HF0136,Yeluwa Rural Health Post,Health Post,GWARIN,Adwade,7.233743,11.340484,23
+HF0031,Sokmiri Rural PHC,Primary Health Centre,Idi-Oro,Suwade,7.942633,11.375126,15
+HF0041,Ngenuta Rural Cottage Hospital,Cottage Hospital,Idi-Oro,Yeluwa,7.923201,11.504899,7
+HF0011,Kungomi PHC,PHC,Katsuma,Uzoyosa,7.666636,10.433274,4
+HF0177,Lokshasa Model Cottage Hospital,Cottage hospital,Ilela ,Zamjidu,8.420065,11.232519,9
+HF0004,Baluru Model Cottage Hospital,Cottage hospital,GWARIN,Yeluwa,7.572878,10.795441,18
+HF0179,  Adwade North Cottage Hospital ,Cottage Hospital,Gwarin,Adwade,7.492031,11.508256,4
+HF0022,Sokmiri South Health Post,HEALTH POST,ILELA,Zamjidu,7.937258,11.453567,23
+HF0061,Jostile Model Health Post,Health post,Katsuma,Maljiwo,7.742841,11.444665,19
+HF0186,Tasayi South PHC,PHC,gwarin,Balawo,7.790127,10.520518,4
+HF0068,Kungomi Rural Cottage Hospital,Cottage Hospital,Idi Oro,Hanjile,7.522553,11.522797,4
+HF0166,Lokshasa Health Post,Health Post,Idi Oro,Uzoyosa,7.830842,11.045610,15
+HF0044,Uzoyosa South Cottage Hospital,Cottage Hospital,Ilela,Tasayi,7.122613,10.850106,5
+HF0079,Tasayi North Cottage Hospital,Cottage hospital,idi-oro,Zamjidu,7.103553,11.002548,2
+HF0102,Zamjidu Rural PHC,Primary health centre,GWARIN,Ngenuta,7.095489,10.684596,17
+HF0199,Daibewo Model PHC,Primary health centre,Katsuma,Maljiwo,8.201792,11.343926,21
+HF0172,Daibewo North Health Post,HEALTH POST,Katsuma,Tasayi,6.972125,11.326712,22
+HF0162,Hanjile Health Post,Health Post,KATSUMA,Daberi,,,21
+HF0165,Maljiwo South Health Post,Health post,Ilela,Lokshasa,7.593654,11.467569,8
+HF0112,Adwade North Cottage Hospital,Cottage Hospital,GWARIN,Balawo,"8,090523",10.755494,5
+HF0039,Uzoyosa South PHC,PHC,Ilela,Daberi,,,2
+HF0055,Adwade North PHC,PHC,ilela,Maljiwo,8.112892,10.837137,5
+HF0079,Tasayi North Cottage Hospital ,Cottage hospital,idi-oro,Zamjidu,7.103553,11.002548,7
+HF0200,Tasayi Cottage Hospital,Cottage hospital,Idi Oro,Jostile,7.578991,11.343205,20
+HF0159,Daberi Rural Health Post,Health Post,Gwarin,Jostile,8.070263,10.722813,9
+HF0106,Kungomi Model Health Post,Health Post,Gwarin,Daberi,6.991828,11.089344,24
+HF0104,Ngenuta Model PHC,Primary Health Centre,KATSUMA,Maljiwo,7.810006,11.227327,18
+HF0178,Baluru South Cottage Hospital,Cottage Hospital,Katsuma ,Balawo,7.993839,11.126497,2
+HF0033,Uzoyosa South Cottage Hospital,Cottage Hospital,IDI-ORO,Maljiwo,7.706905,10.472443,23
+HF0151,Sokmiri Central Health Post,Health Post,Gwarin,Balawo,8.395170,11.258183,11
+HF0100,Baluru Model PHC,Primary health centre, Gwarin,Balawo,8.282284,10.786653,18
+HF0091,Baluru Model Cottage Hospital,Cottage Hospital,Katsuma,Uzoyosa,7.956694,11.272883,13
+HF0176,Daibewo North Cottage Hospital,Cottage hospital, Gwarin,Daberi,8.274020,10.878873,15
+HF0029,Lokshasa Central Cottage Hospital,Cottage Hospital,Katsuma,Zamjidu,"7,748540",11.317658,11
+HF0120,Daibewo Model Cottage Hospital,Cottage Hospital,Ilela,Hanjile,7.998569,11.265648,12
+HF0062,Lokshasa Rural Cottage Hospital,Cottage Hospital,Idi-oro,Baluru,7.960082,10.581503,9
+HF0160,Ngenuta Cottage Hospital,Cottage Hospital,Idi-Oro,Hanjile,7.611807,11.332184,4
+HF0103,  Lokshasa Model PHC ,Primary Health Centre,Katsuma,Yeluwa,7.079974,10.898465,7
+HF0052,Zamjidu Rural Cottage Hospital,Cottage Hospital,Katsuma,Jostile,7.600324,11.041998,17
+HF0075,Jostile Rural PHC,Primary health centre,Gwarin,Zamjidu,8.034505,10.847516,7
+HF0189,Tasayi North Health Post,Health Post,ilela,Daibewo,7.525007,10.496315,10
+HF0081,Jostile Central PHC,Primary Health Centre,Katsuma,Dazata,7.377741,10.771982,10
+HF0049,Balawo Model Health Post,HEALTH POST,ilela,Kungomi,7.686672,11.282201,22
