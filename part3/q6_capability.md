@@ -1,9 +1,8 @@
 # Q6 — Building capability in the counterpart agency
 
-**Main response: 6 pages. Annexes A–D are excluded from the limit**, per the
-question. The 90-minute session artefact, the full competency grid, and the
-pre/post instrument are in the annexes because they are artefacts to be used,
-not argument to be read.
+**Main response: 6 pages; Annexes A–E excluded**, per the question. The annexes
+carry artefacts to be used — the session, the grid, the instrument, the datasets,
+the session-by-session plan. The response carries the argument.
 
 ---
 
@@ -18,15 +17,12 @@ Four findings, and three of them contradict the obvious course.
 | Composite capability score | **36 / 100** |
 | Objective knowledge test | **57%** across 12 items |
 
-These do not agree, and the gap is the design brief. A department that recalls
-57% of what it is asked but scores 36 on applied capability does not have a
-knowledge problem. **It has an application problem.**
-
-That rules out the default response. More instruction closes a knowledge gap;
-this cohort has already met the material and cannot convert it into work. The
-lever is supervised practice on real tasks, not content delivery — which is why
-the course below runs at **70% hands-on** and why every block ends in a product
-rather than a summary.
+These do not agree, and the gap is the design brief. Recalling 57% while scoring
+36 on applied capability is not a knowledge problem — **it is an application
+problem.** That rules out the default response: more instruction closes a
+knowledge gap, and this cohort has already met the material and cannot convert it
+into work. The lever is supervised practice, which is why the course runs at
+**70% hands-on** and every block ends in a product rather than a summary.
 
 ### 1.2 They cannot judge their own competence — so nothing self-reported can steer the design
 
@@ -47,17 +43,13 @@ normally use.
   capability. The evaluation in §5 therefore rests on demonstrated tasks and on
   independent reproduction.
 
-**And it dictates day one specifically.** Twenty-one people will arrive believing
-they are more capable than they are, and *being told otherwise does not work* —
-it produces defensiveness in the room and disengagement by the afternoon. The
-gap has to be **discovered, not announced**. Day 1 opens with a task at their
-stated level that they cannot complete, followed immediately by the same task
-made tractable by one technique. The realisation is theirs; the recovery is
-immediate; nobody is corrected in front of colleagues.
-
-Facilitator rule for day one, in Annex B and worth stating here: **never name an
-individual's score, and never compare two participants aloud.** The diagnostic is
-the room's, not a person's.
+**It also dictates day one.** Twenty-one people will arrive believing they are
+more capable than they are, and being told otherwise produces defensiveness by
+mid-morning and disengagement by the afternoon. The gap must be **discovered, not
+announced**: day 1 opens with a task at their stated level that they cannot
+finish, followed immediately by the technique that makes it tractable. The
+realisation is theirs and the recovery is immediate. Facilitator rule throughout:
+**never name an individual's score, never compare two participants aloud.**
 
 ### 1.3 The binding constraint is software access — and the finding is stranger than it looks
 
@@ -72,19 +64,17 @@ finding. Zero access to a free tool means one of:
 - an IT policy blocks unapproved installations;
 - or there are no machines allocated to this work at all.
 
-**These have completely different remedies, and nobody has established which
-applies.** That single unanswered question governs the whole programme, because
-it decides whether the constraint can be lifted in two weeks or two quarters.
-Establishing it is action one of the 90-day plan (§6), scheduled *before* the
-course, not after.
+**These have entirely different remedies and nobody has established which
+applies** — a single unanswered question that decides whether the constraint
+lifts in two weeks or two quarters. Establishing it is action one of the 90-day
+plan (§6), scheduled *before* the course.
 
-It also settles the training platform. I will not teach on software the
-department cannot open on Monday — that produces a week of enjoyable work and
-zero transfer. The course runs on **QGIS Portable from USB, which installs
-nothing and requires no administrative rights**, and each participant keeps the
-stick. If the cause is admin rights or IT policy, that removes the constraint on
-day one. If the cause is hardware, portable QGIS will reveal it immediately and
-the escalation in §6 becomes a procurement case with evidence behind it.
+It also settles the platform. I will not teach on software the department cannot
+open on Monday; that produces a pleasant week and zero transfer. The course runs
+on **QGIS Portable from USB — installs nothing, needs no administrative rights**
+— and each participant keeps the stick. If the cause is rights or policy, the
+constraint lifts on day one. If it is hardware, portable QGIS proves it
+immediately and the escalation becomes a costed case with evidence behind it.
 
 ### 1.4 The weakest competency is also the highest-leverage one
 
@@ -101,23 +91,19 @@ other block is assessed by whether its output can be re-run by someone else.
 
 ### 1.5 The one thing they want, used rather than refused
 
-Strongest stated demand is **map production and cartography**. It is not what
-they most need — but refusing it would be a mistake. Cartography is the visible,
-satisfying end of this work, and it is where the department already feels
-ownership.
-
-**So it becomes the vehicle, not the syllabus.** Every exercise ends in a map,
-and every map is only accepted if the steps that produced it can be repeated by
-a colleague. They get the thing they asked for; the price of receiving it is the
-thing they need.
+Strongest stated demand is **map production and cartography** — not what they
+most need, but refusing it would be a mistake. It is the visible, satisfying end
+of this work and where the department already feels ownership. **So it becomes
+the vehicle, not the syllabus:** every exercise ends in a map, and every map is
+accepted only if a colleague can repeat the steps. They get what they asked for;
+the price of receiving it is the thing they need.
 
 ---
 
 ## 2. Competency framework
 
 Five levels, defined by **what a person is observed to do**, not by how much they
-know. The full 6-domain grid is **Annex A**; the documentation domain is worked
-here because it is the weakest and the most load-bearing.
+know. Full 6-domain grid in **Annex A**.
 
 ### 2.1 The levels
 
@@ -138,20 +124,16 @@ that cannot survive one of them leaving.
 them the raw data, forbid them to ask the author anything, and see whether the
 output matches. It either does or it does not.
 
-### 2.2 Worked domain — Documenting a reproducible cleaning workflow
+### 2.2 The target, and its limit
 
-| Level | Observable behaviour |
-|---|---|
-| 0 | Cleans by editing cells directly in the source file. No record of what changed |
-| 1 | Keeps the raw file untouched and works on a copy, when reminded to |
-| 2 | Keeps raw and working copies separate and can describe the changes made, from memory, on the same day |
-| 3 | Leaves a written record naming every change, the reason for it, and the number of rows affected — **and a colleague reproduces the cleaned file from the raw file using only that record** |
-| 4 | Reviews a colleague's record, identifies the step that cannot be repeated, and rewrites it so the next person does not hit the same gap |
+Baseline for documentation is **1.5** — between "keeps a copy when reminded" and
+"can describe it from memory today". The course targets **level 3 for the whole
+cohort on one workflow**: not level 3 across all six domains, which is not
+achievable in five days, and claiming it would read well and not survive the
+post-assessment.
 
-Baseline is **1.5**: between "keeps a copy when reminded" and "can describe it
-from memory today". The course targets **level 3 for the whole cohort on one
-workflow** — not level 3 across all domains, which is not achievable in five days
-and pretending otherwise is how these programmes fail.
+Full grid — six domains × five levels, each cell an observable behaviour — in
+**Annex A**.
 
 ---
 
@@ -165,74 +147,35 @@ wrong instrument for an application deficit.
 Learning outcomes are written at the cognitive level the evidence supports.
 Nothing is set at *evaluate* or *create* on day one for a cohort scoring 36.
 
-### Day 1 — What is actually in the data
-**Outcome (apply):** Given an unfamiliar dataset, produce a written inventory of
-its defects — counts, not impressions — without cleaning anything.
+### Day allocation and outcomes
 
-| Session | Min | Exercise | Dataset |
+Full session-by-session detail — every exercise, dataset and duration — in
+**Annex E**. Learning outcomes are written at the cognitive level the evidence
+supports; nothing is set at *evaluate* or *create* on day one for a cohort
+scoring 36.
+
+| Day | Focus | Outcome | Hands-on |
 |---|---|---|---|
-| The task you cannot yet do | 60 | Produce a facility map from raw data, unaided. Most will not finish | D1 (Annex D) |
-| Why it failed | 20 | Facilitated, findings collected from the room, no individual named | — |
-| Profiling before touching | 90 | Count rows, duplicates, blanks, out-of-range values, name variants | D1 |
-| Writing a defect register | 90 | Produce a defect table: what, how many, how found | D1 |
+| **1** | What is actually in the data | **Apply** — given an unfamiliar dataset, produce a written inventory of its defects, in counts rather than impressions, without cleaning anything | 260 / 20 min |
+| **2** | Cleaning that can be checked | **Apply** — clean a dataset so every change is counted and no record is silently dropped | 240 / 20 min |
+| **3** | **Reproducibility — the spine** | **Apply → analyse** — produce a record from which a colleague reproduces your cleaned dataset without speaking to you | 240 / 0 min |
+| **4** | Spatial data, and the map they came for | **Apply** — produce a correctly projected, properly furnished map, and state what it does not show | 255 / 20 min |
+| **5** | Their own work, and what happens next | **Apply → evaluate** — complete a real departmental product to level 3, and review a colleague's to level 4 | 270 / 0 min |
 
-Day 1 is the day the self-assessment gap gets closed by experience rather than by
-being told. It ends with a product, so the discomfort of the morning resolves.
+Three sessions are load-bearing and are worth naming here.
 
-### Day 2 — Cleaning that can be checked
-**Outcome (apply):** Clean a dataset so that every change is counted and no
-record is silently dropped.
+**Day 1 opens with a task they cannot finish** (§1.2), and ends with a product,
+so the discomfort of the morning resolves the same day.
 
-| Session | Min | Exercise | Dataset |
-|---|---|---|---|
-| Rules, not repairs | 20 | Instruction | — |
-| Cleaning to a rule set | 120 | Fix each defect from Day 1 as a stated rule; record rows affected | D1 |
-| Nothing disappears | 60 | Reconcile input rows against output rows; account for every difference | D1 |
-| Ambiguous cases | 60 | Cases with no correct answer. Decide, and write down why | D1 |
+**Day 3 session 1 is the session developed in full in Annex B.** Day 3 session 3
+has the cohort draft *their own* minimum documentation standard — deliberate,
+because a standard issued to this department will not be followed and one they
+wrote and immediately tested might be.
 
-### Day 3 — Reproducibility (the spine)
-**Outcome (apply → analyse):** Produce a record from which a colleague
-reproduces your cleaned dataset without speaking to you.
-
-| Session | Min | Exercise | Dataset |
-|---|---|---|---|
-| **Make your work someone else's** | **90** | **Full artefact in Annex B** | D1 / D2 |
-| Repairing the record | 60 | Rewrite the documentation that failed; re-test with a different partner | D1 |
-| The department's own standard | 90 | The cohort drafts the minimum documentation standard *they* will use | — |
-
-Drafting the standard themselves is deliberate. A standard issued to this
-department will not be followed; one they wrote and immediately tested might be.
-
-### Day 4 — Spatial data, and the map they came for
-**Outcome (apply):** Produce a correctly projected, properly furnished map from a
-cleaned dataset, and state what it does not show.
-
-| Session | Min | Exercise | Dataset |
-|---|---|---|---|
-| Coordinates, joins, and why maps lie | 20 | Instruction | — |
-| Joining and checking | 90 | Join facilities to wards; find and count the failures | D2 |
-| Projection, in practice not theory | 45 | Measure the same distance in three CRS; see the answers differ | D2 |
-| Map production | 120 | Full cartographic furniture; every map states its projection and source | D2 |
-
-The projection block teaches by consequence, not by theory. Measuring one
-distance three ways and getting three answers takes fifteen minutes and is
-remembered; a lecture on datums is not.
-
-### Day 5 — Their own work, and what happens next
-**Outcome (apply → evaluate):** Complete a real departmental product to level 3,
-and review a colleague's to level 4.
-
-| Session | Min | Exercise | Dataset |
-|---|---|---|---|
-| Bring your own task | 150 | Each participant works a real, current departmental task | Their own |
-| Peer reproduction | 60 | Exchange and attempt to reproduce. This is the post-assessment (§5) | Their own |
-| The 90 days | 60 | Each participant leaves with a named product, a date, and a reviewer | — |
-
-Day 5 uses the department's real work deliberately. Training data produces
-training-shaped competence, and the transfer problem is the one this programme
-exists to solve.
-
----
+**Day 5 uses the department's real work**, not training data. Training data
+produces training-shaped competence, and transfer is the problem this programme
+exists to solve. The peer-reproduction exercise that closes it doubles as the
+post-assessment.
 
 ## 4. What I have chosen not to teach, and why
 
@@ -261,45 +204,29 @@ progress.
 ## 5. Pre and post assessment
 
 **Demonstrated capability only.** No confidence items, no satisfaction items, no
-self-rating as an outcome — §1.2 disqualifies all three. Full instrument,
-rubric and both datasets in **Annex C**.
+self-rating as an outcome — §1.2 disqualifies all three. Full instrument, rubric
+and datasets in **Annex C**.
 
-### Structure
+A **practical task**: 8 items scored 0–4 against the level definitions, 32
+points, 3 hours, blind marked. Identical tasks and rubric at both administrations
+on **parallel datasets** — same defect specification, same frequencies, different
+values, so the difficulty matches and the post-test cannot be passed from memory.
+The parallel-form claim is *verified rather than asserted*: the dataset generator
+compares defect profiles across the files and fails if they differ.
 
-**A practical task, scored against the level definitions in §2** — identical in
-structure at both administrations, on **parallel datasets** (D-PRE and D-POST)
-built to the same specification with the same defect classes at the same
-frequencies, but different values. Same difficulty, no memorisation.
+**Task 8 carries the design, and the participant does not perform it.** Their
+submitted work goes to an assessor who has not seen it, with the raw data and no
+access to the author; the score is whether the output reproduces. It is the only
+item that tests level 3 directly, and the only one that cannot be faked, coached
+or inflated by a confident participant. Someone can score well on tasks 1–7 and
+**zero on 8** — which is precisely this department's present condition, so the
+instrument has to be able to detect it.
 
-Eight tasks, each scored **0–4** against the framework: 32 points. Tasks span
-profiling, cleaning, documentation, joining, projection, map production, and
-stating a limitation.
-
-### The item that carries the whole design
-
-**Task 8 is not performed by the participant.** Their submitted work is given to
-an assessor who has not seen it, with the raw data and no access to the author.
-The score is whether the output is reproduced.
-
-This measures the thing the course is for, and it cannot be faked, coached, or
-inflated by a confident participant. It is also the only item that tests level 3
-directly.
-
-### Comparability
-
-Same rubric, same eight tasks, same time limit, parallel datasets, and **blind
-marking** — assessors see submissions without names or administration order, so
-the same marker cannot unconsciously reward improvement they expect.
-
-### One secondary measure, and it is not an outcome
-
-The self-rating item is retained at both administrations — **not as a measure of
-capability, but of calibration.** Baseline correlation between self-rating and
-tested score is 0.11. If it rises, participants have learned to judge their own
-competence, which is a real and separately valuable result: a department that
-knows what it cannot do asks for help before it produces a wrong number.
-
-Reported separately, and never as evidence of capability.
+**One secondary measure, never an outcome.** The self-rating item is retained
+only to recompute the 0.11 correlation as a measure of *calibration*. If it
+rises, participants have learned to judge their own competence — and a department
+that knows what it cannot do asks for help before producing a wrong number.
+Reported on its own line, never as evidence of capability.
 
 ---
 
@@ -328,23 +255,21 @@ participants cannot open the software on the Monday after.
 
 ### Days 1–30 — applied work under review
 
-- Each participant leaves day 5 with **one named real product, a delivery date,
-  and a named reviewer.**
-- Fortnightly 60-minute clinics, remote. Not teaching — **participants bring work
-  that is stuck.**
-- Every product goes through **peer reproduction** before it is accepted. The
-  level-3 test becomes routine practice rather than an assessment event.
+Each participant leaves day 5 with **one named real product, a delivery date and
+a named reviewer.** Fortnightly 60-minute remote clinics — not teaching;
+participants bring work that is stuck. Every product passes **peer reproduction**
+before acceptance, so the level-3 test becomes routine practice rather than an
+assessment event.
 
-### Days 31–60 — the department's own standard becomes binding
+### Days 31–60 — the standard becomes binding
 
-- The documentation standard drafted on day 3 is **adopted formally** by the
-  department head, having been tested on 30 days of real work rather than issued
-  from outside.
-- Two or three participants reaching level 4 take over **reviewing** others'
-  work. Capability transfers to the department when the review stops being mine.
-- **Access is resolved or formally escalated.** If neither, the programme reports
-  it as a failure of the commitment rather than of the training — that
-  distinction is the honest one and it belongs on the record.
+The documentation standard drafted on day 3 is **formally adopted** by the
+department head, having been tested on 30 days of real work rather than issued
+from outside. Two or three participants reaching level 4 take over **reviewing**
+others' work — capability transfers when the review stops being mine. **Access is
+resolved or formally escalated**; if neither, the programme reports it as a
+failure of the commitment rather than of the training, and that distinction
+belongs on the record.
 
 ### Days 61–90 — measure, and decide what is next
 
@@ -372,40 +297,34 @@ or number trained. Every one of them can be excellent while nothing changed.
 
 ## 7. Why this is the same problem as the coordination scenario
 
-The scenario has two failures presented as separate obligations, and they are one
+The scenario presents two obligations competing for my time. They are one
 problem.
 
 Two of six state analysts resign and delivery is threatened — which is only true
 because their knowledge was never written down. The counterpart department scores
-1.5 out of 5 on documenting a reproducible workflow. **These are the same finding
-in two organisations.** In both, capability lives in individuals rather than in
-the process, so the organisation's competence is exactly as durable as its
-staffing.
+**1.5 out of 5 on documenting a reproducible workflow.** These are the same
+finding in two organisations: capability living in individuals rather than in the
+process, so the organisation's competence is exactly as durable as its staffing.
 
 That is why documentation is the spine of this course rather than a module in it,
-and why level 3 — *"a colleague reproduces it without asking you"* — is the
-threshold the whole programme is built around. It is the operational definition
-of knowledge that has left someone's head.
+and why level 3 — *a colleague reproduces it without asking you* — is the
+threshold the programme is built around. It is the operational definition of
+knowledge that has left someone's head.
 
-It is also why the two obligations do not compete for my time in the way the
-scenario implies. The handover protocol I would impose on my own departing
-analysts and the standard this department drafts on day 3 are **the same
-artefact**. Building it once, in the open, with the counterpart participating,
-serves both — and a counterpart that has watched me handle a live coordination
-failure has learned something no five-day course delivers.
+It is also why the two obligations do not compete as the scenario implies. The
+handover protocol I would impose on my own departing analysts and the standard
+this department drafts on day 3 are **the same artefact**. Building it once, in
+the open, with the counterpart participating, serves both — and a counterpart
+that has watched me handle a live coordination failure has learned something no
+five-day course delivers.
 
 **The honest caveat:** this is a genuine connection, not a universal one. If the
-counterpart's real constraint turns out to be hardware rather than knowledge,
-then no documentation standard fixes it, and the two problems come apart
-completely. The 90-day plan's first action exists precisely because the answer to
-that question determines whether this argument holds.
+counterpart's real constraint proves to be hardware rather than knowledge, no
+documentation standard fixes it and the two problems come apart completely. The
+90-day plan's first action exists because the answer decides whether this
+argument holds.
 
----
 
 ### Annexes (excluded from the page limit)
 
-- **Annex A** — Full competency framework, 6 domains × 5 levels
-- **Annex B** — The 90-minute session, in full: facilitator guide, participant
-  brief, model answer, expected errors and interventions
-- **Annex C** — Pre/post instrument: 8 tasks, rubric, scoring, parallel datasets
-- **Annex D** — Training dataset specifications D1, D2, D-PRE, D-POST
+**A** competency framework · **B** the 90-minute session in full · **C** pre/post instrument · **D** dataset specifications · **E** session-by-session course plan
