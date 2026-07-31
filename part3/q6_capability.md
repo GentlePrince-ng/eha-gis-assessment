@@ -31,17 +31,16 @@ It is *nothing*: knowing someone's self-assessment tells you essentially nothing
 about their ability. Three consequences follow, and each removes a tool I would
 normally use.
 
-- **No streaming by self-assessment.** Grouping by confidence would produce
-  groups uncorrelated with ability. Any streaming must come from the
-  **demonstrated** pre-assessment in Annex C.
-- **Stated demand is not a needs analysis.** Demand is *"near universal across
-  all competency areas"* — from a cohort that cannot locate its own gaps. It
-  tells me what is attractive, not what is missing. Treating it as a needs
-  assessment would produce a syllabus optimised for appeal.
+- **No streaming by self-assessment** — groups formed by confidence would be
+  uncorrelated with ability. Streaming comes from the demonstrated
+  pre-assessment (Annex C).
+- **Stated demand is not a needs analysis.** Demand is *"near universal"*, from a
+  cohort that cannot locate its own gaps: it says what is attractive, not what is
+  missing, and treating it as a needs assessment produces a syllabus optimised
+  for appeal.
 - **Self-rated improvement is worthless as an outcome.** If self-rating is
-  uninformative at baseline, a rise in it after training measures comfort, not
-  capability. The evaluation in §5 therefore rests on demonstrated tasks and on
-  independent reproduction.
+  uninformative at baseline, a rise after training measures comfort. §5 therefore
+  rests on demonstrated tasks and independent reproduction.
 
 **It also dictates day one.** Twenty-one people will arrive believing they are
 more capable than they are, and being told otherwise produces defensiveness by
@@ -55,14 +54,10 @@ realisation is theirs and the recovery is immediate. Facilitator rule throughout
 
 **Zero of 21 have access to QGIS or ArcGIS.**
 
-The important thing is that **QGIS is free.** ArcGIS costs money; QGIS costs
-nothing and runs on any machine of the last decade. So this is not a budget
-finding. Zero access to a free tool means one of:
-
-- staff have no administrative rights to install software;
-- the machines are too old, or there are not enough of them;
-- an IT policy blocks unapproved installations;
-- or there are no machines allocated to this work at all.
+The important thing is that **QGIS is free**, and runs on any machine of the last
+decade. This is not a budget finding. Zero access to a free tool means no
+administrative rights to install; or machines too old or too few; or an IT policy
+blocking installations; or no machines allocated to this work at all.
 
 **These have entirely different remedies and nobody has established which
 applies** — a single unanswered question that decides whether the constraint
@@ -81,22 +76,22 @@ immediately and the escalation becomes a costed case with evidence behind it.
 **Documenting a reproducible cleaning workflow: 1.5 / 5** — the lowest measured
 score.
 
-This is fortunate, because it is also the skill that determines whether anything
-else survives. A department that cannot document a cleaning workflow cannot hand
-work over, cannot audit a number, and cannot absorb a resignation. It is the same
-fragility described in the coordination scenario, in a different building (§7).
-
-So documentation is not a module in this course. **It is the spine**, and every
-other block is assessed by whether its output can be re-run by someone else.
+Fortunate, because it is also the skill that determines whether anything else
+survives: a department that cannot document a cleaning workflow cannot hand work
+over, audit a number, or absorb a resignation — the same fragility as the
+coordination scenario, in a different building (§7). So documentation is not a
+module here. **It is the spine**, and every other block is assessed by whether
+its output can be re-run by someone else.
 
 ### 1.5 The one thing they want, used rather than refused
 
 Strongest stated demand is **map production and cartography** — not what they
-most need, but refusing it would be a mistake. It is the visible, satisfying end
-of this work and where the department already feels ownership. **So it becomes
-the vehicle, not the syllabus:** every exercise ends in a map, and every map is
-accepted only if a colleague can repeat the steps. They get what they asked for;
-the price of receiving it is the thing they need.
+most need, but refusing it would be a mistake: it is the visible end of this work
+and where the department already feels ownership. **So it becomes the vehicle,
+not the syllabus.** Every exercise ends in a map, and every map is accepted only
+if a colleague can repeat the steps. They get what they asked for; the price of
+receiving it is the thing they need.
+
 
 ---
 
@@ -162,19 +157,13 @@ scoring 36.
 | **4** | Spatial data, and the map they came for | **Apply** — produce a correctly projected, properly furnished map, and state what it does not show | 255 / 20 min |
 | **5** | Their own work, and what happens next | **Apply → evaluate** — complete a real departmental product to level 3, and review a colleague's to level 4 | 270 / 0 min |
 
-Three sessions are load-bearing and are worth naming here.
-
-**Day 1 opens with a task they cannot finish** (§1.2), and ends with a product,
-so the discomfort of the morning resolves the same day.
-
-**Day 3 session 1 is the session developed in full in Annex B.** Day 3 session 3
-has the cohort draft *their own* minimum documentation standard — deliberate,
+Three sessions carry the design. **Day 1 opens with a task they cannot finish**
+(§1.2) and still ends in a product, so the morning's discomfort resolves the same
+day. **Day 3 session 3** has the cohort draft *their own* documentation standard,
 because a standard issued to this department will not be followed and one they
-wrote and immediately tested might be.
-
-**Day 5 uses the department's real work**, not training data. Training data
-produces training-shaped competence, and transfer is the problem this programme
-exists to solve. The peer-reproduction exercise that closes it doubles as the
+wrote and tested might be. **Day 5 uses the department's real work**, since
+training data produces training-shaped competence and transfer is the problem
+this programme exists to solve; its closing peer-reproduction doubles as the
 post-assessment.
 
 ## 4. What I have chosen not to teach, and why
@@ -237,21 +226,20 @@ to prevent.
 
 ### Days −14 to 0 — before the course: resolve the binding constraint
 
-**This runs before day one, not after.** Nothing in the course transfers if
-participants cannot open the software on the Monday after.
+**This runs before day one, not after.** Nothing transfers if participants cannot
+open the software on the Monday afterwards.
 
-1. **Establish why access is zero.** A 30-minute conversation with the agency's
-   IT function and one attempt to install QGIS on a departmental machine
+1. **Establish why access is zero.** One conversation with the agency's IT
+   function and one attempt to install QGIS on a departmental machine
    distinguishes admin rights from hardware from policy. Until this is known,
    every remedy is a guess.
-2. **Deploy QGIS Portable on USB** to all 21 participants. Requires no
-   administrative rights and no installation. It removes the constraint
-   immediately if the cause is rights or policy, and demonstrates it hard if the
-   cause is hardware.
+2. **Deploy QGIS Portable on USB** to all 21. No administrative rights, no
+   installation — it removes the constraint immediately if the cause is rights or
+   policy, and demonstrates it hard if the cause is hardware.
 3. **Escalate with evidence, not a request.** If hardware is the cause, the ask
    to the counterpart's management is specific and costed, and carries the
-   assessment finding: a department contractually committed to geospatial output
-   with zero capacity to run geospatial software.
+   finding: a department contractually committed to geospatial output with zero
+   capacity to run geospatial software.
 
 ### Days 1–30 — applied work under review
 
@@ -300,23 +288,21 @@ or number trained. Every one of them can be excellent while nothing changed.
 The scenario presents two obligations competing for my time. They are one
 problem.
 
-Two of six state analysts resign and delivery is threatened — which is only true
-because their knowledge was never written down. The counterpart department scores
-**1.5 out of 5 on documenting a reproducible workflow.** These are the same
-finding in two organisations: capability living in individuals rather than in the
-process, so the organisation's competence is exactly as durable as its staffing.
+Two of six state analysts resign and delivery is threatened — true only because
+their knowledge was never written down. The counterpart department scores **1.5
+out of 5 on documenting a reproducible workflow.** The same finding in two
+organisations: capability living in individuals rather than in the process, so
+competence is exactly as durable as staffing.
 
-That is why documentation is the spine of this course rather than a module in it,
-and why level 3 — *a colleague reproduces it without asking you* — is the
-threshold the programme is built around. It is the operational definition of
-knowledge that has left someone's head.
+That is why documentation is the spine of this course, and why level 3 — *a
+colleague reproduces it without asking you* — is the threshold the programme is
+built around. It is the operational definition of knowledge that has left
+someone's head.
 
 It is also why the two obligations do not compete as the scenario implies. The
-handover protocol I would impose on my own departing analysts and the standard
-this department drafts on day 3 are **the same artefact**. Building it once, in
-the open, with the counterpart participating, serves both — and a counterpart
-that has watched me handle a live coordination failure has learned something no
-five-day course delivers.
+handover protocol for my own departing analysts and the standard this department
+drafts on day 3 are **the same artefact**, and building it once, in the open,
+with the counterpart participating, serves both.
 
 **The honest caveat:** this is a genuine connection, not a universal one. If the
 counterpart's real constraint proves to be hardware rather than knowledge, no
