@@ -159,12 +159,13 @@ scoring 36.
 
 Three sessions carry the design. **Day 1 opens with a task they cannot finish**
 (§1.2) and still ends in a product, so the morning's discomfort resolves the same
-day. **Day 3 session 3** has the cohort draft *their own* documentation standard,
-because a standard issued to this department will not be followed and one they
-wrote and tested might be. **Day 5 uses the department's real work**, since
-training data produces training-shaped competence and transfer is the problem
-this programme exists to solve; its closing peer-reproduction doubles as the
-post-assessment.
+day. **Day 3 session 1 — "Make your work someone else's" — is the session
+developed in full as Annex B**, and session 3 has the cohort draft *their own*
+documentation standard, because a standard issued to this department will not be
+followed and one they wrote and tested might be. **Day 5 uses the department's
+real work**, since training data produces training-shaped competence and transfer
+is the problem this programme exists to solve; its closing peer-reproduction
+doubles as the post-assessment.
 
 ## 4. What I have chosen not to teach, and why
 
@@ -313,4 +314,7 @@ argument holds.
 
 ### Annexes (excluded from the page limit)
 
-**A** competency framework · **B** the 90-minute session in full · **C** pre/post instrument · **D** dataset specifications · **E** session-by-session course plan
+**A** competency framework · **B** the 90-minute session in full — facilitator
+guide, participant briefs, model answer and dataset generator · **C** pre/post
+assessment instrument · **D** dataset specifications · **E** session-by-session
+course plan

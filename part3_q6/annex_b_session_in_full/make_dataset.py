@@ -35,7 +35,7 @@ Defects 2, 3 and 6 are the ones that make the session work. Two participants
 cleaning correctly will produce **different row counts**, and neither is wrong —
 which is the moment reproduction fails and documentation stops being abstract.
 
-Run:  python part3/session_90min/make_dataset.py
+Run:  python part3_q6/annex_b_session_in_full/make_dataset.py
 """
 
 from __future__ import annotations
