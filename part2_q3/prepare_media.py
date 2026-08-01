@@ -100,6 +100,42 @@ def build_previous_households() -> Path:
                   "children_under5_last_round", "consent_to_follow_up"])
 
 
+def build_staff_roster() -> Path:
+    """Add `assigned_lga_code`, resolved from the LGA label.
+
+    The supplied roster records `assigned_lga` as the LGA **label** ("Gwarin")
+    while every other supplied file keys on the **code** ("LGA02"). Question
+    1.02 constrains the selected LGA to the one the enumerator is assigned, and
+    a code is never equal to a label - so the constraint rejected every
+    selection and all 96 enumerators were stopped at the first question of the
+    form. Team supervisors were unaffected, because the constraint exempts them
+    by role, which is what made it look like a permissions problem rather than
+    a join problem.
+
+    Resolved by joining to `lgas.csv` here, so the form compares code to code.
+    The alternative - resolving the label inside the constraint with a nested
+    predicate - would put a second `instance()` lookup into an expression that
+    JavaRosa evaluates on every keystroke, and this form has already been bitten
+    twice by lookups that convert cleanly and resolve to nothing at runtime.
+
+    The join is asserted rather than assumed: an unmatched label fails the
+    build.
+    """
+    lga_code = {r["label"]: r["name"] for r in read(SOURCE / "lgas.csv")}
+    rows = []
+    for r in read(SOURCE / "staff_roster.csv"):
+        assigned = r["assigned_lga"].strip()
+        if assigned and assigned not in lga_code:
+            raise SystemExit(
+                f"staff_roster.csv: assigned_lga {assigned!r} for {r['name']} "
+                f"matches no label in lgas.csv - the cascade would silently "
+                f"block this user")
+        rows.append({**r, "assigned_lga_code": lga_code.get(assigned, "")})
+    return write("staff_roster.csv", rows,
+                 ["name", "label", "team_code", "role", "assigned_lga",
+                  "assigned_lga_code", "pin", "phlebotomy_certified"])
+
+
 def build_specimen_allocation() -> Path:
     """Keyed on team_code. The form looks it up with instance(), which does not
     need name/label, but they are added so the file is also usable as a select
@@ -181,9 +217,7 @@ def main() -> None:
         # Trimmed from 12 columns to the 5 the form references.
         passthrough("settlements.csv",
                     ["name", "label", "settlement_type", "ward_code", "lga_code"]),
-        passthrough("staff_roster.csv",
-                    ["name", "label", "team_code", "role", "assigned_lga",
-                     "pin", "phlebotomy_certified"]),
+        build_staff_roster(),
         build_previous_households(),
         build_specimen_allocation(),
         build_medicines(),

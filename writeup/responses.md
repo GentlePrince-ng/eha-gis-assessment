@@ -1387,6 +1387,49 @@ It is not: `staff_roster.csv` shows team supervisors carry `ENU###` identifiers
 (e.g. `ENU005`, role *Team supervisor*). The form validates 7.04 against roster members
 whose role is supervisor, and leaves the prefix alone.
 
+### E5 - `staff_roster.assigned_lga` holds a label where every other file holds a code
+
+**Found by deploying the form to a live server and trying to use it**, which is
+the only way it could have been found.
+
+`lgas.csv` keys on `name` = `LGA02` with `label` = `Gwarin`. `wards.csv` and
+`settlements.csv` both carry `lga_code` = `LGA02`. **`staff_roster.csv` carries
+`assigned_lga` = `Gwarin`** - the label, in a column every other supplied file
+expresses as a code.
+
+Question 1.02 constrains the selected LGA to the one the enumerator is assigned.
+Comparing the selection (`LGA02`) against the roster column (`Gwarin`) is a code
+against a label: **never equal, so the constraint rejected every selection and
+all 96 enumerators were stopped at the first question of the form.** The 24 team
+supervisors were unaffected, because the constraint exempts non-enumerators by
+role - which is what made it present as a permissions problem rather than a join
+problem.
+
+**Disposition: fixed in the form's own media build.** `prepare_media.py` derives
+`assigned_lga_code` by joining the roster's label to `lgas.csv`, and the
+constraint compares code to code. The supplied file is not edited, and an
+unmatched label fails the build rather than shipping a roster that silently
+blocks somebody.
+
+**Rejected: resolving the label inside the constraint.** It is expressible as a
+nested predicate, but it puts a second `instance()` lookup into an expression
+JavaRosa evaluates on every keystroke, and this form has already been bitten
+twice by lookups that convert cleanly and resolve to nothing at runtime (see
+`validation.md`).
+
+**Escalated as well as fixed.** The mismatch is in the supplied reference data,
+so it will recur every round until the roster is issued with a code column. The
+form now tolerates it; the source should be corrected.
+
+**What this cost, and what it changed.** Three tools reported success on a form
+that could not be used: pyxform converted it, ODK Validate passed it, and
+`validate_media.py` confirmed the referenced column existed. **All three were
+right, and the form was still broken** - because a column existing is not the
+same as its values meaning what they are compared against. `validate_media.py`
+now checks five cross-file value domains and fails if a child column holds a
+value absent from its parent. **A reference that resolves and joins to nothing
+is worse than a broken one, because every tool in the chain reports success.**
+
 ---
 
 ## F. Tension between the questionnaire and the stated operating conditions
@@ -2117,11 +2160,11 @@ columns cost import time and storage on every device, 120 times over:
 | `settlements.csv` | 2,524 | 212.5 KB | **88.6 KB** |
 | `previous_round_households.csv` | 3,982 | 328.8 KB | 289.3 KB |
 | `wards.csv` | 40 | 1.1 KB | 1.1 KB |
-| `staff_roster.csv` | 120 | 6.5 KB | 6.6 KB |
+| `staff_roster.csv` | 120 | 6.5 KB | 7.3 KB |
 | `specimen_label_allocation.csv` | 24 | 2.5 KB | 1.3 KB |
 | `medicines.csv` | 23 | - | 1.9 KB |
 | `lgas.csv` | 4 | 0.1 KB | 0.1 KB |
-| **Total shipped to each device** | | 551.4 KB | **388.9 KB** |
+| **Total shipped to each device** | | 551.4 KB | **389.6 KB** |
 
 Built by `prepare_media.py`, which reads the supplied reference files and
 **never modifies them**.
