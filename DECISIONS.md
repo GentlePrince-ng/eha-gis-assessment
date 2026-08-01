@@ -467,3 +467,38 @@ quantities. The instability is a property of the data - forty wards, a correctio
 controlling for forty tests, effects near the threshold - not of the seed, and more
 permutations narrow the Monte Carlo error without moving the effect away from the
 threshold.
+
+---
+
+## D-012 - Deterministic ordering in the QA window functions
+
+**Decided** by Solomon, 1 August. Found by auditing Q1 against its requirements.
+
+**Chose:** every window function in `stage02_qa.py` orders by `(ts, point_id)`,
+never `ts` alone.
+
+**Why it was needed.** Six windows ordered by timestamp within a team. Timestamps
+are **not unique within a team** - 585,951 records share a team and minute while
+carrying different coordinates, which is the defect the whole pipeline is built
+around (D-002). Ordering by `ts` alone leaves ties, `lag()` picks a different
+predecessor between runs, run boundaries move, and the QA09 stationary-cluster
+count was observed alternating between **2,062 and 2,063 across runs of
+identical code**. QA04 and QA07 depend on the same windows and were structurally
+exposed even where they happened to be stable in sampling.
+
+**The irony is worth stating:** the non-determinism was caused by the colliding
+keys this submission identifies as its sharpest finding. Naming a defect in the
+data does not stop it propagating into the code that measures it.
+
+**Rejected: ordering by `ts` and accepting the variation.** No usable-for-coverage
+figure moved - the store held steady at 150,940 - so nothing downstream was
+wrong. But a rule count that changes when the pipeline is re-run cannot be
+published, and `qa_rules.md` publishes it.
+
+**Why `point_id`.** It is the content hash, proven unique by
+`tests/test_store.py` T2, so it settles every tie without changing the intended
+chronological order.
+
+Verified by running stage02 four times and comparing QA04, QA07, QA09 and the
+usable count: identical every time.
+
