@@ -124,35 +124,6 @@ UTM's real weakness - straddling a zone boundary - does not arise here.
 
 ---
 
-## D-005 - Attribution tolerance: accuracy-scaled, `50 m + 2 × reported accuracy`
-
-**Decided** by Solomon, 30 July. Normal-tier points get ≈ 66 m, degraded-tier ≈ 122 m.
-
-**The measurement that decided it.** Compared at equivalent reach:
-
-| Method | Settlements visited | Ambiguous points |
-|---|---|---|
-| Fixed 100 m | 1,069 | 501 |
-| Scaled, base 50 m | 1,071 | 253 |
-
-Same coverage, half the ambiguity. The scaled rule **dominates** the fixed rule on both
-axes rather than trading between them - which independently vindicates D-004d, since the
-accuracy information a fixed cut discards is demonstrably doing work.
-
-**Why base 50 m:** at 50 m only 1.6% of settlements have overlapping buffers (42 of 2,562),
-so ambiguity is structurally small before accuracy widens it. Settlement spacing bounds the
-choice: median nearest neighbour 734 m, 5th percentile 194 m, 1st percentile 79 m.
-
-**Why k = 2:** approximately a 95% radius if reported accuracy is a 1-sigma horizontal
-error, the usual convention for a GPS accuracy field. **This is an assumption about the
-logger firmware, not a documented property of these devices**, and the methods note says so.
-
-**Not claimed:** a tighter urban tolerance. Idi-Oro's median nearest-neighbour distance is
-669 m against 734-834 m in the rural LGAs, so the usual "settlements are packed closer in
-town" argument is not supported by this data.
-
----
-
 ## D-004 - Track quality assurance thresholds
 
 Rules **flag**, they do not delete. The pack states twice that records must not be silently
@@ -223,6 +194,15 @@ conflict-free intervals are exactly 60 s, and every other gap is a whole-minute 
 dropped fixes, not clock drift. Counts barely move across a 3× threshold change (155 above
 5 min, 111 above 15 min), so the finding is again insensitive to the cut.
 
+### D-004f - Sensitivity reporting is mandatory, not optional
+
+Because D-004b and D-004d are judgement calls that move the headline, coverage is reported
+under both duty windows and both accuracy treatments. If coverage is stable the thresholds
+stop being a vulnerability; if it is not, that instability is itself a finding for the
+decision brief, because it tells the Incident Manager how far to trust the number.
+
+---
+
 ### D-004g - Stationary clusters: flagged at 5 minutes, never excluded
 
 **Named explicitly in the question's minimum rule set**, and the one rule that is not
@@ -251,98 +231,32 @@ depends on settlement context, which does not exist until attribution.
 
 ---
 
-### D-004f - Sensitivity reporting is mandatory, not optional
+## D-005 - Attribution tolerance: accuracy-scaled, `50 m + 2 × reported accuracy`
 
-Because D-004b and D-004d are judgement calls that move the headline, coverage is reported
-under both duty windows and both accuracy treatments. If coverage is stable the thresholds
-stop being a vulnerability; if it is not, that instability is itself a finding for the
-decision brief, because it tells the Incident Manager how far to trust the number.
+**Decided** by Solomon, 30 July. Normal-tier points get ≈ 66 m, degraded-tier ≈ 122 m.
 
----
+**The measurement that decided it.** Compared at equivalent reach:
 
-## D-009 - Dwell threshold for "visited": 5 distinct minutes
-
-**Decided** by Solomon, 30 July. Calibrated, not chosen by preference.
-
-**The empirical anchor.** Visits the e-tally independently confirms - same team, settlement
-and day in both sources - have a median dwell of **24 minutes** (p25 18, p75 31). Visits it
-does not confirm have a median of **3 minutes**. Real working visits are long.
-
-**The exchange rate that picks 5.**
-
-| Threshold | Keeps confirmed | Keeps unconfirmed |
+| Method | Settlements visited | Ambiguous points |
 |---|---|---|
-| ≥ 3 min | 95.6% | 55.7% |
-| **≥ 5 min** | **93.6%** | **36.4%** |
-| ≥ 10 min | 92.1% | 32.3% |
-| ≥ 15 min | 89.7% | 31.5% |
+| Fixed 100 m | 1,069 | 501 |
+| Scaled, base 50 m | 1,071 | 253 |
 
-Moving 3 → 5 sheds 19 points of unconfirmed for 2 points of confirmed, about ten to one.
-Moving 5 → 10 sheds 4 more for 1.5, under three to one. Past 10 the trade goes negative.
-**The unconfirmed curve flattens after 5** - beyond that the threshold has stopped
-discriminating and is only deleting evidence.
+Same coverage, half the ambiguity. The scaled rule **dominates** the fixed rule on both
+axes rather than trading between them - which independently vindicates D-004d, since the
+accuracy information a fixed cut discards is demonstrably doing work.
 
-**Three caveats, all going into the methods note rather than being left to be found.**
+**Why base 50 m:** at 50 m only 1.6% of settlements have overlapping buffers (42 of 2,562),
+so ambiguity is structurally small before accuracy widens it. Settlement spacing bounds the
+choice: median nearest neighbour 734 m, 5th percentile 194 m, 1st percentile 79 m.
 
-1. **The calibration is partly circular.** Tuning a track-derived threshold against the
-   e-tally, then using the tracks to audit the e-tally, is self-referential if pushed. The
-   defence is that 5 is taken from the *shape* of the dwell distribution - the elbow - not
-   from the point of maximum agreement, which would have been 10. Weaker dependence on the
-   e-tally being right, not zero dependence.
-2. **"Unconfirmed" is not "false".** Some of the 635 unconfirmed visits are real work a team
-   never reported, which is a finding rather than noise. The table measures agreement, not
-   accuracy.
-3. **Dwell does not predict volume of work.** Median doses by dwell band are 39, 48, 30, 31,
-   36 - flat. Twenty-six confirmed visits had 1-2 minutes of dwell and a median of 39 doses,
-   teams working while the logger was off or out of hours. The rule knowingly discards ~6.4%
-   of provable visits and the write-up says so.
+**Why k = 2:** approximately a 95% radius if reported accuracy is a 1-sigma horizontal
+error, the usual convention for a GPS accuracy field. **This is an assumption about the
+logger firmware, not a documented property of these devices**, and the methods note says so.
 
-**What it does not change.** Coverage ranges from 735 to 1,066 settlements across every
-threshold tested, against 2,023 claimed. The gap of roughly a thousand settlements survives
-any choice, so the finding does not rest on this threshold - which belongs in the decision
-brief, because it tells the Incident Manager the conclusion is not an artefact of an
-analyst's cut point. The brief reports the band alongside the point estimate: wrongly
-calling a settlement covered leaves children unvaccinated, while wrongly calling it missed
-only dilutes finite mop-up capacity, and those costs are not symmetric.
-
----
-
-## D-008 - Geographic validity (rule QA08): null island excluded, transposition corrected only where corroborated
-
-**Decided** by Solomon, 30 July. Evidence in `part1_q1/docs/coordinate_defects.md`.
-
-Found at stage 03, not stage 02 - attribution asked why 83.7% of usable points matched no
-settlement. Recorded as a miss in the original rule set, because nothing in a
-time/speed/accuracy/sequence rule set notices that a well-formed record sits in the Gulf of
-Guinea.
-
-| Sub-rule | Points | Disposition |
-|---|---|---|
-| QA08a null island (`longitude = 0 AND latitude = 0`) | 71 | exclude - position unrecoverable |
-| QA08b transposed, corroborated | 198 | **corrected**, flagged, original retained |
-| QA08b transposed, uncorroborated | 1 | exclude |
-
-**Membership is derived from the state polygon, not a hardcoded bounding box:** a point is
-transposed if it falls outside the state as supplied *and* inside it once the axes are
-exchanged. That way the rule states its own logic rather than embedding magic numbers.
-
-**Corroboration standard:** the swapped position must lie within **500 m** of another fix
-from the same team within ±10 minutes. Measured before choosing it - against contemporaneous
-fixes, transposed points sit a median of **510.7 km** away as supplied and **60.4 m** once
-swapped, and 198 of 199 fall inside 500 m. The threshold sits in the empty space between
-those two regimes, so like the speed rule the result does not depend on its exact value.
-
-**Rejected - exclude all 199.** Never edits field data, but discards a position we can
-demonstrate we know.
-
-**Rejected - correct all 199 unconditionally.** Would have carried the single uncorroborated
-point on the strength of a pattern rather than its own evidence.
-
-**Why correction is legitimate here.** The pack forbids hand-editing source files. This is
-not a hand edit: it is scripted, applied at the QA stage rather than to the source, records
-the original coordinates alongside the corrected ones, flags every affected row, and is
-reversible by changing one rule. The alternative - silently dropping points whose true
-position is provable - is also a distortion, and a less visible one.
+**Not claimed:** a tighter urban tolerance. Idi-Oro's median nearest-neighbour distance is
+669 m against 734-834 m in the rural LGAs, so the usual "settlements are packed closer in
+town" argument is not supported by this data.
 
 ---
 
@@ -411,6 +325,116 @@ individual child.
 
 ---
 
+## D-008 - Geographic validity (rule QA08): null island excluded, transposition corrected only where corroborated
+
+**Decided** by Solomon, 30 July. Evidence in `part1_q1/docs/coordinate_defects.md`.
+
+Found at stage 03, not stage 02 - attribution asked why 83.7% of usable points matched no
+settlement. Recorded as a miss in the original rule set, because nothing in a
+time/speed/accuracy/sequence rule set notices that a well-formed record sits in the Gulf of
+Guinea.
+
+| Sub-rule | Points | Disposition |
+|---|---|---|
+| QA08a null island (`longitude = 0 AND latitude = 0`) | 71 | exclude - position unrecoverable |
+| QA08b transposed, corroborated | 198 | **corrected**, flagged, original retained |
+| QA08b transposed, uncorroborated | 1 | exclude |
+
+**Membership is derived from the state polygon, not a hardcoded bounding box:** a point is
+transposed if it falls outside the state as supplied *and* inside it once the axes are
+exchanged. That way the rule states its own logic rather than embedding magic numbers.
+
+**Corroboration standard:** the swapped position must lie within **500 m** of another fix
+from the same team within ±10 minutes. Measured before choosing it - against contemporaneous
+fixes, transposed points sit a median of **510.7 km** away as supplied and **60.4 m** once
+swapped, and 198 of 199 fall inside 500 m. The threshold sits in the empty space between
+those two regimes, so like the speed rule the result does not depend on its exact value.
+
+**Rejected - exclude all 199.** Never edits field data, but discards a position we can
+demonstrate we know.
+
+**Rejected - correct all 199 unconditionally.** Would have carried the single uncorroborated
+point on the strength of a pattern rather than its own evidence.
+
+**Why correction is legitimate here.** The pack forbids hand-editing source files. This is
+not a hand edit: it is scripted, applied at the QA stage rather than to the source, records
+the original coordinates alongside the corrected ones, flags every affected row, and is
+reversible by changing one rule. The alternative - silently dropping points whose true
+position is provable - is also a distortion, and a less visible one.
+
+---
+
+## D-009 - Dwell threshold for "visited": 5 distinct minutes
+
+**Decided** by Solomon, 30 July. Calibrated, not chosen by preference.
+
+**The empirical anchor.** Visits the e-tally independently confirms - same team, settlement
+and day in both sources - have a median dwell of **24 minutes** (p25 18, p75 31). Visits it
+does not confirm have a median of **3 minutes**. Real working visits are long.
+
+**The exchange rate that picks 5.**
+
+| Threshold | Keeps confirmed | Keeps unconfirmed |
+|---|---|---|
+| ≥ 3 min | 95.6% | 55.7% |
+| **≥ 5 min** | **93.6%** | **36.4%** |
+| ≥ 10 min | 92.1% | 32.3% |
+| ≥ 15 min | 89.7% | 31.5% |
+
+Moving 3 → 5 sheds 19 points of unconfirmed for 2 points of confirmed, about ten to one.
+Moving 5 → 10 sheds 4 more for 1.5, under three to one. Past 10 the trade goes negative.
+**The unconfirmed curve flattens after 5** - beyond that the threshold has stopped
+discriminating and is only deleting evidence.
+
+**Three caveats, all going into the methods note rather than being left to be found.**
+
+1. **The calibration is partly circular.** Tuning a track-derived threshold against the
+   e-tally, then using the tracks to audit the e-tally, is self-referential if pushed. The
+   defence is that 5 is taken from the *shape* of the dwell distribution - the elbow - not
+   from the point of maximum agreement, which would have been 10. Weaker dependence on the
+   e-tally being right, not zero dependence.
+2. **"Unconfirmed" is not "false".** Some of the 635 unconfirmed visits are real work a team
+   never reported, which is a finding rather than noise. The table measures agreement, not
+   accuracy.
+3. **Dwell does not predict volume of work.** Median doses by dwell band are 39, 48, 30, 31,
+   36 - flat. Twenty-six confirmed visits had 1-2 minutes of dwell and a median of 39 doses,
+   teams working while the logger was off or out of hours. The rule knowingly discards ~6.4%
+   of provable visits and the write-up says so.
+
+**What it does not change.** Coverage ranges from 735 to 1,066 settlements across every
+threshold tested, against 2,023 claimed. The gap of roughly a thousand settlements survives
+any choice, so the finding does not rest on this threshold - which belongs in the decision
+brief, because it tells the Incident Manager the conclusion is not an artefact of an
+analyst's cut point. The brief reports the band alongside the point estimate: wrongly
+calling a settlement covered leaves children unvaccinated, while wrongly calling it missed
+only dilutes finite mop-up capacity, and those costs are not symmetric.
+
+---
+
+## D-010 - Part 2 Q3: scope deliberately not implemented
+
+**Decided** by Solomon, 31 July. Full list in `part2_q3/docs/deliberate_scope.md`.
+
+**Chose: five categories, each with a reason of a different kind**, rather than one list of
+omissions - because the reason is what makes a scope defensible.
+
+| Left out because | Examples |
+|---|---|
+| **The input does not exist** | The real medicine codelist; the survey manager's encryption keypair |
+| **The decision is not mine** | Partitioning media per team; removing 4.02, the child's name; enforcing the follow-up consent flag |
+| **It is impossible in the medium** | Cross-submission duplicate detection; hashing the sign-in PIN, since XForms has no hash function |
+| **It needs a device or a person** | Executing the test plan against a live server; native-speaker review of the Hausa; memory testing on a real 2 GB tablet |
+| **Judgement** | No GPS geofence, because a settlement centroid is not a household location and a boundary rule would block legitimate dwellings at the edge; no clinical blocking on measurements |
+
+**Rejected: implementing what could be implemented and listing the rest as future work.**
+Several of these are implementable and were still declined - the geofence most obviously.
+A scope that excludes only the impossible is not a scope, it is a status report.
+
+Q3's final deliverable asks what was left out and why. *"A defensible scope scores better
+than an exhaustive one."*
+
+---
+
 ## D-011 - Seeding the permutation inference
 
 **Decided** by Solomon, 1 August. Measured by `part1_q1/src/seed_stability.py`.
@@ -443,27 +467,3 @@ quantities. The instability is a property of the data - forty wards, a correctio
 controlling for forty tests, effects near the threshold - not of the seed, and more
 permutations narrow the Monte Carlo error without moving the effect away from the
 threshold.
-
----
-
-## D-010 - Part 2 Q3: scope deliberately not implemented
-
-**Decided** by Solomon, 31 July. Full list in `part2_q3/docs/deliberate_scope.md`.
-
-**Chose: five categories, each with a reason of a different kind**, rather than one list of
-omissions - because the reason is what makes a scope defensible.
-
-| Left out because | Examples |
-|---|---|
-| **The input does not exist** | The real medicine codelist; the survey manager's encryption keypair |
-| **The decision is not mine** | Partitioning media per team; removing 4.02, the child's name; enforcing the follow-up consent flag |
-| **It is impossible in the medium** | Cross-submission duplicate detection; hashing the sign-in PIN, since XForms has no hash function |
-| **It needs a device or a person** | Executing the test plan against a live server; native-speaker review of the Hausa; memory testing on a real 2 GB tablet |
-| **Judgement** | No GPS geofence, because a settlement centroid is not a household location and a boundary rule would block legitimate dwellings at the edge; no clinical blocking on measurements |
-
-**Rejected: implementing what could be implemented and listing the rest as future work.**
-Several of these are implementable and were still declined - the geofence most obviously.
-A scope that excludes only the impossible is not a scope, it is a status report.
-
-Q3's final deliverable asks what was left out and why. *"A defensible scope scores better
-than an exhaustive one."*
