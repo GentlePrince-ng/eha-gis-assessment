@@ -20,11 +20,30 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 PANDOC = Path(r"C:/Users/SolomonOladimeji/AppData/Local/Pandoc/pandoc.exe")
 
+# A native Word table-of-contents field, placed where we want it rather than
+# where --toc puts it (immediately after the title block, which leaves the cover
+# sharing page 1 with the contents). Word fills in the entries and page numbers;
+# `dirty` asks it to do so when the document is opened.
+TOC_FIELD = (
+    "\n```{=openxml}\n"
+    # TOCHeading, not Heading1: Word's TOC Heading style carries no outline
+    # level, so the word "Contents" does not list itself as an entry.
+    '<w:p><w:pPr><w:pStyle w:val="TOCHeading"/></w:pPr>'
+    "<w:r><w:t>Contents</w:t></w:r></w:p>"
+    '<w:p><w:r><w:fldChar w:fldCharType="begin" w:dirty="true"/></w:r>'
+    '<w:r><w:instrText xml:space="preserve"> TOC \\o "1-2" \\h \\z \\u </w:instrText></w:r>'
+    '<w:r><w:fldChar w:fldCharType="separate"/></w:r>'
+    "<w:r><w:t>Select all and press F9 to build the table of contents.</w:t></w:r>"
+    '<w:r><w:fldChar w:fldCharType="end"/></w:r></w:p>'
+    "\n```\n\n"
+)
+
 PAGE_BREAK = '\n```{=openxml}\n<w:p><w:r><w:br w:type="page"/></w:r></w:p>\n```\n\n'
 
 # (heading, [files]) - order is the reading order, not the filesystem's.
 SECTIONS: list[tuple[str, list[str]]] = [
     ("", ["writeup/00_cover.md"]),
+    ("", ["writeup/01_summary.md"]),
     ("# PART 1 - Question 1\n\n## Campaign team tracking and coverage reconciliation\n",
      [
          "part1_q1/docs/qa_rules.md",
@@ -83,6 +102,11 @@ def main() -> None:
                 parts.append(PAGE_BREAK)
             parts.append(path.read_text(encoding="utf-8"))
             n_files += 1
+            # Cover page stands alone, then the contents, then the summary.
+            # The cover carries no heading of its own, so it does not appear in
+            # the table of contents it precedes.
+            if rel.endswith("00_cover.md"):
+                parts.append(PAGE_BREAK + TOC_FIELD + PAGE_BREAK)
 
     combined = HERE / "responses.md"
     combined.write_text("\n\n".join(parts), encoding="utf-8")
@@ -92,7 +116,7 @@ def main() -> None:
         [str(PANDOC), str(combined), "-o", str(out),
          "--from", "markdown+pipe_tables+raw_attribute",
          "--reference-doc", str(HERE / "reference.docx"),
-         "--toc", "--toc-depth=2", "-V", "lang=en-GB"],
+         "-V", "lang=en-GB"],
         capture_output=True, text=True)
     if result.returncode != 0:
         sys.exit(result.stdout + result.stderr)
