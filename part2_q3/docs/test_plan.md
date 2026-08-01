@@ -253,7 +253,7 @@ bottom recording actual against expected.
 | **Type** | positive |
 | **Target** | `q1_14_result` |
 | **Input** | 1.14 = Dwelling vacant or demolished |
-| **Expected** | Sections 2-6 hidden. Note instructs the enumerator to sign at 7.03 and hand the form to the supervisor. |
+| **Expected** | Sections 2-6 hidden. Note instructs the enumerator to submit and hand the device to the supervisor for review at 7.04. It must NOT refer to 7.03, which is the paper signature field and does not exist in this form. |
 | **Why it matters** | Mirrors the paper instruction after 1.14. |
 | **Result** | _not yet executed_ |
 

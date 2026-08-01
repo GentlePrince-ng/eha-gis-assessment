@@ -2144,6 +2144,46 @@ digit cannot detect, because a label from another team's book is internally
 valid. A defect found once by hand is now found automatically by
 `validate_media.py`.
 
+## Two more classes, both found by deploying the form and using it
+
+Neither is visible to a validator, and neither was caught by the three checks
+above. Both are now checked on every build.
+
+### 4. A reference that resolves and joins to nothing
+
+`staff_roster.csv` records `assigned_lga` as the LGA **label** (`Gwarin`) while
+`lgas.csv` keys on the **code** (`LGA02`). Question 1.02 constrains the selected
+LGA to the enumerator's assignment, so the comparison was a code against a
+label: never equal. **All 96 enumerators were stopped at the first question**,
+while the 24 supervisors passed, because the constraint exempts them by role.
+
+Every tool reported success. The column existed, the path resolved, the file was
+present. **A column existing is not the same as its values meaning what they are
+compared against.** `validate_media.py` now checks five cross-file value domains
+and fails if a child column holds a value absent from its parent.
+
+Recorded as defect E5, and escalated: the mismatch is in the supplied reference
+data and will recur every round until the roster ships with a code column.
+
+### 5. An instruction pointing at a question that does not exist
+
+The 1.14 stop note read *"Sign at 7.03 and hand the form to your supervisor."*
+**There is no 7.03 in this form.** It is the paper enumerator-signature field,
+deliberately replaced by authenticated submission along with 7.01 and 7.06 - and
+the instruction survived the field's removal.
+
+This is **defect A1's failure mode, reproduced in my own form**: the paper
+questionnaire told the enumerator to read a column it had told them to leave
+blank; the digital form told them to sign at a question it had removed. Finding
+that class in someone else's instrument and shipping it in your own is the
+reason the check is now automatic rather than a matter of proofreading.
+
+`validate_media.py` extracts every question number appearing in visible text,
+compares it against the numbers implemented as fields, and fails on any that are
+referenced but absent. Paper numbers implemented under a different node name -
+1.08 asked at sign-in, 7.01 captured automatically - are listed explicitly so a
+legitimate back-reference is not reported as a defect.
+
 ## Validating it properly
 
 ### Attach `part2_q3/form/media/`, NOT the pack's `reference_media/`
@@ -2609,7 +2649,7 @@ bottom recording actual against expected.
 | **Type** | positive |
 | **Target** | `q1_14_result` |
 | **Input** | 1.14 = Dwelling vacant or demolished |
-| **Expected** | Sections 2-6 hidden. Note instructs the enumerator to sign at 7.03 and hand the form to the supervisor. |
+| **Expected** | Sections 2-6 hidden. Note instructs the enumerator to submit and hand the device to the supervisor for review at 7.04. It must NOT refer to 7.03, which is the paper signature field and does not exist in this form. |
 | **Why it matters** | Mirrors the paper instruction after 1.14. |
 | **Result** | _not yet executed_ |
 
