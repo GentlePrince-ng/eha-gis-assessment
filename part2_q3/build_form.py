@@ -220,14 +220,53 @@ def survey_rows() -> list[dict]:
            "1.12 Was this household visited during the October 2025 round?"},
         required="yes")
 
+    # 1.13 cannot be a closed required list. The lookup covers 1,565 of 2,524
+    # settlements, so 959 settlements (38%) have no previous-round household in
+    # the file at all - and a household can perfectly well answer "yes" at 1.12
+    # in one of them, because the file is a sample of the previous round rather
+    # than a census of it. A required autocomplete over an empty filtered list
+    # is an interview that cannot be continued or abandoned: the enumerator
+    # types, nothing matches, and the form will not advance.
+    #
+    # So: count what the filter will return, offer the list only when it has
+    # something in it, and always leave a way to record an identifier that is
+    # not on it. The same escape covers the household that is in the file but
+    # cannot be found by the enumerator.
+    row(type="calculate", name="q1_13_prev_n",
+        calculation="count(instance('previous_round_households')/root/item"
+                    "[settlement_id=${q1_04_settlement}])")
+
     row(type="select_one_from_file previous_round_households.csv",
         name="q1_13_prev_id",
         **{"label::Hausa (ha)": "Lambar gidan da aka ba shi a 2025",
            "label::English (en)":
            "1.13 Household identifier allocated in the October 2025 round"},
-        relevant="${q1_12_prev_round} = '1'", required="yes",
+        relevant="${q1_12_prev_round} = '1' and ${q1_13_prev_n} > 0",
+        required="no",
         choice_filter="settlement_id=${q1_04_settlement}",
         appearance="autocomplete")
+
+    row(type="text", name="q1_13_prev_id_other",
+        **{"label::Hausa (ha)":
+           "Rubuta lambar gidan ta 2025 kamar yadda take a katin gidan "
+           "(misali BAN-000123). Idan ba a sani ba, rubuta 99999.",
+           "label::English (en)":
+           "1.13 Write the 2025 household identifier as printed on the household "
+           "card, for example BAN-000123. If it cannot be established, enter 99999."},
+        relevant="${q1_12_prev_round} = '1' and "
+                 "(${q1_13_prev_n} = 0 or ${q1_13_prev_id} = '')",
+        required="yes",
+        constraint="regex(., '^(BAN-[0-9]{6}|99999)$')",
+        **{"constraint_message::Hausa (ha)":
+           "Tsarin bai dace ba. Misali BAN-000123, ko 99999 idan ba a sani ba.",
+           "constraint_message::English (en)":
+           "Expected format BAN-000123, or 99999 if it cannot be established."})
+
+    # One analysis variable, so the two capture paths do not have to be
+    # reconciled downstream. Published in the codebook.
+    row(type="calculate", name="q1_13_prev_id_final",
+        calculation="if(${q1_13_prev_id} != '', ${q1_13_prev_id}, "
+                    "${q1_13_prev_id_other})")
 
     row(type="select_one result_of_visit", name="q1_14_result",
         **{"label::Hausa (ha)": "Sakamakon ziyarar",

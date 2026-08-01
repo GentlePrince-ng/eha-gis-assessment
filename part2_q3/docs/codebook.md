@@ -51,7 +51,7 @@ measurement status field says explicitly why no value exists.
 
 ## Table: `household` - one row per submission
 
-43 fields.
+46 fields.
 
 | Field | Type | Question / meaning | Null when |
 |---|---|---|---|
@@ -79,7 +79,10 @@ measurement status field says explicitly why no value exists.
 | `q1_10_visit_date` | date | 1.10 Date of visit | `never (always collected)` |
 | `q1_11_gps` | geopoint | 1.11 GPS reading at the entrance to the dwelling | `never (always collected)` |
 | `q1_12_prev_round` | select_one | 1.12 Was this household visited during the October 2025 round? | `never (always collected)` |
-| `q1_13_prev_id` | select_one_from_file | 1.13 Household identifier allocated in the October 2025 round | `${q1_12_prev_round} = '1'` |
+| `q1_13_prev_n` | calculate | derived: `count(instance('previous_round_households')/root/item[se` | `never (always collected)` |
+| `q1_13_prev_id` | select_one_from_file | 1.13 Household identifier allocated in the October 2025 round | `${q1_12_prev_round} = '1' and ${q1_13_prev_n} > 0` |
+| `q1_13_prev_id_other` | text | 1.13 Write the 2025 household identifier as printed on the household card, f | `${q1_12_prev_round} = '1' and (${q1_13_prev_n} = 0 or ${q1_13_pr` |
+| `q1_13_prev_id_final` | calculate | derived: `if(${q1_13_prev_id} != '', ${q1_13_prev_id}, ${q1_13_pre` | `never (always collected)` |
 | `q1_14_result` | select_one | 1.14 Result of visit | `never (always collected)` |
 | `q2_01_statement_read` | select_one | 2.01 Consent statement read aloud to the respondent in full? | `never (always collected)` |
 | `q2_02_consent` | select_one | 2.02 Does the respondent consent to the household interview? | `never (always collected)` |

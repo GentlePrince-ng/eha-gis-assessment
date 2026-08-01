@@ -92,6 +92,45 @@ distance threshold has to be invented.
 Baluru dominates the population at stake - 27,137 of the 31,950 - because it is a large
 urban ward. Rate and burden are different quantities and the brief must not conflate them.
 
+### How firm is this set of three?
+
+The p-values above come from a permutation test, which is a random procedure, and
+Benjamini-Hochberg turns them into a binary decision at a threshold the three wards sit
+close to. So the honest question is not what the p-value is, but **how often this set is
+returned at all.**
+
+Stage 05 is seeded (`SEED = 20260309`), which makes the reported figure reproducible.
+It does not make it stable, and reporting a seeded number as settled would be the worse of
+the two failures. `part1_q1/src/seed_stability.py` re-runs the ward-level test under 200
+independent seeds:
+
+| Reported set | Runs | Share |
+|---|---|---|
+| **All three wards** | 181 / 200 | **90.5%** |
+| Two wards | 5 / 200 | 2.5% |
+| **No wards at all** | 14 / 200 | **7.0%** |
+
+| Ward | Selected in | |
+|---|---|---|
+| Kungomi | 186 / 200 | 93.0% |
+| Daberi | 186 / 200 | 93.0% |
+| Baluru | 181 / 200 | 90.5% |
+
+**The three travel together.** BH is a step-up procedure: it finds the largest rank whose
+p-value clears its threshold and rejects everything at or below it, so the set is mostly
+all-or-nothing rather than three independent decisions. That is why 90.5% of runs give
+three wards and 7% give none, with almost nothing in between.
+
+**What to claim:** three wards, reproducible under the stated seed, and returned by roughly
+nine runs in ten. **What not to claim:** that these three are individually established at
+p = 0.0018, 0.0023 and 0.0037 as though those were fixed quantities. They are estimates
+from 9,999 draws, and in one run in fourteen the correction returns nothing.
+
+The instability is a property of the data - forty wards, a correction that must control
+for forty tests, and effects near the threshold - not of the seed. A larger permutation
+count narrows the Monte Carlo error on each p-value but does not move it away from the
+threshold.
+
 ### Highest rate is not the same as hot spot
 
 | Ward | Missed rate | Gi\* z | p | Hot spot? |

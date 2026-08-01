@@ -5,7 +5,7 @@
 and **the build fails if any rule in the form has no documented source** -
 so a constraint cannot be added without stating where its value came from.
 
-16 blocking constraints · 6 warnings · 22 rules documented
+17 blocking constraints · 6 warnings · 23 rules documented
 
 ## How to read the source column
 
@@ -86,6 +86,17 @@ severely malnourished children the survey exists to count.
 | **What it prevents** | A visit dated outside the approved fieldwork window - most often a device with the wrong date, or a form completed later from notes. |
 | **Source** | Paper form |
 | **Detail** | Header states 'Fieldwork period 1 to 30 June 2026'. The operating conditions say fieldwork runs 14 days, which is narrower. The ETHICS-APPROVED window is enforced as the hard constraint and the 14-day expectation is a soft warning, because a hard 14-day rule would reject legitimate submissions if the schedule shifts. |
+
+### `q1_13_prev_id_other` - 1.13 Write the 2025 household identifier as printed on the household card, for example BAN-000123. If it cannot be established, enter 99999.
+
+| | |
+|---|---|
+| **Action** | blocks |
+| **Rule** | `regex(., '^(BAN-[0-9]{6}|99999)$')` |
+| **Message shown** | Expected format BAN-000123, or 99999 if it cannot be established. |
+| **What it prevents** | A free-typed previous-round identifier that cannot be joined to the 2025 round, and the dead end that arises when the lookup for this settlement is empty. |
+| **Source** | Reference data |
+| **Detail** | Every one of the 3,982 identifiers in previous_round_households.csv matches BAN-000000, checked against the file rather than assumed. The escape exists because the lookup covers 1,565 of 2,524 settlements: in the other 959 a household can answer yes at 1.12 with nothing to select, and a required select over an empty filtered list is an interview that can neither be completed nor abandoned. 99999 is the declared five-digit sentinel for 'no answer obtained' and is distinguishable from a real identifier by shape. |
 
 ### `q2_01_statement_read` - 2.01 Consent statement read aloud to the respondent in full?
 

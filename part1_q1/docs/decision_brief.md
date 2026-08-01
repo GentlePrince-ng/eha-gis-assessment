@@ -25,6 +25,29 @@ have no evidence of being reached**: no doses reported and no GPS track placing 
 there. Those gaps are not evenly spread. Three wards form a genuine cluster, and that
 holds after allowing for the fact that testing 40 wards throws up false alarms by chance.
 
+**How confident, in plain terms.** The cluster test is a random procedure, so we re-ran it
+200 times. It returned these same three wards in **nine runs out of ten**, and in **one run
+in fourteen it found no significant cluster at all**. The three either appear together or
+not at all, which is how the correction for multiple testing behaves.
+
+**What that means for today's decision:** deploy on the three, but for two different
+reasons, because they are not equally robust.
+
+**Baluru stands on its own evidence.** It has the most missed settlements of any ward in
+the state (31) and much the largest child population (27,137). It is the right destination
+whether or not the cluster test clears its threshold on any given run.
+
+**Daberi and Kungomi stand on the cluster.** Individually they are 10 missed settlements
+each, which is mid-table - they are recommended because their *neighbourhoods* share the
+pattern and they are adjacent to each other, so one team covers both. If the cluster
+finding were withdrawn, so is the case for prioritising them over, say, Satita (30 missed)
+or Bayoyi (27).
+
+**It does not mean these three are proven and the rest are clear.** Eight Idi-Oro wards have
+more missed settlements than Daberi or Kungomi and are not hot spots, because their
+neighbours look the same as they do - a high but uniform level does not produce a local
+peak. Absence from this list is not evidence of adequate coverage.
+
 ## Before you trust this
 
 **Only 27.5% of reported activity can be corroborated.** Loggers confirm 556 of 2,023
