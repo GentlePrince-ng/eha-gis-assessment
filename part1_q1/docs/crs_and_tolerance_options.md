@@ -2,7 +2,8 @@
 
 Two thresholds the assessment explicitly warns about (*"thresholds, buffers, or tolerances
 asserted without justification"* is an automatic mark loss). Both measured rather than
-asserted. Decision goes to `DECISIONS.md` D-003 and D-005 once chosen.
+asserted. **This is the working out**; what was chosen is recorded at the end of this
+document and in `DECISIONS.md` as D-003 and D-005.
 
 ---
 
@@ -63,7 +64,7 @@ Study area: longitude 6.954-8.429, latitude 10.366-11.573.
 
 ---
 
-## D-005 - Attribution tolerance ← **needs your decision**
+## D-005 - Attribution tolerance
 
 ### What bounds the tolerance: how far apart settlements are
 

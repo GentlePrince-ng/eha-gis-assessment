@@ -157,10 +157,11 @@ geographically impossible.
 
 # QA rule set - candidate thresholds and the argument for each
 
-Working document. Each rule below gives the measured evidence, two or three defensible
-threshold choices with what each costs, and a recommendation. **Nothing here is settled
-until Solomon picks**, at which point it moves to `DECISIONS.md` with its reasoning and
-into `qa_rules.md` as the implemented rule.
+Each rule below gives the measured evidence, two or three defensible threshold choices
+with what each costs, and a recommendation. **This is the working out, not the answer.**
+What was chosen is recorded at the end of this document and in `DECISIONS.md` with its
+reasoning; the rules as applied, with the points each flagged or excluded, are in
+`qa_rules.md`, generated from the store.
 
 All counts are against the **296,526 in-campaign points** (9-13 March 2026) unless stated.
 
@@ -288,7 +289,7 @@ at QA as a counted rule, not silently at ingest.
 
 ---
 
-## R2 - Duty hours ← **needs your decision**
+## R2 - Duty hours
 
 **Evidence.** Collision-collapsed team-minutes by hour show a real but soft working signal
 on top of a runaway-logger baseline:
@@ -352,7 +353,7 @@ that the logger reported as stationary.
 
 ---
 
-## R4 - Positional accuracy ← **needs your decision, and it is the dangerous one**
+## R4 - Positional accuracy - the one that can manufacture a false finding
 
 **Evidence.** Distribution across in-campaign points: median 11.1 m, 75th 32.9, 90th 48.0,
 99th 57.0, max 58.0.
@@ -499,7 +500,8 @@ cannot disagree.
 
 Two thresholds the assessment explicitly warns about (*"thresholds, buffers, or tolerances
 asserted without justification"* is an automatic mark loss). Both measured rather than
-asserted. Decision goes to `DECISIONS.md` D-003 and D-005 once chosen.
+asserted. **This is the working out**; what was chosen is recorded at the end of this
+document and in `DECISIONS.md` as D-003 and D-005.
 
 ---
 
@@ -560,7 +562,7 @@ Study area: longitude 6.954-8.429, latitude 10.366-11.573.
 
 ---
 
-## D-005 - Attribution tolerance ← **needs your decision**
+## D-005 - Attribution tolerance
 
 ### What bounds the tolerance: how far apart settlements are
 
