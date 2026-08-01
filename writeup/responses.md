@@ -1069,94 +1069,58 @@ Concretely, this is why:
 **To:** Incident Manager, Bansara State SIA · **From:** Data and GIS Analytics · **14 March 2026**
 **Round:** 9-13 March 2026 · **Decision needed:** where to deploy, today.
 
----
-
 ## Recommendation
 
-**Daberi and Kungomi first as a single deployment - they share a boundary. Then Baluru.**
+**Daberi and Kungomi first as one deployment - they share a boundary. Then Baluru.**
 
-| | Ward | LGA | Settlements missed | Under-5 in ward | Why |
+| | Ward | LGA | Missed | Under-5 | Why |
 |---|---|---|---|---|---|
 | **1** | Daberi + Kungomi | Katsuma | 20 | 4,813 | Adjacent, confirmed cluster - one team covers both in a day |
 | **2** | Baluru | Idi-Oro | 31 | 27,137 | Largest child population of any hot spot; urban, so travel is quick |
 | **3** | Suwade | Katsuma | 16 | 2,593 | Worst rate in the state (34%) but **isolated** - a ward problem, not an area problem |
 
-Suwade is the trap in this data. Its neighbours performed normally, so an area-level
-response there wastes capacity. Fix it as a single ward.
-
 ## What we found
 
 Of **2,487 planned settlements** (excluding 75 classified inaccessible), **444 - 17.9% -
 have no evidence of being reached**: no doses reported and no GPS track placing a team
-there. Those gaps are not evenly spread. Three wards form a genuine cluster, and that
-holds after allowing for the fact that testing 40 wards throws up false alarms by chance.
+there. The gaps are not evenly spread.
 
-**How confident, in plain terms.** The cluster test is a random procedure, so we re-ran it
-200 times. It returned these same three wards in **nine runs out of ten**, and in **one run
-in fourteen it found no significant cluster at all**. The three either appear together or
-not at all, which is how the correction for multiple testing behaves.
+**How confident.** The cluster test is a random procedure. Re-run 200 times it returned
+these same three wards in **nine runs in ten**, and in one run in fourteen found no cluster
+at all. They appear together or not at all.
 
-**What that means for today's decision:** deploy on the three, but for two different
-reasons, because they are not equally robust.
-
-**Baluru stands on its own evidence.** It has the most missed settlements of any ward in
-the state (31) and much the largest child population (27,137). It is the right destination
-whether or not the cluster test clears its threshold on any given run.
-
-**Daberi and Kungomi stand on the cluster.** Individually they are 10 missed settlements
-each, which is mid-table - they are recommended because their *neighbourhoods* share the
-pattern and they are adjacent to each other, so one team covers both. If the cluster
-finding were withdrawn, so is the case for prioritising them over, say, Satita (30 missed)
-or Bayoyi (27).
-
-**It does not mean these three are proven and the rest are clear.** Eight Idi-Oro wards have
-more missed settlements than Daberi or Kungomi and are not hot spots, because their
-neighbours look the same as they do - a high but uniform level does not produce a local
-peak. Absence from this list is not evidence of adequate coverage.
+**Baluru stands on its own evidence** - most missed settlements in the state and much the
+largest child population. **Daberi and Kungomi stand on the cluster**: 10 missed each,
+mid-table, recommended because their neighbourhoods share the pattern and they adjoin.
+**Absence from this list is not evidence of coverage** - eight Idi-Oro wards have more
+missed settlements without being hot spots, because a high but uniform level produces no
+local peak.
 
 ## Before you trust this
 
-**Only 27.5% of reported activity can be corroborated.** Loggers confirm 556 of 2,023
-reported visits. For **1,336**, the team's own logger places it a median of **3.5 km away**
-at the time, and no other team went there either.
+**Only 27.5% of reported activity can be corroborated** - loggers confirm 556 of 2,023
+reported visits. For **1,336**, the team's own logger sits a median of **3.5 km away**.
 
-**This does not mean the vaccinations did not happen.** We measured where *loggers* were,
-not where *people* were. A logger left in a vehicle, switched off during work, or carried
-by one half of a team that split would each produce this exact pattern. We tested and ruled
-out the data explanations - mismatched team numbers, wrong dates, faulty settlement
-coordinates - but cannot rule out those operational ones from GPS alone.
+**That does not mean the vaccinations did not happen.** We measured where *loggers* were,
+not where *people* were - a logger left in a vehicle, switched off, or carried by half a
+split team produces this pattern. We ruled out the data explanations; not the operational
+ones. **So 444 is a floor, not a ceiling**, and the real gap may sit in different wards.
 
-**What it means for you: 444 is a floor, not a ceiling.** If a meaningful share of those
-1,336 visits did not happen, the real gap is larger and may sit in different wards than
-this map shows.
-
-## Three things to do today
+## Today
 
 1. **Spot-check 30 of the 1,336 unverified claims at random** while mop-up runs. That
-   settles more than any further analysis. If they check out, this map is your targeting
-   tool; if not, the round needs a different conversation.
+   settles more than further analysis.
 2. **Treat reported coverage - 170,104 doses against a 255,931 target, 66.5% - as
    unverified** until those checks return.
-3. **Call about the five inaccessible settlements that reported doses.** Either the
-   security classification is stale or the reporting is wrong.
+3. **Call about the five inaccessible settlements that reported doses.**
 
-## Confidence, and limits
+**This brief says nothing about any individual child**, nothing reliable about any
+individual settlement (the finding holds at ward level), nothing about *why* the gaps
+concentrate, and nothing about any team's honesty - poor corroboration describes a logger,
+not the people carrying it.
 
-| Finding | Confidence |
-|---|---|
-| 444 settlements show no coverage in **either** source | **High** - both sources agree |
-| They cluster in Daberi, Kungomi and Baluru | **High** - survives correction for multiple testing |
-| Reported coverage of 66.5% | **Low** - two-thirds uncorroborated |
-| The true missed total is 444 | **Low** - a floor; the ceiling is unknown |
-
-This brief says **nothing about any individual child** (no vaccination status was
-measured), **nothing reliable about any individual settlement** (the finding holds at ward
-level - a settlement inside a hot-spot ward may have been covered perfectly), **nothing
-about why** the gaps concentrate, and **nothing about any team's honesty** - poor
-corroboration describes a logger, not the people carrying it.
-
-*From 956,702 GPS fixes across 160 logger files, of which 150,940 (16.2%) were usable after
-quality control. Method and limitations in the accompanying technical note.*
+*From 956,702 GPS fixes across 160 files, 150,940 (16.2%) usable after quality control.
+Method and limitations in the accompanying technical note.*
 
 
 
