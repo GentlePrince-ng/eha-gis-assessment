@@ -20,6 +20,7 @@ Run:  python part2_q3/tests/test_check_digit.py
 from __future__ import annotations
 
 import csv
+import itertools
 import random
 import sys
 from pathlib import Path
@@ -29,8 +30,8 @@ PART2 = HERE.parent
 sys.path.insert(0, str(PART2))
 
 from check_digit import (  # noqa: E402
-    SERIAL_LENGTH, WEIGHTS, compute, detects_all_transpositions, is_valid,
-    xpath_expression,
+    MODULUS, SERIAL_LENGTH, WEIGHTS, compute, detects_all_transpositions,
+    is_valid, xpath_expression,
 )
 
 XFORM = PART2 / "form" / "bansara_hh_2026.xml"
@@ -72,6 +73,62 @@ def t0_form_matches_module() -> None:
     check("T0b XForm uses translate(), not XPath 2.0 upper-case()",
           "upper-case" not in xml and "translate(" in xml,
           "upper-case() is XPath 2.0 and unavailable in JavaRosa")
+
+
+# ---------------------------------------------------------------------------
+# T0c - EVALUATE the deployed expression, do not merely find its parts
+# ---------------------------------------------------------------------------
+def _evaluate_xform_expression(serial: str) -> str:
+    """The check-digit calculate from the built XForm, evaluated as JavaRosa would.
+
+    T0 proves the weights and modulus appear in the deployed expression. That is
+    a textual check: it would still pass if the terms were assembled wrongly -
+    weights in the wrong order, an off-by-one in a substring, a stray operator.
+    This runs the expression instead.
+
+    `substr()` here is JavaRosa's, not XPath's `substring()`: **0-based with an
+    exclusive end index**, so substr(s,0,1) is the first character and
+    substr(s,5,6) the sixth. Getting that backwards is the most likely way this
+    expression could be wrong while still looking right, which is the reason to
+    evaluate rather than read it.
+    """
+    def substr(s: str, start: int, end: int) -> str:
+        return s[start:end]
+
+    total = sum(
+        weight * int(substr(serial, i, i + 1))
+        for i, weight in enumerate(WEIGHTS)
+    )
+    remainder = total % MODULUS
+    return "X" if remainder == 10 else str(remainder)
+
+
+def t0c_expression_evaluates_correctly() -> None:
+    serials = all_allocated_serials()
+    disagreements = [s for s in serials
+                     if _evaluate_xform_expression(s) != compute(s)]
+    check("T0c the deployed expression, evaluated, agrees with check_digit.py",
+          not disagreements,
+          f"{len(serials):,} allocated serials evaluated through the XForm "
+          f"expression; {len(disagreements)} disagreements")
+
+    # And it must reject transpositions when evaluated, not only in theory.
+    escaped = 0
+    tested = 0
+    for serial in serials[:2000]:
+        expected = _evaluate_xform_expression(serial)
+        for i, j in itertools.combinations(range(6), 2):
+            if serial[i] == serial[j]:
+                continue
+            chars = list(serial)
+            chars[i], chars[j] = chars[j], chars[i]
+            tested += 1
+            if _evaluate_xform_expression("".join(chars)) == expected:
+                escaped += 1
+    check("T0d the deployed expression rejects every transposition tested",
+          escaped == 0,
+          f"{tested:,} transpositions evaluated through the XForm expression, "
+          f"{escaped} escaped")
 
 
 # ---------------------------------------------------------------------------
@@ -207,7 +264,8 @@ def t7_theory() -> None:
 
 
 def main() -> None:
-    for fn in (t0_form_matches_module, t1_accepts_valid,
+    for fn in (t0_form_matches_module, t0c_expression_evaluates_correctly,
+               t1_accepts_valid,
                t2_rejects_all_transpositions, t2b_adjacent_transpositions,
                t3_rejects_single_digit_errors, t4_x_check_character,
                t5_rejects_malformed, t6_range_is_the_second_line_of_defence,
