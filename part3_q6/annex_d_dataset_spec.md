@@ -27,13 +27,13 @@ that defects cannot be found by eye; small enough to finish.
 
 | # | Defect | Count | Judgement call? |
 |---|---|---|---|
-| 1 | `lga_name` variants - spacing, case, hyphenation | 16 variants → 4 real LGAs | No |
+| 1 | `lga_name` variants - spacing, case, hyphenation | 16 variants → 4 real LGAs, 98 rows | No |
 | 2 | Duplicate `facility_id`, **rows differ** | 3 pairs | **Yes** - which row survives? |
 | 3 | Missing coordinates | 5 rows | **Yes** - drop, or keep unmapped? |
 | 4 | Latitude/longitude transposed | 2 rows | No |
-| 5 | Leading/trailing whitespace in names | 24 rows | No |
+| 5 | Leading/trailing whitespace in `facility_name` | 24 rows | No |
 | 6 | `staff_total = 999` | 3 rows | **Yes** - sentinel, or real? |
-| 7 | `facility_type` spelling variants | 9 variants → 3 real types | No |
+| 7 | `facility_type` spelling variants | 9 variants → 3 real types, 120 rows | No |
 | 8 | Decimal comma in `longitude` | 6 rows | No |
 
 ## Why three of them have no correct answer

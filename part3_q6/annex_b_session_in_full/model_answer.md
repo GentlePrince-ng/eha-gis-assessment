@@ -18,7 +18,7 @@ SOURCE FILE
 
 STEPS, in this order
     1. Trimmed leading and trailing spaces from facility_name and lga_name.
-       24 values changed.
+       54 values changed - 24 in facility_name, 30 in lga_name.
        (Done FIRST - grouping before trimming leaves " Gwarin" as its own group.)
 
     2. Mapped lga_name to 4 canonical values using this table:
@@ -26,14 +26,14 @@ STEPS, in this order
            Gwarin    <- "GWARIN", "gwarin"
            Katsuma   <- "KATSUMA"
            Ilela     <- "ILELA", "ilela"
-       16 distinct values reduced to 4. 61 rows changed.
+       16 distinct values reduced to 4. 98 rows changed.
 
     3. Mapped facility_type to 3 canonical values:
            Primary Health Centre <- "Primary Health Center", "PHC",
                                     "Primary health centre"
            Health Post           <- "Health post", "HEALTH POST"
            Cottage Hospital      <- "Cottage hospital"
-       9 distinct values reduced to 3.
+       9 distinct values reduced to 3. 120 rows changed.
 
     4. Replaced "," with "." in longitude. 6 values fixed.
        These were text like "7,914882" - a decimal comma, not a thousands

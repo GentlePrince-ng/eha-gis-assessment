@@ -22,14 +22,18 @@ The dataset has to do three things at once:
 
 | # | Defect | Count | Judgement call? |
 |---|---|---|---|
-| 1 | LGA name variants: spacing, case, hyphenation | 34 rows across 4 LGAs | No - needs a mapping, one right answer |
+| 1 | LGA name variants: spacing, case, hyphenation | 16 variants, 4 LGAs, 98 rows | No - needs a mapping, one right answer |
 | 2 | Duplicate `facility_id`, **rows differ** | 3 pairs | **Yes** - which row survives? |
 | 3 | Missing coordinates | 5 rows | **Yes** - drop, or keep unmapped? |
 | 4 | Latitude and longitude transposed | 2 rows | No - detectable and correctable |
-| 5 | Leading/trailing whitespace in names | 21 rows | No |
+| 5 | Leading/trailing whitespace in `facility_name` | 24 rows | No |
 | 6 | Staff count implausible (`999`) | 3 rows | **Yes** - sentinel, or a real value? |
-| 7 | `facility_type` spelling variants | 18 rows | No |
+| 7 | `facility_type` spelling variants | 9 variants, 3 types, 120 rows | No |
 | 8 | Coordinates stored as text, some with a stray `,` | 6 rows | No |
+
+Counts are for D1 and are the ones `profile()` reports where the two overlap.
+`profile()` is the checked artefact; this table is documentation, so where they
+disagree the function is right.
 
 Defects 2, 3 and 6 are the ones that make the session work. Two participants
 cleaning correctly will produce **different row counts**, and neither is wrong -
