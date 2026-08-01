@@ -54,6 +54,12 @@ OUT = HERE / "D1_facilities_raw.csv"
 SEED = 20260731
 N_ROWS = 200
 
+# The state bounding box. Named rather than inline because verify_claims.py
+# imports them to re-derive the transposed-coordinate count: a rule stated in
+# two places drifts, which is the failure this dataset teaches.
+LON_RANGE = (6.95, 8.43)
+LAT_RANGE = (10.37, 11.57)
+
 LGA_CANONICAL = ["Idi-Oro", "Gwarin", "Katsuma", "Ilela"]
 LGA_VARIANTS = {
     "Idi-Oro": ["Idi-Oro", "Idi Oro", "IDI-ORO", "Idi-oro", "idi-oro"],
@@ -96,8 +102,8 @@ def build(seed: int) -> list[dict]:
             "facility_type": rng.choice(TYPE_VARIANTS[ftype]),
             "lga_name": rng.choice(LGA_VARIANTS[lga]),
             "ward_name": rng.choice(NAME_STEMS),
-            "longitude": f"{rng.uniform(6.95, 8.43):.6f}",
-            "latitude": f"{rng.uniform(10.37, 11.57):.6f}",
+            "longitude": f"{rng.uniform(*LON_RANGE):.6f}",
+            "latitude": f"{rng.uniform(*LAT_RANGE):.6f}",
             "staff_total": str(rng.randint(2, 24)),
         })
 
