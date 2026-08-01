@@ -143,6 +143,14 @@ rejects everything. It happened twice; now it is checked automatically. See
 files, which that tool cannot attach. Conversion succeeds; loading fails. Deploy
 per `validation.md`.
 
+**Attach the media from `part2_q3/form/media/`, not the pack's
+`reference_media/`.** The folders share filenames and differ in content. Three
+of the supplied files cannot drive the form as issued: two have no `name`/`label`
+column, which `select_one_from_file` requires, and `medicines.csv` was never
+issued at all. Attaching the raw folder gives a form that uploads cleanly and
+then rejects every LGA at question 1.02. The seven correct files are committed;
+`prepare_media.py` rebuilds them without touching the sources.
+
 ## Part 3 - Q5 and Q6
 
 Written responses, within their stated page limits (Q5 three pages; Q6 six

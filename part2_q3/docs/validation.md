@@ -58,7 +58,30 @@ valid. A defect found once by hand is now found automatically by
 
 ## Validating it properly
 
-The form needs its seven attachments. Two routes:
+### Attach `part2_q3/form/media/`, NOT the pack's `reference_media/`
+
+**This is the one thing that will make the form look broken when it is not.**
+The two folders hold files with the same names and different contents. The
+supplied `reference_media/` cannot drive this form, and could not before any
+choice I made:
+
+| File | As supplied in the pack | Why it cannot be attached directly |
+|---|---|---|
+| `previous_round_households.csv` | keyed on `household_id` | **no `name` or `label` column**, which `select_one_from_file` requires |
+| `specimen_label_allocation.csv` | keyed on `team_code` | **no `name` or `label` column** |
+| `medicines.csv` | **does not exist** | never issued with the pack. See defect E1 |
+| `staff_roster.csv` | `assigned_lga` holds `Gwarin` | the label where every other file keys on `LGA02`. See defect E5 |
+
+The first three are why `prepare_media.py` exists at all. Attaching the raw
+folder produces a form that converts, uploads, and then fails at 1.02 with *"This
+LGA is not the one assigned to you"* - because the roster's LGA column is a label
+being compared against a code.
+
+`python part2_q3/prepare_media.py` writes the seven correct files. They are also
+committed, so they can be attached straight from `part2_q3/form/media/` without
+running anything.
+
+### Then the two deployment routes
 
 ### ODK Central (recommended)
 1. Create a project, **Draft** → upload `form/bansara_hh_2026.xlsx`.
@@ -67,7 +90,9 @@ The form needs its seven attachments. Two routes:
 
 ### ODK Collect, no server
 Copy `bansara_hh_2026.xml` into `Android/data/org.odk.collect.android/files/projects/<id>/forms/`
-and the seven CSVs into a folder beside it named `bansala_hh_2026-media/`.
+and the seven CSVs into a folder beside it named `bansara_hh_2026-media/`.
+The folder name must match the form file exactly, or Collect will not find the
+attachments and every external lookup will silently return nothing.
 
 ## The seven required attachments
 
