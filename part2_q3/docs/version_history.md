@@ -1,12 +1,17 @@
 # Form version history
 
 One entry per publish. The analysis team reads this alongside `form_version` in
-the data; knowing a record is version `2026063002` is useless without knowing
-what changed in `002`.
+the data; knowing a record is version `20260630-ae1b89` is useless without knowing
+what changed in it.
 
 Format is fixed so it can be parsed later if it ever needs to be.
 
-## 2026063001 - 30 June 2026 - initial release
+**The version is derived by the build**, not typed: release date plus a
+digest of the form definition. It therefore changes whenever the form
+changes and stays identical when it does not, which is what makes an entry
+here correspond to exactly one instrument. See `deployment_plan.md`.
+
+## 20260630-9c5d68 - 30 June 2026 - initial release
 
     Changed:  initial publication of Form HH/2026/v1 as a digital instrument
     Affects:  all fields
