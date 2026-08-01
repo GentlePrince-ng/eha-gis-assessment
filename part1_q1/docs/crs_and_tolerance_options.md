@@ -169,11 +169,17 @@ sequence rather than inferred from absence.
 
 ---
 
-## What I need from you
+## Decisions taken
 
-1. **D-003 - CRS.** UTM 32N as recommended?
-2. **D-005 - tolerance.** Accuracy-scaled base 50 m, k = 2? Or fixed, if you would rather
-   defend a simpler rule at the walkthrough.
+| | Chosen | Rejected | Logged as |
+|---|---|---|---|
+| **CRS** | **EPSG:32632, WGS 84 / UTM zone 32N** - 7.8 m median error against true geodesic distance over 4,000 settlement pairs | Web Mercator, and a national Albers; both measured, neither better here | D-003 |
+| **Tolerance** | **Accuracy-scaled, `50 m + 2 x reported accuracy`** | A fixed 100 m. It reaches the same coverage - 1,069 settlements against 1,071 - with twice the ambiguity, 501 points inside two buffers against 253 | D-005 |
+
+The scaled tolerance was chosen because it **dominates** the fixed one rather
+than trading against it: same reach, half the ambiguity. That is also the answer
+to the walkthrough question about defending a simpler rule - the simpler rule is
+not cheaper, it is just less accurate about which settlement a point belongs to.
 
 ---
 
