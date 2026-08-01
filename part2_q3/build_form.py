@@ -460,12 +460,21 @@ def survey_rows() -> list[dict]:
            "label::English (en)":
            "4.01 Line number of this child in the Section 3 roster"},
         required="yes",
+        # Third clause added after review: the first two prove the line exists
+        # and points at an eligible child, and neither stops the SAME line being
+        # entered for two children. Two modules would then describe one child
+        # while another eligible child is never recorded, and the form would
+        # accept it - the exact class of cross-question inconsistency a clerk
+        # catches on paper and this question asks the form to catch instead.
         constraint=". >= 1 and . <= ${roster_count} and "
-                   "indexed-repeat(${r_eligible}, ${roster}, .) = 1",
+                   "indexed-repeat(${r_eligible}, ${roster}, .) = 1 and "
+                   "count(/data/child[q4_01_line = current()/.]) = 1",
         **{"constraint_message::Hausa (ha)":
-           "Wannan layin ba yaro mai watanni 9-59 ba ne. Duba jerin.",
+           "Layin ba daidai ba ne: dole ya zama yaro mai watanni 9-59 da ba a "
+           "riga an rubuta shi ba a wani sashe.",
            "constraint_message::English (en)":
-           "That line is not a child aged 9-59 completed months. Check the roster."})
+           "Invalid line: it must be a child aged 9-59 completed months who has "
+           "not already been recorded in another child module."})
 
     row(type="calculate", name="q4_02_initials",
         calculation="indexed-repeat(${r_initials}, ${roster}, ${q4_01_line})")

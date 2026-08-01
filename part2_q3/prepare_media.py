@@ -194,20 +194,44 @@ PLACEHOLDER_MEDICINES = [
 
 
 def build_medicines() -> Path:
-    rows = [{
-        "name": "__PLACEHOLDER__",
-        "label": "*** PLACEHOLDER LIST - NOT FOR DEPLOYMENT (see defect E1) ***",
-        "label_ha": "*** JERIN GWAJI - BA DON AIKI BA ***",
-        "aware_category": "",
-        "list_version": "PLACEHOLDER-WHO-AWaRe-2023",
-    }]
+    """The placeholder codelist, with no placeholder *row*.
+
+    This file used to open with a `__PLACEHOLDER__` row carrying the label
+    "*** PLACEHOLDER LIST - NOT FOR DEPLOYMENT ***". It was meant as a banner
+    and it is not one: a row in a `select_one_from_file` codelist is a
+    selectable answer, so it appeared in the 4.13 dropdown among the real drug
+    names and an enumerator could have recorded it as a child's antibiotic.
+    A warning that can be submitted as data is worse than no warning.
+
+    The list is still self-identifying, and by a mechanism that cannot be
+    chosen: every row carries `list_version = PLACEHOLDER-WHO-AWaRe-2023`, and
+    every code is a WHO ATC code where the paper form expects a two-digit local
+    one. Any record collected against this list announces itself in analysis.
+    The human-facing warning belongs in the form note above 4.13, in the
+    defect report at E1, and in the codebook - all of which carry it.
+    """
+    rows = []
     for atc, en, ha, aware in PLACEHOLDER_MEDICINES:
         rows.append({
-            "name": atc, "label": f"{en} ({aware})", "label_ha": ha,
-            "aware_category": aware, "list_version": "PLACEHOLDER-WHO-AWaRe-2023",
+            "name": atc,
+            "label": f"{en} ({aware})",
+            # Translated columns, so Collect resolves the option text by the
+            # active language instead of showing English to everyone. The
+            # untranslated `label` stays as the fallback.
+            #
+            # For the drugs this changes little - an international
+            # nonproprietary name is the same word in Hausa. It matters for the
+            # two options an enumerator actually reads aloud, "Other - specify"
+            # and "Do not know which medicine", which were rendering in English
+            # only to a cohort where 38% are not confident readers of it.
+            "label::English (en)": f"{en} ({aware})",
+            "label::Hausa (ha)": f"{ha} ({aware})" if aware != "Unclassified" else ha,
+            "aware_category": aware,
+            "list_version": "PLACEHOLDER-WHO-AWaRe-2023",
         })
     return write("medicines.csv", rows,
-                 ["name", "label", "label_ha", "aware_category", "list_version"])
+                 ["name", "label", "label::English (en)", "label::Hausa (ha)",
+                  "aware_category", "list_version"])
 
 
 def main() -> None:

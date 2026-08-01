@@ -1930,11 +1930,11 @@ severely malnourished children the survey exists to count.
 | | |
 |---|---|
 | **Action** | blocks |
-| **Rule** | `. >= 1 and . <= ${roster_count} and indexed-repeat(${r_eligible}, ${roster}, .) = 1` |
-| **Message shown** | That line is not a child aged 9-59 completed months. Check the roster. |
-| **What it prevents** | A child module pointing at an adult, at a line that does not exist, or at a resident outside 9-59 months. |
+| **Rule** | `. >= 1 and . <= ${roster_count} and indexed-repeat(${r_eligible}, ${roster}, .) = 1 and count(/data/child[q4_01_line = current()/.]) = 1` |
+| **Message shown** | Invalid line: it must be a child aged 9-59 completed months who has not already been recorded in another child module. |
+| **What it prevents** | A child module pointing at an adult, at a line that does not exist, at a resident outside 9-59 months, or at a child already recorded in another child module. |
 | **Source** | Paper form |
-| **Detail** | 4.01 asks for the roster line number. The paper form cannot check it; indexed-repeat() validates against the roster itself. |
+| **Detail** | 4.01 asks for the roster line number. The paper form cannot check it; indexed-repeat() validates against the roster itself. The uniqueness clause was added after review: range and eligibility both pass when the same line is entered twice, which records one child in two modules while another eligible child is never recorded. count() over the sibling repeats closes it. |
 
 ### `q4_05_weight_kg` - 4.05 Weight in kg
 
@@ -2281,6 +2281,45 @@ separately executed in full by `tests/test_check_digit.py`.
 partially exercising a form is not the same as running its test plan. Both
 statements are still true here, and the honest position is that deployment
 testing found what static analysis could not and stopped short of the suite.
+
+## What an independent read of the form found
+
+The built form and its seven CSVs were reviewed by a second party against the
+XLSForm specification, independently of the deployment testing above. Three
+findings held, and all three are the same shape: **things that convert, validate
+and load, and are still wrong.**
+
+**A warning that could be submitted as data.** `medicines.csv` opened with a
+`__PLACEHOLDER__` row labelled *"PLACEHOLDER LIST - NOT FOR DEPLOYMENT"*. It was
+meant as a banner. In a `select_one_from_file` codelist a row is a selectable
+answer, so it sat in the 4.13 dropdown among the real drug names and an
+enumerator could have recorded it as a child's antibiotic. **Removed.** The list
+is still self-identifying and by a mechanism nobody can choose: every row carries
+`list_version = PLACEHOLDER-WHO-AWaRe-2023`, and every code is a WHO ATC code
+where the paper form expects a two-digit local one.
+
+**A uniqueness check that was not there.** `q4_01_line` validated that the roster
+line exists and points at an eligible child. Neither clause stops the *same* line
+being entered for two children - one child recorded twice, another eligible child
+never recorded, and the form accepting it. That is precisely the cross-question
+consistency this question asks the form to enforce in place of a clerk.
+`count(/data/child[q4_01_line = current()/.]) = 1` closes it.
+
+**Hausa that was carried and not used.** `medicines.csv` held a `label_ha`
+column the form never read, so every option rendered in English. For the drugs
+this changes little - an international nonproprietary name is the same word in
+Hausa - but *"Other, specify"* and *"Do not know which medicine"* are the two an
+enumerator reads aloud, and they were English-only to a cohort where 38% are not
+confident readers of English. The file now carries `label::Hausa (ha)` and
+`label::English (en)` so Collect resolves by active language.
+
+**Two further observations were correct and are already the stated position.**
+`last-saved` dedup holds one submission of history rather than a ledger, which
+`label_reuse.md` says in those terms and is why the answer to *"can a
+self-contained form enforce this"* is no. And `roster_mismatch_note` can fire
+only if a repeat instance is deleted, because `repeat_count` binds the roster to
+the stated household size - prevention first, with the note as the backstop for
+the one path that gets round it.
 
 
 
@@ -3396,7 +3435,7 @@ here correspond to exactly one instrument. See `deployment_plan.md`.
 
 
 
-# Codebook - `bansara_hh_2026` version `20260630-9c5d68`
+# Codebook - `bansara_hh_2026` version `20260630-24d842`
 
 **Generated** from the form definition by `build_codebook.py`. Not
 maintained by hand, so it cannot drift from the instrument.
@@ -3456,7 +3495,7 @@ measurement status field says explicitly why no value exists.
 | `start_time` | start | - | `never (always collected)` |
 | `end_time` | end | - | `never (always collected)` |
 | `today_date` | today | - | `never (always collected)` |
-| `form_version` | calculate | derived: `'20260630-9c5d68'` | `never (always collected)` |
+| `form_version` | calculate | derived: `'20260630-24d842'` | `never (always collected)` |
 | `device_id` | deviceid | - | `never (always collected)` |
 | `audit` | audit | - | `never (always collected)` |
 | `enumerator_code` | select_one_from_file | Enumerator code (1.08) | `never (always collected)` |
