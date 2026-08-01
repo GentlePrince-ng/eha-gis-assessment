@@ -987,9 +987,34 @@ def main() -> None:
     print(f"  written       {xlsx.name}")
 
     ok, output = validate(xlsx, xml)
+
+    # The question asks for the tool and version validated with. Recorded from
+    # the running interpreter rather than transcribed into prose, so the log
+    # cannot claim a version that did not build this form.
+    import platform
+    import subprocess
+    try:
+        from importlib.metadata import version as _pkg_version
+        pyxform_version = _pkg_version("pyxform")
+    except Exception:                                   # pragma: no cover
+        pyxform_version = "unknown"
+    try:
+        java = subprocess.run(["java", "-version"], capture_output=True,
+                              text=True, timeout=30)
+        java_version = (java.stderr or java.stdout).splitlines()[0].strip()
+    except Exception:                                   # pragma: no cover
+        java_version = "not on PATH - ODK Validate did not run"
+
     header = (f"pyxform conversion of {xlsx.name}\n"
               f"form_id {FORM_ID}  version {FORM_VERSION}\n"
               f"result: {'SUCCESS' if ok else 'FAILURE'}\n"
+              f"\n"
+              f"validated with\n"
+              f"  pyxform        {pyxform_version}\n"
+              f"  ODK Validate   bundled with pyxform\n"
+              f"  java           {java_version}\n"
+              f"  python         {platform.python_version()} "
+              f"on {platform.system()} {platform.release()}\n"
               + "-" * 60 + "\n")
     log.write_text(header + output + "\n", encoding="utf-8")
 

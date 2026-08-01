@@ -1,5 +1,11 @@
 pyxform conversion of bansara_hh_2026.xlsx
 form_id bansara_hh_2026  version 2026063001
 result: SUCCESS
+
+validated with
+  pyxform        4.5.0
+  ODK Validate   bundled with pyxform
+  java           openjdk version "21.0.12" 2026-07-21 LTS
+  python         3.12.10 on Windows 11
 ------------------------------------------------------------
 Conversion complete!

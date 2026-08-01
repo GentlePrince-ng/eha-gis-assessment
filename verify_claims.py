@@ -44,6 +44,21 @@ check("register rules documented", int(re.search(r"(\d+) rules documented", reg)
 plan = pathlib.Path("part2_q3/docs/test_plan.md").read_text(encoding="utf-8")
 check("test plan cases",           int(re.search(r"\*\*(\d+) cases\*\*", plan).group(1)), 54)
 
+# The question asks for the tool and version validated with. validation.md
+# states one and the conversion log records what actually ran; if those ever
+# disagree, the stated version is fiction. Compared as integers so the check
+# reads in the same table as everything else.
+from importlib.metadata import version as _pkg_version           # noqa: E402
+_val = pathlib.Path("part2_q3/docs/validation.md").read_text(encoding="utf-8")
+_log = pathlib.Path("part2_q3/form/conversion_log.txt").read_text(encoding="utf-8")
+_as_int = lambda v: int("".join(f"{int(p):03d}" for p in v.split(".")[:3]))
+check("pyxform version, doc vs run",
+      _as_int(re.search(r"pyxform (\d+\.\d+\.\d+)", _val).group(1)),
+      _as_int(re.search(r"pyxform\s+(\d+\.\d+\.\d+)", _log).group(1)))
+check("pyxform version, run vs installed",
+      _as_int(re.search(r"pyxform\s+(\d+\.\d+\.\d+)", _log).group(1)),
+      _as_int(_pkg_version("pyxform")))
+
 # ---------------------------------------------------------------------------
 # Part 3 Q6 - the training dataset against the figures quoted in the annexes.
 #
