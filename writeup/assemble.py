@@ -54,6 +54,7 @@ SECTIONS: list[tuple[str, list[str]]] = [
          "part1_q1/docs/cluster_analysis.md",
          "part1_q1/docs/artefact_vs_failure.md",
          "part1_q1/docs/decision_brief.md",
+         "part1_q1/docs/deliverables.md",
      ]),
     ("# PART 2 - Question 3\n\n## Converting a paper questionnaire into a digital form\n",
      [
