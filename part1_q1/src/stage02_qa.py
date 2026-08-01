@@ -40,6 +40,7 @@ SPEED_LIMIT_KMH = 15.0       # D-004c
 GAP_INTERRUPTION_S = 300     # D-004e, 5 minutes
 GAP_OUTAGE_S = 900           # D-004e, 15 minutes
 ACCURACY_TIER_BOUNDARY_M = 20.0   # D-004d: labels the two logger tiers, excludes nothing
+STATIONARY_RUN_MIN = 5            # D-004g: sustained stationary period, in minutes
 CORROBORATION_RADIUS_M = 500      # D-008
 CORROBORATION_WINDOW_MIN = 10     # D-008
 
@@ -205,6 +206,60 @@ def apply_geographic_validity(con: duckdb.DuckDBPyConnection) -> None:
     )
 
 
+def apply_stationary_clusters(con: duckdb.DuckDBPyConnection) -> None:
+    """Rule QA09 — sustained stationary periods (DECISIONS.md D-004g).
+
+    Named explicitly in the question's minimum rule set. It is the one rule here
+    that is **not** primarily a defect detector, because for house-to-house
+    vaccination a stationary period is also the *visit* signal — a team stopped
+    for several minutes is what "visited" looks like in GPS. Treating stationary
+    points as noise would discard the evidence coverage depends on.
+
+    "Stationary" is defined against the reading's **own reported accuracy**: a
+    step smaller than the device's stated error is movement indistinguishable
+    from measurement jitter. That avoids a fixed metre threshold, which would
+    call the 36 m loggers stationary far too readily and the 8 m loggers rarely.
+
+    Runs are flagged, never excluded. Whether a given run means "worked here" or
+    "logger sat in a vehicle" depends on settlement context, which does not
+    exist until attribution - so the rule marks and counts, and stage 03 decides.
+    """
+    con.execute(
+        f"""
+        CREATE OR REPLACE TEMP TABLE stationary AS
+        WITH stepped AS (
+            SELECT point_id, team_id, ts,
+                   CASE WHEN st_distance_sphere(
+                            st_point(longitude_use, latitude_use),
+                            lag(st_point(longitude_use, latitude_use))
+                              OVER (PARTITION BY team_id ORDER BY ts)
+                        ) < accuracy_m THEN 1 ELSE 0 END AS still
+            FROM track_qa
+            WHERE use_for_coverage IS NULL OR use_for_coverage
+        ),
+        grouped AS (
+            SELECT point_id, team_id, still,
+                   row_number() OVER (PARTITION BY team_id ORDER BY ts)
+                 - row_number() OVER (PARTITION BY team_id, still ORDER BY ts) AS run_id
+            FROM stepped
+        )
+        SELECT point_id,
+               count(*) OVER (PARTITION BY team_id, run_id) AS run_minutes
+        FROM grouped WHERE still = 1;
+        """
+    )
+    con.execute(
+        f"""
+        ALTER TABLE track_qa ADD COLUMN stationary_run_minutes INTEGER;
+        UPDATE track_qa q SET stationary_run_minutes = s.run_minutes
+        FROM stationary s WHERE s.point_id = q.point_id;
+        ALTER TABLE track_qa ADD COLUMN qa09_stationary_cluster BOOLEAN;
+        UPDATE track_qa SET qa09_stationary_cluster =
+            coalesce(stationary_run_minutes, 0) >= {STATIONARY_RUN_MIN};
+        """
+    )
+
+
 def set_usability(con: duckdb.DuckDBPyConnection) -> None:
     """A point is usable when no *excluding* rule fires.
 
@@ -249,6 +304,9 @@ RULES = [
     # concentrated in the eight teams whose loggers were never switched off.
     # Real movement outside the operational area, not a bad coordinate.
     ("QA08c outside operational area", "exclude",   "qa08_status = 'outside_area'"),
+    # QA09 flags only. It marks the visit signal as much as a defect - see the
+    # function docstring and DECISIONS.md D-004g.
+    ("QA09 stationary cluster >= 5 min", "flag only", "qa09_stationary_cluster"),
 ]
 
 
@@ -271,6 +329,7 @@ def main() -> None:
     build_qa_table(con)
     apply_geographic_validity(con)
     set_usability(con)
+    apply_stationary_clusters(con)
 
     total = con.execute("SELECT count(*) FROM track_qa").fetchone()[0]
     usable = con.execute(

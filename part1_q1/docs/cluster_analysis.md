@@ -14,6 +14,20 @@ had already written off.
 
 **2,487 settlements analysed. 444 missed — 17.9%.**
 
+## Method, stated once in full
+
+| | |
+|---|---|
+| **Statistic** | **Getis-Ord Gi\*** (Ord & Getis 1995), the local form, computed with `esda.getisord.G_Local(star=True)` |
+| **Why this statistic** | The operational question is one-directional — *where do missed settlements concentrate* — and Gi\* answers exactly that, separating hot spots from cold. Local Moran's I detects spatial association of any kind, including outliers, which is a different question |
+| **Weights** | **Queen contiguity**, row-standardised, zero islands (final analysis). Row standardisation matters: it makes the local weighted *sum* a local weighted *mean*, so Gi\* compares a neighbourhood's missed **rate** against the study-area rate rather than rewarding neighbourhoods that simply contain more settlements |
+| **Significance** | **Conditional permutation, 9,999 draws.** No normality assumption is made — the analytical p-value assumes a distribution this data does not satisfy |
+| **Multiple-testing correction** | **Benjamini–Hochberg false discovery rate**, α = 0.05, implemented directly rather than imported. Testing 40 wards at 5% yields two false positives by construction; testing 2,487 settlements yields ~124 |
+| **Global check** | **Global Moran's I**, same permutation scheme, run first — to confirm spatial structure exists at all before mapping local clusters |
+
+Abbreviations used below: **Gi\*** for Getis-Ord Gi\*, **BH FDR** for the
+Benjamini–Hochberg false discovery rate correction.
+
 ## The analysis was run twice, because the first version was not trustworthy
 
 ### Attempt 1 — Gi\* on the binary indicator at settlement level. Rejected.
