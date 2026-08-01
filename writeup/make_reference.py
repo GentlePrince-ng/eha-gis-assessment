@@ -6,7 +6,7 @@ file matches the house style rather than pandoc's generic defaults.
 
 The style is taken from `Oladimeji_CoverLetter_MiracleFeet.docx`:
 
-    page          US Letter, portrait
+    page          A4, portrait
     margins       0.75 inch all round  (1080 twips)
     body font     Calibri 11 pt        (sz 22 half-points)
     paragraphs    10 pt space after, left aligned, single line spacing
@@ -31,7 +31,11 @@ OUT = HERE / "reference.docx"
 FONT = "Calibri"
 BODY_HALF_PT = 22          # 11 pt
 SPACE_AFTER = 200          # 10 pt
-PAGE_W, PAGE_H = 12240, 15840      # US Letter, twips
+# A4, not US Letter. The assessment specifies no page size for the written
+# responses - but it does specify **A3** for the map, and an ISO-sized map beside
+# a US Letter document is internally inconsistent. A4 is also the Nigerian
+# standard, which is where this work would land.
+PAGE_W, PAGE_H = 11906, 16838      # A4 portrait, twips
 MARGIN = 1080                       # 0.75 inch
 
 # Heading sizes in half-points, stepped down. Kept modest so a heading does not
@@ -101,7 +105,7 @@ def build() -> None:
     shutil.move(tmp, OUT)
 
     print(f"  reference.docx rebuilt to house style")
-    print(f"    page      US Letter {PAGE_W}x{PAGE_H} twips, {MARGIN} twip margins")
+    print(f"    page      A4 {PAGE_W}x{PAGE_H} twips, {MARGIN} twip margins")
     print(f"    body      {FONT} {BODY_HALF_PT/2:.0f} pt, {SPACE_AFTER/20:.0f} pt after")
     print(f"    headings  {FONT} bold, "
           + ", ".join(f"{k[-1]}={v/2:.0f}pt" for k, v in HEADINGS.items()))
