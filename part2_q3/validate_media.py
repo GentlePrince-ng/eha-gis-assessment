@@ -157,6 +157,44 @@ def main() -> None:
                 f"{parent}.{pcol} (e.g. {sample}). The lookup will resolve and "
                 f"match nothing.")
 
+    # --- 5. internal question cross-references -----------------------------
+    #
+    # A label that tells the enumerator to act on a question number the form
+    # does not contain. This is defect A1's failure mode - the paper form told
+    # them to read a column they had been told to leave blank - reproduced in
+    # the digital form, and it happened: the 1.14 stop note said "Sign at 7.03"
+    # when 7.03 is the paper signature field, deliberately replaced by
+    # authenticated submission. The instruction survived the field's removal.
+    #
+    # ASKED_ELSEWHERE lists paper numbers implemented under a different node
+    # name, so a legitimate back-reference is not reported.
+    ASKED_ELSEWHERE = {
+        "1.08": "enumerator_code, asked at sign-in",
+        "7.01": "end_time, captured automatically",
+    }
+    print()
+    print("  internal question cross-references")
+    print("  " + "-" * 62)
+
+    xml_text = XML.read_text(encoding="utf-8")
+    exists = {f"{m.group(1)}.{m.group(2)}"
+              for m in re.finditer(r"\bq(\d)_(\d\d)_", xml_text)}
+    referenced: dict[str, str] = {}
+    for text in re.findall(r">([^<>]{0,400})<", xml_text):
+        for sec, num in re.findall(r"\b([1-8])\.(\d\d)\b", text):
+            referenced.setdefault(f"{sec}.{num}", text.strip()[:60])
+
+    dangling = {k: v for k, v in referenced.items()
+                if k not in exists and k not in ASKED_ELSEWHERE}
+    print(f"  question numbers implemented as fields         {len(exists):>10}")
+    print(f"  numbers referenced in visible text             {len(referenced):>10}")
+    print(f"  referenced but not present                     "
+          f"{'none' if not dangling else len(dangling):>10}")
+    for k, v in sorted(dangling.items()):
+        failures.append(
+            f"form text refers to question {k}, which is not a field in this "
+            f"form: {v!r}")
+
     print()
     print("=" * 68)
     if failures:

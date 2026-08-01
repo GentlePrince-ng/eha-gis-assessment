@@ -275,10 +275,11 @@ def survey_rows() -> list[dict]:
 
     row(type="note", name="q1_14_stop_note",
         **{"label::Hausa (ha)":
-           "Kada ka ci gaba. Sa hannu a 7.03 sannan ka mika wa mai kula da kai.",
+           "Kada ka ci gaba. Aika wannan takarda yanzu, sannan ka mika na'urar "
+           "ga mai kula da kai domin dubawa a 7.04.",
            "label::English (en)":
-           "Do not complete any further section. Sign at 7.03 and hand the form "
-           "to your supervisor."},
+           "Do not complete any further section. Submit this form now and hand "
+           "the device to your supervisor for review at 7.04."},
         relevant="${q1_14_result} != '1'")
     row(type="end_group", name="s1_end")
 

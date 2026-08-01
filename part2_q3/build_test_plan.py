@@ -233,8 +233,10 @@ SCENARIOS: list[dict] = [
          target="q1_14_result",
          question="Result of visit is not 'Completed'",
          input="1.14 = Dwelling vacant or demolished",
-         expected="Sections 2-6 hidden. Note instructs the enumerator to sign at "
-                  "7.03 and hand the form to the supervisor.",
+         expected="Sections 2-6 hidden. Note instructs the enumerator to submit "
+                  "and hand the device to the supervisor for review at 7.04. It "
+                  "must NOT refer to 7.03, which is the paper signature field "
+                  "and does not exist in this form.",
          why="Mirrors the paper instruction after 1.14."),
     dict(id="S20", kind="positive",
          target="q3_02_eligible",
