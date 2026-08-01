@@ -8,7 +8,7 @@ get through:
 
 1. A `jr://file-csv/x.csv` reference with no matching media file.
 2. An `instance('x')` call in a constraint or calculation where `x` was never
-   declared as an external instance — pyxform only declares instances for
+   declared as an external instance - pyxform only declares instances for
    `select_one_from_file` *types*, so an `instance()` call inside an expression
    is invisible to it. The lookup silently returns an empty nodeset, `number()`
    of empty is `NaN`, and the constraint quietly rejects everything.
@@ -21,7 +21,7 @@ tooling reports success and the field data is wrong.
 Found in this form by (2): the specimen serial-range constraint referenced
 `instance('specimen_label_allocation')`, which was never declared, so the
 constraint would have rejected every valid label. Adding this check is the
-response — a defect found once by hand should be found automatically thereafter.
+response - a defect found once by hand should be found automatically thereafter.
 
 Run:  python part2_q3/validate_media.py
 """

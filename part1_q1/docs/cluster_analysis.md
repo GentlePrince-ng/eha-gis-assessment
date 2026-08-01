@@ -12,31 +12,31 @@ The 75 settlements classified inaccessible on security grounds before the round 
 reached, and including them would manufacture hot spots in exactly the wards the programme
 had already written off.
 
-**2,487 settlements analysed. 444 missed — 17.9%.**
+**2,487 settlements analysed. 444 missed - 17.9%.**
 
 ## Method, stated once in full
 
 | | |
 |---|---|
 | **Statistic** | **Getis-Ord Gi\*** (Ord & Getis 1995), the local form, computed with `esda.getisord.G_Local(star=True)` |
-| **Why this statistic** | The operational question is one-directional — *where do missed settlements concentrate* — and Gi\* answers exactly that, separating hot spots from cold. Local Moran's I detects spatial association of any kind, including outliers, which is a different question |
+| **Why this statistic** | The operational question is one-directional - *where do missed settlements concentrate* - and Gi\* answers exactly that, separating hot spots from cold. Local Moran's I detects spatial association of any kind, including outliers, which is a different question |
 | **Weights** | **Queen contiguity**, row-standardised, zero islands (final analysis). Row standardisation matters: it makes the local weighted *sum* a local weighted *mean*, so Gi\* compares a neighbourhood's missed **rate** against the study-area rate rather than rewarding neighbourhoods that simply contain more settlements |
-| **Significance** | **Conditional permutation, 9,999 draws.** No normality assumption is made — the analytical p-value assumes a distribution this data does not satisfy |
-| **Multiple-testing correction** | **Benjamini–Hochberg false discovery rate**, α = 0.05, implemented directly rather than imported. Testing 40 wards at 5% yields two false positives by construction; testing 2,487 settlements yields ~124 |
-| **Global check** | **Global Moran's I**, same permutation scheme, run first — to confirm spatial structure exists at all before mapping local clusters |
+| **Significance** | **Conditional permutation, 9,999 draws.** No normality assumption is made - the analytical p-value assumes a distribution this data does not satisfy |
+| **Multiple-testing correction** | **Benjamini-Hochberg false discovery rate**, α = 0.05, implemented directly rather than imported. Testing 40 wards at 5% yields two false positives by construction; testing 2,487 settlements yields ~124 |
+| **Global check** | **Global Moran's I**, same permutation scheme, run first - to confirm spatial structure exists at all before mapping local clusters |
 
 Abbreviations used below: **Gi\*** for Getis-Ord Gi\*, **BH FDR** for the
-Benjamini–Hochberg false discovery rate correction.
+Benjamini-Hochberg false discovery rate correction.
 
 ## The analysis was run twice, because the first version was not trustworthy
 
-### Attempt 1 — Gi\* on the binary indicator at settlement level. Rejected.
+### Attempt 1 - Gi\* on the binary indicator at settlement level. Rejected.
 
 | | |
 |---|---|
 | Weights | k-nearest neighbours, k = 8, row-standardised |
 | Inference | conditional permutation, 9,999 draws |
-| Global Moran's I | **0.0032, p = 0.34 — not significant** |
+| Global Moran's I | **0.0032, p = 0.34 - not significant** |
 | Hot spots, raw p ≤ 0.05 | 77 |
 | Hot spots after BH FDR | 8 |
 | "Cold spots" after BH FDR | 516 |
@@ -44,7 +44,7 @@ Benjamini–Hochberg false discovery rate correction.
 The 516 cold spots are an **artefact and are not reported as a finding.** The diagnostic:
 
 - Every one has a pseudo p of exactly **0.00010**, the floor of 9,999 permutations.
-- Their z-scores span only **−0.47 to −0.18** — nowhere near unusual.
+- Their z-scores span only **−0.47 to −0.18** - nowhere near unusual.
 - The binary indicator over 8 neighbours produces just **20 distinct local values** across
   2,487 locations.
 
@@ -57,7 +57,7 @@ permutation distribution, not a cluster. The surviving 8 hot spots carry a maxim
 **Reporting the 516 as cold spots would have been the single biggest error available in
 this question.** They are a property of the arithmetic, not of the campaign.
 
-### Attempt 2 — Gi\* on the ward-level missed *rate*. Reported.
+### Attempt 2 - Gi\* on the ward-level missed *rate*. Reported.
 
 | | |
 |---|---|
@@ -65,8 +65,8 @@ this question.** They are a property of the arithmetic, not of the campaign.
 | Variable | proportion of settlements missed (min 0.039, median 0.174, max 0.340) |
 | Weights | **Queen contiguity**, row-standardised, 0 islands |
 | Inference | conditional permutation, 9,999 draws |
-| Distinct pseudo p-values | **40** — continuous variable, no degeneracy |
-| Global Moran's I | **0.3560, p = 0.0004 — significant** |
+| Distinct pseudo p-values | **40** - continuous variable, no degeneracy |
+| Global Moran's I | **0.3560, p = 0.0004 - significant** |
 | Hot spots, raw p ≤ 0.05 | 15 |
 | **Hot spots after BH FDR** | **3** |
 | Cold spots after BH FDR | 0 |
@@ -74,7 +74,7 @@ this question.** They are a property of the arithmetic, not of the campaign.
 Three reasons this is the right unit: the variable is continuous, so the inference means
 what it claims; the ward is the unit mop-up is actually deployed by; and 40 tests are
 tractable where 2,487 are not. Queen contiguity replaces KNN because wards are polygons
-that tile the study area — shared boundaries are the natural neighbour definition and no
+that tile the study area - shared boundaries are the natural neighbour definition and no
 distance threshold has to be invented.
 
 ## Result
@@ -89,19 +89,19 @@ distance threshold has to be invented.
 
 **227 settlements, 51 of them missed, 31,950 under-5 children in the cluster.**
 
-Baluru dominates the population at stake — 27,137 of the 31,950 — because it is a large
+Baluru dominates the population at stake - 27,137 of the 31,950 - because it is a large
 urban ward. Rate and burden are different quantities and the brief must not conflate them.
 
 ### Highest rate is not the same as hot spot
 
 | Ward | Missed rate | Gi\* z | p | Hot spot? |
 |---|---|---|---|---|
-| W023 Suwade | **0.340** — the highest in the study area | 0.82 | 0.0103 | **No** |
+| W023 Suwade | **0.340** - the highest in the study area | 0.82 | 0.0103 | **No** |
 | W025 Okriba | 0.324 | 0.04 | 0.2322 | No |
 | W031 Satide | 0.308 | 0.99 | 0.0190 | No |
 
 Suwade has the worst missed rate of any ward and is **not** a hot spot, because its
-neighbours do not share the pattern — it is an isolated poor performer, not a cluster. That
+neighbours do not share the pattern - it is an isolated poor performer, not a cluster. That
 distinction is the entire point of using a local spatial statistic rather than a ranking,
 and it changes the response: Suwade needs a ward-level intervention, the Katsuma cluster
 needs an area-level one.
@@ -114,7 +114,7 @@ covered; a settlement outside every hot spot may have been missed entirely. The 
 inference is the ward, and the map must be read at that unit.
 
 **It does not license any statement about an individual child.** Nothing here measures
-vaccination status. "Missed" means no dose was reported and no track confirms a visit — an
+vaccination status. "Missed" means no dose was reported and no track confirms a visit - an
 absence of *evidence about a settlement*, not an observation of any child's status.
 
 **It does not license a causal claim.** The analysis says where missed settlements
@@ -122,7 +122,7 @@ concentrate, not why. Terrain, distance, team assignment, insecurity spillover a
 discipline are all untested candidates.
 
 **It does not license treating the point-level result as corroboration.** The two levels
-disagree — settlement-level Moran's I is not significant, ward-level is strongly so — and
+disagree - settlement-level Moran's I is not significant, ward-level is strongly so - and
 that is not a contradiction to be smoothed over. Individual missed settlements are
 interspersed with covered ones, so there is no clustering *among settlements*; but wards
 differ systematically in their missed rate, and the high-rate wards adjoin one another.
@@ -132,4 +132,4 @@ finding** and would not survive being restated at settlement level.
 **Sensitivity.** The hot-spot set was computed on the both-sources definition of missed. A
 track-only definition would classify far more settlements as missed (1,765 rather than 444)
 and is not used, because 83.7% of usable fixes fall more than a tolerance from any planned
-settlement — a track-only definition measures logger discipline as much as coverage.
+settlement - a track-only definition measures logger discipline as much as coverage.

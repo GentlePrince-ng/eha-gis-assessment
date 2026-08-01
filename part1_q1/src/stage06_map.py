@@ -1,4 +1,4 @@
-"""Stage 06 — A3 PDF map of missed-settlement clusters, for a technical audience.
+"""Stage 06 - A3 PDF map of missed-settlement clusters, for a technical audience.
 
 Rendered from the same DuckDB store the analysis wrote, so the map cannot drift
 from the numbers. No desktop GIS, no hand export, no network basemap: the

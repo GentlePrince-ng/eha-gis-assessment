@@ -92,7 +92,7 @@ def render(tables: dict[str, list[dict]], labels: dict) -> str:
     L: list[str] = []
     a = L.append
 
-    a(f"# Codebook — `{FORM_ID}` version `{FORM_VERSION}`")
+    a(f"# Codebook - `{FORM_ID}` version `{FORM_VERSION}`")
     a("")
     a("**Generated** from the form definition by `build_codebook.py`. Not")
     a("maintained by hand, so it cannot drift from the instrument.")
@@ -118,7 +118,7 @@ def render(tables: dict[str, list[dict]], labels: dict) -> str:
     a("")
     a("| Table | Primary key | Foreign key | Notes |")
     a("|---|---|---|---|")
-    a("| `household` | `meta/instanceID` | — | ODK's submission UUID. Stable, "
+    a("| `household` | `meta/instanceID` | - | ODK's submission UUID. Stable, "
       "globally unique, and the only key that survives a resubmission |")
     a("| `roster` | (`PARENT_KEY`, `line_no`) | `PARENT_KEY` → `instanceID` | "
       "`line_no` is `position(..)`, so it matches the paper roster line |")
@@ -128,8 +128,8 @@ def render(tables: dict[str, list[dict]], labels: dict) -> str:
     a("**A natural key also exists** and should be used for deduplication against")
     a("paper rounds, not for joins:")
     a("`(q1_04_settlement, q1_06_structure, q1_07_hh_serial, q1_10_visit_date)`.")
-    a("It is not guaranteed unique — two teams could in principle number the same")
-    a("dwelling — which is exactly why `instanceID` is the primary key.")
+    a("It is not guaranteed unique - two teams could in principle number the same")
+    a("dwelling - which is exactly why `instanceID` is the primary key.")
     a("")
     a("**`specimen_label_full`** (`BSN######-C`) is the join key to the laboratory")
     a("system. It is unique per child where a specimen was obtained, and null")
@@ -140,7 +140,7 @@ def render(tables: dict[str, list[dict]], labels: dict) -> str:
     a("A null in this dataset is never ambiguous, which is the main gain over the")
     a("paper round. Every field below lists the **relevance rule** that governs")
     a("when it is asked. If a field is null, either its relevance rule was false")
-    a("— in which case the question was never put to the respondent — or a")
+    a("- in which case the question was never put to the respondent - or a")
     a("measurement status field says explicitly why no value exists.")
     a("")
     a("**No sentinel value is ever stored in a numeric field.** See")
@@ -148,9 +148,9 @@ def render(tables: dict[str, list[dict]], labels: dict) -> str:
     a("")
 
     titles = {
-        "household": "Table: `household` — one row per submission",
-        "roster": "Table: `roster` — one row per usual resident",
-        "child": "Table: `child` — one row per eligible child, including specimen",
+        "household": "Table: `household` - one row per submission",
+        "roster": "Table: `roster` - one row per usual resident",
+        "child": "Table: `child` - one row per eligible child, including specimen",
     }
     for table, fields in tables.items():
         a(f"## {titles[table]}")
@@ -161,7 +161,7 @@ def render(tables: dict[str, list[dict]], labels: dict) -> str:
         a("|---|---|---|---|")
         for f in fields:
             meaning = f["label"] or (
-                f"derived: `{f['calculation'][:56]}`" if f["calculation"] else "—")
+                f"derived: `{f['calculation'][:56]}`" if f["calculation"] else "-")
             null_when = f["relevant"] if f["relevant"] else "never (always collected)"
             a(f"| `{f['name']}` | {f['type'].split()[0]} | {meaning[:76]} | "
               f"`{null_when[:64]}` |")
@@ -170,14 +170,14 @@ def render(tables: dict[str, list[dict]], labels: dict) -> str:
     a("## Value labels")
     a("")
     for list_name, options in sorted(labels.items()):
-        a(f"**`{list_name}`** — " + " · ".join(f"`{v}` {lab}" for v, lab in options))
+        a(f"**`{list_name}`** - " + " · ".join(f"`{v}` {lab}" for v, lab in options))
         a("")
 
     a("## Paper-to-digital crosswalk")
     a("")
     a("Two lists were re-based so that no stored value can collide with a")
     a("non-response sentinel (see `coding_scheme.md`). **The categories and the")
-    a("numbers read aloud to the respondent are unchanged** — only the stored")
+    a("numbers read aloud to the respondent are unchanged** - only the stored")
     a("value differs. Concatenating a paper round with a digital round without")
     a("this mapping will produce nonsense.")
     a("")
@@ -195,7 +195,7 @@ def render(tables: dict[str, list[dict]], labels: dict) -> str:
     a("| Field | Why it exists |")
     a("|---|---|")
     a("| `start_time`, `end_time`, `interview_duration_min` | Fabrication "
-      "detection — see `fabrication_detection.md` |")
+      "detection - see `fabrication_detection.md` |")
     a("| `device_id`, `audit` | as above |")
     a("| `enumerator_code`, `pin_entered` | Binds a submission to a person. "
       "1.08 on paper is a code anyone can write |")
@@ -205,7 +205,7 @@ def render(tables: dict[str, list[dict]], labels: dict) -> str:
     a("| `q4_12a_more_than_one` | Lets analysis know when 4.13's single code is "
       "incomplete (defect C1) |")
     a("| `form_version` | Stamped into the data so mixed-version rounds are "
-      "separable — see `deployment_plan.md` |")
+      "separable - see `deployment_plan.md` |")
     a("")
     a("## Fields on the paper form that are NOT collected")
     a("")
@@ -216,7 +216,7 @@ def render(tables: dict[str, list[dict]], labels: dict) -> str:
       "enumerator was told to leave blank, then asked to read (defect A1). "
       "Eligibility is derived from roster ages |")
     a("| Roster column (8) *Section 4 page number* | Replaced by the repeat index |")
-    a("| 4.02 child name | Recommended for removal — redundant against 4.01. "
+    a("| 4.02 child name | Recommended for removal - redundant against 4.01. "
       "Retained pending ethics approval; see `data_protection.md` |")
     a("| 5.01 specimen eligibility | Calculated from age, not asked (defect A3) |")
     a("| 7.03, 7.06 signatures | Replaced by authenticated submission and the "

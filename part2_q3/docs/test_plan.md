@@ -1,19 +1,19 @@
-# Test plan — Form HH/2026/v1
+# Test plan - Form HH/2026/v1
 
 **Partly generated.** Every numeric range in the form produces four cases
-automatically — below minimum, at minimum, at maximum, above maximum — read
+automatically - below minimum, at minimum, at maximum, above maximum - read
 from the form's own constraints by `build_test_plan.py`. Add a range and its
 boundary cases appear here; change a bound and the expected values follow.
 The plan cannot drift from the form.
 
-**54 cases** — 29 negative, 20 boundary, 5 positive/behavioural.
+**54 cases** - 29 negative, 20 boundary, 5 positive/behavioural.
 
 ## Execution status
 
 **These cases are specified. They have not been executed against a running
 instance**, because no ODK Central project was available inside the
-submission window. The check-digit logic behind S09 *is* executed —
-exhaustively — in `tests/test_check_digit.py`. Everything else is a
+submission window. The check-digit logic behind S09 *is* executed -
+exhaustively - in `tests/test_check_digit.py`. Everything else is a
 specification awaiting a device.
 
 Saying so matters: a test plan that has been written is not a test plan that
@@ -36,7 +36,7 @@ bottom recording actual against expected.
 
 ## Scenario cases
 
-### S01 — Specimen eligibility cut, lower side **[REQUIRED BY THE QUESTION]**
+### S01 - Specimen eligibility cut, lower side **[REQUIRED BY THE QUESTION]**
 
 | | |
 |---|---|
@@ -48,7 +48,7 @@ bottom recording actual against expected.
 | **Why it matters** | The paper form sends this child to Section 6, abandoning every remaining child in the household (defect B2). Here the skip ends only this child's iteration. |
 | **Result** | _not yet executed_ |
 
-### S02 — Specimen eligibility cut, upper side **[REQUIRED BY THE QUESTION]**
+### S02 - Specimen eligibility cut, upper side **[REQUIRED BY THE QUESTION]**
 
 | | |
 |---|---|
@@ -60,7 +60,7 @@ bottom recording actual against expected.
 | **Why it matters** | 12 months is the cut stated at 5.01. Paired with S01 it brackets it. |
 | **Result** | _not yet executed_ |
 
-### S03 — Measurement position change, below the cut **[REQUIRED BY THE QUESTION]**
+### S03 - Measurement position change, below the cut **[REQUIRED BY THE QUESTION]**
 
 | | |
 |---|---|
@@ -72,7 +72,7 @@ bottom recording actual against expected.
 | **Why it matters** | WHO convention is recumbent below 24 months. It warns rather than blocks: a child who cannot stand is legitimately measured recumbent at any age. |
 | **Result** | _not yet executed_ |
 
-### S04 — Measurement position change, at the cut **[REQUIRED BY THE QUESTION]**
+### S04 - Measurement position change, at the cut **[REQUIRED BY THE QUESTION]**
 
 | | |
 |---|---|
@@ -84,7 +84,7 @@ bottom recording actual against expected.
 | **Why it matters** | 24 months and above is standing height. S03/S04 bracket the cut. |
 | **Result** | _not yet executed_ |
 
-### S05 — Date before the fieldwork window **[REQUIRED BY THE QUESTION]**
+### S05 - Date before the fieldwork window **[REQUIRED BY THE QUESTION]**
 
 | | |
 |---|---|
@@ -96,7 +96,7 @@ bottom recording actual against expected.
 | **Why it matters** | Most often a device with the wrong date, or a form completed later from paper notes. |
 | **Result** | _not yet executed_ |
 
-### S06 — Date after the fieldwork window **[REQUIRED BY THE QUESTION]**
+### S06 - Date after the fieldwork window **[REQUIRED BY THE QUESTION]**
 
 | | |
 |---|---|
@@ -107,7 +107,7 @@ bottom recording actual against expected.
 | **Why it matters** | The window enforced is 1-30 June, the ethics-approved one, not the 14-day operational expectation. See the constraint register. |
 | **Result** | _not yet executed_ |
 
-### S07 — Roster disagrees with stated household size **[REQUIRED BY THE QUESTION]**
+### S07 - Roster disagrees with stated household size **[REQUIRED BY THE QUESTION]**
 
 | | |
 |---|---|
@@ -119,7 +119,7 @@ bottom recording actual against expected.
 | **Why it matters** | Warns rather than blocks: the two legitimately differ when a usual resident is absent and cannot be described. A block would push enumerators to invent a line to clear the error. |
 | **Result** | _not yet executed_ |
 
-### S08 — Consent statement not read
+### S08 - Consent statement not read
 
 | | |
 |---|---|
@@ -130,7 +130,7 @@ bottom recording actual against expected.
 | **Why it matters** | The only hard block in the form. The paper form records No and continues to 2.02 where consent may be given (defect B3). |
 | **Result** | _not yet executed_ |
 
-### S09 — Transposed pair of digits in the specimen serial
+### S09 - Transposed pair of digits in the specimen serial
 
 | | |
 |---|---|
@@ -142,7 +142,7 @@ bottom recording actual against expected.
 | **Why it matters** | Proven exhaustively in tests/test_check_digit.py: 292,960 transpositions tested, none escaped. |
 | **Result** | _not yet executed_ |
 
-### S10 — Label from another team's book
+### S10 - Label from another team's book
 
 | | |
 |---|---|
@@ -154,7 +154,7 @@ bottom recording actual against expected.
 | **Why it matters** | This label passes the check digit - it is internally valid. Only the range constraint catches it. |
 | **Result** | _not yet executed_ |
 
-### S11 — Same label used twice in one household
+### S11 - Same label used twice in one household
 
 | | |
 |---|---|
@@ -166,7 +166,7 @@ bottom recording actual against expected.
 | **Why it matters** | The most common genuine duplicate: two entries minutes apart from the same book. |
 | **Result** | _not yet executed_ |
 
-### S12 — Label reused from the previous submission
+### S12 - Label reused from the previous submission
 
 | | |
 |---|---|
@@ -178,7 +178,7 @@ bottom recording actual against expected.
 | **Why it matters** | last-saved covers one submission of history only. Submission n-2 and earlier are NOT caught - see docs/label_reuse.md. |
 | **Result** | _not yet executed_ |
 
-### S13 — 'None of these' selected with an owned asset
+### S13 - 'None of these' selected with an owned asset
 
 | | |
 |---|---|
@@ -189,7 +189,7 @@ bottom recording actual against expected.
 | **Why it matters** | A logical impossibility the paper form permits (defect C2). |
 | **Result** | _not yet executed_ |
 
-### S14 — Wrong PIN for the selected enumerator code
+### S14 - Wrong PIN for the selected enumerator code
 
 | | |
 |---|---|
@@ -200,7 +200,7 @@ bottom recording actual against expected.
 | **Why it matters** | Prevents one enumerator submitting under another's code - the precondition for the fabrication pattern in the operating conditions. |
 | **Result** | _not yet executed_ |
 
-### S15 — LGA not assigned to this enumerator
+### S15 - LGA not assigned to this enumerator
 
 | | |
 |---|---|
@@ -212,7 +212,7 @@ bottom recording actual against expected.
 | **Why it matters** | staff_roster.csv assigned_lga. |
 | **Result** | _not yet executed_ |
 
-### S16 — Skip logic when no specimen is obtained
+### S16 - Skip logic when no specimen is obtained
 
 | | |
 |---|---|
@@ -223,7 +223,7 @@ bottom recording actual against expected.
 | **Why it matters** | 5.02 has NO skip instruction on the paper form at all (defect B1). This is the case that defect produces. |
 | **Result** | _not yet executed_ |
 
-### S17 — Skip logic when a specimen IS obtained
+### S17 - Skip logic when a specimen IS obtained
 
 | | |
 |---|---|
@@ -234,7 +234,7 @@ bottom recording actual against expected.
 | **Why it matters** | The mirror of S16. On paper, 5.06 applies to everyone. |
 | **Result** | _not yet executed_ |
 
-### S18 — Child module pointed at an adult
+### S18 - Child module pointed at an adult
 
 | | |
 |---|---|
@@ -246,7 +246,7 @@ bottom recording actual against expected.
 | **Why it matters** | Validated with indexed-repeat() against the roster. The paper form cannot check this. |
 | **Result** | _not yet executed_ |
 
-### S19 — Result of visit is not 'Completed'
+### S19 - Result of visit is not 'Completed'
 
 | | |
 |---|---|
@@ -257,7 +257,7 @@ bottom recording actual against expected.
 | **Why it matters** | Mirrors the paper instruction after 1.14. |
 | **Result** | _not yet executed_ |
 
-### S20 — Eligible-children count is derived, not typed
+### S20 - Eligible-children count is derived, not typed
 
 | | |
 |---|---|
@@ -269,7 +269,7 @@ bottom recording actual against expected.
 | **Why it matters** | Brackets BOTH ends of the 9-59 eligibility window in one case, and demonstrates defect A1's fix: the count is derived from roster ages, never transcribed from an office-use column. This is also the second cross-question consistency check - stated eligible children and modules completed cannot disagree because they are the same quantity. |
 | **Result** | _not yet executed_ |
 
-### S21 — Clinically implausible but typeable weight
+### S21 - Clinically implausible but typeable weight
 
 | | |
 |---|---|
@@ -281,7 +281,7 @@ bottom recording actual against expected.
 | **Why it matters** | The hard bounds are a typo guard; clinical implausibility warns. Blocking here would delete the severely wasted children the survey exists to count. |
 | **Result** | _not yet executed_ |
 
-### S22 — Placeholder medicine list is visible at the point of capture
+### S22 - Placeholder medicine list is visible at the point of capture
 
 | | |
 |---|---|
@@ -342,6 +342,6 @@ just outside that must be rejected.
   a cognitive-interview question, not a test case. The strings need
   native-speaker review before deployment.
 - **Duplicate labels beyond one submission of history.** Out of scope by
-  construction — see `docs/label_reuse.md`.
+  construction - see `docs/label_reuse.md`.
 - **Encryption round-trip.** The public key in settings is a placeholder;
   decryption cannot be tested until the real keypair is issued.

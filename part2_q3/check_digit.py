@@ -1,4 +1,4 @@
-"""The specimen label check digit — one definition, two consumers.
+"""The specimen label check digit - one definition, two consumers.
 
 The scheme is stated in `specimen_label_allocation.csv`:
 
@@ -21,7 +21,7 @@ tests rather than of the form.
 So the weights are declared **once**, here. `xpath_expression()` generates the
 expression that `build_form.py` puts into the form, and `compute()` is what the
 tests exercise. `tests/test_check_digit.py` additionally asserts that the
-expression generated here appears verbatim in the built XForm — which closes the
+expression generated here appears verbatim in the built XForm - which closes the
 loop: passing tests are evidence about the deployed form, not about this file.
 """
 

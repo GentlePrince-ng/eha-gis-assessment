@@ -2,7 +2,7 @@
 
 **No supplied file is edited.** Every file in `reference_media/` is read and left
 exactly as issued; this script writes new files into `part2_q3/form/media/`.
-That distinction matters — the assessment lists "manual edits to source data
+That distinction matters - the assessment lists "manual edits to source data
 where automation was required" as an automatic loss of marks, and the honest
 reading of that is that the source stays untouched and the transformation is
 code.
@@ -27,7 +27,7 @@ worksheet.
 
 The difference is architectural rather than cosmetic. Choices-worksheet options
 are compiled into the form definition itself, which ODK Collect parses into
-memory when the form opens — 2,524 settlements plus 40 wards would be carried in
+memory when the form opens - 2,524 settlements plus 40 wards would be carried in
 RAM for the whole interview, on a device with 2 GB shared with everything else.
 An external CSV is imported once into Collect's local SQLite store on first use
 and thereafter queried by index. Memory cost is a query result, not a codelist,
@@ -75,7 +75,7 @@ def write(name: str, rows: list[dict], columns: list[str]) -> Path:
 
 
 def passthrough(name: str, columns: list[str]) -> Path:
-    """Already has name/label — copy through, trimmed to the columns used."""
+    """Already has name/label - copy through, trimmed to the columns used."""
     return write(name, read(SOURCE / name), columns)
 
 

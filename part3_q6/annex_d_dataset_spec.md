@@ -1,4 +1,4 @@
-# Annex D — Dataset specifications
+# Annex D - Dataset specifications
 
 Excluded from the Q6 page limit.
 
@@ -27,12 +27,12 @@ that defects cannot be found by eye; small enough to finish.
 
 | # | Defect | Count | Judgement call? |
 |---|---|---|---|
-| 1 | `lga_name` variants — spacing, case, hyphenation | 16 variants → 4 real LGAs | No |
-| 2 | Duplicate `facility_id`, **rows differ** | 3 pairs | **Yes** — which row survives? |
-| 3 | Missing coordinates | 5 rows | **Yes** — drop, or keep unmapped? |
+| 1 | `lga_name` variants - spacing, case, hyphenation | 16 variants → 4 real LGAs | No |
+| 2 | Duplicate `facility_id`, **rows differ** | 3 pairs | **Yes** - which row survives? |
+| 3 | Missing coordinates | 5 rows | **Yes** - drop, or keep unmapped? |
 | 4 | Latitude/longitude transposed | 2 rows | No |
 | 5 | Leading/trailing whitespace in names | 24 rows | No |
-| 6 | `staff_total = 999` | 3 rows | **Yes** — sentinel, or real? |
+| 6 | `staff_total = 999` | 3 rows | **Yes** - sentinel, or real? |
 | 7 | `facility_type` spelling variants | 9 variants → 3 real types | No |
 | 8 | Decimal comma in `longitude` | 6 rows | No |
 
@@ -41,12 +41,12 @@ that defects cannot be found by eye; small enough to finish.
 Defects 2, 3 and 6 are the reason the design works.
 
 A dataset containing only mechanical defects teaches participants that
-documentation means listing steps. It does not — steps are usually recoverable by
+documentation means listing steps. It does not - steps are usually recoverable by
 inspecting the output. **Choices never are.**
 
 With these three present, two participants can both clean the file competently
 and arrive at 203, 200 or 195 rows. All three are defensible. **None is
-reproducible unless the decision was written down** — which is the moment the
+reproducible unless the decision was written down** - which is the moment the
 90-minute session is built around, and the thing tasks 4 and 5 of the assessment
 are testing.
 

@@ -1,4 +1,4 @@
-# Projection and attribution tolerance — measured options
+# Projection and attribution tolerance - measured options
 
 Two thresholds the assessment explicitly warns about (*"thresholds, buffers, or tolerances
 asserted without justification"* is an automatic mark loss). Both measured rather than
@@ -6,24 +6,24 @@ asserted. Decision goes to `DECISIONS.md` D-003 and D-005 once chosen.
 
 ---
 
-## D-003 — Projected coordinate reference system
+## D-003 - Projected coordinate reference system
 
 Everything arrives EPSG:4326. Distortion measured against **true geodesic distance on the
 WGS84 ellipsoid** (`pyproj.Geod.inv`), over 4,000 random settlement pairs, and against
 true geodesic polygon area for the 40 wards.
 
-Study area: longitude 6.954–8.429, latitude 10.366–11.573.
+Study area: longitude 6.954-8.429, latitude 10.366-11.573.
 
 ### Distance error
 
 | CRS | Median abs. error | 95th pct | Max | Max relative |
 |---|---|---|---|---|
-| **EPSG:32632 — WGS 84 / UTM zone 32N** | **7.8 m** | 21.9 m | 33.6 m | 0.035% |
-| EPSG:26332 — Minna / Nigeria Mid Belt | 7.5 m | 21.6 m | 33.2 m | 0.034% |
-| EPSG:3857 — Web Mercator | 1,382.6 m | 2,554.6 m | 3,350.1 m | 2.665% |
-| ESRI:102022 — Africa Albers Equal Area | 1,737.1 m | 4,658.6 m | 6,758.5 m | 4.995% |
+| **EPSG:32632 - WGS 84 / UTM zone 32N** | **7.8 m** | 21.9 m | 33.6 m | 0.035% |
+| EPSG:26332 - Minna / Nigeria Mid Belt | 7.5 m | 21.6 m | 33.2 m | 0.034% |
+| EPSG:3857 - Web Mercator | 1,382.6 m | 2,554.6 m | 3,350.1 m | 2.665% |
+| ESRI:102022 - Africa Albers Equal Area | 1,737.1 m | 4,658.6 m | 6,758.5 m | 4.995% |
 
-### Error at short range — the scale a settlement tolerance actually operates at
+### Error at short range - the scale a settlement tolerance actually operates at
 
 | CRS | Median error | Max abs. error |
 |---|---|---|
@@ -48,22 +48,22 @@ Study area: longitude 6.954–8.429, latitude 10.366–11.573.
   4.4% on ward area would corrupt any density or rate.
 - **Africa Albers is the right tool for the wrong job here.** It is the best area
   projection measured (0.000% median), and the worst distance one. This analysis is
-  dominated by buffers and distances, so it is not the working CRS — though it remains the
+  dominated by buffers and distances, so it is not the working CRS - though it remains the
   correct choice if an area-normalised statistic is ever wanted. At this extent UTM's area
   error of 0.03% makes that unnecessary.
 - **UTM 32N over Minna Mid Belt**, despite Minna being nominally 0.3 m better across 4,000
-  pairs — a difference far below GPS noise and therefore not a reason. The real reason is
+  pairs - a difference far below GPS noise and therefore not a reason. The real reason is
   **datum**: the track data is GPS, i.e. WGS84. UTM 32N is WGS84-based, so reprojection is a
   pure map projection with no datum change. EPSG:26332 sits on the Minna datum
   (Clarke 1880), so using it introduces a datum transformation whose own uncertainty is of
-  the order of metres — buying nothing measurable and adding an error term.
-- **The study area sits entirely inside zone 32** (6°E–12°E), so UTM's real weakness,
+  the order of metres - buying nothing measurable and adding an error term.
+- **The study area sits entirely inside zone 32** (6°E-12°E), so UTM's real weakness,
   straddling a zone boundary, does not arise. Worth stating, because it is the first thing
   a reviewer should check.
 
 ---
 
-## D-005 — Attribution tolerance ← **needs your decision**
+## D-005 - Attribution tolerance ← **needs your decision**
 
 ### What bounds the tolerance: how far apart settlements are
 
@@ -78,8 +78,8 @@ Distance to nearest other settlement, projected to UTM 32N:
 
 Overall median 734 m, 5th percentile 194 m, 1st percentile 79 m, minimum 8 m.
 
-**Note the urban LGA is not much denser than the rural ones** — median 669 m against
-734–834 m. The usual justification for a tighter urban tolerance ("settlements are packed
+**Note the urban LGA is not much denser than the rural ones** - median 669 m against
+734-834 m. The usual justification for a tighter urban tolerance ("settlements are packed
 closer together in town") is not supported here, and I would be wrong to assert it.
 
 ### What a wider tolerance costs: settlement buffers begin to overlap
@@ -106,7 +106,7 @@ A point inside two settlements' buffers cannot be attributed unambiguously.
 | 300 m | 4,765 | 1,415 | 55.2% | 1,196 | 219 | 827 |
 | 500 m | 14,601 | 1,652 | 64.5% | 1,360 | 292 | 663 |
 
-### Accuracy-scaled tolerance — `tolerance = base + 2 × reported accuracy`
+### Accuracy-scaled tolerance - `tolerance = base + 2 × reported accuracy`
 
 This is the mechanism D-004d promised: a point's search radius widens with its own
 reported error rather than the whole tier being excluded.
@@ -126,7 +126,7 @@ Compare like for like:
 | Fixed 100 m | 1,069 | **501** |
 | Scaled, base 50 m | 1,071 | **253** |
 
-**Same coverage, half the ambiguity.** The accuracy-scaled tolerance is not a compromise —
+**Same coverage, half the ambiguity.** The accuracy-scaled tolerance is not a compromise -
 it dominates the fixed tolerance on both axes at equivalent reach. That is an independent
 vindication of D-004d: information in the accuracy field that a fixed cut throws away is
 doing real work.
@@ -146,7 +146,7 @@ firmware, not a documented fact about these devices, and the write-up will say s
 **Track-derived coverage is far below the reported e-tally at every tolerance.**
 
 At the recommended setting, 1,071 settlements have track evidence against **2,023 reported
-in the e-tally** — 1,069 settlements report doses administered with no supporting track.
+in the e-tally** - 1,069 settlements report doses administered with no supporting track.
 Even at an absurd 500 m tolerance, 663 remain unexplained.
 
 This is not a tolerance artefact. It is the reconciliation finding the question asks for,
@@ -157,13 +157,13 @@ and no defensible tolerance closes the gap.
 If the duty-hours rule were cutting real work, teams would report doses on days their
 loggers show nothing usable. Measured across all 155 e-tally team-days:
 
-**Exactly one team-day has fewer than 60 usable fixes** — T14 on 12 March, with **11 usable
+**Exactly one team-day has fewer than 60 usable fixes** - T14 on 12 March, with **11 usable
 fixes against 16 settlements and 2,207 doses reported**. That is the day its logger died at
 07:38.
 
 So the duty window is not manufacturing the discrepancy: 154 of 155 reporting team-days
 have ample usable tracking. And T14 is the clean example of the distinction the question
-asks for — a settlement with no tracks may have been missed *or* the logger may have
+asks for - a settlement with no tracks may have been missed *or* the logger may have
 failed, and here it is provably the logger, because the failure is visible in the fix
 sequence rather than inferred from absence.
 
@@ -171,8 +171,8 @@ sequence rather than inferred from absence.
 
 ## What I need from you
 
-1. **D-003 — CRS.** UTM 32N as recommended?
-2. **D-005 — tolerance.** Accuracy-scaled base 50 m, k = 2? Or fixed, if you would rather
+1. **D-003 - CRS.** UTM 32N as recommended?
+2. **D-005 - tolerance.** Accuracy-scaled base 50 m, k = 2? Or fixed, if you would rather
    defend a simpler rule at the walkthrough.
 
 ---

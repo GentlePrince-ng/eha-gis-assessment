@@ -6,7 +6,7 @@ what changed in `002`.
 
 Format is fixed so it can be parsed later if it ever needs to be.
 
-## 2026063001 — 30 June 2026 — initial release
+## 2026063001 - 30 June 2026 - initial release
 
     Changed:  initial publication of Form HH/2026/v1 as a digital instrument
     Affects:  all fields

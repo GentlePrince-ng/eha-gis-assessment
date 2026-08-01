@@ -29,14 +29,14 @@ recorded in `DECISIONS.md` with its rejected alternative:
 
 | Decision | What I chose | What I rejected |
 |---|---|---|
-| Duty-hours window | 07:00–16:59, evidence-led | 06:00–18:59; per-team-day |
-| Positional accuracy | **No exclusion**; tolerance scales with reported error | Any fixed cut — it would have removed 62% of eight teams' tracks |
-| Fix-sequence gaps | 5 min interruption, 15 min outage | — |
+| Duty-hours window | 07:00-16:59, evidence-led | 06:00-18:59; per-team-day |
+| Positional accuracy | **No exclusion**; tolerance scales with reported error | Any fixed cut - it would have removed 62% of eight teams' tracks |
+| Fix-sequence gaps | 5 min interruption, 15 min outage | - |
 | Projected CRS | EPSG:32632 (WGS 84 / UTM 32N) | Minna Mid Belt, on datum grounds; Web Mercator; Albers |
 | Attribution tolerance | 50 m + 2 × reported accuracy | Fixed 100 m |
 | Dwell threshold for "visited" | 5 distinct minutes, calibrated at the elbow | 3, 10, 15 |
 | Transposed coordinates | Correct **only where corroborated** within 500 m | Exclude all; correct all |
-| Submission sequencing | Q1 → Q3 → Q6 → Q5, map last | — |
+| Submission sequencing | Q1 → Q3 → Q6 → Q5, map last | - |
 
 Where a value is my judgement rather than a published standard, the constraint
 register says so in those words. Eight of its twenty-two entries are labelled
@@ -69,7 +69,7 @@ findings did not survive that check and were corrected:
    understated the day because the files overlap. Corrected in C-2.
 3. `near_miss` was computed from a table that by construction only held matched
    points, so the class could never fire and every near miss was being swept into
-   `team_elsewhere` — the one class implying a team was not where it said it was.
+   `team_elsewhere` - the one class implying a team was not where it said it was.
    Fixed in stage 04a; it moved 66 claims out of the accusatory class.
 4. The sentinel collision list, written from reading the questionnaire, named
    three collisions. `scan_sentinels.py` found **six**. The defect report now
@@ -77,7 +77,7 @@ findings did not survive that check and were corrected:
 
 Two further things I found by testing the artefact rather than trusting the
 tooling: the form fails to load in XLSForm Online because external media cannot
-be attached there — which exposed an undeclared instance that both pyxform and
+be attached there - which exposed an undeclared instance that both pyxform and
 ODK Validate had passed, and that would have rejected every valid specimen label
 in the field.
 
@@ -85,8 +85,8 @@ in the field.
 
 No threshold, tolerance, buffer, coordinate reference system, spatial weights
 definition, dwell rule or analytical conclusion was accepted without my deciding
-it and recording why. Where the analysis could not decide something — the 1,336
-uncorroborated claims — it says so and routes the question to a field check
+it and recording why. Where the analysis could not decide something - the 1,336
+uncorroborated claims - it says so and routes the question to a field check
 rather than resolving it by assumption.
 
 Two results were **discarded** rather than reported: the settlement-level Gi\*
@@ -97,7 +97,7 @@ Both were the more eye-catching output.
 ## Standing commitment
 
 Everything here is work I can explain, modify live, and defend under challenge.
-Where I am uncertain — the circularity in calibrating the dwell threshold against
+Where I am uncertain - the circularity in calibrating the dwell threshold against
 the e-tally, the assumption that reported GPS accuracy is a 1-sigma error, the
-test plan specified but not yet executed against a live instance — the documents
+test plan specified but not yet executed against a live instance - the documents
 say so rather than asserting confidence the analysis does not support.

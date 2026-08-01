@@ -1,7 +1,7 @@
 """Assemble the single submission document.
 
 The question requires written responses in one document. This concatenates the
-sources in a deliberate reading order — not alphabetical, which is what a glob
+sources in a deliberate reading order - not alphabetical, which is what a glob
 gives and which puts the decision brief before the method that produced it.
 
 Page breaks are inserted before each part and each response so a marker opening
@@ -22,10 +22,10 @@ PANDOC = Path(r"C:/Users/SolomonOladimeji/AppData/Local/Pandoc/pandoc.exe")
 
 PAGE_BREAK = '\n```{=openxml}\n<w:p><w:r><w:br w:type="page"/></w:r></w:p>\n```\n\n'
 
-# (heading, [files]) — order is the reading order, not the filesystem's.
+# (heading, [files]) - order is the reading order, not the filesystem's.
 SECTIONS: list[tuple[str, list[str]]] = [
     ("", ["writeup/00_cover.md"]),
-    ("# PART 1 — Question 1\n\n## Campaign team tracking and coverage reconciliation\n",
+    ("# PART 1 - Question 1\n\n## Campaign team tracking and coverage reconciliation\n",
      [
          "part1_q1/docs/qa_rule_options.md",
          "part1_q1/docs/crs_and_tolerance_options.md",
@@ -35,7 +35,7 @@ SECTIONS: list[tuple[str, list[str]]] = [
          "part1_q1/docs/artefact_vs_failure.md",
          "part1_q1/docs/decision_brief.md",
      ]),
-    ("# PART 2 — Question 3\n\n## Converting a paper questionnaire into a digital form\n",
+    ("# PART 2 - Question 3\n\n## Converting a paper questionnaire into a digital form\n",
      [
          "part2_q3/docs/defect_report.md",
          "part2_q3/docs/coding_scheme.md",
@@ -51,8 +51,8 @@ SECTIONS: list[tuple[str, list[str]]] = [
          "part2_q3/docs/codebook.md",
          "part2_q3/docs/deliberate_scope.md",
      ]),
-    ("# PART 3 — Question 5\n", ["part3_q5/q5_coordination.md"]),
-    ("# PART 3 — Question 6\n", ["part3_q6/q6_capability.md"]),
+    ("# PART 3 - Question 5\n", ["part3_q5/q5_coordination.md"]),
+    ("# PART 3 - Question 6\n", ["part3_q6/q6_capability.md"]),
     ("# ANNEXES\n\nExcluded from the Q6 page limit, as the question permits.\n",
      [
          "part3_q6/annex_a_competency_framework.md",

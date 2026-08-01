@@ -1,21 +1,21 @@
-# eHealth Africa — Technical Assessment
+# eHealth Africa - Technical Assessment
 
 **Senior Coordinator, Data and GIS Analytics** · Data Informatics Department
 Submitted by Solomon Oladimeji
 
 | Part | Question attempted |
 |---|---|
-| **Part 1** | **Q1** — Campaign team tracking and coverage reconciliation |
-| **Part 2** | **Q3** — Converting a paper questionnaire into a digital form |
-| **Part 3** | **Q5** — Coordinating delivery through the round |
-| **Part 3** | **Q6** — Building capability in the counterpart agency |
+| **Part 1** | **Q1** - Campaign team tracking and coverage reconciliation |
+| **Part 2** | **Q3** - Converting a paper questionnaire into a digital form |
+| **Part 3** | **Q5** - Coordinating delivery through the round |
+| **Part 3** | **Q6** - Building capability in the counterpart agency |
 
 Part 1 Q2 and Part 2 Q4 are not attempted. The instructions value depth over
 breadth, and Part 2 states the unattempted option will be probed at the
 walkthrough regardless.
 
 AI assistance is declared in **[`AI_USE.md`](AI_USE.md)**. Every judgement call
-— thresholds, tolerances, projections, weights, conclusions — is logged with its
+- thresholds, tolerances, projections, weights, conclusions - is logged with its
 rejected alternative in **[`DECISIONS.md`](DECISIONS.md)**.
 
 ---
@@ -30,7 +30,7 @@ source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-Developed on **Python 3.12.10**. **Java 8+ must be on PATH** — pyxform uses ODK
+Developed on **Python 3.12.10**. **Java 8+ must be on PATH** - pyxform uses ODK
 Validate to check the XForm's XPath, and without it the form converts but is not
 deeply validated. `run_all.py` warns rather than passing quietly if Java is
 absent.
@@ -38,7 +38,7 @@ absent.
 ### 2. Data
 
 The supplied pack is **not committed**. Place it unmodified at the repository
-root, or beside it — both are found automatically:
+root, or beside it - both are found automatically:
 
 ```
 eha-gis-assessment/
@@ -90,11 +90,11 @@ part2_q3/
   scan_sentinels.py · daily_qa.py
   tests/              executable check-digit suite
   form/               XLSForm, XForm, conversion log, media   (rebuilt)
-  docs/               13 documents — defect report, constraint register,
+  docs/               13 documents - defect report, constraint register,
                       test plan, codebook, data protection, and the rest
 
 part3_q5/             Q5 written response
-part3_q6/             Q6 written response and Annexes A–E
+part3_q6/             Q6 written response and Annexes A-E
   annex_b_session_in_full/   the 90-minute session: facilitator guide,
                              participant briefs, model answer, dataset generator
 
@@ -105,22 +105,22 @@ writeup/
 
 ---
 
-## Part 1 Q1 — pipeline stages
+## Part 1 Q1 - pipeline stages
 
 | Stage | Does | Output |
 |---|---|---|
-| `stage01_ingest` | 160 track files, 956,702 fixes → DuckDB. **Idempotent by content hash**, not by `(team, timestamp)` — 585,951 records share a team and minute while carrying different coordinates | spatial store |
+| `stage01_ingest` | 160 track files, 956,702 fixes → DuckDB. **Idempotent by content hash**, not by `(team, timestamp)` - 585,951 records share a team and minute while carrying different coordinates | spatial store |
 | `stage02_qa` | Eight rule groups. Flags, never deletes | QA flags with counts per rule |
 | `stage03_attribute` | Accuracy-scaled attribution to settlements, EPSG:32632 | settlement visits |
 | `stage04_reconcile` | Settlement and ward coverage against the e-tally, with a per-claim cause classification | reconciliation tables |
 | `stage05_cluster` | Getis-Ord Gi\* on the ward missed rate, with FDR correction | cluster results |
 | `stage06_map` | A3 PDF map and the Incident Manager decision brief | PDF, PNG |
 
-Reasoning in [`part1_q1/docs/`](part1_q1/docs/) — including
+Reasoning in [`part1_q1/docs/`](part1_q1/docs/) - including
 `artefact_vs_failure.md`, which consolidates how a data artefact was told apart
 from a programmatic failure, and what was done where it could not be.
 
-## Part 2 Q3 — the form and its supporting artefacts
+## Part 2 Q3 - the form and its supporting artefacts
 
 Fourteen deliverables. Three things are worth knowing before reading:
 
@@ -131,11 +131,11 @@ rather than a manual export step.
 
 **The register, test plan and codebook are generated from the form**, so they
 cannot drift from it. `build_register.py` **fails the build** if any constraint
-has no documented source — it caught an undocumented rule on its first run.
+has no documented source - it caught an undocumented rule on its first run.
 
 **`validate_media.py` exists because tooling missed a real defect.** pyxform and
 ODK Validate both pass a form whose `instance()` call in a constraint was never
-declared — at runtime it returns an empty nodeset and the constraint silently
+declared - at runtime it returns an empty nodeset and the constraint silently
 rejects everything. It happened twice; now it is checked automatically. See
 [`part2_q3/docs/validation.md`](part2_q3/docs/validation.md).
 
@@ -143,7 +143,7 @@ rejects everything. It happened twice; now it is checked automatically. See
 files, which that tool cannot attach. Conversion succeeds; loading fails. Deploy
 per `validation.md`.
 
-## Part 3 — Q5 and Q6
+## Part 3 - Q5 and Q6
 
 Written responses, within their stated page limits (Q5 three pages; Q6 six
 excluding annexes), verified by paginating the rendered documents rather than
@@ -151,7 +151,7 @@ estimating.
 
 Annex B is a working artefact rather than a description: a facilitator guide with
 minute-by-minute timings, participant briefs, a model answer, and a **generator**
-for the training dataset — so a colleague delivering the session produces exactly
+for the training dataset - so a colleague delivering the session produces exactly
 the file the model answer expects.
 
 ---
@@ -164,7 +164,7 @@ the file the model answer expects.
 | QA coverage assertion in `stage02` | A stored point with no quality decision |
 | `validate_media.py` | An external lookup that silently resolves to nothing |
 | `build_register.py` | A constraint whose threshold has no stated source |
-| `tests/test_check_digit.py` | 292,960 transpositions, none escaping detection — and that the tested algorithm is the one in the built XForm |
+| `tests/test_check_digit.py` | 292,960 transpositions, none escaping detection - and that the tested algorithm is the one in the built XForm |
 | `verify_claims.py` | A figure quoted in the write-ups drifting from the output that produced it |
 
 ## Manual steps

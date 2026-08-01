@@ -1,4 +1,4 @@
-"""Generate D1_facilities_raw.csv — the training dataset for Day 2 and Day 3.
+"""Generate D1_facilities_raw.csv - the training dataset for Day 2 and Day 3.
 
 Annex D, dataset specification. Generated rather than described, so a colleague
 delivering the session in my absence produces exactly the dataset the model
@@ -8,12 +8,12 @@ answer expects. Fixed seed; the same file every time.
 
 The dataset has to do three things at once:
 
-1. **Be small enough to clean in 120 minutes** by people at capability 36 —
+1. **Be small enough to clean in 120 minutes** by people at capability 36 -
    200 rows, 8 columns.
 2. **Look like real ministry data**, because defects invented to be tidy teach
    people to spot invented defects. Every defect class below is one I have
    actually met in a facility register.
-3. **Contain at least two genuine judgement calls** — defects with no single
+3. **Contain at least two genuine judgement calls** - defects with no single
    correct answer. This is essential: the session's most important failure
    (participants not recording their decisions) cannot occur unless there are
    decisions to record.
@@ -22,17 +22,17 @@ The dataset has to do three things at once:
 
 | # | Defect | Count | Judgement call? |
 |---|---|---|---|
-| 1 | LGA name variants: spacing, case, hyphenation | 34 rows across 4 LGAs | No — needs a mapping, one right answer |
-| 2 | Duplicate `facility_id`, **rows differ** | 3 pairs | **Yes** — which row survives? |
-| 3 | Missing coordinates | 5 rows | **Yes** — drop, or keep unmapped? |
-| 4 | Latitude and longitude transposed | 2 rows | No — detectable and correctable |
+| 1 | LGA name variants: spacing, case, hyphenation | 34 rows across 4 LGAs | No - needs a mapping, one right answer |
+| 2 | Duplicate `facility_id`, **rows differ** | 3 pairs | **Yes** - which row survives? |
+| 3 | Missing coordinates | 5 rows | **Yes** - drop, or keep unmapped? |
+| 4 | Latitude and longitude transposed | 2 rows | No - detectable and correctable |
 | 5 | Leading/trailing whitespace in names | 21 rows | No |
-| 6 | Staff count implausible (`999`) | 3 rows | **Yes** — sentinel, or a real value? |
+| 6 | Staff count implausible (`999`) | 3 rows | **Yes** - sentinel, or a real value? |
 | 7 | `facility_type` spelling variants | 18 rows | No |
 | 8 | Coordinates stored as text, some with a stray `,` | 6 rows | No |
 
 Defects 2, 3 and 6 are the ones that make the session work. Two participants
-cleaning correctly will produce **different row counts**, and neither is wrong —
+cleaning correctly will produce **different row counts**, and neither is wrong -
 which is the moment reproduction fails and documentation stops being abstract.
 
 Run:  python part3_q6/annex_b_session_in_full/make_dataset.py

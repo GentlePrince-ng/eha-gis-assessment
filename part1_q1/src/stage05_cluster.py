@@ -1,15 +1,15 @@
-"""Stage 05 — statistically significant clusters of missed settlements.
+"""Stage 05 - statistically significant clusters of missed settlements.
 
 Statistic: **Getis-Ord Gi**** on a binary "missed" indicator, with row-standardised
 weights. Under row standardisation the local weighted sum is the local weighted
 *mean*, so Gi** compares the proportion missed in each settlement's neighbourhood
-against the study-area proportion. That is the quantity of interest — a
-neighbourhood where a high *share* of settlements were missed — rather than
+against the study-area proportion. That is the quantity of interest - a
+neighbourhood where a high *share* of settlements were missed - rather than
 simply a neighbourhood containing many settlements.
 
 Why Gi** and not Local Moran's I: Moran's I identifies spatial association of
 *any* kind, including low-low clusters and spatial outliers. The operational
-question is one-directional — where is the concentration of missed settlements —
+question is one-directional - where is the concentration of missed settlements -
 and Gi** answers exactly that, distinguishing hot spots from cold. Moran's I is
 reported alongside as a global check that spatial structure exists at all.
 
@@ -19,7 +19,7 @@ A settlement is counted missed when **no doses were reported against it in the
 e-tally and no track confirms a visit**. That is the least contestable
 definition available: it requires both sources to agree on absence. Settlements
 classified inaccessible before the round are **excluded from the analysis**
-rather than counted as missed — they were never expected to be reached, and
+rather than counted as missed - they were never expected to be reached, and
 including them would manufacture hot spots in exactly the wards the programme
 had already written off.
 
@@ -223,7 +223,7 @@ def diagnose_point_level_degeneracy(analysed: pd.DataFrame) -> None:
 
 
 def ward_level_analysis(con: duckdb.DuckDBPyConnection, analysed: pd.DataFrame) -> None:
-    """Gi* on the ward-level missed *rate* — the well-posed version of the question.
+    """Gi* on the ward-level missed *rate* - the well-posed version of the question.
 
     Three reasons this is the defensible unit:
 
