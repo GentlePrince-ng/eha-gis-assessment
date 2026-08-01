@@ -56,7 +56,7 @@ untouched.
 python run_all.py
 ```
 
-Rebuilds every output from the raw pack in about 30 seconds, across 19 stages.
+Rebuilds every output from the raw pack in about 40 seconds, across 20 stages.
 It wipes prior artefacts first and **stops at the first failure** rather than
 producing a partial result that looks complete.
 
@@ -170,6 +170,7 @@ the file the model answer expects.
 | Check | What it prevents |
 |---|---|
 | Row accounting in `stage01` | A record disappearing without being counted |
+| `part1_q1/tests/test_store.py` | The idempotency claim going untested. Runs the ingest **twice** into a scratch store and checks the second inserts nothing - `run_all.py` wipes artefacts first, so the pipeline alone never exercises a second run. Also unique content hashes, no orphaned keys, every point judged |
 | QA coverage assertion in `stage02` | A stored point with no quality decision |
 | `validate_media.py` | Five failures no validator sees: an external lookup that resolves to nothing, a lookup that **resolves and joins to nothing**, and an instruction pointing at a question the form does not contain |
 | `check_coverage.py` | A question silently dropped from the questionnaire. Every one of the 58 printed questions must be implemented or declared out of scope with a reason, read from the supplied instrument rather than a transcribed list |

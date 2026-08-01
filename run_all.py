@@ -42,6 +42,7 @@ PIPELINE: list[tuple[str, str, list[str]]] = [
 
     ("Part 2 Q3  build external form media",    "part2_q3/prepare_media.py", []),
     ("Part 2 Q3  build and convert XLSForm",    "part2_q3/build_form.py", []),
+    ("Part 1 Q1  spatial store tests",          "part1_q1/tests/test_store.py", []),
     ("Part 2 Q3  external references resolve",  "part2_q3/validate_media.py", []),
     ("Part 2 Q3  questionnaire coverage",       "part2_q3/check_coverage.py", []),
     ("Part 2 Q3  constraint register",          "part2_q3/build_register.py", []),
