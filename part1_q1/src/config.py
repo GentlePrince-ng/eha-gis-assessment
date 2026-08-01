@@ -56,7 +56,10 @@ BOUNDARIES_GPKG = PACK / "boundaries.gpkg"
 
 OUTPUTS = REPO_ROOT / "part1_q1" / "outputs"
 DOCS = REPO_ROOT / "part1_q1" / "docs"
-DB_PATH = OUTPUTS / "campaign.duckdb"
+# Overridable so the store can be built somewhere disposable. `tests/test_store.py`
+# uses it to run the ingest twice into a scratch database and prove the second run
+# inserts nothing, without touching the real one.
+DB_PATH = Path(os.environ.get("EHA_DB_PATH", OUTPUTS / "campaign.duckdb"))
 
 # --- Campaign definition --------------------------------------------------
 # Stated in the data pack README: Bansara State ran a five day house-to-house

@@ -240,6 +240,18 @@ def main() -> None:
 
     report = ingest_report(con, inserted)
 
+    # Record this run. The table was declared in the schema and never written
+    # to, which made it a promise of provenance rather than provenance. It is
+    # what makes idempotency auditable *from the store*: after a second run the
+    # history shows a run that inserted 0, so a reader does not have to take the
+    # claim on trust or re-run the pipeline to check it.
+    run_id = (con.execute(
+        "SELECT coalesce(max(run_id), 0) + 1 FROM ingest_run").fetchone()[0])
+    con.executemany(
+        "INSERT INTO ingest_run VALUES (?, 'stage01_ingest', ?, ?)",
+        [(run_id, metric, int(value)) for metric, value in report.items()],
+    )
+
     # ASCII only in console output: the default Windows console codepage is
     # cp1252 and raises UnicodeEncodeError on characters outside it.
     print(f"\nStage 01 - ingest  ->  {config.DB_PATH}")
