@@ -180,7 +180,66 @@ annex_d_checks = [
     ("D decimal commas",   truth["decimal commas"],    quoted(ANNEX_D, r"Decimal comma in `longitude` \| (\d+) rows")),
 ]
 
-for label, actual, claimed in annex_b_checks + annex_d_checks:
+# D2, the Day 4 join target. Same discipline: the counts Annex D quotes are
+# recomputed from the two files rather than trusted.
+D2 = list(csv.DictReader(
+    open("part3_q6/annex_b_session_in_full/D2_wards.csv", encoding="utf-8")))
+_ref = {r["ward_name"] for r in D2}
+_d1_wards = {r["ward_name"] for r in D1}
+_seen: set = set()
+_dedup = [r for r in D1
+          if not (r["facility_id"] in _seen or _seen.add(r["facility_id"]))]
+
+annex_d2_checks = [
+    ("D2 ward names in D1",  len(_d1_wards),
+     quoted(ANNEX_D, r"Distinct ward names in D1 \| (\d+)")),
+    ("D2 wards listed",      len(D2),
+     quoted(ANNEX_D, r"Wards listed in D2 \| (\d+)")),
+    ("D2 wards absent",      len(_d1_wards - _ref),
+     quoted(ANNEX_D, r"absent from D2\*\* \| \*\*(\d+)")),
+    ("D2 unmatched raw",     sum(1 for r in D1 if r["ward_name"] not in _ref),
+     quoted(ANNEX_D, r"raw\*\* file \(203 rows\) \| (\d+)")),
+    ("D2 unmatched cleaned", sum(1 for r in _dedup if r["ward_name"] not in _ref),
+     quoted(ANNEX_D, r"cleaned file\*\* \(200 rows\) \| \*\*(\d+)")),
+    ("D2 wards no facility", len(_ref - _d1_wards),
+     quoted(ANNEX_D, r"with no facility in D1 \| (\d+)")),
+]
+
+# The course timetable. The main response states a hands-on/instruction split
+# per day and an overall ratio; Annex E times every session. Those are two
+# descriptions of one timetable and drifted once - Day 1 read 260/20 against an
+# annex that totalled 260 - so the arithmetic is now reconciled here.
+_annex_e = pathlib.Path("part3_q6/annex_e_session_plan.md").read_text(encoding="utf-8")
+_q6 = pathlib.Path("part3_q6/q6_capability.md").read_text(encoding="utf-8")
+
+_day, _timed = None, {}
+for _line in _annex_e.splitlines():
+    _d = re.match(r"### Day (\d)", _line)
+    if _d:
+        _day = int(_d.group(1)); _timed[_day] = []
+    _m = re.match(r"\|\s*(.+?)\s*\|\s*\*{0,2}(\d+)\*{0,2}\s*\|\s*(.+?)\s*\|", _line)
+    if _m and _day and _m.group(2).isdigit():
+        _timed[_day].append((int(_m.group(2)), _m.group(3)))
+
+_claimed = re.findall(r"\|\s*(\d+) / (\d+) min \|", _q6)
+for _d in sorted(_timed):
+    _inst = sum(m for m, e in _timed[_d] if e.strip().lower().startswith("instruction"))
+    _hands = sum(m for m, _ in _timed[_d]) - _inst
+    check(f"day {_d} hands-on minutes", _hands,
+          int(_claimed[_d - 1][0]) if _d <= len(_claimed) else -1)
+    check(f"day {_d} instruction minutes", _inst,
+          int(_claimed[_d - 1][1]) if _d <= len(_claimed) else -1)
+
+_all = [m for d in _timed for m, _ in _timed[d]]
+_all_inst = sum(m for d in _timed for m, e in _timed[d]
+                if e.strip().lower().startswith("instruction"))
+_int = lambda m: int(m.group(1).replace(",", ""))
+check("timetabled minutes total", sum(_all),
+      _int(re.search(r"of the ([\d,]+) timetabled minutes", _q6)))
+check("hands-on minutes total", sum(_all) - _all_inst,
+      _int(re.search(r"\*\*Ratio: ([\d,]+) of the", _q6)))
+
+for label, actual, claimed in annex_b_checks + annex_d_checks + annex_d2_checks:
     check(label, actual, claimed if claimed is not None else -1)
 
 print("\n  Claim verification against rebuilt artefacts")

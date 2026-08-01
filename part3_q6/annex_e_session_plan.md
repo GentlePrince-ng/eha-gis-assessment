@@ -17,7 +17,7 @@ its defects - counts, not impressions - without cleaning anything.
 | Session | Min | Exercise | Dataset |
 |---|---|---|---|
 | The task you cannot yet do | 60 | Produce a facility map from raw data, unaided. Most will not finish | D1 (Annex D) |
-| Why it failed | 20 | Facilitated, findings collected from the room, no individual named | - |
+| Why it failed | 20 | Instruction - facilitated debrief, findings collected from the room, no individual named | - |
 | Profiling before touching | 90 | Count rows, duplicates, blanks, out-of-range values, name variants | D1 |
 | Writing a defect register | 90 | Produce a defect table: what, how many, how found | D1 |
 
@@ -41,7 +41,7 @@ reproduces your cleaned dataset without speaking to you.
 
 | Session | Min | Exercise | Dataset |
 |---|---|---|---|
-| **Make your work someone else's** | **90** | **Full artefact in Annex B** | D1 / D2 |
+| **Make your work someone else's** | **90** | **Full artefact in Annex B** | D1 |
 | Repairing the record | 60 | Rewrite the documentation that failed; re-test with a different partner | D1 |
 | The department's own standard | 90 | The cohort drafts the minimum documentation standard *they* will use | - |
 
@@ -55,9 +55,9 @@ cleaned dataset, and state what it does not show.
 | Session | Min | Exercise | Dataset |
 |---|---|---|---|
 | Coordinates, joins, and why maps lie | 20 | Instruction | - |
-| Joining and checking | 90 | Join facilities to wards; find and count the failures | D2 |
-| Projection, in practice not theory | 45 | Measure the same distance in three CRS; see the answers differ | D2 |
-| Map production | 120 | Full cartographic furniture; every map states its projection and source | D2 |
+| Joining and checking | 90 | Join their own cleaned facilities to the ward reference; find, count and report the failures | own D1 + D2 |
+| Projection, in practice not theory | 45 | Measure the same distance in three CRS; see the answers differ | own D1 |
+| Map production | 120 | Full cartographic furniture; every map states its projection and source | own D1 + D2 |
 
 The projection block teaches by consequence, not by theory. Measuring one
 distance three ways and getting three answers takes fifteen minutes and is

@@ -147,6 +147,63 @@ def build(seed: int) -> list[dict]:
     return rows
 
 
+def build_wards(seed: int) -> tuple[list[dict], dict[str, int]]:
+    """D2 - the ward reference table Day 4 joins the cleaned facilities to.
+
+    Day 4 teaches the D4 level-3 behaviour: *reports join failures with a count
+    instead of quietly losing the unmatched rows*. A reference table that
+    matches perfectly cannot teach that, so three ward names are deliberately
+    absent, and the facilities in them have nowhere to go.
+
+    The exercise is only honest if the failures are discoverable and countable,
+    which is why the count is asserted here and quoted in Annex D rather than
+    described in prose.
+    """
+    rng = random.Random(seed)
+    d1 = build(SEED)
+    in_use = sorted({r["ward_name"] for r in d1})
+
+    # Three wards missing from the reference table. Chosen by seeded shuffle so
+    # a colleague regenerating the pack gets the same three.
+    shuffled = in_use[:]
+    rng.shuffle(shuffled)
+    missing = set(shuffled[:3])
+
+    rows = []
+    for i, name in enumerate(sorted(set(in_use) - missing), start=1):
+        rows.append({
+            "ward_code": f"W{i:03d}",
+            "ward_name": name,
+            "lga_name": rng.choice(LGA_CANONICAL),
+            "population": str(rng.randint(4_000, 48_000)),
+        })
+    # Two wards that exist in the register but have no facility in the sample.
+    # A join failure in the other direction, and a different lesson: an empty
+    # ward is not the same as a missing ward.
+    for j, name in enumerate(["Tanshiwa", "Golkanu"], start=len(rows) + 1):
+        rows.append({
+            "ward_code": f"W{j:03d}",
+            "ward_name": name,
+            "lga_name": rng.choice(LGA_CANONICAL),
+            "population": str(rng.randint(4_000, 48_000)),
+        })
+
+    seen: set[str] = set()
+    deduped = [r for r in d1
+               if not (r["facility_id"] in seen or seen.add(r["facility_id"]))]
+    stats = {
+        "ward names in D1": len(in_use),
+        "wards in D2": len(rows),
+        "ward names absent from D2": len(missing),
+        "unmatched from the RAW file (203 rows)": sum(
+            1 for r in d1 if r["ward_name"] in missing),
+        "unmatched from a CLEANED file (200 rows)": sum(
+            1 for r in deduped if r["ward_name"] in missing),
+        "wards in D2 with no facility": 2,
+    }
+    return rows, stats
+
+
 def profile(rows: list[dict]) -> dict[str, int]:
     """The defect profile. Two datasets are parallel forms when these match."""
     return {
@@ -192,6 +249,19 @@ def main() -> None:
     for key in keys:
         print(f"  {key:<{width}}" + "".join(f"{built[n][key]:>14,}" for n in names))
     print("  " + "-" * (width + 3 * 14))
+
+    # D2 - the Day 4 ward reference table. Not a parallel form; it is teaching
+    # material, so it is profiled for its join failures rather than compared.
+    wards, ward_stats = build_wards(SEED + 303)
+    with (HERE / "D2_wards.csv").open("w", newline="", encoding="utf-8") as fh:
+        writer = csv.DictWriter(fh, fieldnames=list(wards[0].keys()))
+        writer.writeheader()
+        writer.writerows(wards)
+
+    print("\n  D2_wards.csv - the Day 4 join target")
+    print("  " + "-" * 62)
+    for key, value in ward_stats.items():
+        print(f"  {key:<40} {value:>6,}")
 
     identical = all(len({built[n][k] for n in names}) == 1 for k in keys)
     print(f"  profiles identical across all three:  {identical}")
