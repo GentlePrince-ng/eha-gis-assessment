@@ -25,7 +25,7 @@ out.
 | XForm structure and XPath | **ODK Validate** (bundled with pyxform, **OpenJDK 21**) | SUCCESS |
 | External references resolve, values join, cross-references exist | `validate_media.py` (written for this submission) | PASSED, 5 checks |
 | Every printed question implemented or declared | `check_coverage.py` (written for this submission) | PASSED, 58 accounted for |
-| Deployed and exercised on a real server | Kobo Toolbox, all seven media attached | **PARTIAL** - see below |
+| Deployed on a real server, open for inspection | KoboToolbox, all seven media attached - **https://ee.kobotoolbox.org/x/L48bzYde** | **DEPLOYED** - see below |
 
 Versions are recorded by the build itself into `form/conversion_log.txt`, taken
 from the running interpreter rather than transcribed here, and `verify_claims.py`
