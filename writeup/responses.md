@@ -3816,16 +3816,19 @@ Day 3 of 7. Four things have arrived at once and only one is genuinely urgent.
 Ordering principle: **contain, protect today's deliverable, then diagnose.**
 Diagnosing first lets the corruption grow while I investigate it.
 
-**0-15 min · Freeze writes to the settlement layer**, reads unaffected. Cheap and
-reversible; every hour of open editing adds records I must later adjudicate.
+**0-15 min · Freeze writes to the settlement layer**, reads unaffected, and
+**scoped down or lifted at the three-hour mark** when the one-incident test
+reports. Cheap and reversible; every hour of open editing adds records I must
+later adjudicate.
 
 **15-45 min · Tell the EOC before they ask** that the figure is under
 verification, with a time for the answer. It is already being discussed
-nationally, and arriving second to my own problem costs more than the error does.
+nationally, and arriving second to my own problem costs more than the error
+does.
 
-**45 min-3 h · Test whether the duplicates and the discrepancy are one incident.**
-Duplicated settlements change the denominator. If that is the cause I have one
-problem and one fix, not two workstreams.
+**45 min-3 h · Test whether the duplicates and the discrepancy are one
+incident.** Duplicated settlements change the denominator. If that is the cause
+I have one problem and one fix, not two workstreams.
 
 **3-8 h · Reconstruct the figure** from the last known-good state (§2), then
 **issue today's product caveated, or hold it with a stated reason.** The EOC
@@ -3879,11 +3882,11 @@ hourly escalation; a named hour converts an incident into a scheduled item.
 **PostgreSQL/PostGIS.** Five mechanisms; the first matters most because it
 *prevents* the conflict rather than resolving it.
 
-**1 · Edit scope enforced by the database.** Each analyst holds write rights to a
-defined set of wards via **row-level security** on ward ownership, so two
-analysts cannot edit overlapping areas at all. This is what actually failed here:
-the incident is an *assignment* failure, which a concurrency mechanism would only
-have detected, not avoided.
+**1 · Edit scope enforced by the database.** Each analyst holds write rights to
+a defined set of wards via **row-level security** on ward ownership, so two
+analysts cannot edit overlapping areas at all. This is what actually failed
+here: the incident is an *assignment* failure, which a concurrency mechanism
+would only have detected, not avoided.
 
 **2 · Identifiers.** **Client-generated UUID** primary keys, so two analysts
 creating a settlement offline cannot collide, with identity separately protected
@@ -3892,16 +3895,17 @@ The UUID prevents accidental collision; the constraint prevents genuine
 duplication. The current incident is the second kind - two rows, two ids, one
 settlement.
 
-**3 · Conflict detection by optimistic concurrency, not locking.** Every feature
-carries a `version`; an update supplies the version it read and applies only if
-it still matches. A stale write is **rejected and returned to its author**, never
-silently applied. Locking is rejected because analysts are intermittently
-connected, and a lock held from a disconnected session blocks a whole ward.
+**3 · Conflict detection and resolution by optimistic concurrency, not
+locking.** Every feature carries a `version`; an update supplies the version it
+read and applies only if it still matches. A stale write is **rejected and
+returned to its author**, never silently applied. Locking is rejected because
+analysts are intermittently connected, and a lock held from a disconnected
+session blocks a whole ward.
 
-**4 · Staged merge.** Analysts write to a personal staging schema; a merge
-applies only if the §4 validation passes, so nothing enters the authoritative
-layer unvalidated - the property that would have stopped this incident reaching
-the daily product.
+**4 · Staged merge - branch versioning, assembled rather than bought.** Analysts
+write to a personal staging schema; a merge applies only if the §4 validation
+passes, so nothing enters the authoritative layer unvalidated - the property
+that would have stopped this incident reaching the daily product.
 
 **5 · Append-only audit by trigger.** Who, when, before, after, which merge
 accepted it. **Records are superseded, never deleted** - which is what makes
@@ -3916,9 +3920,17 @@ natural key; referential integrity failure; coordinates outside the state
 boundary; a version conflict.
 
 **Flagged** - applied, recorded and queued, because the change may be correct: a
-settlement moved more than 200 m; target population changed by more than 20%; a
-first settlement created in a ward; an implausible route length for one team-day;
-any edit outside working hours.
+settlement moved more than **200 m** - 3.4x the worst single-fix accuracy in
+this round's own tracks (58 m), so it is not GPS jitter; **target population
+changed by more than 20%** - my judgement, not a standard: a fifth of a
+settlement's under-5 population appearing or disappearing between rounds is a
+resurvey trigger rather than a keying slip; a first settlement created in a
+ward; a team-day route beyond the 95th percentile of the round to date; any edit
+outside working hours.
+
+**Every threshold above is either measured from the round in progress or
+labelled judgement.** None is inherited from another programme, and a rule whose
+number cannot be sourced does not go in.
 
 **The reasoning.** Block only where the data would be wrong irrecoverably.
 Everything else flags, because **a block an analyst cannot satisfy honestly is a
@@ -3946,28 +3958,29 @@ written down. **Days 9-10:** the known-issues list - which settlements are
 known-bad, which contacts answer, which manual steps exist and why.
 
 **What I accept losing:** their counterpart relationships, their tacit sense of
-which numbers in their state look wrong, and the rationale behind past decisions.
-Ten days cannot transfer these, and pretending otherwise produces four thin
-handovers instead of two solid ones. Better to lose the context knowingly than
-the pipeline by accident.
+which numbers in their state look wrong, and the rationale behind past
+decisions. Ten days cannot transfer these, and pretending otherwise produces
+four thin handovers instead of two solid ones. Better to lose the context
+knowingly than the pipeline by accident.
 
 ## 6. Delegating without becoming the single point of failure
 
-**Four problems, four named owners, four deadlines** - not "the team will look at
-it". Coverage figure to a named central analyst; the integrity fix to the data
-engineer who found it; handover to the two state supervisors; partner report to a
-central analyst from day 5. **I keep two things only:** the sequencing decision
-and communication to national level, neither delegable mid-incident.
+**Four problems, four named owners, four deadlines** - not "the team will look
+at it". Coverage figure to a named central analyst; the integrity fix to the
+data engineer who found it; handover to the two state supervisors; partner
+report to a central analyst from day 5. **I keep two things only:** the
+sequencing decision and communication to national level, neither delegable
+mid-incident.
 
 **Supervision without reviewing every output.** Per-record checking is what §4's
 rules are for, and a coordinator repeating them by eye is the bottleneck rather
 than the control. So I review **exceptions, not passes**; peer review is paired
 and rotating, so capacity scales with the team rather than with me; a 15-minute
-daily stand-up covers only what is blocked, flagged or late; and a **named deputy
-publishes the coverage figure** when I am unavailable.
+daily stand-up covers only what is blocked, flagged or late; and a **named
+deputy publishes the coverage figure** when I am unavailable.
 
-**The test I hold myself to:** if I am uncontactable for 48 hours, does the daily
-product still ship and the partner report still progress? If not, I have
+**The test I hold myself to:** if I am uncontactable for 48 hours, does the
+daily product still ship and the partner report still progress? If not, I have
 distributed tasks while keeping the dependencies.
 
 **And the connection to the other half of this scenario:** two resignations
