@@ -56,7 +56,7 @@ untouched.
 python run_all.py
 ```
 
-Rebuilds every output from the raw pack in about 40 seconds, across 18 stages.
+Rebuilds every output from the raw pack in about 30 seconds, across 19 stages.
 It wipes prior artefacts first and **stops at the first failure** rather than
 producing a partial result that looks complete.
 
@@ -88,9 +88,10 @@ part2_q3/
   check_digit.py      one definition of the specimen check digit, used by both
                       the form and the tests
   scan_sentinels.py · daily_qa.py
-  tests/              executable check-digit suite
+  tests/              executable check-digit suite (14 tests)
+  check_coverage.py   every printed question implemented or declared
   form/               XLSForm, XForm, conversion log, media   (rebuilt)
-  docs/               13 documents - defect report, constraint register,
+  docs/               defect report, constraint register,
                       test plan, codebook, data protection, and the rest
 
 part3_q5/             Q5 written response
@@ -99,7 +100,7 @@ part3_q6/             Q6 written response and Annexes A-E
                              participant briefs, model answer, dataset generator
 
 writeup/
-  assemble.py         combines 31 sources into the submission document
+  assemble.py         combines 32 sources into the submission document
   responses.docx      the single combined response document
 ```
 
@@ -110,7 +111,7 @@ writeup/
 | Stage | Does | Output |
 |---|---|---|
 | `stage01_ingest` | 160 track files, 956,702 fixes → DuckDB. **Idempotent by content hash**, not by `(team, timestamp)` - 585,951 records share a team and minute while carrying different coordinates | spatial store |
-| `stage02_qa` | Eight rule groups. Flags, never deletes | QA flags with counts per rule |
+| `stage02_qa` | Nine rule groups, covering all five the question names. Flags, never deletes | QA flags with counts per rule |
 | `stage03_attribute` | Accuracy-scaled attribution to settlements, EPSG:32632 | settlement visits |
 | `stage04_reconcile` | Settlement and ward coverage against the e-tally, with a per-claim cause classification | reconciliation tables |
 | `stage05_cluster` | Getis-Ord Gi\* on the ward missed rate, with FDR correction | cluster results |
