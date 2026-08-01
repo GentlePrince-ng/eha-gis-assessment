@@ -312,11 +312,20 @@ it tells the Incident Manager how much to trust the number.
 
 ---
 
-## What I need from you
+## Decisions taken
 
-1. **R2 - duty hours.** A (07:00-16:59, evidence-led) or B (06:00-18:59, conservative)?
-2. **R4 - accuracy.** B (no exclusion, tolerance scales with accuracy) or A (fixed cut)?
-   This is the one that can manufacture a false finding, so it is worth your time.
-3. **R5 - gap threshold.** 5 minutes for interruption, 15 for outage - or different?
+This document sets out the options. Three of them were genuine judgement calls
+rather than readings of the data, and each was resolved before implementation:
 
-R1, R3, R6, R7, R8 I can proceed on as written unless you disagree.
+| | Chosen | Rejected | Logged as |
+|---|---|---|---|
+| **R2** duty hours | **A - 07:00-16:59**, from the measured activity plateau | B - 06:00-18:59, which retains about two idle hours each side and is reported as a sensitivity | D-004b |
+| **R4** accuracy | **B - no exclusion.** Accuracy scales the attribution tolerance instead | A - a fixed cut, which removes 62% of eight teams' tracks and manufactures a coverage finding from an equipment property | D-004d |
+| **R5** gap thresholds | **5 minutes interruption, 15 minutes outage** | Wider or narrower; counts barely move across a threefold change, so the finding does not rest on the cut | D-004e |
+
+R1, R3, R6, R7 and R8 were implemented as written above.
+
+The reasoning for each, with what it costs, is in `DECISIONS.md`. The rules as
+actually applied, with the number of points each flagged or excluded, are in
+`qa_rules.md` - generated from the store rather than transcribed, so the two
+cannot disagree.
