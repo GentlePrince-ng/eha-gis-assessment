@@ -877,6 +877,45 @@ distance threshold has to be invented.
 Baluru dominates the population at stake - 27,137 of the 31,950 - because it is a large
 urban ward. Rate and burden are different quantities and the brief must not conflate them.
 
+### How firm is this set of three?
+
+The p-values above come from a permutation test, which is a random procedure, and
+Benjamini-Hochberg turns them into a binary decision at a threshold the three wards sit
+close to. So the honest question is not what the p-value is, but **how often this set is
+returned at all.**
+
+Stage 05 is seeded (`SEED = 20260309`), which makes the reported figure reproducible.
+It does not make it stable, and reporting a seeded number as settled would be the worse of
+the two failures. `part1_q1/src/seed_stability.py` re-runs the ward-level test under 200
+independent seeds:
+
+| Reported set | Runs | Share |
+|---|---|---|
+| **All three wards** | 181 / 200 | **90.5%** |
+| Two wards | 5 / 200 | 2.5% |
+| **No wards at all** | 14 / 200 | **7.0%** |
+
+| Ward | Selected in | |
+|---|---|---|
+| Kungomi | 186 / 200 | 93.0% |
+| Daberi | 186 / 200 | 93.0% |
+| Baluru | 181 / 200 | 90.5% |
+
+**The three travel together.** BH is a step-up procedure: it finds the largest rank whose
+p-value clears its threshold and rejects everything at or below it, so the set is mostly
+all-or-nothing rather than three independent decisions. That is why 90.5% of runs give
+three wards and 7% give none, with almost nothing in between.
+
+**What to claim:** three wards, reproducible under the stated seed, and returned by roughly
+nine runs in ten. **What not to claim:** that these three are individually established at
+p = 0.0018, 0.0023 and 0.0037 as though those were fixed quantities. They are estimates
+from 9,999 draws, and in one run in fourteen the correction returns nothing.
+
+The instability is a property of the data - forty wards, a correction that must control
+for forty tests, and effects near the threshold - not of the seed. A larger permutation
+count narrows the Monte Carlo error on each p-value but does not move it away from the
+threshold.
+
 ### Highest rate is not the same as hot spot
 
 | Ward | Missed rate | Gi\* z | p | Hot spot? |
@@ -1051,6 +1090,29 @@ Of **2,487 planned settlements** (excluding 75 classified inaccessible), **444 -
 have no evidence of being reached**: no doses reported and no GPS track placing a team
 there. Those gaps are not evenly spread. Three wards form a genuine cluster, and that
 holds after allowing for the fact that testing 40 wards throws up false alarms by chance.
+
+**How confident, in plain terms.** The cluster test is a random procedure, so we re-ran it
+200 times. It returned these same three wards in **nine runs out of ten**, and in **one run
+in fourteen it found no significant cluster at all**. The three either appear together or
+not at all, which is how the correction for multiple testing behaves.
+
+**What that means for today's decision:** deploy on the three, but for two different
+reasons, because they are not equally robust.
+
+**Baluru stands on its own evidence.** It has the most missed settlements of any ward in
+the state (31) and much the largest child population (27,137). It is the right destination
+whether or not the cluster test clears its threshold on any given run.
+
+**Daberi and Kungomi stand on the cluster.** Individually they are 10 missed settlements
+each, which is mid-table - they are recommended because their *neighbourhoods* share the
+pattern and they are adjacent to each other, so one team covers both. If the cluster
+finding were withdrawn, so is the case for prioritising them over, say, Satita (30 missed)
+or Bayoyi (27).
+
+**It does not mean these three are proven and the rest are clear.** Eight Idi-Oro wards have
+more missed settlements than Daberi or Kungomi and are not hot spots, because their
+neighbours look the same as they do - a high but uniform level does not produce a local
+peak. Absence from this list is not evidence of adequate coverage.
 
 ## Before you trust this
 
@@ -1726,7 +1788,7 @@ form:
 and **the build fails if any rule in the form has no documented source** -
 so a constraint cannot be added without stating where its value came from.
 
-16 blocking constraints · 6 warnings · 22 rules documented
+17 blocking constraints · 6 warnings · 23 rules documented
 
 ## How to read the source column
 
@@ -1807,6 +1869,17 @@ severely malnourished children the survey exists to count.
 | **What it prevents** | A visit dated outside the approved fieldwork window - most often a device with the wrong date, or a form completed later from notes. |
 | **Source** | Paper form |
 | **Detail** | Header states 'Fieldwork period 1 to 30 June 2026'. The operating conditions say fieldwork runs 14 days, which is narrower. The ETHICS-APPROVED window is enforced as the hard constraint and the 14-day expectation is a soft warning, because a hard 14-day rule would reject legitimate submissions if the schedule shifts. |
+
+### `q1_13_prev_id_other` - 1.13 Write the 2025 household identifier as printed on the household card, for example BAN-000123. If it cannot be established, enter 99999.
+
+| | |
+|---|---|
+| **Action** | blocks |
+| **Rule** | `regex(., '^(BAN-[0-9]{6}|99999)$')` |
+| **Message shown** | Expected format BAN-000123, or 99999 if it cannot be established. |
+| **What it prevents** | A free-typed previous-round identifier that cannot be joined to the 2025 round, and the dead end that arises when the lookup for this settlement is empty. |
+| **Source** | Reference data |
+| **Detail** | Every one of the 3,982 identifiers in previous_round_households.csv matches BAN-000000, checked against the file rather than assumed. The escape exists because the lookup covers 1,565 of 2,524 settlements: in the other 959 a household can answer yes at 1.12 with nothing to select, and a required select over an empty filtered list is an interview that can neither be completed nor abandoned. 99999 is the declared five-digit sentinel for 'no answer obtained' and is distinguishable from a real identifier by shape. |
 
 ### `q2_01_statement_read` - 2.01 Consent statement read aloud to the respondent in full?
 
@@ -3281,7 +3354,7 @@ measurement status field says explicitly why no value exists.
 
 ## Table: `household` - one row per submission
 
-43 fields.
+46 fields.
 
 | Field | Type | Question / meaning | Null when |
 |---|---|---|---|
@@ -3309,7 +3382,10 @@ measurement status field says explicitly why no value exists.
 | `q1_10_visit_date` | date | 1.10 Date of visit | `never (always collected)` |
 | `q1_11_gps` | geopoint | 1.11 GPS reading at the entrance to the dwelling | `never (always collected)` |
 | `q1_12_prev_round` | select_one | 1.12 Was this household visited during the October 2025 round? | `never (always collected)` |
-| `q1_13_prev_id` | select_one_from_file | 1.13 Household identifier allocated in the October 2025 round | `${q1_12_prev_round} = '1'` |
+| `q1_13_prev_n` | calculate | derived: `count(instance('previous_round_households')/root/item[se` | `never (always collected)` |
+| `q1_13_prev_id` | select_one_from_file | 1.13 Household identifier allocated in the October 2025 round | `${q1_12_prev_round} = '1' and ${q1_13_prev_n} > 0` |
+| `q1_13_prev_id_other` | text | 1.13 Write the 2025 household identifier as printed on the household card, f | `${q1_12_prev_round} = '1' and (${q1_13_prev_n} = 0 or ${q1_13_pr` |
+| `q1_13_prev_id_final` | calculate | derived: `if(${q1_13_prev_id} != '', ${q1_13_prev_id}, ${q1_13_pre` | `never (always collected)` |
 | `q1_14_result` | select_one | 1.14 Result of visit | `never (always collected)` |
 | `q2_01_statement_read` | select_one | 2.01 Consent statement read aloud to the respondent in full? | `never (always collected)` |
 | `q2_02_consent` | select_one | 2.02 Does the respondent consent to the household interview? | `never (always collected)` |

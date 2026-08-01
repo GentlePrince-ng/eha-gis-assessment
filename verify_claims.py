@@ -36,11 +36,11 @@ check("under-5 in hot spots",     int(q("SELECT sum(under5) FROM ward_cluster WH
 check("missed, both sources",     q("SELECT count(*) FROM settlement_cluster WHERE missed=1 AND NOT inaccessible"), 444)
 
 xml = pathlib.Path("part2_q3/form/bansara_hh_2026.xml").read_text(encoding="utf-8")
-check("form constraint messages", xml.count("jr:constraintMsg"), 64)
-check("form relevance rules",     len(re.findall(r"relevant=", xml)), 38)
+check("form constraint messages", xml.count("jr:constraintMsg"), 68)
+check("form relevance rules",     len(re.findall(r"relevant=", xml)), 39)
 
 reg = pathlib.Path("part2_q3/docs/constraint_register.md").read_text(encoding="utf-8")
-check("register rules documented", int(re.search(r"(\d+) rules documented", reg).group(1)), 22)
+check("register rules documented", int(re.search(r"(\d+) rules documented", reg).group(1)), 23)
 plan = pathlib.Path("part2_q3/docs/test_plan.md").read_text(encoding="utf-8")
 check("test plan cases",           int(re.search(r"\*\*(\d+) cases\*\*", plan).group(1)), 54)
 

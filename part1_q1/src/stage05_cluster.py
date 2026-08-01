@@ -55,6 +55,18 @@ PERMUTATIONS = 9999
 ALPHA = 0.05
 DWELL_MINUTES = 5              # D-009
 
+# Permutation inference draws from numpy's global RNG. Unseeded, this stage
+# returns a different pseudo p-value on every run, and at the FDR boundary that
+# changes which wards are reported: repeated runs of identical code returned
+# both 3 hot-spot wards (31,950 children under 5) and 2 (4,813), because one
+# ward sits within a few permutations of the threshold. A reproducible pipeline
+# cannot report a figure that moves when it is re-run.
+#
+# The seed makes the reported figure reproducible. It does NOT make it stable -
+# that is a property of the data, is measured by scripts/seed_stability.py, and
+# is reported in docs/cluster_analysis.md rather than hidden behind the seed.
+SEED = 20260309               # first day of the campaign window
+
 
 def load_settlements(con: duckdb.DuckDBPyConnection) -> pd.DataFrame:
     """Settlements with the missed indicator and the inaccessible flag."""
@@ -142,11 +154,13 @@ def main() -> None:
     values = analysed.missed.values.astype(float)
 
     # --- Global check ----------------------------------------------------
+    np.random.seed(SEED)
     moran = Moran(values, knn, permutations=PERMUTATIONS)
     print(f"\n  Global Moran's I                   {moran.I:>8.4f}   p = {moran.p_sim:.4f}")
     print("    (a global check that spatial structure exists before mapping local clusters)")
 
     # --- Local Gi* -------------------------------------------------------
+    np.random.seed(SEED)
     gstar = G_Local(values, knn, star=True, permutations=PERMUTATIONS)
     p_values = gstar.p_sim
     z_scores = gstar.Zs
@@ -266,9 +280,11 @@ def ward_level_analysis(con: duckdb.DuckDBPyConnection, analysed: pd.DataFrame) 
           f"median {wards.missed_rate.median():.3f}  max {wards.missed_rate.max():.3f}")
 
     values = wards.missed_rate.values
+    np.random.seed(SEED)
     moran = Moran(values, weights, permutations=PERMUTATIONS)
     print(f"\n  Global Moran's I on the rate       {moran.I:>8.4f}   p = {moran.p_sim:.4f}")
 
+    np.random.seed(SEED)
     gstar = G_Local(values, weights, star=True, permutations=PERMUTATIONS)
     significant = benjamini_hochberg(gstar.p_sim, ALPHA)
     wards = wards.assign(gstar_z=gstar.Zs, gstar_p=gstar.p_sim,

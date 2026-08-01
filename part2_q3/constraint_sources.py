@@ -51,6 +51,21 @@ SOURCES: dict[str, dict[str, str]] = {
         source="paper form",
         detail="1.06 provides three coding boxes, so 1-999.",
     ),
+    "q1_13_prev_id_other": dict(
+        prevents="A free-typed previous-round identifier that cannot be joined "
+                 "to the 2025 round, and the dead end that arises when the "
+                 "lookup for this settlement is empty.",
+        source="reference data",
+        detail="Every one of the 3,982 identifiers in "
+               "previous_round_households.csv matches BAN-000000, checked "
+               "against the file rather than assumed. The escape exists because "
+               "the lookup covers 1,565 of 2,524 settlements: in the other 959 "
+               "a household can answer yes at 1.12 with nothing to select, and "
+               "a required select over an empty filtered list is an interview "
+               "that can neither be completed nor abandoned. 99999 is the "
+               "declared five-digit sentinel for 'no answer obtained' and is "
+               "distinguishable from a real identifier by shape.",
+    ),
     "q1_07_hh_serial": dict(
         prevents="A household serial outside the range the paper form can hold, "
                  "breaking comparability with paper rounds.",
