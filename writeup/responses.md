@@ -4560,7 +4560,7 @@ SOURCE FILE
 
 STEPS, in this order
     1. Trimmed leading and trailing spaces from facility_name and lga_name.
-       24 values changed.
+       54 values changed - 24 in facility_name, 30 in lga_name.
        (Done FIRST - grouping before trimming leaves " Gwarin" as its own group.)
 
     2. Mapped lga_name to 4 canonical values using this table:
@@ -4568,14 +4568,14 @@ STEPS, in this order
            Gwarin    <- "GWARIN", "gwarin"
            Katsuma   <- "KATSUMA"
            Ilela     <- "ILELA", "ilela"
-       16 distinct values reduced to 4. 61 rows changed.
+       16 distinct values reduced to 4. 98 rows changed.
 
     3. Mapped facility_type to 3 canonical values:
            Primary Health Centre <- "Primary Health Center", "PHC",
                                     "Primary health centre"
            Health Post           <- "Health post", "HEALTH POST"
            Cottage Hospital      <- "Cottage hospital"
-       9 distinct values reduced to 3.
+       9 distinct values reduced to 3. 120 rows changed.
 
     4. Replaced "," with "." in longitude. 6 values fixed.
        These were text like "7,914882" - a decimal comma, not a thousands
@@ -4885,13 +4885,13 @@ that defects cannot be found by eye; small enough to finish.
 
 | # | Defect | Count | Judgement call? |
 |---|---|---|---|
-| 1 | `lga_name` variants - spacing, case, hyphenation | 16 variants → 4 real LGAs | No |
+| 1 | `lga_name` variants - spacing, case, hyphenation | 16 variants → 4 real LGAs, 98 rows | No |
 | 2 | Duplicate `facility_id`, **rows differ** | 3 pairs | **Yes** - which row survives? |
 | 3 | Missing coordinates | 5 rows | **Yes** - drop, or keep unmapped? |
 | 4 | Latitude/longitude transposed | 2 rows | No |
-| 5 | Leading/trailing whitespace in names | 24 rows | No |
+| 5 | Leading/trailing whitespace in `facility_name` | 24 rows | No |
 | 6 | `staff_total = 999` | 3 rows | **Yes** - sentinel, or real? |
-| 7 | `facility_type` spelling variants | 9 variants → 3 real types | No |
+| 7 | `facility_type` spelling variants | 9 variants → 3 real types, 120 rows | No |
 | 8 | Decimal comma in `longitude` | 6 rows | No |
 
 ## Why three of them have no correct answer
