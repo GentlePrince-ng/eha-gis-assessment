@@ -348,7 +348,26 @@ position is provable - is also a distortion, and a less visible one.
 
 ## D-006 - Which coverage source is presented to the Incident Manager
 
-**Decided:** *(pending)*
+**Decided** by Solomon, 31 July. Full reasoning in `part1_q1/docs/reconciliation.md`.
+
+**Chose: neither alone.** The e-tally as the operational figure, the track data as a
+verification overlay, and the disagreement reported rather than resolved.
+
+**Why.** The e-tally is the only source that measures the outcome - tracks record presence,
+only the e-tally records doses, and an Incident Manager deciding on mop-up needs children
+vaccinated. But it cannot go up unqualified: 201 records report doses exceeding the target
+population, 7 settlements are absent from the masterlist, and 5 settlements the programme
+itself classified inaccessible report doses.
+
+**Rejected: the track-derived figure as the headline.** It under-detects by construction -
+16.2% of supplied points survive QA, and 83.7% of survivors sit beyond tolerance of any
+planned settlement. It is a lower bound on presence, not a measure of coverage, and
+presenting it as one would manufacture a coverage collapse out of an equipment property.
+
+**Rejected: picking a winner and reporting one number.** The two sources fail in different
+directions and the disagreement is the finding. The 1,336 uncorroborated claims are not a
+coverage estimate; they are a **verification worklist ranked by doses at stake**, which is
+actionable in a way neither source is alone.
 
 Neither source is clean and they fail in different directions. The e-tally reports doses
 exceeding the target population in 201 records, references 7 settlements absent from the
@@ -360,7 +379,30 @@ total logger failure.
 
 ## D-007 - Spatial statistic, weights, and significance
 
-**Decided:** *(pending)*
+**Decided** by Solomon, 31 July. Full reasoning in `part1_q1/docs/cluster_analysis.md`.
+
+**Chose: Getis-Ord Gi\* on the ward-level missed rate.** Queen contiguity weights,
+row-standardised; inference by conditional permutation, 9,999 draws; Benjamini-Hochberg FDR
+across the 40 ward tests. Seeded (D-011) so the reported figure is reproducible.
+
+**Why Gi\* and not Local Moran's I.** The operational question is one-directional - where is
+the concentration of missed settlements - and Gi\* answers exactly that. Moran's I detects
+spatial association of any kind, including low-low clusters and outliers. Moran's I is
+reported alongside as a global check that structure exists at all.
+
+**Why Queen contiguity and not KNN.** Wards are polygons that tile the study area, so a
+shared boundary is the natural neighbour definition and no distance threshold has to be
+invented.
+
+**Rejected: Gi\* at settlement level**, which was run first. A binary indicator at 2,487
+locations gives a degenerate permutation distribution - 516 "cold spots" pinned to the
+permutation floor, an artefact of the statistic rather than a finding. The ward rate is
+continuous, the unit is the one mop-up is actually deployed by, and 40 tests are tractable
+for multiple-testing correction where 2,487 are not.
+
+**Rejected: raw p-values.** 40 tests at alpha = 0.05 produce false positives by
+construction; results are reported before and after correction, and the corrected set is
+the one mapped.
 
 Must state the statistic, the weights definition, the significance approach including
 correction for multiple testing, and - required explicitly by the question - what the
@@ -369,9 +411,59 @@ individual child.
 
 ---
 
-## D-008 - Part 2 Q3: scope deliberately not implemented
+## D-011 - Seeding the permutation inference
 
-**Decided:** *(pending)*
+**Decided** by Solomon, 1 August. Measured by `part1_q1/src/seed_stability.py`.
+
+**Chose:** seed the RNG before every permutation call, `SEED = 20260309`, the first day of
+the campaign window.
+
+**Why it was needed.** `Moran` and `G_Local` draw 9,999 permutations from numpy's global
+RNG, and stage05 did not seed it. Every run produced different pseudo p-values. That is
+usually invisible; here it is not, because Benjamini-Hochberg turns a continuous p-value
+into a binary decision, the wards sit near the threshold, and one of the three holds 27,137
+of the 31,950 children. Repeated runs of identical code returned **both 3 hot-spot wards
+(31,950 children) and 2 (4,813)** - a factor of 6.6 in the headline figure.
+
+Caught by `verify_claims.py` during an unrelated rebuild, not by inspection.
+
+**Rejected: leaving it unseeded and reporting a range.** A pipeline advertised as rebuilding
+every output from raw cannot report a figure that changes when it is re-run.
+
+**Rejected: seeding and saying nothing.** A seed makes a figure *reproducible*, not
+*stable*, and presenting a seeded number as settled is the worse of the two failures. So
+the instability is measured and published instead: across 200 independent seeds the same
+three wards are returned in **181 runs of 200 (90.5%)**, two wards in 5, and **no
+significant cluster at all in 14 (7%)**. They travel together because BH is a step-up
+procedure.
+
+**What this licenses:** three wards, reproducible under the stated seed, returned by roughly
+nine runs in ten. **What it does not:** treating p = 0.0018, 0.0023 and 0.0037 as fixed
+quantities. The instability is a property of the data - forty wards, a correction
+controlling for forty tests, effects near the threshold - not of the seed, and more
+permutations narrow the Monte Carlo error without moving the effect away from the
+threshold.
+
+---
+
+## D-010 - Part 2 Q3: scope deliberately not implemented
+
+**Decided** by Solomon, 31 July. Full list in `part2_q3/docs/deliberate_scope.md`.
+
+**Chose: five categories, each with a reason of a different kind**, rather than one list of
+omissions - because the reason is what makes a scope defensible.
+
+| Left out because | Examples |
+|---|---|
+| **The input does not exist** | The real medicine codelist; the survey manager's encryption keypair |
+| **The decision is not mine** | Partitioning media per team; removing 4.02, the child's name; enforcing the follow-up consent flag |
+| **It is impossible in the medium** | Cross-submission duplicate detection; hashing the sign-in PIN, since XForms has no hash function |
+| **It needs a device or a person** | Executing the test plan against a live server; native-speaker review of the Hausa; memory testing on a real 2 GB tablet |
+| **Judgement** | No GPS geofence, because a settlement centroid is not a household location and a boundary rule would block legitimate dwellings at the edge; no clinical blocking on measurements |
+
+**Rejected: implementing what could be implemented and listing the rest as future work.**
+Several of these are implementable and were still declined - the geofence most obviously.
+A scope that excludes only the impossible is not a scope, it is a status report.
 
 Q3's final deliverable asks what was left out and why. *"A defensible scope scores better
 than an exhaustive one."*
