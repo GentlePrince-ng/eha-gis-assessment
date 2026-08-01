@@ -56,7 +56,7 @@ untouched.
 python run_all.py
 ```
 
-Rebuilds every output from the raw pack in about 40 seconds, across 21 stages.
+Rebuilds every output from the raw pack in about 40 seconds, across 22 stages.
 It wipes prior artefacts first and **stops at the first failure** rather than
 producing a partial result that looks complete.
 
@@ -176,6 +176,7 @@ the file the model answer expects.
 | `validate_media.py` | Five failures no validator sees: an external lookup that resolves to nothing, a lookup that **resolves and joins to nothing**, and an instruction pointing at a question the form does not contain |
 | `check_coverage.py` | A question silently dropped from the questionnaire. Every one of the 58 printed questions must be implemented or declared out of scope with a reason, read from the supplied instrument rather than a transcribed list |
 | `build_register.py` | A constraint whose threshold has no stated source |
+| `run_test_plan.py` | The test plan being specified and never run. Executes **43 of the 54 cases** against the expressions in the built XForm, including all seven the question names as required; reports the other 11 as needing a device rather than counting them as passes |
 | `tests/test_check_digit.py` | 14 tests. 292,960 transpositions, none escaping detection; and the check-digit expression **taken from the built XForm and evaluated** agrees with the module on all 21,600 allocated serials - a textual match would still pass with the weights in the wrong order |
 | `verify_claims.py` | A figure quoted in the write-ups drifting from the output that produced it. 54 checks, including the pyxform version stated in prose against the one that actually ran; the Q6 annex figures are compared against the number parsed out of the annex, not against a literal, so document and dataset cannot disagree |
 

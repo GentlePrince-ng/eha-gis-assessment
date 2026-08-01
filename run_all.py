@@ -50,6 +50,7 @@ PIPELINE: list[tuple[str, str, list[str]]] = [
     ("Part 2 Q3  test plan",                    "part2_q3/build_test_plan.py", []),
     ("Part 2 Q3  codebook",                     "part2_q3/build_codebook.py", []),
     ("Part 2 Q3  check-digit test suite",       "part2_q3/tests/test_check_digit.py", []),
+    ("Part 2 Q3  execute the test plan",         "part2_q3/run_test_plan.py", []),
     ("Part 2 Q3  sentinel collision scan",      "part2_q3/scan_sentinels.py", []),
     ("Part 2 Q3  daily fabrication check",      "part2_q3/daily_qa.py", ["--demo"]),
 

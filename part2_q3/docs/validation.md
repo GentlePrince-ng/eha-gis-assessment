@@ -182,9 +182,32 @@ Neither is exotic. Both convert cleanly, validate cleanly, pass every static
 check, and make the form unusable. **They were found by using it, which is the
 only thing that finds them.**
 
-**What is still not done.** The 54 cases in `test_plan.md` have **not** been
-executed as a suite - no pass/fail record exists against them, and this document
-does not claim one. What has been established is that the form loads on a real
+**The test plan is now partly executed.** `run_test_plan.py` takes each case's
+target expression **out of the built XForm** and evaluates it against the case's
+input, on every rebuild:
+
+| | |
+|---|---|
+| **Executed** | **43 of 54**, all passing |
+| Of which range boundary cases | 32 of 32 - every bound, and one step outside each |
+| **All seven the question names as required** | **S01-S07, executing and passing** |
+| Not run | 11 |
+
+The seven required cases are worth naming, because four of them are relevance or
+calculate logic rather than constraints: the specimen eligibility cut at 11 and
+12 months, the measurement position change at 23 and 24 months, a date either
+side of the fieldwork window, and a roster that disagrees with the stated
+household size.
+
+**The 11 that do not run need a device or a server** and are reported as such,
+never counted as passing: form navigation and repeat behaviour, lookups into
+attached media, `last-saved` across submissions, sync, and encryption. A harness
+that quietly counted those as passes would be worse than no harness.
+
+**What this is not.** It is not ODK Collect. It evaluates expressions against a
+supplied instance; it does not render a form, walk a repeat or sync a device.
+Verified to bite: loosening the child weight bound from 30 kg to 200 kg flips
+S21 to FAIL and exits non-zero. What has been established is that the form loads on a real
 server with real media, that the identification section can be completed, and
 that the two defects above are gone. The check-digit logic behind case S09 is
 separately executed in full by `tests/test_check_digit.py`.
