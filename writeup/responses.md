@@ -2111,9 +2111,16 @@ out.
 |---|---|---|
 | Workbook → XForm conversion | **pyxform 4.5.0** | SUCCESS, output in `form/conversion_log.txt` |
 | XForm structure and XPath | **ODK Validate** (bundled with pyxform, **OpenJDK 21**) | SUCCESS |
-| External references resolve | `validate_media.py` (written for this submission) | PASSED |
+| External references resolve, values join, cross-references exist | `validate_media.py` (written for this submission) | PASSED, 5 checks |
+| Every printed question implemented or declared | `check_coverage.py` (written for this submission) | PASSED, 58 accounted for |
+| Deployed and exercised on a real server | Kobo Toolbox, all seven media attached | **PARTIAL** - see below |
 
-**All three are run by `python part2_q3/build_form.py && python part2_q3/validate_media.py`.**
+Versions are recorded by the build itself into `form/conversion_log.txt`, taken
+from the running interpreter rather than transcribed here, and `verify_claims.py`
+fails if the version stated in this document and the version that actually
+converted the form disagree.
+
+**All are run by `python run_all.py`, stages 8 to 10.**
 
 ## Why the third check had to be written
 
@@ -2246,10 +2253,34 @@ boundary and negative cases, including the specimen eligibility cut, the
 measurement position change, the ends of every range, a date outside the
 fieldwork window, and a roster that disagrees with the stated household size.
 
-**Those test cases have been specified but not executed against a running
-instance**, since no ODK Central project was available inside the submission
-window. That is stated plainly here rather than left to be assumed: a test plan
-that has been written is not a test plan that has been run.
+## What deployment testing found, and what it did not cover
+
+The form was deployed to **Kobo Toolbox** with all seven media attachments and
+worked through as an enumerator. That is not the same as executing the 54-case
+plan, and the distinction is kept sharp below.
+
+**It found two defects that every other check had passed.**
+
+| Where | What happened | Fixed by |
+|---|---|---|
+| **1.02 LGA** | The constraint compared the selected LGA code against the roster's LGA *label*, so it rejected every selection. All 96 enumerators blocked at the first question; supervisors unaffected, because the rule exempts them by role | Defect E5. `assigned_lga_code` derived in `prepare_media.py`; five cross-file join checks added |
+| **1.13 previous household** | A required autocomplete filtered to a settlement's previous-round households. The lookup covers 1,565 of 2,524 settlements, so in the other **959 (38%)** a household answering *yes* at 1.12 faced an empty required list: no way to answer, skip, or abandon | The list appears only when it has entries; a typed fallback with a format constraint always available; one calculate coalesces the two into a single analysis variable |
+
+Neither is exotic. Both convert cleanly, validate cleanly, pass every static
+check, and make the form unusable. **They were found by using it, which is the
+only thing that finds them.**
+
+**What is still not done.** The 54 cases in `test_plan.md` have **not** been
+executed as a suite - no pass/fail record exists against them, and this document
+does not claim one. What has been established is that the form loads on a real
+server with real media, that the identification section can be completed, and
+that the two defects above are gone. The check-digit logic behind case S09 is
+separately executed in full by `tests/test_check_digit.py`.
+
+**A test plan that has been written is not a test plan that has been run**, and
+partially exercising a form is not the same as running its test plan. Both
+statements are still true here, and the honest position is that deployment
+testing found what static analysis could not and stopped short of the suite.
 
 
 

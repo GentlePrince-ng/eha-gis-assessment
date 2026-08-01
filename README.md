@@ -170,10 +170,11 @@ the file the model answer expects.
 |---|---|
 | Row accounting in `stage01` | A record disappearing without being counted |
 | QA coverage assertion in `stage02` | A stored point with no quality decision |
-| `validate_media.py` | An external lookup that silently resolves to nothing |
+| `validate_media.py` | Five failures no validator sees: an external lookup that resolves to nothing, a lookup that **resolves and joins to nothing**, and an instruction pointing at a question the form does not contain |
+| `check_coverage.py` | A question silently dropped from the questionnaire. Every one of the 58 printed questions must be implemented or declared out of scope with a reason, read from the supplied instrument rather than a transcribed list |
 | `build_register.py` | A constraint whose threshold has no stated source |
 | `tests/test_check_digit.py` | 292,960 transpositions, none escaping detection - and that the tested algorithm is the one in the built XForm |
-| `verify_claims.py` | A figure quoted in the write-ups drifting from the output that produced it. 52 checks; the Q6 annex figures are compared against the number parsed out of the annex, not against a literal, so document and dataset cannot disagree |
+| `verify_claims.py` | A figure quoted in the write-ups drifting from the output that produced it. 54 checks, including the pyxform version stated in prose against the one that actually ran; the Q6 annex figures are compared against the number parsed out of the annex, not against a literal, so document and dataset cannot disagree |
 
 ## Manual steps
 
