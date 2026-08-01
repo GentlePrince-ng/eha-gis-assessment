@@ -128,10 +128,15 @@ SOURCES: dict[str, dict[str, str]] = {
     # ----------------------------------------------------------- child module
     "q4_01_line": dict(
         prevents="A child module pointing at an adult, at a line that does not "
-                 "exist, or at a resident outside 9-59 months.",
+                 "exist, at a resident outside 9-59 months, or at a child "
+                 "already recorded in another child module.",
         source="paper form",
         detail="4.01 asks for the roster line number. The paper form cannot check "
-               "it; indexed-repeat() validates against the roster itself.",
+               "it; indexed-repeat() validates against the roster itself. The "
+               "uniqueness clause was added after review: range and eligibility "
+               "both pass when the same line is entered twice, which records one "
+               "child in two modules while another eligible child is never "
+               "recorded. count() over the sibling repeats closes it.",
     ),
     "q4_05_weight_kg": dict(
         prevents="A transposed or slipped digit at data entry - 152 kg for 15.2.",

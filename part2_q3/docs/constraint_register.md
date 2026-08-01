@@ -147,11 +147,11 @@ severely malnourished children the survey exists to count.
 | | |
 |---|---|
 | **Action** | blocks |
-| **Rule** | `. >= 1 and . <= ${roster_count} and indexed-repeat(${r_eligible}, ${roster}, .) = 1` |
-| **Message shown** | That line is not a child aged 9-59 completed months. Check the roster. |
-| **What it prevents** | A child module pointing at an adult, at a line that does not exist, or at a resident outside 9-59 months. |
+| **Rule** | `. >= 1 and . <= ${roster_count} and indexed-repeat(${r_eligible}, ${roster}, .) = 1 and count(/data/child[q4_01_line = current()/.]) = 1` |
+| **Message shown** | Invalid line: it must be a child aged 9-59 completed months who has not already been recorded in another child module. |
+| **What it prevents** | A child module pointing at an adult, at a line that does not exist, at a resident outside 9-59 months, or at a child already recorded in another child module. |
 | **Source** | Paper form |
-| **Detail** | 4.01 asks for the roster line number. The paper form cannot check it; indexed-repeat() validates against the roster itself. |
+| **Detail** | 4.01 asks for the roster line number. The paper form cannot check it; indexed-repeat() validates against the roster itself. The uniqueness clause was added after review: range and eligibility both pass when the same line is entered twice, which records one child in two modules while another eligible child is never recorded. count() over the sibling repeats closes it. |
 
 ### `q4_05_weight_kg` - 4.05 Weight in kg
 
