@@ -4022,8 +4022,9 @@ These do not agree, and the gap is the design brief. Recalling 57% while scoring
 36 on applied capability is not a knowledge problem - **it is an application
 problem.** That rules out the default response: more instruction closes a
 knowledge gap, and this cohort has already met the material and cannot convert it
-into work. The lever is supervised practice, which is why the course runs at
-**70% hands-on** and every block ends in a product rather than a summary.
+into work. The lever is supervised practice, which is why **95% of timetabled
+minutes are participants working** (§3) and every block ends in a product rather
+than a summary.
 
 ### 1.2 They cannot judge their own competence - so nothing self-reported can steer the design
 
@@ -4135,10 +4136,15 @@ Full grid - six domains × five levels, each cell an observable behaviour - in
 
 ## 3. The five-day course
 
-**Ratio: 70% hands-on, 30% instruction.** Instruction blocks are capped at 20
-minutes and each is followed immediately by the task that uses it. This follows
-directly from §1.1 - the cohort's deficit is application, and lecture is the
-wrong instrument for an application deficit.
+**Ratio: 1,245 of the 1,305 timetabled minutes are participants working - 95%.**
+Instruction is four blocks, each capped at 20 minutes and each followed
+immediately by the task that uses it. Annex E times every session, so the ratio
+is counted rather than asserted; what it does not separately time is the
+explaining and debriefing a facilitator does *inside* a working session, which
+is why the felt balance in the room is nearer 70:30 than 95:5.
+
+This follows directly from §1.1 - the cohort's deficit is application, and
+lecture is the wrong instrument for an application deficit.
 
 Learning outcomes are written at the cognitive level the evidence supports.
 Nothing is set at *evaluate* or *create* on day one for a cohort scoring 36.
@@ -4152,7 +4158,7 @@ scoring 36.
 
 | Day | Focus | Outcome | Hands-on |
 |---|---|---|---|
-| **1** | What is actually in the data | **Apply** - given an unfamiliar dataset, produce a written inventory of its defects, in counts rather than impressions, without cleaning anything | 260 / 20 min |
+| **1** | What is actually in the data | **Apply** - given an unfamiliar dataset, produce a written inventory of its defects, in counts rather than impressions, without cleaning anything | 240 / 20 min |
 | **2** | Cleaning that can be checked | **Apply** - clean a dataset so every change is counted and no record is silently dropped | 240 / 20 min |
 | **3** | **Reproducibility - the spine** | **Apply → analyse** - produce a record from which a colleague reproduces your cleaned dataset without speaking to you | 240 / 0 min |
 | **4** | Spatial data, and the map they came for | **Apply** - produce a correctly projected, properly furnished map, and state what it does not show | 255 / 20 min |
@@ -5123,6 +5129,7 @@ prose would drift from the file within one revision.
 | Dataset | Used for | Seed |
 |---|---|---|
 | `D1_facilities_raw.csv` | Days 2 and 3 teaching; quoted exactly in the model answer | 20260731 |
+| `D2_wards.csv` | Day 4 - the ward reference the cleaned facilities are joined to | 20261034 |
 | `D_PRE_facilities_raw.csv` | Pre-assessment (Annex C) | 20260832 |
 | `D_POST_facilities_raw.csv` | Post-assessment (Annex C) | 20260933 |
 
@@ -5160,6 +5167,42 @@ and arrive at 203, 200 or 195 rows. All three are defensible. **None is
 reproducible unless the decision was written down** - which is the moment the
 90-minute session is built around, and the thing tasks 4 and 5 of the assessment
 are testing.
+
+## D2 - the Day 4 ward reference
+
+Day 4 joins each participant's **own cleaned D1** to this table. It exists to
+teach the D4 level-3 behaviour in Annex A: *reports join failures with a count
+instead of quietly losing the unmatched rows.* A reference table that matched
+perfectly could not teach it.
+
+Four columns: `ward_code`, `ward_name`, `lga_name`, `population`.
+
+| | Count |
+|---|---|
+| Distinct ward names in D1 | 18 |
+| Wards listed in D2 | 17 |
+| **Ward names in D1 absent from D2** | **3** - Daibewo, Jostile, Maljiwo |
+| Unmatched joining the **raw** file (203 rows) | 38 |
+| **Unmatched joining a cleaned file** (200 rows) | **36**, leaving 164 joined |
+| Wards in D2 with no facility in D1 | 2 - Tanshiwa, Golkanu |
+
+**Two directions of failure, deliberately.** Three wards are missing from the
+reference, so those facilities have nowhere to go and a participant who
+inner-joins loses them silently. Two wards in the reference have no facilities,
+which is **not** an error - an empty ward is a real thing, and telling the two
+apart is the judgement the session is for.
+
+**The unmatched count depends on Day 2.** 38 from the raw file, 36 from a
+correctly deduplicated one, because two of the three duplicate rows sit in the
+missing wards. That is not a trap; it is the point. A number produced on Day 4
+carries every decision made on Day 2, and a participant who cannot say which
+file they joined cannot explain why their figure differs from their neighbour's.
+The facilitator should expect both numbers in the room and treat the discrepancy
+as the discussion rather than as an error.
+
+A participant who reports "36 did not match, in 3 wards, and 2 wards have no
+facilities" has reached level 3 on D4. One who reports 164 rows and moves on has
+not, and will not know it.
 
 ## Parallel-form verification
 
@@ -5204,7 +5247,7 @@ its defects - counts, not impressions - without cleaning anything.
 | Session | Min | Exercise | Dataset |
 |---|---|---|---|
 | The task you cannot yet do | 60 | Produce a facility map from raw data, unaided. Most will not finish | D1 (Annex D) |
-| Why it failed | 20 | Facilitated, findings collected from the room, no individual named | - |
+| Why it failed | 20 | Instruction - facilitated debrief, findings collected from the room, no individual named | - |
 | Profiling before touching | 90 | Count rows, duplicates, blanks, out-of-range values, name variants | D1 |
 | Writing a defect register | 90 | Produce a defect table: what, how many, how found | D1 |
 
@@ -5228,7 +5271,7 @@ reproduces your cleaned dataset without speaking to you.
 
 | Session | Min | Exercise | Dataset |
 |---|---|---|---|
-| **Make your work someone else's** | **90** | **Full artefact in Annex B** | D1 / D2 |
+| **Make your work someone else's** | **90** | **Full artefact in Annex B** | D1 |
 | Repairing the record | 60 | Rewrite the documentation that failed; re-test with a different partner | D1 |
 | The department's own standard | 90 | The cohort drafts the minimum documentation standard *they* will use | - |
 
@@ -5242,9 +5285,9 @@ cleaned dataset, and state what it does not show.
 | Session | Min | Exercise | Dataset |
 |---|---|---|---|
 | Coordinates, joins, and why maps lie | 20 | Instruction | - |
-| Joining and checking | 90 | Join facilities to wards; find and count the failures | D2 |
-| Projection, in practice not theory | 45 | Measure the same distance in three CRS; see the answers differ | D2 |
-| Map production | 120 | Full cartographic furniture; every map states its projection and source | D2 |
+| Joining and checking | 90 | Join their own cleaned facilities to the ward reference; find, count and report the failures | own D1 + D2 |
+| Projection, in practice not theory | 45 | Measure the same distance in three CRS; see the answers differ | own D1 |
+| Map production | 120 | Full cartographic furniture; every map states its projection and source | own D1 + D2 |
 
 The projection block teaches by consequence, not by theory. Measuring one
 distance three ways and getting three answers takes fifteen minutes and is

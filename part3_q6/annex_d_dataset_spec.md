@@ -12,6 +12,7 @@ prose would drift from the file within one revision.
 | Dataset | Used for | Seed |
 |---|---|---|
 | `D1_facilities_raw.csv` | Days 2 and 3 teaching; quoted exactly in the model answer | 20260731 |
+| `D2_wards.csv` | Day 4 - the ward reference the cleaned facilities are joined to | 20261034 |
 | `D_PRE_facilities_raw.csv` | Pre-assessment (Annex C) | 20260832 |
 | `D_POST_facilities_raw.csv` | Post-assessment (Annex C) | 20260933 |
 
@@ -49,6 +50,42 @@ and arrive at 203, 200 or 195 rows. All three are defensible. **None is
 reproducible unless the decision was written down** - which is the moment the
 90-minute session is built around, and the thing tasks 4 and 5 of the assessment
 are testing.
+
+## D2 - the Day 4 ward reference
+
+Day 4 joins each participant's **own cleaned D1** to this table. It exists to
+teach the D4 level-3 behaviour in Annex A: *reports join failures with a count
+instead of quietly losing the unmatched rows.* A reference table that matched
+perfectly could not teach it.
+
+Four columns: `ward_code`, `ward_name`, `lga_name`, `population`.
+
+| | Count |
+|---|---|
+| Distinct ward names in D1 | 18 |
+| Wards listed in D2 | 17 |
+| **Ward names in D1 absent from D2** | **3** - Daibewo, Jostile, Maljiwo |
+| Unmatched joining the **raw** file (203 rows) | 38 |
+| **Unmatched joining a cleaned file** (200 rows) | **36**, leaving 164 joined |
+| Wards in D2 with no facility in D1 | 2 - Tanshiwa, Golkanu |
+
+**Two directions of failure, deliberately.** Three wards are missing from the
+reference, so those facilities have nowhere to go and a participant who
+inner-joins loses them silently. Two wards in the reference have no facilities,
+which is **not** an error - an empty ward is a real thing, and telling the two
+apart is the judgement the session is for.
+
+**The unmatched count depends on Day 2.** 38 from the raw file, 36 from a
+correctly deduplicated one, because two of the three duplicate rows sit in the
+missing wards. That is not a trap; it is the point. A number produced on Day 4
+carries every decision made on Day 2, and a participant who cannot say which
+file they joined cannot explain why their figure differs from their neighbour's.
+The facilitator should expect both numbers in the room and treat the discrepancy
+as the discussion rather than as an error.
+
+A participant who reports "36 did not match, in 3 wards, and 2 wards have no
+facilities" has reached level 3 on D4. One who reports 164 rows and moves on has
+not, and will not know it.
 
 ## Parallel-form verification
 

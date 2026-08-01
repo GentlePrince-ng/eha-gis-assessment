@@ -21,8 +21,9 @@ These do not agree, and the gap is the design brief. Recalling 57% while scoring
 36 on applied capability is not a knowledge problem - **it is an application
 problem.** That rules out the default response: more instruction closes a
 knowledge gap, and this cohort has already met the material and cannot convert it
-into work. The lever is supervised practice, which is why the course runs at
-**70% hands-on** and every block ends in a product rather than a summary.
+into work. The lever is supervised practice, which is why **95% of timetabled
+minutes are participants working** (§3) and every block ends in a product rather
+than a summary.
 
 ### 1.2 They cannot judge their own competence - so nothing self-reported can steer the design
 
@@ -134,10 +135,15 @@ Full grid - six domains × five levels, each cell an observable behaviour - in
 
 ## 3. The five-day course
 
-**Ratio: 70% hands-on, 30% instruction.** Instruction blocks are capped at 20
-minutes and each is followed immediately by the task that uses it. This follows
-directly from §1.1 - the cohort's deficit is application, and lecture is the
-wrong instrument for an application deficit.
+**Ratio: 1,245 of the 1,305 timetabled minutes are participants working - 95%.**
+Instruction is four blocks, each capped at 20 minutes and each followed
+immediately by the task that uses it. Annex E times every session, so the ratio
+is counted rather than asserted; what it does not separately time is the
+explaining and debriefing a facilitator does *inside* a working session, which
+is why the felt balance in the room is nearer 70:30 than 95:5.
+
+This follows directly from §1.1 - the cohort's deficit is application, and
+lecture is the wrong instrument for an application deficit.
 
 Learning outcomes are written at the cognitive level the evidence supports.
 Nothing is set at *evaluate* or *create* on day one for a cohort scoring 36.
@@ -151,7 +157,7 @@ scoring 36.
 
 | Day | Focus | Outcome | Hands-on |
 |---|---|---|---|
-| **1** | What is actually in the data | **Apply** - given an unfamiliar dataset, produce a written inventory of its defects, in counts rather than impressions, without cleaning anything | 260 / 20 min |
+| **1** | What is actually in the data | **Apply** - given an unfamiliar dataset, produce a written inventory of its defects, in counts rather than impressions, without cleaning anything | 240 / 20 min |
 | **2** | Cleaning that can be checked | **Apply** - clean a dataset so every change is counted and no record is silently dropped | 240 / 20 min |
 | **3** | **Reproducibility - the spine** | **Apply → analyse** - produce a record from which a colleague reproduces your cleaned dataset without speaking to you | 240 / 0 min |
 | **4** | Spatial data, and the map they came for | **Apply** - produce a correctly projected, properly furnished map, and state what it does not show | 255 / 20 min |
