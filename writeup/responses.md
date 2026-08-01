@@ -4630,7 +4630,8 @@ Use these to check whether a pair actually reproduced the file.
 | Mappable facilities | **195** |
 | `lga_name` variants → canonical | 16 → **4** |
 | `facility_type` variants → canonical | 9 → **3** |
-| Whitespace values corrected | **24** |
+| Whitespace in `facility_name` | **24** |
+| Whitespace in `lga_name` | **30** |
 | Decimal-comma longitudes | **6** |
 | Transposed coordinate pairs | **2** |
 | `staff_total = 999` | **3** |
