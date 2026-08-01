@@ -19,7 +19,51 @@ import re
 import sys
 from pathlib import Path
 
-DUMP = Path(__file__).resolve().parents[2] / "questionnaire_dump.txt"
+# Read the questionnaire out of the supplied pack, not out of a text dump.
+#
+# This previously read `questionnaire_dump.txt` from two directories above the
+# repository - a file produced by hand, never committed, and present only on the
+# machine that made it. A clean clone plus the pack, which is what the README
+# promises is sufficient, would have failed at this stage. The dump was moved
+# and the stage broke, which is how it was found; the fix is not to restore the
+# path but to stop depending on a file nobody else has.
+#
+# The tables are parsed from the .docx with the standard library, so this adds
+# no dependency. Same source as check_coverage.py.
+PACK_NAME = "eHA_Assessment_Data_Pack_v4_CANDIDATE"
+REPO_ROOT = Path(__file__).resolve().parents[1]
+for _candidate in (REPO_ROOT / PACK_NAME, REPO_ROOT.parent / PACK_NAME):
+    if _candidate.is_dir():
+        QUESTIONNAIRE = (_candidate / "Part2_Q3_ODK_Form_Design"
+                         / "Household_Questionnaire_HH2026v1.docx")
+        break
+else:
+    raise FileNotFoundError(f"Could not locate {PACK_NAME}")
+
+W = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
+
+
+def questionnaire_rows() -> list[str]:
+    """Numbered question rows, as `qid | question | coding | skip`."""
+    import xml.etree.ElementTree as ET
+    import zipfile
+
+    root = ET.fromstring(zipfile.ZipFile(QUESTIONNAIRE).read("word/document.xml"))
+
+    def text_of(cell) -> str:
+        paragraphs = []
+        for p in cell.iter(f"{W}p"):
+            joined = "".join(t.text or "" for t in p.iter(f"{W}t")).strip()
+            if joined:
+                paragraphs.append(joined)
+        return " / ".join(paragraphs)
+
+    rows = []
+    for tr in root.iter(f"{W}tr"):
+        cells = [text_of(tc) for tc in tr.findall(f"{W}tc")]
+        if cells and re.match(r"^\d\.\d\d$", cells[0].strip()):
+            rows.append(" | ".join(cells))
+    return rows
 
 SENTINELS = {"8": "does not know", "9": "no answer obtained",
              "98": "does not know", "99": "no answer obtained"}
@@ -29,10 +73,9 @@ CORRECT_USE = {"do not know", "don't know"}
 
 
 def main() -> None:
-    if not DUMP.exists():
-        sys.exit(f"Questionnaire text dump not found at {DUMP}")
-    lines = [l for l in DUMP.read_text(encoding="utf-8").splitlines()
-             if re.match(r"^\d\.\d\d \|", l)]
+    if not QUESTIONNAIRE.exists():
+        sys.exit(f"Questionnaire not found at {QUESTIONNAIRE}")
+    lines = questionnaire_rows()
 
     collisions, correct = [], []
     for line in lines:
