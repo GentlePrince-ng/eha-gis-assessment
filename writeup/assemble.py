@@ -27,6 +27,7 @@ SECTIONS: list[tuple[str, list[str]]] = [
     ("", ["writeup/00_cover.md"]),
     ("# PART 1 - Question 1\n\n## Campaign team tracking and coverage reconciliation\n",
      [
+         "part1_q1/docs/qa_rules.md",
          "part1_q1/docs/qa_rule_options.md",
          "part1_q1/docs/crs_and_tolerance_options.md",
          "part1_q1/docs/coordinate_defects.md",
