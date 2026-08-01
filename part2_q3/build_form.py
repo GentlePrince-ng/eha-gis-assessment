@@ -39,7 +39,31 @@ from check_digit import xpath_expression
 HERE = Path(__file__).resolve().parent
 FORM_DIR = HERE / "form"
 FORM_ID = "bansara_hh_2026"
-FORM_VERSION = "2026063001"          # yyyymmddrr - see the deployment plan
+
+# The version is DERIVED from the form definition, not typed here.
+#
+# It was typed here, as a constant, and that is a defect the deployment plan
+# itself names: "version increments on every publish, including a one-character
+# label fix". It did not. Four builds that fixed the 1.02 LGA join, the 1.13
+# dead end and the 1.14 stop note all shipped `2026063001`, so two materially
+# different forms were indistinguishable to the server and to the analysis
+# team - which is precisely what `form_version` exists to prevent.
+#
+# A version a human must remember to bump is a version that does not get
+# bumped. This one is the release date plus a short digest of the survey and
+# choices definitions, so it cannot fail to change when the form changes, and
+# two builds of identical content produce an identical version - the same
+# content-addressed identity as the Q1 ingest, applied to the instrument.
+RELEASE_DATE = "20260630"
+VERSION_PLACEHOLDER = "__FORM_VERSION__"
+
+
+def form_version(survey: list[dict], choices: list[dict]) -> str:
+    """Release date plus a digest of the definition the rows describe."""
+    import hashlib
+    import json
+    payload = json.dumps([survey, choices], sort_keys=True, default=str)
+    return f"{RELEASE_DATE}-{hashlib.sha256(payload.encode()).hexdigest()[:6]}"
 
 # ---------------------------------------------------------------------------
 # Column order. `name`, `label`, `hint` etc. must be present for every row, so
@@ -75,7 +99,8 @@ def survey_rows() -> list[dict]:
     # Stamped into the DATA, not only the submission metadata. Central records
     # the version, but metadata is the first thing lost when someone reshapes an
     # export in Excel - and a mixed-version round is exactly when that matters.
-    row(type="calculate", name="form_version", calculation=f"'{FORM_VERSION}'")
+    row(type="calculate", name="form_version",
+        calculation=f"'{VERSION_PLACEHOLDER}'")
     row(type="deviceid", name="device_id")
     row(type="audit", name="audit",
         parameters="track-changes=true identify-user=true "
@@ -923,7 +948,7 @@ def settings_rows() -> list[dict]:
     return [{
         "form_title": "Integrated Child Health and AMR Survey 2026 - Household",
         "form_id": FORM_ID,
-        "version": FORM_VERSION,
+        "version": VERSION_PLACEHOLDER,
         "default_language": "Hausa (ha)",
         "style": "pages",
         "allow_choice_duplicates": "no",
@@ -942,20 +967,43 @@ def settings_rows() -> list[dict]:
     }]
 
 
-def write_workbook(path: Path) -> None:
+def resolved_rows() -> tuple[list[dict], list[dict], list[dict], str]:
+    """Survey, choices and settings with the version placeholder resolved.
+
+    The definition is built with a placeholder where the version goes, the
+    placeholder is hashed out of the picture, and the resulting version is
+    substituted back in. Hashing rows that already carried the version would be
+    circular. Anything that reads the form definition - the workbook writer, the
+    codebook - goes through here, so none of them can report a different version
+    from the one in the built form.
+    """
+    survey, choices = survey_rows(), choices_rows()
+    version = form_version(survey, choices)
+
+    def substitute(rows: list[dict]) -> list[dict]:
+        return [{k: (v.replace(VERSION_PLACEHOLDER, version)
+                     if isinstance(v, str) else v)
+                 for k, v in r.items()} for r in rows]
+
+    return substitute(survey), substitute(choices), substitute(settings_rows()), version
+
+
+def write_workbook(path: Path) -> str:
+    """Write the workbook and return the version stamped into it."""
+    survey, choices, settings, version = resolved_rows()
+
     wb = Workbook()
     ws = wb.active
     ws.title = "survey"
     ws.append(SURVEY_COLUMNS)
-    for r in survey_rows():
+    for r in survey:
         ws.append([r.get(c, "") for c in SURVEY_COLUMNS])
 
     ws2 = wb.create_sheet("choices")
     ws2.append(CHOICES_COLUMNS)
-    for r in choices_rows():
+    for r in choices:
         ws2.append([r.get(c, "") for c in CHOICES_COLUMNS])
 
-    settings = settings_rows()
     ws3 = wb.create_sheet("settings")
     cols = list(settings[0].keys())
     ws3.append(cols)
@@ -964,6 +1012,7 @@ def write_workbook(path: Path) -> None:
 
     path.parent.mkdir(parents=True, exist_ok=True)
     wb.save(path)
+    return version
 
 
 def validate(xlsx: Path, xml: Path) -> tuple[bool, str]:
@@ -980,7 +1029,7 @@ def main() -> None:
     xml = FORM_DIR / f"{FORM_ID}.xml"
     log = FORM_DIR / "conversion_log.txt"
 
-    write_workbook(xlsx)
+    version = write_workbook(xlsx)
     survey, choices = survey_rows(), choices_rows()
     print(f"  survey rows   {len(survey)}")
     print(f"  choice rows   {len(choices)}")
@@ -1006,7 +1055,7 @@ def main() -> None:
         java_version = "not on PATH - ODK Validate did not run"
 
     header = (f"pyxform conversion of {xlsx.name}\n"
-              f"form_id {FORM_ID}  version {FORM_VERSION}\n"
+              f"form_id {FORM_ID}  version {version}\n"
               f"result: {'SUCCESS' if ok else 'FAILURE'}\n"
               f"\n"
               f"validated with\n"

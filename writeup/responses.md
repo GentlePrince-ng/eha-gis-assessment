@@ -3210,8 +3210,27 @@ So this plan assumes a mid-round change rather than hoping to avoid one.
 | Element | Value | Rule |
 |---|---|---|
 | `form_id` | `bansara_hh_2026` | **Never changes.** Changing it creates a *different form* on Central, and submissions against the old id become an orphaned dataset |
-| `version` | `2026063001` - `yyyymmddnn` | Increments on every publish, including a one-character label fix |
+| `version` | `20260630-9c5d68` - release date plus a digest of the definition | **Derived by the build, not typed.** Changes on every publish, including a one-character label fix, because it is computed from the survey and choices rows themselves |
 | `form_version` | a calculate holding the same string | Stamped into the **data**, not only the metadata |
+
+**Why derived rather than incremented, which is what this table used to say.**
+It said the version increments on every publish, and it did not: the value was a
+constant in `build_form.py`, so four builds that fixed the 1.02 LGA join, the
+1.13 dead end and the 1.14 stop note all shipped `2026063001`. Two materially
+different forms were indistinguishable to the server and to the analysis team,
+which is the exact failure `form_version` exists to prevent - and it was found by
+uploading both to Kobo and being unable to tell which was which.
+
+A version a human must remember to bump is a version that does not get bumped.
+The digest is taken over the form definition, so it **cannot** fail to change
+when the form changes, and two builds of identical content produce an identical
+version - which is what keeps the pipeline reproducible. It is the same
+content-addressed identity as the Q1 ingest, applied to the instrument.
+
+The cost, stated: the version no longer sorts chronologically beyond its date
+prefix. Ordering comes from the release date and from the commit history, not
+from the digest. For distinguishing records that is sufficient, and
+distinguishing is what the requirement asks for.
 
 The last row matters more than it looks. Central records the version against each
 submission, but metadata is the first thing lost when someone reshapes an export
@@ -3297,16 +3316,16 @@ handling:
    must do about it.
 
 The third is the one that actually matters. Knowing a record is version
-`2026063002` is useless without knowing what changed in `002`.
+`20260630-ae1b89` is useless without knowing what changed in it.
 
 ### The change log entry format
 
 ```
-## 2026063002 - 8 June 2026
+## 20260630-ae1b89 - 8 June 2026
 Changed:  q4_13_medicine - placeholder list replaced with the ministry codelist
 Affects:  child.q4_13_medicine
-Analysis: records with form_version = 2026063001 carry WHO ATC codes;
-          records from 2026063002 carry ministry two-digit codes.
+Analysis: records with form_version = 20260630-9c5d68 carry WHO ATC codes;
+          records from 20260630-ae1b89 carry ministry two-digit codes.
           Crosswalk in codebook.md. DO NOT concatenate without mapping.
 ```
 
@@ -3346,12 +3365,17 @@ Analysis: records with form_version = 2026063001 carry WHO ATC codes;
 # Form version history
 
 One entry per publish. The analysis team reads this alongside `form_version` in
-the data; knowing a record is version `2026063002` is useless without knowing
-what changed in `002`.
+the data; knowing a record is version `20260630-ae1b89` is useless without knowing
+what changed in it.
 
 Format is fixed so it can be parsed later if it ever needs to be.
 
-## 2026063001 - 30 June 2026 - initial release
+**The version is derived by the build**, not typed: release date plus a
+digest of the form definition. It therefore changes whenever the form
+changes and stays identical when it does not, which is what makes an entry
+here correspond to exactly one instrument. See `deployment_plan.md`.
+
+## 20260630-9c5d68 - 30 June 2026 - initial release
 
     Changed:  initial publication of Form HH/2026/v1 as a digital instrument
     Affects:  all fields
@@ -3372,7 +3396,7 @@ Format is fixed so it can be parsed later if it ever needs to be.
 
 
 
-# Codebook - `bansara_hh_2026` version `2026063001`
+# Codebook - `bansara_hh_2026` version `20260630-9c5d68`
 
 **Generated** from the form definition by `build_codebook.py`. Not
 maintained by hand, so it cannot drift from the instrument.
@@ -3432,7 +3456,7 @@ measurement status field says explicitly why no value exists.
 | `start_time` | start | - | `never (always collected)` |
 | `end_time` | end | - | `never (always collected)` |
 | `today_date` | today | - | `never (always collected)` |
-| `form_version` | calculate | derived: `'2026063001'` | `never (always collected)` |
+| `form_version` | calculate | derived: `'20260630-9c5d68'` | `never (always collected)` |
 | `device_id` | deviceid | - | `never (always collected)` |
 | `audit` | audit | - | `never (always collected)` |
 | `enumerator_code` | select_one_from_file | Enumerator code (1.08) | `never (always collected)` |

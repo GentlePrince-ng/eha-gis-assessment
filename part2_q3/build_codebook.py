@@ -22,7 +22,11 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 
-from build_form import FORM_ID, FORM_VERSION, choices_rows, survey_rows  # noqa: E402
+from build_form import FORM_ID, resolved_rows  # noqa: E402
+
+# Resolved once: the version placeholder is substituted, so the codebook
+# documents the value the built form actually carries.
+SURVEY, CHOICES, _SETTINGS, VERSION = resolved_rows()
 
 OUT = HERE / "docs" / "codebook.md"
 
@@ -56,7 +60,7 @@ def partition_tables() -> dict[str, list[dict]]:
     current = "household"
     depth_stack: list[str] = []
 
-    for row in survey_rows():
+    for row in SURVEY:
         rtype = row.get("type", "")
         name = row.get("name", "")
 
@@ -82,7 +86,7 @@ def partition_tables() -> dict[str, list[dict]]:
 
 def value_labels() -> dict[str, list[tuple[str, str]]]:
     lists: dict[str, list[tuple[str, str]]] = {}
-    for c in choices_rows():
+    for c in CHOICES:
         lists.setdefault(c["list_name"], []).append(
             (c["name"], c["label::English (en)"]))
     return lists
@@ -92,7 +96,7 @@ def render(tables: dict[str, list[dict]], labels: dict) -> str:
     L: list[str] = []
     a = L.append
 
-    a(f"# Codebook - `{FORM_ID}` version `{FORM_VERSION}`")
+    a(f"# Codebook - `{FORM_ID}` version `{VERSION}`")
     a("")
     a("**Generated** from the form definition by `build_codebook.py`. Not")
     a("maintained by hand, so it cannot drift from the instrument.")
