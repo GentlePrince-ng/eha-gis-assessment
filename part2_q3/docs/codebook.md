@@ -241,6 +241,19 @@ this mapping will produce nonsense.
 | `q4_12a_more_than_one` | Lets analysis know when 4.13's single code is incomplete (defect C1) |
 | `form_version` | Stamped into the data so mixed-version rounds are separable - see `deployment_plan.md` |
 
+## Paper questions satisfied by a differently-named field
+
+Every question on the paper form is accounted for. These four are captured
+under a different name, because the digital form can derive or capture them
+more reliably than an enumerator can type them.
+
+| Paper | Digital field | How |
+|---|---|---|
+| **1.08** Enumerator code | `enumerator_code` | Selected from the staff roster at sign-in and confirmed by PIN, rather than written. On paper, 1.08 is a code anyone can enter |
+| **1.09** Team code | `enum_team` | **Derived** from the roster once the enumerator signs in. Cannot be mistyped, and cannot disagree with 1.08 |
+| **7.01** Time the interview ended | `end_time`, and `interview_duration_min` | Captured automatically by the device. More reliable than a written time, and it is what makes the daily fabrication check possible (see `fabrication_detection.md`) |
+| **4.02** Child name or initials | `q4_02_initials` | **Copied from the roster by calculation**, exactly as the paper form instructs, rather than re-typed. Recommended for removal on data-protection grounds |
+
 ## Fields on the paper form that are NOT collected
 
 | Paper field | Why |
@@ -248,7 +261,6 @@ this mapping will produce nonsense.
 | 1.01 State | Single-valued. Stored as a constant, not asked |
 | Roster column (7) *Eligible for Section 4* | Office-use column the enumerator was told to leave blank, then asked to read (defect A1). Eligibility is derived from roster ages |
 | Roster column (8) *Section 4 page number* | Replaced by the repeat index |
-| 4.02 child name | Recommended for removal - redundant against 4.01. Retained pending ethics approval; see `data_protection.md` |
 | 5.01 specimen eligibility | Calculated from age, not asked (defect A3) |
 | 7.03, 7.06 signatures | Replaced by authenticated submission and the supervisor review fields |
 | 8.01-8.03 office use | Data entry and second-entry verification do not exist in a digital pipeline. This is the largest single saving: an entire double-entry step removed |

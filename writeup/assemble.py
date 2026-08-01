@@ -42,6 +42,7 @@ SECTIONS: list[tuple[str, list[str]]] = [
          "part2_q3/docs/consistency_checks.md",
          "part2_q3/docs/constraint_register.md",
          "part2_q3/docs/validation.md",
+         "part2_q3/docs/external_data.md",
          "part2_q3/docs/test_plan.md",
          "part2_q3/docs/label_reuse.md",
          "part2_q3/docs/fabrication_detection.md",
