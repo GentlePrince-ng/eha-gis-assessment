@@ -6,6 +6,39 @@ date: "1 August 2026"
 lang: en-GB
 ---
 
+**Part 1 · Question 1** - Campaign team tracking and coverage reconciliation
+
+**Part 2 · Question 3** - Converting a paper questionnaire into a digital form
+
+**Part 3 · Question 5** - Coordinating delivery through the round
+
+**Part 3 · Question 6** - Building capability in the counterpart agency
+
+Repository, with the full commit history:
+**github.com/GentlePrince-ng/eha-gis-assessment**
+
+Every figure in this document is rebuilt from the supplied data pack by
+`python run_all.py` and re-checked against the rebuilt outputs by
+`verify_claims.py`. AI assistance is declared in `AI_USE.md`.
+
+
+
+```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
+```
+
+
+```{=openxml}
+<w:p><w:pPr><w:pStyle w:val="TOCHeading"/></w:pPr><w:r><w:t>Contents</w:t></w:r></w:p><w:p><w:r><w:fldChar w:fldCharType="begin" w:dirty="true"/></w:r><w:r><w:instrText xml:space="preserve"> TOC \o "1-2" \h \z \u </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>Select all and press F9 to build the table of contents.</w:t></w:r><w:r><w:fldChar w:fldCharType="end"/></w:r></w:p>
+```
+
+
+```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
+```
+
+
+
 # Submission summary
 
 | Part | Question attempted |
@@ -25,6 +58,11 @@ with it.** Its marking box appears after Q6 with no question attached. The
 connection it asks for - between coordination fragility and the capability gap -
 is made in §6 of Q5 and §7 of Q6.
 
+**Part 3's instructions do not agree with each other.** The structure note says
+*"Part 3 choose one"* and the parts table says *"Attempt 1 of 2"*, while Part 3
+itself and both Q5 and Q6 are each headed *"Compulsory"*. I read the
+question-level instruction as governing and answered both.
+
 ## Repository
 
 **github.com/GentlePrince-ng/eha-gis-assessment** - public, with the full commit
@@ -40,8 +78,6 @@ structured and which errors independent verification caught and corrected.
 Q5 is within three pages. Q6 is within six pages excluding annexes, as the
 question permits. Annexes A-E carry artefacts to be used rather than argument to
 be read.
-
-\newpage
 
 
 
