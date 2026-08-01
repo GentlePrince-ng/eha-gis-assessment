@@ -73,9 +73,9 @@ def build_qa_table(con: duckdb.DuckDBPyConnection) -> None:
                 t.point_id, t.team_id, t.ts,
                 st_point(t.longitude, t.latitude) AS geom,
                 lag(st_point(t.longitude, t.latitude))
-                    OVER (PARTITION BY t.team_id ORDER BY t.ts) AS geom_prev,
+                    OVER (PARTITION BY t.team_id ORDER BY t.ts, t.point_id) AS geom_prev,
                 date_diff('second', lag(t.ts)
-                    OVER (PARTITION BY t.team_id ORDER BY t.ts), t.ts) AS dt_s
+                    OVER (PARTITION BY t.team_id ORDER BY t.ts, t.point_id), t.ts) AS dt_s
             FROM track_point t
             LEFT JOIN conflicted c
                    ON c.team_id = t.team_id AND c.ts = t.ts
@@ -209,6 +209,15 @@ def apply_geographic_validity(con: duckdb.DuckDBPyConnection) -> None:
 def apply_stationary_clusters(con: duckdb.DuckDBPyConnection) -> None:
     """Rule QA09 - sustained stationary periods (DECISIONS.md D-004g).
 
+    Every window here orders by ``(ts, point_id)``, not ``ts`` alone. Timestamps
+    are **not** unique within a team: 585,951 records share a team and minute
+    while carrying different coordinates, which is the defect this pipeline was
+    built around. Ordering by ``ts`` alone therefore leaves ties, ``lag()``
+    picks a different predecessor between runs, and the run boundaries move -
+    the flag count was observed alternating between 2,062 and 2,063 across runs
+    of identical code. ``point_id`` is the content hash and is unique, so it
+    settles every tie without changing the intended order.
+
     Named explicitly in the question's minimum rule set. It is the one rule here
     that is **not** primarily a defect detector, because for house-to-house
     vaccination a stationary period is also the *visit* signal - a team stopped
@@ -232,15 +241,15 @@ def apply_stationary_clusters(con: duckdb.DuckDBPyConnection) -> None:
                    CASE WHEN st_distance_sphere(
                             st_point(longitude_use, latitude_use),
                             lag(st_point(longitude_use, latitude_use))
-                              OVER (PARTITION BY team_id ORDER BY ts)
+                              OVER (PARTITION BY team_id ORDER BY ts, point_id)
                         ) < accuracy_m THEN 1 ELSE 0 END AS still
             FROM track_qa
             WHERE use_for_coverage IS NULL OR use_for_coverage
         ),
         grouped AS (
             SELECT point_id, team_id, still,
-                   row_number() OVER (PARTITION BY team_id ORDER BY ts)
-                 - row_number() OVER (PARTITION BY team_id, still ORDER BY ts) AS run_id
+                   row_number() OVER (PARTITION BY team_id ORDER BY ts, point_id)
+                 - row_number() OVER (PARTITION BY team_id, still ORDER BY ts, point_id) AS run_id
             FROM stepped
         )
         SELECT point_id,

@@ -41,6 +41,16 @@ check("form relevance rules",     len(re.findall(r"relevant=", xml)), 39)
 
 reg = pathlib.Path("part2_q3/docs/constraint_register.md").read_text(encoding="utf-8")
 check("register rules documented", int(re.search(r"(\d+) rules documented", reg).group(1)), 23)
+# The generated QA rule set. Its counts are queried from the store, so the
+# document cannot drift; these check the store still says what the document does.
+_qa = pathlib.Path("part1_q1/docs/qa_rules.md").read_text(encoding="utf-8")
+_qarow = lambda label: int(re.search(
+    re.escape(label) + r"[^|]*\|[^|]*\|[^|]*\| ([\d,]+) \|", _qa).group(1).replace(",", ""))
+check("QA02 outside duty hours",   q("SELECT count(*) FROM track_qa WHERE qa02_out_of_duty_hours"), _qarow("QA02 outside duty hours"))
+check("QA03 reported speed",       q("SELECT count(*) FROM track_qa WHERE qa03_speed_reported"),     _qarow("QA03 reported speed"))
+check("QA07 gap interruption",     q("SELECT count(*) FROM track_qa WHERE coalesce(qa07_gap_interruption, FALSE)"), _qarow("QA07 gap > 5 min"))
+check("QA09 stationary clusters",  q("SELECT count(*) FROM track_qa WHERE qa09_stationary_cluster"), _qarow("QA09 stationary cluster"))
+
 plan = pathlib.Path("part2_q3/docs/test_plan.md").read_text(encoding="utf-8")
 check("test plan cases",           int(re.search(r"\*\*(\d+) cases\*\*", plan).group(1)), 54)
 
