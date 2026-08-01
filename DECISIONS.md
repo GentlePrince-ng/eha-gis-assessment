@@ -223,6 +223,34 @@ conflict-free intervals are exactly 60 s, and every other gap is a whole-minute 
 dropped fixes, not clock drift. Counts barely move across a 3× threshold change (155 above
 5 min, 111 above 15 min), so the finding is again insensitive to the cut.
 
+### D-004g — Stationary clusters: flagged at 5 minutes, never excluded
+
+**Named explicitly in the question's minimum rule set**, and the one rule that is not
+primarily a defect detector — for house-to-house vaccination a stationary period is also
+the *visit* signal.
+
+**"Stationary" is defined against the reading's own reported accuracy:** a step smaller
+than the device's stated error is movement indistinguishable from jitter. A fixed metre
+threshold would call the 36 m loggers stationary constantly and the 8 m loggers almost
+never, so the definition scales with the measurement — the same principle as D-005.
+
+**Measured:** median step between consecutive fixes is **73.9 m per minute** (≈4.4 km/h,
+consistent with walking); 6,794 of 88,556 steps fall below the reading's own accuracy.
+Stationary runs are short — median 1 minute, 95th percentile 6, longest 22 — with **262
+runs of 5 minutes or more** and none over 30. Flagging at 5 minutes marks 2,063 points.
+
+**The analytical finding this produces:** in this campaign a stationary cluster is *not*
+the visit signal. Teams move almost continuously at walking pace, including while inside a
+settlement, because house-to-house work means walking between houses. Presence is therefore
+measured by **dwell within a settlement's tolerance** (D-009), not by standing still — and
+confirmed visits average 24 minutes of dwell while rarely being stationary for more than
+six. Had the rule been built on stationarity, it would have found almost nothing.
+
+**Flags, never excludes.** Whether a run means "worked here" or "logger left in a vehicle"
+depends on settlement context, which does not exist until attribution.
+
+---
+
 ### D-004f — Sensitivity reporting is mandatory, not optional
 
 Because D-004b and D-004d are judgement calls that move the headline, coverage is reported

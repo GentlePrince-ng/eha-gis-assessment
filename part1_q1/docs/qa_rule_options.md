@@ -52,10 +52,54 @@ sixty seconds apart while near-stationary:
 So the field can be trusted, and the two tiers are physically real.
 
 **Why this changes the answer.** The question asks how I would treat dense urban areas where
-multipath degrades accuracy. The defensible answer is now that **this dataset does not show
-multipath** — it shows a two-tier logger fleet — and to say so, while still describing the
-multipath treatment I would apply had the pattern been spatial. Reporting a multipath
-finding that the data contradicts would be the exact failure the question is testing for.
+multipath degrades accuracy. The defensible answer is that **this dataset does not show
+multipath** — it shows a two-tier logger fleet — and reporting a multipath finding the data
+contradicts would be the exact failure the question is testing for.
+
+That is not a reason to skip the treatment, so it is set out here in full, together with
+what it would cost.
+
+### How I would treat genuine multipath
+
+Multipath is *spatial and systematic*: signals bounce off buildings, so error rises in
+built-up areas regardless of which device is carried. Four things follow.
+
+1. **Widen the tolerance in the affected area only** — not globally, which would blur
+   rural attribution for no reason.
+2. **Lean on dwell rather than single fixes.** Multipath scatters individual positions but
+   a team genuinely present still accumulates minutes near the settlement. Raising the
+   dwell requirement while widening the radius trades a noisier position for a stronger
+   time signal.
+3. **Trust the accuracy field if it responds.** Most receivers inflate their reported error
+   under multipath. Here it does not vary by location, which is itself the evidence that
+   this is not multipath.
+4. **Report urban and rural coverage separately**, because a single state-wide figure
+   would average a well-measured area with a poorly-measured one and hide the difference.
+
+### How the choice changes the result — measured
+
+Widening the tolerance in the urban LGA only, holding everything else fixed:
+
+| Urban tolerance | Settlements visited | Change | Ambiguous points | Agree with e-tally |
+|---|---|---|---|---|
+| **× 1 — 66–122 m (as submitted)** | **797** | — | **253** | 765 |
+| × 1.5 — 66–183 m | 870 | +73 | 434 | 819 |
+| × 2 — 66–244 m | 952 | +155 | 763 | 879 |
+| × 3 — 66–366 m | 1,038 | +241 | 1,930 | 939 |
+
+**The result is materially sensitive to this choice**, and that is worth saying plainly:
+doubling the urban tolerance finds 155 more settlements — a 19% increase in measured
+coverage — and would move the reconciliation gap by the same amount.
+
+It also costs three times the ambiguity (763 points inside more than one settlement's
+radius against 253), because the urban LGA holds 1,046 of the 2,562 settlements. Beyond
+about ×2 the ambiguity grows faster than the coverage, which is where the trade stops being
+worth making.
+
+**I did not apply the widening**, because the accuracy evidence shows the degradation is
+per-device rather than per-place, so there is nothing here for it to correct. Had the
+pattern been spatial, ×1.5 to ×2 is the range I would have defended — and the sensitivity
+above is what I would have published alongside it, rather than a single number.
 
 ### C-2. T14's logger failure is real but differently shaped.
 
