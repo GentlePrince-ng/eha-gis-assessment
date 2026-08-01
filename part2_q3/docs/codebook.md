@@ -1,4 +1,4 @@
-# Codebook — `bansara_hh_2026` version `2026063001`
+# Codebook - `bansara_hh_2026` version `2026063001`
 
 **Generated** from the form definition by `build_codebook.py`. Not
 maintained by hand, so it cannot drift from the instrument.
@@ -24,15 +24,15 @@ household  ── one row per submission (one dwelling visited)
 
 | Table | Primary key | Foreign key | Notes |
 |---|---|---|---|
-| `household` | `meta/instanceID` | — | ODK's submission UUID. Stable, globally unique, and the only key that survives a resubmission |
+| `household` | `meta/instanceID` | - | ODK's submission UUID. Stable, globally unique, and the only key that survives a resubmission |
 | `roster` | (`PARENT_KEY`, `line_no`) | `PARENT_KEY` → `instanceID` | `line_no` is `position(..)`, so it matches the paper roster line |
 | `child` | (`PARENT_KEY`, `child_index`) | `PARENT_KEY` → `instanceID` | `q4_01_line` joins a child back to its `roster` row |
 
 **A natural key also exists** and should be used for deduplication against
 paper rounds, not for joins:
 `(q1_04_settlement, q1_06_structure, q1_07_hh_serial, q1_10_visit_date)`.
-It is not guaranteed unique — two teams could in principle number the same
-dwelling — which is exactly why `instanceID` is the primary key.
+It is not guaranteed unique - two teams could in principle number the same
+dwelling - which is exactly why `instanceID` is the primary key.
 
 **`specimen_label_full`** (`BSN######-C`) is the join key to the laboratory
 system. It is unique per child where a specimen was obtained, and null
@@ -43,24 +43,24 @@ otherwise.
 A null in this dataset is never ambiguous, which is the main gain over the
 paper round. Every field below lists the **relevance rule** that governs
 when it is asked. If a field is null, either its relevance rule was false
-— in which case the question was never put to the respondent — or a
+- in which case the question was never put to the respondent - or a
 measurement status field says explicitly why no value exists.
 
 **No sentinel value is ever stored in a numeric field.** See
 `coding_scheme.md`.
 
-## Table: `household` — one row per submission
+## Table: `household` - one row per submission
 
 43 fields.
 
 | Field | Type | Question / meaning | Null when |
 |---|---|---|---|
-| `start_time` | start | — | `never (always collected)` |
-| `end_time` | end | — | `never (always collected)` |
-| `today_date` | today | — | `never (always collected)` |
+| `start_time` | start | - | `never (always collected)` |
+| `end_time` | end | - | `never (always collected)` |
+| `today_date` | today | - | `never (always collected)` |
 | `form_version` | calculate | derived: `'2026063001'` | `never (always collected)` |
-| `device_id` | deviceid | — | `never (always collected)` |
-| `audit` | audit | — | `never (always collected)` |
+| `device_id` | deviceid | - | `never (always collected)` |
+| `audit` | audit | - | `never (always collected)` |
 | `enumerator_code` | select_one_from_file | Enumerator code (1.08) | `never (always collected)` |
 | `enum_team` | calculate | derived: `instance('staff_roster')/root/item[name=${enumerator_cod` | `never (always collected)` |
 | `enum_role` | calculate | derived: `instance('staff_roster')/root/item[name=${enumerator_cod` | `never (always collected)` |
@@ -99,7 +99,7 @@ measurement status field says explicitly why no value exists.
 | `q7_04_supervisor` | select_one_from_file | 7.04 Supervisor code | `never (always collected)` |
 | `q7_05_supervisor_decision` | select_one | 7.05 Supervisor decision on this form | `${q7_04_supervisor} != ''` |
 
-## Table: `roster` — one row per usual resident
+## Table: `roster` - one row per usual resident
 
 8 fields.
 
@@ -114,7 +114,7 @@ measurement status field says explicitly why no value exists.
 | `r_age_months` | integer | (6) Age in completed months | `${r_age_unit} = 'months'` |
 | `r_eligible` | calculate | derived: `if(${r_age_unit} = 'months' and ${r_age_months} >= 9 and` | `never (always collected)` |
 
-## Table: `child` — one row per eligible child, including specimen
+## Table: `child` - one row per eligible child, including specimen
 
 32 fields.
 
@@ -155,47 +155,47 @@ measurement status field says explicitly why no value exists.
 
 ## Value labels
 
-**`age_unit`** — `years` Years · `months` Months (under 5 years)
+**`age_unit`** - `years` Years · `months` Months (under 5 years)
 
-**`assets`** — `A` Radio · `B` Television · `C` Mobile telephone · `D` Bicycle · `E` Motorcycle · `F` Car or truck · `G` Refrigerator · `H` None of these
+**`assets`** - `A` Radio · `B` Television · `C` Mobile telephone · `D` Bicycle · `E` Motorcycle · `F` Car or truck · `G` Refrigerator · `H` None of these
 
-**`card_seen`** — `1` Card seen · `2` No card seen
+**`card_seen`** - `1` Card seen · `2` No card seen
 
-**`consent`** — `1` Consent given · `2` Consent refused
+**`consent`** - `1` Consent given · `2` Consent refused
 
-**`document_type`** — `card` Vaccination card · `copy` Card copy · `electronic` Electronic record
+**`document_type`** - `card` Vaccination card · `copy` Card copy · `electronic` Electronic record
 
-**`handwashing`** — `1` Observed, soap and water · `2` Reported only, not observed · `3` Not present
+**`handwashing`** - `1` Observed, soap and water · `2` Reported only, not observed · `3` Not present
 
-**`measure_position`** — `1` Recumbent length · `2` Standing height
+**`measure_position`** - `1` Recumbent length · `2` Standing height
 
-**`measured`** — `measured` Measured · `not_measured` Not measured
+**`measured`** - `measured` Measured · `not_measured` Not measured
 
-**`no_specimen_reason`** — `1` Caregiver refused · `2` Child absent · `3` Unable to produce · `4` Container spoiled · `96` Other
+**`no_specimen_reason`** - `1` Caregiver refused · `2` Child absent · `3` Unable to produce · `4` Container spoiled · `96` Other
 
-**`photo_taken`** — `1` Yes · `2` No, not available · `3` Caregiver declined
+**`photo_taken`** - `1` Yes · `2` No, not available · `3` Caregiver declined
 
-**`relationship`** — `1` Head · `2` Spouse · `3` Son or daughter · `4` Parent · `5` Other relative · `6` Not related
+**`relationship`** - `1` Head · `2` Spouse · `3` Son or daughter · `4` Parent · `5` Other relative · `6` Not related
 
-**`result_of_visit`** — `1` Completed · `2` Refused · `3` No competent adult after three visits · `4` Dwelling vacant or demolished
+**`result_of_visit`** - `1` Completed · `2` Refused · `3` No competent adult after three visits · `4` Dwelling vacant or demolished
 
-**`sex`** — `1` Male · `2` Female
+**`sex`** - `1` Male · `2` Female
 
-**`supervisor_decision`** — `1` Accept · `2` Return for correction · `3` Void
+**`supervisor_decision`** - `1` Accept · `2` Return for correction · `3` Void
 
-**`toilet`** — `t01` Flush to sewer · `t02` Flush to septic tank · `t03` Flush to pit latrine · `t04` Ventilated improved pit · `t05` Pit latrine with slab · `t06` Pit latrine without slab · `t07` Composting toilet · `t08` Bucket · `t09` No facility or bush
+**`toilet`** - `t01` Flush to sewer · `t02` Flush to septic tank · `t03` Flush to pit latrine · `t04` Ventilated improved pit · `t05` Pit latrine with slab · `t06` Pit latrine without slab · `t07` Composting toilet · `t08` Bucket · `t09` No facility or bush
 
-**`water_source`** — `w01` Piped into dwelling · `w02` Piped into compound · `w03` Public tap or standpipe · `w04` Tube well or borehole · `w05` Protected dug well · `w06` Unprotected dug well · `w07` Protected spring · `w08` Unprotected spring · `w09` Rainwater · `w10` Tanker or cart · `w11` Surface water
+**`water_source`** - `w01` Piped into dwelling · `w02` Piped into compound · `w03` Public tap or standpipe · `w04` Tube well or borehole · `w05` Protected dug well · `w06` Unprotected dug well · `w07` Protected spring · `w08` Unprotected spring · `w09` Rainwater · `w10` Tanker or cart · `w11` Surface water
 
-**`yes_no`** — `1` Yes · `2` No
+**`yes_no`** - `1` Yes · `2` No
 
-**`yes_no_dk`** — `1` Yes · `2` No · `8` Do not know
+**`yes_no_dk`** - `1` Yes · `2` No · `8` Do not know
 
 ## Paper-to-digital crosswalk
 
 Two lists were re-based so that no stored value can collide with a
 non-response sentinel (see `coding_scheme.md`). **The categories and the
-numbers read aloud to the respondent are unchanged** — only the stored
+numbers read aloud to the respondent are unchanged** - only the stored
 value differs. Concatenating a paper round with a digital round without
 this mapping will produce nonsense.
 
@@ -233,13 +233,13 @@ this mapping will produce nonsense.
 
 | Field | Why it exists |
 |---|---|
-| `start_time`, `end_time`, `interview_duration_min` | Fabrication detection — see `fabrication_detection.md` |
+| `start_time`, `end_time`, `interview_duration_min` | Fabrication detection - see `fabrication_detection.md` |
 | `device_id`, `audit` | as above |
 | `enumerator_code`, `pin_entered` | Binds a submission to a person. 1.08 on paper is a code anyone can write |
 | `q0_label_range` | Confirms the team's specimen label book |
 | `q4_08a_doc_type` | 4.08 asks for a three-way distinction its coding cannot hold (defect A2) |
 | `q4_12a_more_than_one` | Lets analysis know when 4.13's single code is incomplete (defect C1) |
-| `form_version` | Stamped into the data so mixed-version rounds are separable — see `deployment_plan.md` |
+| `form_version` | Stamped into the data so mixed-version rounds are separable - see `deployment_plan.md` |
 
 ## Fields on the paper form that are NOT collected
 
@@ -248,7 +248,7 @@ this mapping will produce nonsense.
 | 1.01 State | Single-valued. Stored as a constant, not asked |
 | Roster column (7) *Eligible for Section 4* | Office-use column the enumerator was told to leave blank, then asked to read (defect A1). Eligibility is derived from roster ages |
 | Roster column (8) *Section 4 page number* | Replaced by the repeat index |
-| 4.02 child name | Recommended for removal — redundant against 4.01. Retained pending ethics approval; see `data_protection.md` |
+| 4.02 child name | Recommended for removal - redundant against 4.01. Retained pending ethics approval; see `data_protection.md` |
 | 5.01 specimen eligibility | Calculated from age, not asked (defect A3) |
 | 7.03, 7.06 signatures | Replaced by authenticated submission and the supervisor review fields |
 | 8.01-8.03 office use | Data entry and second-entry verification do not exist in a digital pipeline. This is the largest single saving: an entire double-entry step removed |

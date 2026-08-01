@@ -21,7 +21,7 @@ def _locate_pack() -> Path:
     The pack is never committed, so its location depends on who is running
     this. Searched in order:
 
-    1. ``$EHA_DATA_PACK``, if set — an explicit override always wins.
+    1. ``$EHA_DATA_PACK``, if set - an explicit override always wins.
     2. Inside the repository root, which is where the README asks a marker
        to put it.
     3. Beside the repository root, which is where it sits on my machine.

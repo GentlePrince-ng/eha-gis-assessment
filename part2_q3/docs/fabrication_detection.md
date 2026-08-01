@@ -6,7 +6,7 @@ The operating conditions state the failure this has to prevent:
 > of 4 minutes and almost no vaccination cards sighted. **This was discovered
 > only after fieldwork had closed.**
 
-The detection was not the problem — the pattern is obvious once you look. The
+The detection was not the problem - the pattern is obvious once you look. The
 *timing* was. Ninety-four households were spent and the round could not be
 repaired. So the requirement is not "can this be detected" but "is it detected
 while there is still something to do about it".
@@ -22,15 +22,15 @@ cannot have them, and they are what makes daily detection possible at all.
 
 | Field | Type | What it enables |
 |---|---|---|
-| `start_time` | `start` | Interview duration — the primary fabrication signal |
+| `start_time` | `start` | Interview duration - the primary fabrication signal |
 | `end_time` | `end` | as above |
 | `interview_duration_min` | calculated | Duration in minutes, so no analyst has to derive it consistently |
 | `device_id` | `deviceid` | Detects one device submitting under several enumerator codes |
 | `audit` | `audit` with `track-changes`, `identify-user`, `track-changes-reasons` | Per-question timing and a change log. Reveals a form filled in one pass with no back-navigation, which real interviews do not look like |
-| `today_date` | `today` | Device date, comparable against `q1_10_visit_date` — catches back-dating |
+| `today_date` | `today` | Device date, comparable against `q1_10_visit_date` - catches back-dating |
 | `pin_entered` | text, masked | Binds a submission to a person, not just to a typed code |
 
-**Dual-purpose fields** — operationally necessary, and also QA evidence:
+**Dual-purpose fields** - operationally necessary, and also QA evidence:
 `q1_11_gps` (household location; also reveals a stationary enumerator),
 `q4_08_card` (a substantive coverage variable; also the second signal in the
 described pattern), `q4_16_photo` (medicine packaging; also independently
@@ -61,9 +61,9 @@ specifically because a fabricator's extreme values inflate the SD and help hide
 them inside their own outlier; the median and MAD are unmoved by contamination
 up to half the sample.
 
-**Conjunction, not any-single-signal.** Short interviews alone are weak — a
+**Conjunction, not any-single-signal.** Short interviews alone are weak - a
 household of two with no eligible children is legitimately quick. Low card
-sighting alone is weak — some settlements genuinely have few cards. The
+sighting alone is weak - some settlements genuinely have few cards. The
 described pattern is *both, at high volume, from one person*. Requiring signals
 to co-occur is what keeps the list short enough that supervisors actually work
 it. A flag list nobody reads is worse than no flag list, because it looks like
@@ -97,7 +97,7 @@ Every escalation carries the same action:
 
 > Supervisor accompanies this enumerator tomorrow and re-interviews three
 > households already submitted. **Do not confront on the basis of this report
-> alone — it is evidence for a visit, not a finding.**
+> alone - it is evidence for a visit, not a finding.**
 
 That wording is deliberate. These indicators identify an enumerator whose data
 *looks* different, which has innocent explanations: a dense urban ward with
@@ -117,7 +117,7 @@ someone who can resolve it.
   impossible.
 - **Whole-team collusion.** Every indicator is relative to the cohort. If a
   whole team fabricates together, they become the cohort. Cross-LGA comparison
-  partly mitigates this and is not implemented — noted as a limitation rather
+  partly mitigates this and is not implemented - noted as a limitation rather
   than claimed.
 - **Fabrication that produces plausible data.** Nothing here inspects whether
   the answers are true, only whether the process that produced them looks like

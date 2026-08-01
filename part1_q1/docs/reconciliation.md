@@ -9,7 +9,7 @@
 | **Claimed in the e-tally** | **2,023** | 79.0% |
 | Classified inaccessible before the round | 75 | 2.9% |
 
-Doses: **170,104 reported against a planned under-5 target of 255,931 — 66.5%.** Eight
+Doses: **170,104 reported against a planned under-5 target of 255,931 - 66.5%.** Eight
 settlements carry no denominator at all and are excluded from that ratio rather than
 counted as zero.
 
@@ -20,13 +20,13 @@ store. First match wins.
 
 | Cause class | Claims | % | Doses |
 |---|---|---|---|
-| `confirmed` — tracks put the claiming team there ≥ 5 min | 556 | 27.5% | 34,286 |
-| **`team_elsewhere`** — team had ample tracking that day, none near this settlement | **1,336** | **66.0%** | 123,653 |
-| `near_miss` — a usable fix within 250 m, just outside tolerance | 66 | 3.3% | 6,930 |
-| `brief_presence` — team was there, below the dwell threshold | 37 | 1.8% | 2,955 |
-| `logger_failed` — claiming team had < 60 usable fixes that day | 16 | 0.8% | 2,207 |
-| `not_in_masterlist` — settlement has no coordinate; unverifiable by construction | 7 | 0.3% | 300 |
-| `security_excluded` — classified inaccessible, yet doses reported | 5 | 0.2% | 73 |
+| `confirmed` - tracks put the claiming team there ≥ 5 min | 556 | 27.5% | 34,286 |
+| **`team_elsewhere`** - team had ample tracking that day, none near this settlement | **1,336** | **66.0%** | 123,653 |
+| `near_miss` - a usable fix within 250 m, just outside tolerance | 66 | 3.3% | 6,930 |
+| `brief_presence` - team was there, below the dwell threshold | 37 | 1.8% | 2,955 |
+| `logger_failed` - claiming team had < 60 usable fixes that day | 16 | 0.8% | 2,207 |
+| `not_in_masterlist` - settlement has no coordinate; unverifiable by construction | 7 | 0.3% | 300 |
+| `security_excluded` - classified inaccessible, yet doses reported | 5 | 0.2% | 73 |
 
 ## Three alternative explanations, tested and rejected
 
@@ -57,14 +57,14 @@ usable fix that day sits a median of **3.47 km** from the settlement (p25 1.44 k
 **Supported:** two-thirds of reported claims have no supporting track evidence; the
 claiming team was kilometres away; no other team covered those settlements; and the gap is
 not explained by identifier error, date shift, coordinate offset, or the analyst's
-thresholds — it persists at every dwell value from 1 to 15 minutes.
+thresholds - it persists at every dwell value from 1 to 15 minutes.
 
 **Not supported:** that the doses were not administered. The analysis observes where
 *loggers* were, not where *people* were. At least three benign mechanisms would produce the
 same pattern and cannot be separated with the data supplied:
 
 - the logger stayed with a vehicle or a team leader while members worked on foot;
-- the logger was switched off during work and on during transit — plausible given eight
+- the logger was switched off during work and on during transit - plausible given eight
   loggers ran continuously for three weeks, showing switching discipline was not uniform;
 - one logger per team was issued, but teams split to cover more ground.
 
@@ -75,7 +75,7 @@ logger did not corroborate its report, which is not the same as a team that did 
 ## Which source goes to the Incident Manager
 
 **Neither alone. The e-tally as the operational figure, with the track data as a
-verification overlay — and the disagreement reported, not resolved.**
+verification overlay - and the disagreement reported, not resolved.**
 
 The reasoning:
 
@@ -95,6 +95,6 @@ The reasoning:
 
 **What I would put in front of the Incident Manager:** reported coverage of 66.5% of the
 under-5 target, flagged as unverified; 797 settlements with independent presence evidence;
-and 1,336 claims requiring supervisory confirmation before the round is signed off — with
+and 1,336 claims requiring supervisory confirmation before the round is signed off - with
 the honest statement that the tracking data can neither confirm nor refute them, and that
 the fastest route to an answer is a supervisor spot-check of a sample, not more analysis.

@@ -1,4 +1,4 @@
-"""Stage 03 — attribute cleaned track points to planned settlements.
+"""Stage 03 - attribute cleaned track points to planned settlements.
 
 Method: buffered proximity with an **accuracy-scaled radius**. Each usable point
 searches a radius of ``BASE_TOLERANCE_M + K_ACCURACY * accuracy_m``, so a fix the
@@ -7,14 +7,14 @@ rather than being excluded outright (DECISIONS.md D-004d, D-005).
 
 Why scaled rather than fixed: at equivalent reach the scaled rule found 1,071
 settlements with 253 ambiguous points, against 1,069 with 501 for a fixed 100 m
-radius. Same coverage, half the ambiguity — it dominates rather than trades.
+radius. Same coverage, half the ambiguity - it dominates rather than trades.
 
 Why buffered proximity rather than a settlement micro-grid: the masterlist gives
 settlements as *points*, not extents, so there is no footprint to grid. A micro
 grid would require inventing settlement boundaries from a spacing heuristic,
 which would embed a stronger assumption than the tolerance it replaced.
 
-All geometry is computed in EPSG:32632 (WGS 84 / UTM zone 32N) — D-003.
+All geometry is computed in EPSG:32632 (WGS 84 / UTM zone 32N) - D-003.
 
 Ambiguity
 ---------
@@ -81,7 +81,7 @@ def attribute_points(points: pd.DataFrame, settlements: pd.DataFrame) -> pd.Data
     """Nearest settlement within each point's own accuracy-scaled radius.
 
     Returns one row per *matched* point. Points matching nothing are absent by
-    design — they are counted in the report, not silently dropped, and they are
+    design - they are counted in the report, not silently dropped, and they are
     a real finding (a team was somewhere no planned settlement sits).
     """
     settlement_xy = project(settlements.longitude.values, settlements.latitude.values)

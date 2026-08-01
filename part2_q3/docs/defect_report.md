@@ -11,7 +11,7 @@ Each entry states the disposition and why. Numbering follows the paper form.
 
 ## A. Internal contradictions
 
-### A1 — Column (7) is "office use, leave blank", yet 3.02 asks the enumerator to read it
+### A1 - Column (7) is "office use, leave blank", yet 3.02 asks the enumerator to read it
 **Severity: high. This one stops the form working.**
 
 The roster instruction says *"Column (7) is completed by the office and must be left blank
@@ -22,13 +22,13 @@ The enumerator is instructed to read a total from a column they were forbidden t
 On paper a clerk resolves this silently. A digital form cannot.
 
 **Disposition: resolved in the form, and it resolves itself.** Eligibility is derived from
-the roster ages rather than transcribed — the count of residents with age 9–59 completed
+the roster ages rather than transcribed - the count of residents with age 9-59 completed
 months is calculated. 3.02 becomes a read-only calculated field, and column (7) disappears
 as a field-entered concept. **Escalated as a note** because the paper instrument's
 intent is ambiguous: it is not certain whether the office was meant to determine
 eligibility on a different rule.
 
-### A2 — 4.08 asks for a three-way distinction and offers a two-way code
+### A2 - 4.08 asks for a three-way distinction and offers a two-way code
 **Severity: medium.**
 
 *"Record whether a card, a card copy, or an electronic record was seen by you."* Coding
@@ -44,14 +44,14 @@ two-way code and adds an optional follow-up capturing document type **only when
 `card_seen = 1`**, flagged in the codebook as an addition not present on paper. Recommend
 the paper form be corrected at the next revision.
 
-### A3 — Section 5 says "every eligible child", 5.01 restricts to 12 months and over
+### A3 - Section 5 says "every eligible child", 5.01 restricts to 12 months and over
 **Severity: medium.**
 
 Section 5's instruction reads *"A stool specimen is sought from every eligible child."*
-Eligible children are 9–59 months (per Section 4). But 5.01 asks *"Is the child aged 12
+Eligible children are 9-59 months (per Section 4). But 5.01 asks *"Is the child aged 12
 completed months or older?"* with `No → Section 6`.
 
-Children aged 9–11 months are eligible for Section 4 and ineligible for a specimen. The
+Children aged 9-11 months are eligible for Section 4 and ineligible for a specimen. The
 instruction and the filter contradict each other.
 
 **Disposition: resolved in the form.** 5.01 is calculated from `age_months`, not asked, so
@@ -59,7 +59,7 @@ the filter governs and the contradiction cannot produce inconsistent data. The i
 text is corrected to "every eligible child aged 12 months or older". **Escalated** so the
 paper wording is fixed.
 
-### A4 — Roster holds 12 lines; household size accepts two digits
+### A4 - Roster holds 12 lines; household size accepts two digits
 **Severity: medium.**
 
 3.01 records household size in a two-digit field (up to 99). The roster table has **12
@@ -71,7 +71,7 @@ disagree by construction, and the paper form gives the enumerator nowhere to put
 constraint vanishes. The consistency check between 3.01 and the roster count (see F4) then
 becomes meaningful rather than an artefact of table height.
 
-### A5 — Section 4 page number is one digit; eligible-children count is two
+### A5 - Section 4 page number is one digit; eligible-children count is two
 **Severity: low.**
 
 *"Section 4 page number ⌷ of ⌷"* allows 9 children; 3.02 accepts up to 99. Same class of
@@ -83,26 +83,26 @@ error as A4, and it disappears with a repeat group.
 
 ## B. Missing or ambiguous skip instructions
 
-### B1 — 5.02 has no skip instruction at all
+### B1 - 5.02 has no skip instruction at all
 **Severity: high. This is the missing skip the assessment refers to.**
 
-5.02 asks *"Was a stool specimen obtained from this child?"* `Yes 1 / No 2` — and the SKIP
+5.02 asks *"Was a stool specimen obtained from this child?"* `Yes 1 / No 2` - and the SKIP
 column is **empty**.
 
 The following questions are 5.03 label, 5.04 time into cold box, 5.05 cold-box
 temperature, then 5.06 *reason no specimen was obtained*. So:
 
 - if a specimen **was** obtained, 5.06 should not be asked, and it has no filter;
-- if a specimen was **not** obtained, 5.03–5.05 are unanswerable, and there is no skip.
+- if a specimen was **not** obtained, 5.03-5.05 are unanswerable, and there is no skip.
 
 On paper, a clerk diagonal-lines the inapplicable boxes. In a digital form this must be
 explicit or the data is uninterpretable.
 
-**Disposition: resolved in the form.** `5.02 = 1` → 5.03–5.05 required, 5.06–5.07 hidden.
-`5.02 = 2` → 5.03–5.05 hidden, 5.06 required. This does not change what is asked of any
+**Disposition: resolved in the form.** `5.02 = 1` → 5.03-5.05 required, 5.06-5.07 hidden.
+`5.02 = 2` → 5.03-5.05 hidden, 5.06 required. This does not change what is asked of any
 respondent; it enforces the logic the paper form leaves to a clerk.
 
-### B2 — 5.01 skips to Section 6, abandoning the remaining children
+### B2 - 5.01 skips to Section 6, abandoning the remaining children
 **Severity: high.**
 
 5.01 `No → Section 6`. Section 5 is completed **per child**; Section 6 is household-level
@@ -115,8 +115,8 @@ The skip target is wrong: it should be *next child*, not *Section 6*.
 "skip" means "end this child's iteration". The paper defect cannot occur. **Escalated**,
 because on paper this will already have cost data in previous rounds.
 
-### B3 — 2.01 records that consent was not read, and proceeds anyway
-**Severity: high — ethical, not just structural.**
+### B3 - 2.01 records that consent was not read, and proceeds anyway
+**Severity: high - ethical, not just structural.**
 
 2.01 *"Consent statement read aloud to the respondent in full?"* `Yes 1 / No 2`, no skip.
 A `No` is recorded and the interview continues to 2.02, where consent may then be "given".
@@ -133,7 +133,7 @@ Flagged to the ethics committee as a paper-form correction.
 
 ## C. Data the paper design permits that cannot be analysed
 
-### C1 — 4.13 discards multiple antibiotics in an antimicrobial resistance survey
+### C1 - 4.13 discards multiple antibiotics in an antimicrobial resistance survey
 **Severity: high, analytically.**
 
 *"Which antibiotic was taken? ... Where more than one was taken, record the most recent."*
@@ -144,33 +144,33 @@ discards it, keeping one drug with no record that others existed.
 
 **Disposition: escalated, not changed.** Converting to select-multiple changes what is
 asked and what the variable means, so it cannot be done unilaterally on an approved
-instrument. The form adds **one** yes/no — *was more than one antibiotic taken?* — which
+instrument. The form adds **one** yes/no - *was more than one antibiotic taken?* - which
 does not alter 4.13 but lets the analysis know when the single code is incomplete.
 Recommended as a priority correction before the next round.
 
-### C2 — 6.07 allows "None of these" together with owned assets
+### C2 - 6.07 allows "None of these" together with owned assets
 **Severity: medium.**
 
-*"Which of the following does this household own? Record all that apply."* Options A–G are
+*"Which of the following does this household own? Record all that apply."* Options A-G are
 assets; **H is "None of these"**. Nothing prevents H being marked alongside D.
 
 **Disposition: resolved in the form.** H is made exclusive by constraint. This corrects a
 logical impossibility rather than changing the question.
 
-### C3 — 5.05 cannot record a cold-chain failure
+### C3 - 5.05 cannot record a cold-chain failure
 **Severity: medium, and easy to miss.**
 
-Cold-box temperature is captured as `⌷ . ⌷ °C` — one digit and one decimal, so 0.0 to 9.9.
+Cold-box temperature is captured as `⌷ . ⌷ °C` - one digit and one decimal, so 0.0 to 9.9.
 
-The acceptable range is roughly 2–8 °C, so the field holds valid readings comfortably. It
+The acceptable range is roughly 2-8 °C, so the field holds valid readings comfortably. It
 **cannot record a failure**: a box at 15.0 °C, or one that has frozen below zero, has no
 representable value. The field can only record success, which makes it useless as a
 quality control.
 
 **Disposition: escalated, and widened in the form** to accept −20.0 to 40.0 with a warning
-outside 2–8. Widening a measurement range does not change what is asked.
+outside 2-8. Widening a measurement range does not change what is asked.
 
-### C4 — 1.05 collects an alternative settlement name as free text
+### C4 - 1.05 collects an alternative settlement name as free text
 **Severity: low.**
 
 Useful operationally, unanalysable as supplied, and it will produce spelling variants.
@@ -184,35 +184,35 @@ intended for analysis.
 The completion notes define: **8 / 98** = does not know; **9 / 99** = asked, no answer
 obtained; **96** = Other. Three collisions follow from that rule.
 
-### D1 — 6.02 codes 8 AND 9 both collide
+### D1 - 6.02 codes 8 AND 9 both collide
 **Severity: high.**
 
 **Corrected after a systematic scan.** This entry originally named code 9 only.
 `scan_sentinels.py` checks every coding category against the declared sentinels
-and found **six collisions across four questions**, not three — code `8` also
+and found **six collisions across four questions**, not three - code `8` also
 collides in both 6.01 and 6.02 (`Bucket` and `Unprotected spring` respectively).
 Written from reading, the first pass missed them. See `docs/coding_scheme.md`
 for the full table; the scan is now the authority.
 
 6.02 has nine categories and its ninth is `No facility or bush . . . 9`. In a single-digit
-field, 9 is the standard no-answer sentinel. **Open defecation — the single most important
-category in a sanitation question — is indistinguishable from a missing answer.**
+field, 9 is the standard no-answer sentinel. **Open defecation - the single most important
+category in a sanitation question - is indistinguishable from a missing answer.**
 
 **Disposition: resolved in storage, not in the question.** The category set and the numbers
 read to the respondent are unchanged. The digital form stores the response and the
 non-response reason in **separate fields**, so `9` always means "no facility or bush" and
 missingness is carried elsewhere. Escalated for paper renumbering.
 
-### D2 — 6.01 code 9 is "Rainwater", with an 11-category list
+### D2 - 6.01 code 9 is "Rainwater", with an 11-category list
 **Severity: medium.**
 
 Same mechanism. The list runs to 11, so the field is arguably two-digit and the sentinel
-would be 99 — but the form does not say so, and `9` is genuinely ambiguous between
+would be 99 - but the form does not say so, and `9` is genuinely ambiguous between
 "rainwater" and "no answer" for anyone applying the completion note literally.
 
 **Disposition: as D1.** Sentinels never share a field with substantive values.
 
-### D3 — 99 is both "Not measured" and a plausible child height
+### D3 - 99 is both "Not measured" and a plausible child height
 **Severity: high. This is the sentinel-inside-a-measurement case the brief warns about.**
 
 4.06 records length or height as `⌷⌷⌷ . ⌷ cm` with `Not measured . . . 99`.
@@ -231,7 +231,7 @@ storage decision in the form.
 
 ## E. Problems with the external files, not the questionnaire
 
-### E1 — The medicine list does not exist
+### E1 - The medicine list does not exist
 **Severity: high. Blocking.**
 
 4.13 says *"Record from the medicine list."* The data pack README states the reference
@@ -247,10 +247,10 @@ coded lookup without the codelist. The form implements it as a coded select agai
 **placeholder list built from the WHO AWaRe classification**, clearly marked as a
 substitute, so the mechanism is demonstrable and the real list can be dropped in by
 replacing one CSV. Every occurrence is flagged in the codebook. **The real list must be
-obtained before deployment** — a substituted codelist would silently recode the AMR
+obtained before deployment** - a substituted codelist would silently recode the AMR
 variable.
 
-### E2 — Code-box widths do not match the identifiers they hold
+### E2 - Code-box widths do not match the identifiers they hold
 **Severity: low, but it affects validation.**
 
 1.02 LGA `Code ⌷⌷⌷` against actual `LGA02` (five characters); 1.03 Ward `⌷⌷⌷` against
@@ -260,17 +260,17 @@ The boxes plausibly hold the numeric part with the prefix implied, but the form 
 say so. **Disposition: resolved.** All three become cascading selects from the reference
 files, so codes are chosen rather than typed and the width question disappears.
 
-### E3 — The check digit can be `X`, and the paper form provides a digit box
+### E3 - The check digit can be `X`, and the paper form provides a digit box
 **Severity: medium.**
 
 `specimen_label_allocation.csv` gives the scheme as *"Modulus 11, weights 2 to 7 applied
 right to left, remainder 10 recorded as X"*. Label format at 5.03 is `BSN ⌷⌷⌷⌷⌷⌷ - ⌷`.
 
 Roughly one label in eleven carries a check character of `X`, which a digit box cannot
-hold. **Disposition: resolved in the form** — the check character field accepts `0–9` and
+hold. **Disposition: resolved in the form** - the check character field accepts `0-9` and
 `X`. Escalated for the paper form.
 
-### E4 — Supervisor codes legitimately use the `ENU` prefix
+### E4 - Supervisor codes legitimately use the `ENU` prefix
 **Not a defect. Recorded so it is not "fixed".**
 
 7.04 labels the supervisor field `ENU ⌷⌷⌷`, which looks like a copy-paste error from 1.08.
@@ -282,23 +282,23 @@ whose role is supervisor, and leaves the prefix alone.
 
 ## F. Tension between the questionnaire and the stated operating conditions
 
-### F1 — The form says fieldwork runs 1–30 June; the operating conditions say 14 days
+### F1 - The form says fieldwork runs 1-30 June; the operating conditions say 14 days
 The header reads *"Fieldwork period 1 to 30 June 2026."* The brief states fieldwork runs
 14 days.
 
-**Disposition:** the date constraint uses **1–30 June**, the ethics-approved window, since
+**Disposition:** the date constraint uses **1-30 June**, the ethics-approved window, since
 narrowing it could reject a legitimate submission if the 14 days shift. The 14-day
 expectation is enforced as a **soft warning**, not a block. Recorded in the constraint
 register as a deliberate choice with the reasoning.
 
-### F2 — Names are collected where line numbers would serve
+### F2 - Names are collected where line numbers would serve
 Roster column (2) and 4.02 both collect *"name or initials"*, alongside GPS to six decimal
 places at the dwelling entrance, structure number, and the previous round's household
 identifier.
 
 Together these identify a specific dwelling and the children in it. **Disposition: raised
 under data protection** (see the data protection note) rather than as a form defect. The
-recommendation is that 4.02 be dropped entirely — it duplicates the roster line reference
+recommendation is that 4.02 be dropped entirely - it duplicates the roster line reference
 at 4.01, which is sufficient to link child to roster.
 
 ---

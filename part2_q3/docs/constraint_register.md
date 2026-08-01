@@ -1,8 +1,8 @@
-# Constraint register — Form HH/2026/v1
+# Constraint register - Form HH/2026/v1
 
 **Generated** by `build_register.py` from `build_form.py` (the form) and
 `constraint_sources.py` (the justifications). It is not maintained by hand,
-and **the build fails if any rule in the form has no documented source** —
+and **the build fails if any rule in the form has no documented source** -
 so a constraint cannot be added without stating where its value came from.
 
 16 blocking constraints · 6 warnings · 22 rules documented
@@ -16,23 +16,23 @@ so a constraint cannot be added without stating where its value came from.
 | Published standard | Named, external and checkable |
 | **My judgement** | Mine, with reasoning. Never left unlabelled. |
 
-## Blocking versus warning — and why the split matters
+## Blocking versus warning - and why the split matters
 
 A rule **blocks** only when continuing would produce data that is
 meaningless or unsafe. Everything else **warns**, because a block that an
 enumerator cannot satisfy honestly is a block they will satisfy
-dishonestly — inventing a roster line to clear an error is worse than the
+dishonestly - inventing a roster line to clear an error is worse than the
 error. There is exactly one hard block on a judgement call in this form:
 the consent statement at 2.01.
 
-Two rules are deliberately **wider** than clinical plausibility — child
+Two rules are deliberately **wider** than clinical plausibility - child
 weight and height. Their hard bounds are typo guards; implausibility is
 raised as a warning. A clinical range enforced as a block would delete the
 severely malnourished children the survey exists to count.
 
 ## Blocking constraints
 
-### `pin_entered` — Enter your 4-digit PIN
+### `pin_entered` - Enter your 4-digit PIN
 
 | | |
 |---|---|
@@ -43,7 +43,7 @@ severely malnourished children the survey exists to count.
 | **Source** | Reference data |
 | **Detail** | 4-digit PIN held per enumerator in staff_roster.csv. The paper form has no equivalent: 1.08 is a code anyone can write. |
 
-### `q1_02_lga` — 1.02 Local Government Area
+### `q1_02_lga` - 1.02 Local Government Area
 
 | | |
 |---|---|
@@ -54,7 +54,7 @@ severely malnourished children the survey exists to count.
 | **Source** | Reference data |
 | **Detail** | staff_roster.csv assigned_lga. Relaxed for supervisors, who legitimately move between LGAs. |
 
-### `q1_06_structure` — 1.06 Structure number painted on the dwelling
+### `q1_06_structure` - 1.06 Structure number painted on the dwelling
 
 | | |
 |---|---|
@@ -65,7 +65,7 @@ severely malnourished children the survey exists to count.
 | **Source** | Paper form |
 | **Detail** | 1.06 provides three coding boxes, so 1-999. |
 
-### `q1_07_hh_serial` — 1.07 Household serial number within the settlement
+### `q1_07_hh_serial` - 1.07 Household serial number within the settlement
 
 | | |
 |---|---|
@@ -76,7 +76,7 @@ severely malnourished children the survey exists to count.
 | **Source** | Paper form |
 | **Detail** | 1.07 provides three coding boxes, so 1-999. |
 
-### `q1_10_visit_date` — 1.10 Date of visit
+### `q1_10_visit_date` - 1.10 Date of visit
 
 | | |
 |---|---|
@@ -87,7 +87,7 @@ severely malnourished children the survey exists to count.
 | **Source** | Paper form |
 | **Detail** | Header states 'Fieldwork period 1 to 30 June 2026'. The operating conditions say fieldwork runs 14 days, which is narrower. The ETHICS-APPROVED window is enforced as the hard constraint and the 14-day expectation is a soft warning, because a hard 14-day rule would reject legitimate submissions if the schedule shifts. |
 
-### `q2_01_statement_read` — 2.01 Consent statement read aloud to the respondent in full?
+### `q2_01_statement_read` - 2.01 Consent statement read aloud to the respondent in full?
 
 | | |
 |---|---|
@@ -98,7 +98,7 @@ severely malnourished children the survey exists to count.
 | **Source** | **My judgement** |
 | **Detail** | The paper form records 'No' and continues to 2.02, where consent may then be given. Consent recorded after an unread statement is not informed consent. This is the ONLY hard block in the form; every other rule warns. Escalated to the ethics committee as a paper-form correction. See defect B3. |
 
-### `q3_01_hh_size` — 3.01 How many people usually live in this household?
+### `q3_01_hh_size` - 3.01 How many people usually live in this household?
 
 | | |
 |---|---|
@@ -109,7 +109,7 @@ severely malnourished children the survey exists to count.
 | **Source** | **My judgement** |
 | **Detail** | Upper bound 40. The paper field accepts two digits (to 99) and the paper roster holds 12 lines, so the instrument itself is inconsistent (defect A4). 40 is set well above any plausible single household while still catching a slipped digit. It is my judgement, not a published figure. A household above 40 is referred to the supervisor rather than silently truncated. |
 
-### `r_age_years` — (5) Age in completed years
+### `r_age_years` - (5) Age in completed years
 
 | | |
 |---|---|
@@ -120,7 +120,7 @@ severely malnourished children the survey exists to count.
 | **Source** | Paper form |
 | **Detail** | Roster instruction: ages in YEARS for residents five and over, MONTHS for under-fives. Lower bound 5 enforces that split. Upper bound 120 is my judgement as an implausibility guard. |
 
-### `r_age_months` — (6) Age in completed months
+### `r_age_months` - (6) Age in completed months
 
 | | |
 |---|---|
@@ -131,7 +131,7 @@ severely malnourished children the survey exists to count.
 | **Source** | Paper form |
 | **Detail** | Roster instruction, column (6): 'under 5 only', so 0-59 completed months. |
 
-### `q4_01_line` — 4.01 Line number of this child in the Section 3 roster
+### `q4_01_line` - 4.01 Line number of this child in the Section 3 roster
 
 | | |
 |---|---|
@@ -142,7 +142,7 @@ severely malnourished children the survey exists to count.
 | **Source** | Paper form |
 | **Detail** | 4.01 asks for the roster line number. The paper form cannot check it; indexed-repeat() validates against the roster itself. |
 
-### `q4_05_weight_kg` — 4.05 Weight in kg
+### `q4_05_weight_kg` - 4.05 Weight in kg
 
 | | |
 |---|---|
@@ -153,7 +153,7 @@ severely malnourished children the survey exists to count.
 | **Source** | **My judgement** |
 | **Detail** | Hard bounds 2.0-30.0 kg are a TYPO guard, deliberately wider than clinical plausibility, so that a genuinely severely wasted child is never blocked from being recorded. Clinical implausibility is handled by a separate soft warning against WHO Child Growth Standards, which flags rather than blocks. Blocking on clinical range would delete the very cases the survey exists to find. |
 
-### `q4_06_height_cm` — 4.06 Length or height in cm
+### `q4_06_height_cm` - 4.06 Length or height in cm
 
 | | |
 |---|---|
@@ -164,7 +164,7 @@ severely malnourished children the survey exists to count.
 | **Source** | **My judgement** |
 | **Detail** | Hard bounds 45.0-130.0 cm on the same principle as weight: a typo guard, not a clinical filter, with WHO-based implausibility raised as a warning. |
 
-### `q5_03_label_serial` — 5.03 Specimen label serial (6 digits, after BSN)
+### `q5_03_label_serial` - 5.03 Specimen label serial (6 digits, after BSN)
 
 | | |
 |---|---|
@@ -175,7 +175,7 @@ severely malnourished children the survey exists to count.
 | **Source** | Reference data |
 | **Detail** | range_start and range_end per team in specimen_label_allocation.csv. Six digits enforced by regex. |
 
-### `q5_03_check_digit` — 5.03 Check character (after the hyphen)
+### `q5_03_check_digit` - 5.03 Check character (after the hyphen)
 
 | | |
 |---|---|
@@ -186,7 +186,7 @@ severely malnourished children the survey exists to count.
 | **Source** | Reference data |
 | **Detail** | Scheme stated in specimen_label_allocation.csv: 'Modulus 11, weights 2 to 7 applied right to left, remainder 10 recorded as X'. The check character field accepts X as well as 0-9, which the paper form's digit box cannot (defect E3). |
 
-### `q5_05_coldbox_temp` — 5.05 Temperature shown on the cold box thermometer
+### `q5_05_coldbox_temp` - 5.05 Temperature shown on the cold box thermometer
 
 | | |
 |---|---|
@@ -197,7 +197,7 @@ severely malnourished children the survey exists to count.
 | **Source** | **My judgement** |
 | **Detail** | Widened to -20.0 to 40.0 as a device-range guard. The acceptable 2-8 degree range is enforced as a WARNING that tells the enumerator to notify their supervisor, not as a block - blocking would leave the failure unrecorded, which is the defect being fixed. See defect C3. |
 
-### `q6_07_assets` — 6.07 Which of the following does this household own?
+### `q6_07_assets` - 6.07 Which of the following does this household own?
 
 | | |
 |---|---|
@@ -210,7 +210,7 @@ severely malnourished children the survey exists to count.
 
 ## Warnings
 
-### `roster_mismatch_note` — ⚠ You recorded ${q3_01_hh_size} usual residents but listed ${roster_count}. Check the roster before continuing.
+### `roster_mismatch_note` - ⚠ You recorded ${q3_01_hh_size} usual residents but listed ${roster_count}. Check the roster before continuing.
 
 | | |
 |---|---|
@@ -220,7 +220,7 @@ severely malnourished children the survey exists to count.
 | **Source** | **My judgement** |
 | **Detail** | Required by the question: reconcile stated household size against the roster. Implemented as a WARNING, not a block: the two legitimately differ when a usual resident is absent and the enumerator cannot obtain their details. Blocking would push enumerators to invent a line to clear the error. |
 
-### `weight_implausible_warn` — ⚠ This weight is outside the usual range for a child aged ${q4_03_age_months} months. Re-weigh to confirm, then record what you measure.
+### `weight_implausible_warn` - ⚠ This weight is outside the usual range for a child aged ${q4_03_age_months} months. Re-weigh to confirm, then record what you measure.
 
 | | |
 |---|---|
@@ -230,7 +230,7 @@ severely malnourished children the survey exists to count.
 | **Source** | Published standard |
 | **Detail** | WHO Child Growth Standards, approximately -4 SD to +4 SD across 9-59 months. Warns; never blocks. |
 
-### `height_implausible_warn` — ⚠ This height is outside the usual range for a child aged ${q4_03_age_months} months. Re-measure to confirm, then record what you measure.
+### `height_implausible_warn` - ⚠ This height is outside the usual range for a child aged ${q4_03_age_months} months. Re-measure to confirm, then record what you measure.
 
 | | |
 |---|---|
@@ -240,7 +240,7 @@ severely malnourished children the survey exists to count.
 | **Source** | Published standard |
 | **Detail** | WHO Child Growth Standards, approximately -4 SD to +4 SD across 9-59 months. Warns; never blocks. |
 
-### `q4_07_position_warn` — ⚠ Convention is recumbent below 24 months and standing at 24 months and above. Confirm this was intended.
+### `q4_07_position_warn` - ⚠ Convention is recumbent below 24 months and standing at 24 months and above. Confirm this was intended.
 
 | | |
 |---|---|
@@ -250,7 +250,7 @@ severely malnourished children the survey exists to count.
 | **Source** | Published standard |
 | **Detail** | WHO Child Growth Standards: recumbent length below 24 months, standing height at 24 months and above. Warns rather than blocks, because a child who cannot stand is legitimately measured recumbent at any age. |
 
-### `q4_13_placeholder_warning` — ⚠ PLACEHOLDER MEDICINE LIST - NOT FOR DEPLOYMENT. The codelist referenced by the paper form was not supplied. See defect E1.
+### `q4_13_placeholder_warning` - ⚠ PLACEHOLDER MEDICINE LIST - NOT FOR DEPLOYMENT. The codelist referenced by the paper form was not supplied. See defect E1.
 
 | | |
 |---|---|
@@ -260,7 +260,7 @@ severely malnourished children the survey exists to count.
 | **Source** | **My judgement** |
 | **Detail** | The medicine list referenced by 4.13 is absent from the data pack (defect E1). The substitute uses WHO ATC codes, which cannot be confused with the two-digit local codes the paper form expects, so placeholder data is self-identifying. This banner is the second guard: the substitution is visible at the point of capture, not only in documentation nobody reads in the field. |
 
-### `q5_05_temp_warn` — ⚠ Temperature is outside 2-8 °C. Report to your supervisor now - the cold chain may have failed.
+### `q5_05_temp_warn` - ⚠ Temperature is outside 2-8 °C. Report to your supervisor now - the cold chain may have failed.
 
 | | |
 |---|---|
@@ -276,10 +276,10 @@ Every constraint message exists in **Hausa and English**, Hausa default.
 Interviews are conducted in Hausa and 38% of enumerators are not confident
 readers of English, so an English-only message is a message that does not
 exist. **The Hausa strings are indicative and require native-speaker review
-before deployment** — they are my own and have not been checked.
+before deployment** - they are my own and have not been checked.
 
 ## What is not constrained, and why
 
-- **`q1_05_alt_name`, `q4_14_medicine_other`, `q5_07_reason_other`, `q7_02_observation`** — free text by design. Constraining an other-specify field defeats its purpose.
-- **`q1_11_gps`** — no geofence. A settlement centroid is not a household location, and a boundary constraint would block legitimate dwellings on the edge of a settlement. Out-of-area points are better found in back-office QA against the settlement list than blocked at the doorstep.
-- **`q4_13_medicine`** — no validity constraint beyond selection from the list, because the real codelist does not exist. See defect E1.
+- **`q1_05_alt_name`, `q4_14_medicine_other`, `q5_07_reason_other`, `q7_02_observation`** - free text by design. Constraining an other-specify field defeats its purpose.
+- **`q1_11_gps`** - no geofence. A settlement centroid is not a household location, and a boundary constraint would block legitimate dwellings on the edge of a settlement. Out-of-area points are better found in back-office QA against the settlement list than blocked at the doorstep.
+- **`q4_13_medicine`** - no validity constraint beyond selection from the list, because the real codelist does not exist. See defect E1.

@@ -69,11 +69,11 @@ def render(blocking: list[dict], warnings: list[dict]) -> str:
     lines: list[str] = []
     add = lines.append
 
-    add("# Constraint register — Form HH/2026/v1")
+    add("# Constraint register - Form HH/2026/v1")
     add("")
     add("**Generated** by `build_register.py` from `build_form.py` (the form) and")
     add("`constraint_sources.py` (the justifications). It is not maintained by hand,")
-    add("and **the build fails if any rule in the form has no documented source** —")
+    add("and **the build fails if any rule in the form has no documented source** -")
     add("so a constraint cannot be added without stating where its value came from.")
     add("")
     add(f"{len(blocking)} blocking constraints · {len(warnings)} warnings · "
@@ -88,16 +88,16 @@ def render(blocking: list[dict], warnings: list[dict]) -> str:
     add("| Published standard | Named, external and checkable |")
     add("| **My judgement** | Mine, with reasoning. Never left unlabelled. |")
     add("")
-    add("## Blocking versus warning — and why the split matters")
+    add("## Blocking versus warning - and why the split matters")
     add("")
     add("A rule **blocks** only when continuing would produce data that is")
     add("meaningless or unsafe. Everything else **warns**, because a block that an")
     add("enumerator cannot satisfy honestly is a block they will satisfy")
-    add("dishonestly — inventing a roster line to clear an error is worse than the")
+    add("dishonestly - inventing a roster line to clear an error is worse than the")
     add("error. There is exactly one hard block on a judgement call in this form:")
     add("the consent statement at 2.01.")
     add("")
-    add("Two rules are deliberately **wider** than clinical plausibility — child")
+    add("Two rules are deliberately **wider** than clinical plausibility - child")
     add("weight and height. Their hard bounds are typo guards; implausibility is")
     add("raised as a warning. A clinical range enforced as a block would delete the")
     add("severely malnourished children the survey exists to count.")
@@ -111,7 +111,7 @@ def render(blocking: list[dict], warnings: list[dict]) -> str:
         add("")
         for r in rules:
             meta = SOURCES[r["name"]]
-            add(f"### `{r['name']}` — {r['question'] or '(no visible label)'}")
+            add(f"### `{r['name']}` - {r['question'] or '(no visible label)'}")
             add("")
             add(f"| | |")
             add(f"|---|---|")
@@ -130,18 +130,18 @@ def render(blocking: list[dict], warnings: list[dict]) -> str:
     add("Interviews are conducted in Hausa and 38% of enumerators are not confident")
     add("readers of English, so an English-only message is a message that does not")
     add("exist. **The Hausa strings are indicative and require native-speaker review")
-    add("before deployment** — they are my own and have not been checked.")
+    add("before deployment** - they are my own and have not been checked.")
     add("")
     add("## What is not constrained, and why")
     add("")
     add("- **`q1_05_alt_name`, `q4_14_medicine_other`, `q5_07_reason_other`, "
-        "`q7_02_observation`** — free text by design. Constraining an "
+        "`q7_02_observation`** - free text by design. Constraining an "
         "other-specify field defeats its purpose.")
-    add("- **`q1_11_gps`** — no geofence. A settlement centroid is not a household "
+    add("- **`q1_11_gps`** - no geofence. A settlement centroid is not a household "
         "location, and a boundary constraint would block legitimate dwellings on "
         "the edge of a settlement. Out-of-area points are better found in back-"
         "office QA against the settlement list than blocked at the doorstep.")
-    add("- **`q4_13_medicine`** — no validity constraint beyond selection from the "
+    add("- **`q4_13_medicine`** - no validity constraint beyond selection from the "
         "list, because the real codelist does not exist. See defect E1.")
     return "\n".join(lines) + "\n"
 

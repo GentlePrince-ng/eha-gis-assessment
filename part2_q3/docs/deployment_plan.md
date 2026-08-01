@@ -11,12 +11,12 @@ So this plan assumes a mid-round change rather than hoping to avoid one.
 | Element | Value | Rule |
 |---|---|---|
 | `form_id` | `bansara_hh_2026` | **Never changes.** Changing it creates a *different form* on Central, and submissions against the old id become an orphaned dataset |
-| `version` | `2026063001` — `yyyymmddnn` | Increments on every publish, including a one-character label fix |
+| `version` | `2026063001` - `yyyymmddnn` | Increments on every publish, including a one-character label fix |
 | `form_version` | a calculate holding the same string | Stamped into the **data**, not only the metadata |
 
 The last row matters more than it looks. Central records the version against each
 submission, but metadata is the first thing lost when someone reshapes an export
-in Excel — and a mixed-version round is precisely when that happens. A field in
+in Excel - and a mixed-version round is precisely when that happens. A field in
 the record itself survives the reshaping.
 
 ## What may and may not change mid-round
@@ -31,10 +31,10 @@ negotiable by urgency.
 - **Loosening a constraint.** Data already collected remains valid.
 - **Fixing a label, hint or translation.** No stored value changes.
 - **Correcting a relevance rule** so a question appears where it should have.
-- **Replacing a media file** — for example the real medicine list arriving. New
+- **Replacing a media file** - for example the real medicine list arriving. New
   attachment, new version, no form logic change.
 
-### Unsafe — do not do mid-round
+### Unsafe - do not do mid-round
 
 - **Renaming a field.** Central treats it as delete-plus-add. The old column
   stops and a new one starts, and the analysis team must union two columns that
@@ -43,7 +43,7 @@ negotiable by urgency.
   means something different. This is the failure that recodes a variable
   silently. Change the *label* freely; never the value.
 - **Tightening a constraint.** Records already saved under the looser rule cannot
-  be revalidated, and drafts on devices may become unfinishable — the enumerator
+  be revalidated, and drafts on devices may become unfinishable - the enumerator
   cannot advance and cannot save.
 - **Removing a field**, or making an optional field required.
 
@@ -68,8 +68,8 @@ anyone's control.
 4. **Do not force an update.** ODK Collect finalises a form under the version it
    was **started** with. Forcing a refresh mid-interview is how a partially
    completed submission is lost.
-5. **Accept a mixed-version round.** For a period — potentially the full nine
-   days — some records are version *n* and some *n+1*. That is not a failure
+5. **Accept a mixed-version round.** For a period - potentially the full nine
+   days - some records are version *n* and some *n+1*. That is not a failure
    state to be prevented; it is the normal consequence of offline work, and the
    design has to make it analysable rather than avoid it.
 
@@ -93,7 +93,7 @@ handling:
 
 1. **`form_version` in every record.** Survives any export, reshape or merge.
 2. **Central's submission metadata**, which records the version served.
-3. **A published change log** — `docs/version_history.md`, one entry per publish:
+3. **A published change log** - `docs/version_history.md`, one entry per publish:
    version, date, what changed, which fields affected, and what the analysis team
    must do about it.
 
@@ -103,8 +103,8 @@ The third is the one that actually matters. Knowing a record is version
 ### The change log entry format
 
 ```
-## 2026063002 — 8 June 2026
-Changed:  q4_13_medicine — placeholder list replaced with the ministry codelist
+## 2026063002 - 8 June 2026
+Changed:  q4_13_medicine - placeholder list replaced with the ministry codelist
 Affects:  child.q4_13_medicine
 Analysis: records with form_version = 2026063001 carry WHO ATC codes;
           records from 2026063002 carry ministry two-digit codes.
@@ -117,7 +117,7 @@ Analysis: records with form_version = 2026063001 carry WHO ATC codes;
   scan. No enumerator types a URL.
 - **Per-user accounts, not a shared one.** A shared login makes `device_id` the
   only identity in the data, which defeats the fabrication checks.
-- **Media pre-loaded before deployment.** 389 KB across seven files — trivial on
+- **Media pre-loaded before deployment.** 389 KB across seven files - trivial on
   arrival, painful over a rural connection on day one.
 - **Storage headroom checked**: photographs at `max-pixels=1024` are roughly
   150 KB each; a 2 GB device with the OS and Collect installed has room for a

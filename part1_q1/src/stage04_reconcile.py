@@ -1,4 +1,4 @@
-"""Stage 04 — settlement and ward coverage, reconciled against the reported e-tally.
+"""Stage 04 - settlement and ward coverage, reconciled against the reported e-tally.
 
 The two sources disagree by roughly a thousand settlements. This stage quantifies
 that, and then does the part that actually matters: **classifies why**, claim by
@@ -28,7 +28,7 @@ Cause classes, in the order they are tested (first match wins)
 ``team_elsewhere``      the team had ample usable tracking that day and none of
                         it is near this settlement. The strongest class, and the
                         one that needs the most careful language.
-``no_track_evidence``   none of the above — no usable tracking, but no
+``no_track_evidence``   none of the above - no usable tracking, but no
                         demonstrable logger failure either.
 """
 
@@ -49,13 +49,13 @@ LOGGER_FAILED_MAX_FIXES = 60 # under one hour of usable logging on a working day
 
 
 def build_claim_nearest_fix(con: duckdb.DuckDBPyConnection) -> None:
-    """Stage 04a — true distance from each claimed settlement to the claiming team's
+    """Stage 04a - true distance from each claimed settlement to the claiming team's
     nearest usable fix that day.
 
     This is deliberately computed against *every* usable fix the team recorded,
     not against the attribution table. The attribution table only contains points
     that matched a settlement, so using it would guarantee that no claim could
-    ever be classified as a near miss — and every near miss would be misfiled as
+    ever be classified as a near miss - and every near miss would be misfiled as
     "team elsewhere", which is the one class that implies the team was not where
     it said it was. Getting this wrong would overstate the accusatory class.
     """

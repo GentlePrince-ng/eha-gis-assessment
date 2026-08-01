@@ -1,4 +1,4 @@
-"""Stage 01 — ingest the raw campaign pack into a spatially enabled DuckDB store.
+"""Stage 01 - ingest the raw campaign pack into a spatially enabled DuckDB store.
 
 The requirement is that ingestion be *idempotent*: running it twice must not
 duplicate records. There is a trap in this dataset that makes the obvious
@@ -20,7 +20,7 @@ would ever know a conflict existed.
 The choice
 ----------
 The primary key is a hash of the record exactly as supplied. That gives real
-idempotency — re-reading the same file inserts nothing — while keeping both
+idempotency - re-reading the same file inserts nothing - while keeping both
 sides of every contradiction in the store, where the QA stage counts and reports
 them.
 
@@ -161,7 +161,7 @@ def load_reference_tables(con: duckdb.DuckDBPyConnection) -> None:
 
     These are small, authoritative-as-supplied reference files. They are
     replaced wholesale on each run rather than appended, so re-running cannot
-    duplicate them. Nothing is filtered or corrected here — defects in these
+    duplicate them. Nothing is filtered or corrected here - defects in these
     files are findings, and the QA stage reports them.
     """
     con.execute(

@@ -27,7 +27,7 @@ sentinel used **correctly** as its own category (`8 = Do not know` at 1.12, 4.10
 | **6.01** Drinking water | `9` | Rainwater | No answer obtained | High |
 | **6.02** Toilet facility | `8` | Bucket | Do not know | High |
 | **6.02** Toilet facility | `9` | **No facility or bush** | No answer obtained | **Highest** |
-| **4.05** Weight | `99` | — (sentinel inside a measurement) | Not measured | High |
+| **4.05** Weight | `99` | - (sentinel inside a measurement) | Not measured | High |
 | **4.06** Height | `99` | **99.0 cm is an ordinary height** | Not measured | **Highest** |
 
 Two of these are worse than the rest:
@@ -44,7 +44,7 @@ entirely typical. A measured child and an unmeasured child are recorded
 identically, and no amount of downstream cleaning can separate them.
 
 **My earlier defect report understated this.** It named 6.01 code 9, 6.02 code 9
-and the 99 measurements, and missed code `8` in both 6.01 and 6.02 — because it
+and the 99 measurements, and missed code `8` in both 6.01 and 6.02 - because it
 was written from reading rather than scanning. The scan is now in the repository
 and is the authority.
 
@@ -85,8 +85,8 @@ construction rather than by remembering to filter.
 
 ### 2. Categorical answers: values re-based off the sentinel range
 
-The choice lists for 6.01 and 6.02 are stored with prefixed values —
-`w01`–`w11`, `t01`–`t09` — rather than `1`–`11` and `1`–`9`.
+The choice lists for 6.01 and 6.02 are stored with prefixed values -
+`w01`-`w11`, `t01`-`t09` - rather than `1`-`11` and `1`-`9`.
 
 The categories, their order, and the numbers **read aloud to the respondent** are
 unchanged, so paper and digital rounds remain comparable. What changes is the
@@ -99,7 +99,7 @@ prefixing.
 ### 3. "Do not know" stays a first-class answer
 
 Where the paper form offers `8 = Do not know`, the digital form keeps it as an
-explicit choice — because *the respondent not knowing* is a substantive finding,
+explicit choice - because *the respondent not knowing* is a substantive finding,
 particularly for 4.15 (was the antibiotic obtained without prescription) and
 6.04 (were antibiotics given to livestock). It is stored as `8`, matching paper.
 

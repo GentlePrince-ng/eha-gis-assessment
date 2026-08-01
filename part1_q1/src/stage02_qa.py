@@ -1,8 +1,8 @@
-"""Stage 02 — apply the documented quality assurance rule set to the track data.
+"""Stage 02 - apply the documented quality assurance rule set to the track data.
 
 Every rule **flags**. No rule deletes. The pack states twice that records must
 not be silently dropped, and the question asks how many points each rule removed
-or flagged — which is only answerable if nothing has already vanished.
+or flagged - which is only answerable if nothing has already vanished.
 
 The output is one row per stored point in ``track_qa``, carrying a boolean per
 rule plus a single derived ``use_for_coverage`` column. Downstream stages filter
@@ -17,7 +17,7 @@ A note on rule QA05
 -------------------
 There is deliberately no positional-accuracy exclusion. Every candidate cut
 touches the same eight teams, and a 30 m cut would remove ~62% of each of their
-tracks — a quality rule manufacturing a coverage finding. Accuracy is recorded
+tracks - a quality rule manufacturing a coverage finding. Accuracy is recorded
 as a tier and carried into attribution instead, where tolerance scales with a
 point's own reported error.
 """
@@ -131,7 +131,7 @@ def build_qa_table(con: duckdb.DuckDBPyConnection) -> None:
 
 
 def apply_geographic_validity(con: duckdb.DuckDBPyConnection) -> None:
-    """Rule QA08 — coordinates that are geographically impossible (DECISIONS.md D-008).
+    """Rule QA08 - coordinates that are geographically impossible (DECISIONS.md D-008).
 
     Two defects that every other rule passes, because a null-island record has a
     plausible accuracy, a walking speed, an in-window timestamp and a clean
@@ -142,7 +142,7 @@ def apply_geographic_validity(con: duckdb.DuckDBPyConnection) -> None:
     inside it once the axes are exchanged. The rule therefore states its own
     logic instead of embedding magic numbers.
 
-    Transposed points are corrected only where corroborated — the swapped
+    Transposed points are corrected only where corroborated - the swapped
     position must fall within CORROBORATION_RADIUS_M of another fix by the same
     team within CORROBORATION_WINDOW_MIN. Correction is scripted, applied here
     rather than to the source file, keeps the original coordinates alongside,
@@ -207,11 +207,11 @@ def apply_geographic_validity(con: duckdb.DuckDBPyConnection) -> None:
 
 
 def apply_stationary_clusters(con: duckdb.DuckDBPyConnection) -> None:
-    """Rule QA09 — sustained stationary periods (DECISIONS.md D-004g).
+    """Rule QA09 - sustained stationary periods (DECISIONS.md D-004g).
 
     Named explicitly in the question's minimum rule set. It is the one rule here
     that is **not** primarily a defect detector, because for house-to-house
-    vaccination a stationary period is also the *visit* signal — a team stopped
+    vaccination a stationary period is also the *visit* signal - a team stopped
     for several minutes is what "visited" looks like in GPS. Treating stationary
     points as noise would discard the evidence coverage depends on.
 

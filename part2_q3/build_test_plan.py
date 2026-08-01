@@ -1,4 +1,4 @@
-"""Generate the test plan (F9) — boundary cases derived from the form itself.
+"""Generate the test plan (F9) - boundary cases derived from the form itself.
 
 The question requires cases exercising "the ends of every range you set". Typing
 those by hand guarantees one gets missed, and the missed one is the range added
@@ -10,7 +10,7 @@ Add a range to the form and its four boundary cases appear here automatically.
 Change a bound and the expected values change with it. The plan cannot drift
 from the form, for the same reason the constraint register cannot.
 
-Scenario cases — skip logic, cross-question consistency, the named requirements —
+Scenario cases - skip logic, cross-question consistency, the named requirements -
 are written by hand below, because they describe behaviour rather than bounds.
 
 Run:  python part2_q3/build_test_plan.py
@@ -276,23 +276,23 @@ def render(boundary: list[dict], scenarios: list[dict]) -> str:
     negatives = sum(1 for c in boundary + scenarios if c["kind"] == "negative")
     bounds = sum(1 for c in boundary + scenarios if c["kind"] == "boundary")
 
-    a("# Test plan — Form HH/2026/v1")
+    a("# Test plan - Form HH/2026/v1")
     a("")
     a("**Partly generated.** Every numeric range in the form produces four cases")
-    a("automatically — below minimum, at minimum, at maximum, above maximum — read")
+    a("automatically - below minimum, at minimum, at maximum, above maximum - read")
     a("from the form's own constraints by `build_test_plan.py`. Add a range and its")
     a("boundary cases appear here; change a bound and the expected values follow.")
     a("The plan cannot drift from the form.")
     a("")
-    a(f"**{total} cases** — {negatives} negative, {bounds} boundary, "
+    a(f"**{total} cases** - {negatives} negative, {bounds} boundary, "
       f"{total - negatives - bounds} positive/behavioural.")
     a("")
     a("## Execution status")
     a("")
     a("**These cases are specified. They have not been executed against a running")
     a("instance**, because no ODK Central project was available inside the")
-    a("submission window. The check-digit logic behind S09 *is* executed —")
-    a("exhaustively — in `tests/test_check_digit.py`. Everything else is a")
+    a("submission window. The check-digit logic behind S09 *is* executed -")
+    a("exhaustively - in `tests/test_check_digit.py`. Everything else is a")
     a("specification awaiting a device.")
     a("")
     a("Saying so matters: a test plan that has been written is not a test plan that")
@@ -317,7 +317,7 @@ def render(boundary: list[dict], scenarios: list[dict]) -> str:
     a("")
     for c in scenarios:
         flag = " **[REQUIRED BY THE QUESTION]**" if c.get("required") else ""
-        a(f"### {c['id']} — {c['question']}{flag}")
+        a(f"### {c['id']} - {c['question']}{flag}")
         a("")
         a("| | |")
         a("|---|---|")
@@ -351,7 +351,7 @@ def render(boundary: list[dict], scenarios: list[dict]) -> str:
     a("  a cognitive-interview question, not a test case. The strings need")
     a("  native-speaker review before deployment.")
     a("- **Duplicate labels beyond one submission of history.** Out of scope by")
-    a("  construction — see `docs/label_reuse.md`.")
+    a("  construction - see `docs/label_reuse.md`.")
     a("- **Encryption round-trip.** The public key in settings is a placeholder;")
     a("  decryption cannot be tested until the real keypair is issued.")
     return "\n".join(L) + "\n"

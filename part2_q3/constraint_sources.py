@@ -12,10 +12,10 @@ automatic loss of marks. A register maintained by hand beside a form is wrong
 within a day; this one cannot be.
 
 `source` is one of:
-  * **paper form** — the value is stated or implied by Form HH/2026/v1
-  * **reference data** — the value comes from a supplied lookup file
-  * **published standard** — named, external, checkable
-  * **judgement** — mine, with the reasoning given. Never left unlabelled.
+  * **paper form** - the value is stated or implied by Form HH/2026/v1
+  * **reference data** - the value comes from a supplied lookup file
+  * **published standard** - named, external, checkable
+  * **judgement** - mine, with the reasoning given. Never left unlabelled.
 """
 
 SOURCES: dict[str, dict[str, str]] = {

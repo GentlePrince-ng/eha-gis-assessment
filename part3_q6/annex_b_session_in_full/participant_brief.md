@@ -1,7 +1,7 @@
-# Participant briefs — "Make your work someone else's"
+# Participant briefs - "Make your work someone else's"
 
 Two briefs. **Brief A is handed out at the start. Brief B is held back until
-minute 25** — issuing both together lets participants write the record with the
+minute 25** - issuing both together lets participants write the record with the
 reproduction task already in mind, which is precisely what the session is
 testing them not to do.
 
@@ -10,7 +10,7 @@ Print single-sided, one set per participant.
 ---
 ---
 
-# BRIEF A — Write the record
+# BRIEF A - Write the record
 
 **Time: 17 minutes. Work alone.**
 
@@ -49,7 +49,7 @@ That is all. You have 17 minutes.
 ---
 ---
 
-# BRIEF B — Reproduce your partner's work
+# BRIEF B - Reproduce your partner's work
 
 **Time: 25 minutes. Work at one machine, together.**
 
@@ -70,7 +70,7 @@ file**, starting from the raw data.
 - A cleaned file, produced by following their record.
 - A list headed **"What the record did not tell me"**.
 
-That list is the important output. It is not a criticism of your partner — the
+That list is the important output. It is not a criticism of your partner - the
 same list is being written about your record, at the same time, by someone else.
 
 ## Before time is called

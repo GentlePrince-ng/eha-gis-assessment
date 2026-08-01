@@ -1,4 +1,4 @@
-## Model answer — "Make your work someone else's"
+## Model answer - "Make your work someone else's"
 
 For the facilitator. **Do not distribute.** Participants draft the standard
 themselves in Day 3 session 3, and handing them the answer removes the reason
@@ -6,7 +6,7 @@ they would follow it.
 
 ---
 
-## Part 1 — What a level-3 record looks like
+## Part 1 - What a level-3 record looks like
 
 This is the exemplar, not a template to issue. Compare participant records
 against it to judge *what is missing*, not to mark them.
@@ -76,7 +76,7 @@ RESULT
     Facilities mappable: 195. Not mappable: 5 (D3).
 ```
 
-## Part 2 — The numbers
+## Part 2 - The numbers
 
 Use these to check whether a pair actually reproduced the file.
 
@@ -94,10 +94,10 @@ Use these to check whether a pair actually reproduced the file.
 | `staff_total = 999` | **3** |
 
 **A pair has reproduced the work when the row count matches and the same
-facilities are present.** Exact column-by-column equality is not the standard —
+facilities are present.** Exact column-by-column equality is not the standard -
 the standard is that the department would report the same numbers.
 
-## Part 3 — Why participants get different answers, and why that is the lesson
+## Part 3 - Why participants get different answers, and why that is the lesson
 
 Three defects have **no single correct treatment**: D1, D2 and D3 above.
 
@@ -117,17 +117,17 @@ recording the choices**, because the steps are usually recoverable by inspection
 and the choices never are.
 
 If the discussion at minute 50 reaches this on its own, the session has done
-more than it needed to. If it does not, do not supply it — Day 3 session 3 is
+more than it needed to. If it does not, do not supply it - Day 3 session 3 is
 where they will reach it while drafting their own standard, and it lands harder
 there.
 
-## Part 4 — What to look for when judging level 3
+## Part 4 - What to look for when judging level 3
 
 Not a mark scheme. A prompt for what to notice while walking the room.
 
 | Signal | Level |
 |---|---|
-| Record describes intent — "made the data consistent" | 1 |
+| Record describes intent - "made the data consistent" | 1 |
 | Steps listed, no counts, no order stated | 2 |
 | Steps in order, with counts, no decisions recorded | 2 (the most common outcome) |
 | Steps, counts, order **and** decisions with their alternatives | **3** |
@@ -136,5 +136,5 @@ Not a mark scheme. A prompt for what to notice while walking the room.
 **Expect the whole room at 2 or below on the first attempt.** The department's
 measured baseline for this competency is 1.5 out of 5, and a single morning does
 not move a department to level 3. What it moves is their understanding of what
-level 3 requires — the remaining distance is closed over the 90 days, on real
+level 3 requires - the remaining distance is closed over the 90 days, on real
 work, under review.

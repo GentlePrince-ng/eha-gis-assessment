@@ -1,5 +1,5 @@
 ---
-title: "eHealth Africa — Technical Assessment"
+title: "eHealth Africa - Technical Assessment"
 subtitle: "Senior Coordinator, Data and GIS Analytics · Data Informatics Department"
 author: "Solomon Oladimeji"
 date: "1 August 2026"
@@ -10,10 +10,10 @@ lang: en-GB
 
 | Part | Question attempted |
 |---|---|
-| **Part 1** | **Q1** — Campaign team tracking and coverage reconciliation |
-| **Part 2** | **Q3** — Converting a paper questionnaire into a digital form |
-| **Part 3** | **Q5** — Coordinating delivery through the round |
-| **Part 3** | **Q6** — Building capability in the counterpart agency |
+| **Part 1** | **Q1** - Campaign team tracking and coverage reconciliation |
+| **Part 2** | **Q3** - Converting a paper questionnaire into a digital form |
+| **Part 3** | **Q5** - Coordinating delivery through the round |
+| **Part 3** | **Q6** - Building capability in the counterpart agency |
 
 Part 1 Q2 and Part 2 Q4 are not attempted. The instructions state that depth is
 valued over breadth, and Part 2 states that the unattempted option will be
@@ -22,12 +22,12 @@ submitting thin work on both.
 
 **Question 7 is referenced three times in the question paper but was not issued
 with it.** Its marking box appears after Q6 with no question attached. The
-connection it asks for — between coordination fragility and the capability gap —
+connection it asks for - between coordination fragility and the capability gap -
 is made in §6 of Q5 and §7 of Q6.
 
 ## Repository
 
-**github.com/GentlePrince-ng/eha-gis-assessment** — public, with the full commit
+**github.com/GentlePrince-ng/eha-gis-assessment** - public, with the full commit
 history. Everything in this document is reproducible from the supplied data pack
 by `python run_all.py`; `verify_claims.py` re-checks every headline figure quoted
 here against the rebuilt outputs.
@@ -38,7 +38,7 @@ structured and which errors independent verification caught and corrected.
 ## Page limits
 
 Q5 is within three pages. Q6 is within six pages excluding annexes, as the
-question permits. Annexes A–E carry artefacts to be used rather than argument to
+question permits. Annexes A-E carry artefacts to be used rather than argument to
 be read.
 
 \newpage
@@ -49,19 +49,19 @@ be read.
 <w:p><w:r><w:br w:type="page"/></w:r></w:p>
 ```
 
-# PART 1 — Question 1
+# PART 1 - Question 1
 
 ## Campaign team tracking and coverage reconciliation
 
 
-# QA rule set — candidate thresholds and the argument for each
+# QA rule set - candidate thresholds and the argument for each
 
 Working document. Each rule below gives the measured evidence, two or three defensible
 threshold choices with what each costs, and a recommendation. **Nothing here is settled
 until Solomon picks**, at which point it moves to `DECISIONS.md` with its reasoning and
 into `qa_rules.md` as the implemented rule.
 
-All counts are against the **296,526 in-campaign points** (9–13 March 2026) unless stated.
+All counts are against the **296,526 in-campaign points** (9-13 March 2026) unless stated.
 
 ---
 
@@ -88,9 +88,9 @@ non-urban:
 | T05 | 8.0 | 8.0 |
 | T29 | 7.0 | 8.0 |
 
-Accuracy follows the **team**, not the ground. Eight loggers — GL-7210, GL-4592, GL-1005,
+Accuracy follows the **team**, not the ground. Eight loggers - GL-7210, GL-4592, GL-1005,
 GL-1647, GL-1429, GL-1388, GL-9693, GL-3464, on teams T03, T07, T01, T06, T08, T14, T20,
-T15 — report ~36 m everywhere, including in rural Gwarin. The other 24 report ~8 m
+T15 - report ~36 m everywhere, including in rural Gwarin. The other 24 report ~8 m
 everywhere, including in urban Idi-Oro.
 
 The apparent LGA effect (Idi-Oro median 33.3 m against Gwarin 8.2 m) is **composition**:
@@ -109,7 +109,7 @@ So the field can be trusted, and the two tiers are physically real.
 
 **Why this changes the answer.** The question asks how I would treat dense urban areas where
 multipath degrades accuracy. The defensible answer is that **this dataset does not show
-multipath** — it shows a two-tier logger fleet — and reporting a multipath finding the data
+multipath** - it shows a two-tier logger fleet - and reporting a multipath finding the data
 contradicts would be the exact failure the question is testing for.
 
 That is not a reason to skip the treatment, so it is set out here in full, together with
@@ -120,7 +120,7 @@ what it would cost.
 Multipath is *spatial and systematic*: signals bounce off buildings, so error rises in
 built-up areas regardless of which device is carried. Four things follow.
 
-1. **Widen the tolerance in the affected area only** — not globally, which would blur
+1. **Widen the tolerance in the affected area only** - not globally, which would blur
    rural attribution for no reason.
 2. **Lean on dwell rather than single fixes.** Multipath scatters individual positions but
    a team genuinely present still accumulates minutes near the settlement. Raising the
@@ -132,20 +132,20 @@ built-up areas regardless of which device is carried. Four things follow.
 4. **Report urban and rural coverage separately**, because a single state-wide figure
    would average a well-measured area with a poorly-measured one and hide the difference.
 
-### How the choice changes the result — measured
+### How the choice changes the result - measured
 
 Widening the tolerance in the urban LGA only, holding everything else fixed:
 
 | Urban tolerance | Settlements visited | Change | Ambiguous points | Agree with e-tally |
 |---|---|---|---|---|
-| **× 1 — 66–122 m (as submitted)** | **797** | — | **253** | 765 |
-| × 1.5 — 66–183 m | 870 | +73 | 434 | 819 |
-| × 2 — 66–244 m | 952 | +155 | 763 | 879 |
-| × 3 — 66–366 m | 1,038 | +241 | 1,930 | 939 |
+| **× 1 - 66-122 m (as submitted)** | **797** | - | **253** | 765 |
+| × 1.5 - 66-183 m | 870 | +73 | 434 | 819 |
+| × 2 - 66-244 m | 952 | +155 | 763 | 879 |
+| × 3 - 66-366 m | 1,038 | +241 | 1,930 | 939 |
 
 **The result is materially sensitive to this choice**, and that is worth saying plainly:
-doubling the urban tolerance finds 155 more settlements — a 19% increase in measured
-coverage — and would move the reconciliation gap by the same amount.
+doubling the urban tolerance finds 155 more settlements - a 19% increase in measured
+coverage - and would move the reconciliation gap by the same amount.
 
 It also costs three times the ambiguity (763 points inside more than one settlement's
 radius against 253), because the urban LGA holds 1,046 of the 2,562 settlements. Beyond
@@ -154,7 +154,7 @@ worth making.
 
 **I did not apply the widening**, because the accuracy evidence shows the degradation is
 per-device rather than per-place, so there is nothing here for it to correct. Had the
-pattern been spatial, ×1.5 to ×2 is the range I would have defended — and the sensitivity
+pattern been spatial, ×1.5 to ×2 is the range I would have defended - and the sensitivity
 above is what I would have published alongside it, rather than a single number.
 
 ### C-2. T14's logger failure is real but differently shaped.
@@ -164,7 +164,7 @@ was a *file* count, and the files overlap, so it understated the day. On the col
 collapsed series:
 
 **T14, 12 March: 210 distinct minutes, first fix 00:00, last fix 07:38.** The logger ran
-overnight, then stopped at 07:38 — losing the entire working day. Against a median of 1,006
+overnight, then stopped at 07:38 - losing the entire working day. Against a median of 1,006
 distinct minutes per team-day and a 5th percentile of 454, that is the worst team-day in
 the campaign.
 
@@ -173,9 +173,9 @@ statement from "the logger recorded eleven points", and only one of them is true
 
 ---
 
-## R1 — Campaign window
+## R1 - Campaign window
 
-**Evidence.** 633,207 of 929,733 stored records (68%) fall outside 9–13 March 2026. Several
+**Evidence.** 633,207 of 929,733 stored records (68%) fall outside 9-13 March 2026. Several
 loggers ran continuously for weeks: T01's fixes continue to 29 March, around the clock at
 60-second intervals.
 
@@ -187,7 +187,7 @@ at QA as a counted rule, not silently at ingest.
 
 ---
 
-## R2 — Duty hours ← **needs your decision**
+## R2 - Duty hours ← **needs your decision**
 
 **Evidence.** Collision-collapsed team-minutes by hour show a real but soft working signal
 on top of a runaway-logger baseline:
@@ -200,14 +200,14 @@ on top of a runaway-logger baseline:
 18-23    7,816 -> 6,327         (long taper)
 ```
 
-Earliest first-fix across team-days clusters at **07:09–07:38**. Clean team-days end between
+Earliest first-fix across team-days clusters at **07:09-07:38**. Clean team-days end between
 11:44 and 16:26.
 
 | Option | Window | Flags | Argument |
 |---|---|---|---|
-| **A** | 07:00–16:59 | 144,411 (48.7%) | Matches the observed data: teams start 07:09–07:38 and the plateau runs 08:00–14:59. Derived from this campaign rather than imported. |
-| **B** | 06:00–18:59 | 123,096 (41.5%) | Conservative. Keeps the ramp and taper, so a team genuinely working late is not erased. Costs precision — retains ~2 hours of probable idle logging each side. |
-| **C** | Per-team-day, first to last fix on that day | — | No global window; each team-day defines its own. Adapts to genuine variation, but it is circular for the runaway loggers, whose "day" is 24 hours. |
+| **A** | 07:00-16:59 | 144,411 (48.7%) | Matches the observed data: teams start 07:09-07:38 and the plateau runs 08:00-14:59. Derived from this campaign rather than imported. |
+| **B** | 06:00-18:59 | 123,096 (41.5%) | Conservative. Keeps the ramp and taper, so a team genuinely working late is not erased. Costs precision - retains ~2 hours of probable idle logging each side. |
+| **C** | Per-team-day, first to last fix on that day | - | No global window; each team-day defines its own. Adapts to genuine variation, but it is circular for the runaway loggers, whose "day" is 24 hours. |
 
 **Recommendation: A, with B reported as a sensitivity.** A is evidence-led and I can defend
 every boundary from the hourly profile. C is attractive but self-defeating on precisely the
@@ -219,9 +219,9 @@ against the e-tally is what actually tests it.
 
 ---
 
-## R3 — Implausible speed
+## R3 - Implausible speed
 
-**Evidence — this one is a gift.** Reported speed is cleanly bimodal with nothing in
+**Evidence - this one is a gift.** Reported speed is cleanly bimodal with nothing in
 between:
 
 | Threshold | Points flagged |
@@ -232,7 +232,7 @@ between:
 | > 120 km/h | 1,437 |
 | > 150 km/h | 1,394 |
 
-Median reported speed is 4.0 km/h and the 99th percentile is 5.58 — walking pace, as
+Median reported speed is 4.0 km/h and the 99th percentile is 5.58 - walking pace, as
 expected for house-to-house teams. **Every point above 6 km/h is also above 120 km/h.**
 
 Independently, implied speed computed from consecutive conflict-free fixes 60 seconds
@@ -243,7 +243,7 @@ steps exceed 15 km/h.
 > 15 km/h between consecutive fixes.**
 
 **Why 15.** It sits far above sustained walking (~5 km/h) and far below the implausible
-cluster, and — the actual argument — **the result is identical for any threshold from 6 to
+cluster, and - the actual argument - **the result is identical for any threshold from 6 to
 120 km/h.** The strongest defence of a threshold is that the finding does not depend on it.
 The two rules differ: reported speed is the logger's own claim, implied speed is derived
 from position, and a point can fail one without the other. Flagging both catches teleports
@@ -251,12 +251,12 @@ that the logger reported as stationary.
 
 ---
 
-## R4 — Positional accuracy ← **needs your decision, and it is the dangerous one**
+## R4 - Positional accuracy ← **needs your decision, and it is the dangerous one**
 
 **Evidence.** Distribution across in-campaign points: median 11.1 m, 75th 32.9, 90th 48.0,
 99th 57.0, max 58.0.
 
-Any threshold you pick touches **exactly the same eight teams** — no normal-tier point
+Any threshold you pick touches **exactly the same eight teams** - no normal-tier point
 exceeds 15 m:
 
 | Cut | Points flagged | Teams touched |
@@ -280,26 +280,26 @@ And a >30 m cut would remove **62% of every degraded team's points**:
 
 | Option | Rule | Consequence |
 |---|---|---|
-| **A** | Exclude points above a fixed cut (e.g. 30 m) | Removes ~62% of eight teams' tracks. Those teams then appear to have visited far fewer settlements — **a data-quality rule manufacturing a false coverage finding**, and the settlements they served look missed. |
+| **A** | Exclude points above a fixed cut (e.g. 30 m) | Removes ~62% of eight teams' tracks. Those teams then appear to have visited far fewer settlements - **a data-quality rule manufacturing a false coverage finding**, and the settlements they served look missed. |
 | **B** | No accuracy exclusion. Carry accuracy into attribution instead: a point's search tolerance widens with its own reported error. | Keeps every team's work. Costs attribution precision for the eight teams, honestly and visibly, rather than deleting them. |
 | **C** | Exclude only the extreme tail (>50 m, 7.8%), then apply B to the rest. | Removes the worst fixes without gutting a tier. Hybrid; hardest to justify cleanly because 50 m is arbitrary where 15 m and 30 m are not. |
 
-**Recommendation: B.** With a fixed cut, the rule and the finding are confounded — you
+**Recommendation: B.** With a fixed cut, the rule and the finding are confounded - you
 cannot then say whether those eight teams underperformed or were filtered out, and Idi-Oro
 is where most of their work is, so the urban LGA takes the hit. B makes accuracy a property
 of the measurement rather than a gate on it, which is what the accuracy field is *for*.
 
 This is also the rule most likely to be challenged at the walkthrough, and the strongest
 counter is real: B lets low-quality fixes attribute to settlements, inflating coverage.
-The answer is the sensitivity analysis in R9 — report coverage under both, and show how much
+The answer is the sensitivity analysis in R9 - report coverage under both, and show how much
 moves.
 
 ---
 
-## R5 — Gaps in the fix sequence
+## R5 - Gaps in the fix sequence
 
 **Evidence.** Of 108,742 consecutive intervals on the conflict-free series, **108,686 are
-exactly 60 seconds** — matching the stated nominal rate. Every other gap is a whole-minute
+exactly 60 seconds** - matching the stated nominal rate. Every other gap is a whole-minute
 multiple, i.e. dropped fixes rather than clock drift.
 
 | Gap | Count |
@@ -309,7 +309,7 @@ multiple, i.e. dropped fixes rather than clock drift.
 | > 15 min | 111 |
 | longest | 48,000 s (13.3 h) |
 
-Note how few there are, and that >2 min and >5 min are almost the same set — gaps are
+Note how few there are, and that >2 min and >5 min are almost the same set - gaps are
 either one dropped fix or a long outage, with little between.
 
 **Recommendation: flag > 5 minutes as a coverage interruption, > 15 minutes as an outage
@@ -319,24 +319,24 @@ for the 60-second baseline is the pack README, not my judgement.
 
 ---
 
-## R6 — Stationary clusters
+## R6 - Stationary clusters
 
 **Note:** for house-to-house vaccination, a stationary cluster is not only a QA signal, it
 is the **visit signal**. A team stopped for several minutes at a settlement is what
 "visited" looks like in GPS. Treating stationary points purely as noise would discard the
 evidence the coverage analysis depends on.
 
-Proposal: classify rather than flag — dwell clusters (stationary, inside a settlement's
+Proposal: classify rather than flag - dwell clusters (stationary, inside a settlement's
 tolerance, sustained beyond a minimum duration) as *visits*; stationary runs outside any
 settlement as *idle*; stationary runs spanning a duty-day boundary as *logger left on*.
 Needs the attribution tolerance from R7 before the durations can be set.
 
 ---
 
-## R7 — `(team_id, timestamp)` conflicts, carried from ingest
+## R7 - `(team_id, timestamp)` conflicts, carried from ingest
 
 **585,951 records** share a team and a minute with another record while carrying different
-coordinates — 63% of the store. Options for resolution at the attribution stage (retain
+coordinates - 63% of the store. Options for resolution at the attribution stage (retain
 the higher-accuracy fix; retain both and require agreement; treat the minute as unresolved)
 are deferred until the attribution tolerance is set, since the right answer depends on
 whether the disagreeing fixes fall inside the same settlement tolerance. If they do, the
@@ -344,21 +344,21 @@ conflict is immaterial and can be reported as such.
 
 ---
 
-## R8 — Team-day completeness
+## R8 - Team-day completeness
 
 **Evidence.** Distinct minutes per team-day across all 160 team-days: minimum 210, 5th
 percentile 454, median 1,006, 95th percentile 1,440, maximum 1,440.
 
-The 1,440 ceiling is a full 24 hours — the runaway loggers. The floor is T14 on 12 March
+The 1,440 ceiling is a full 24 hours - the runaway loggers. The floor is T14 on 12 March
 (see C-2).
 
 **Recommendation:** flag team-days below the 5th percentile *of duty-hour minutes*, once R2
-fixes the window — computing this on all-hours minutes rewards the runaway loggers and
+fixes the window - computing this on all-hours minutes rewards the runaway loggers and
 penalises well-behaved ones, which is backwards.
 
 ---
 
-## R9 — Required: sensitivity reporting
+## R9 - Required: sensitivity reporting
 
 Given R2 and R4 are judgement calls that move the headline, the coverage result should be
 reported under at least: duty window A vs B, and accuracy option A vs B. If coverage is
@@ -370,10 +370,10 @@ it tells the Incident Manager how much to trust the number.
 
 ## What I need from you
 
-1. **R2 — duty hours.** A (07:00–16:59, evidence-led) or B (06:00–18:59, conservative)?
-2. **R4 — accuracy.** B (no exclusion, tolerance scales with accuracy) or A (fixed cut)?
+1. **R2 - duty hours.** A (07:00-16:59, evidence-led) or B (06:00-18:59, conservative)?
+2. **R4 - accuracy.** B (no exclusion, tolerance scales with accuracy) or A (fixed cut)?
    This is the one that can manufacture a false finding, so it is worth your time.
-3. **R5 — gap threshold.** 5 minutes for interruption, 15 for outage — or different?
+3. **R5 - gap threshold.** 5 minutes for interruption, 15 for outage - or different?
 
 R1, R3, R6, R7, R8 I can proceed on as written unless you disagree.
 
@@ -385,7 +385,7 @@ R1, R3, R6, R7, R8 I can proceed on as written unless you disagree.
 
 
 
-# Projection and attribution tolerance — measured options
+# Projection and attribution tolerance - measured options
 
 Two thresholds the assessment explicitly warns about (*"thresholds, buffers, or tolerances
 asserted without justification"* is an automatic mark loss). Both measured rather than
@@ -393,24 +393,24 @@ asserted. Decision goes to `DECISIONS.md` D-003 and D-005 once chosen.
 
 ---
 
-## D-003 — Projected coordinate reference system
+## D-003 - Projected coordinate reference system
 
 Everything arrives EPSG:4326. Distortion measured against **true geodesic distance on the
 WGS84 ellipsoid** (`pyproj.Geod.inv`), over 4,000 random settlement pairs, and against
 true geodesic polygon area for the 40 wards.
 
-Study area: longitude 6.954–8.429, latitude 10.366–11.573.
+Study area: longitude 6.954-8.429, latitude 10.366-11.573.
 
 ### Distance error
 
 | CRS | Median abs. error | 95th pct | Max | Max relative |
 |---|---|---|---|---|
-| **EPSG:32632 — WGS 84 / UTM zone 32N** | **7.8 m** | 21.9 m | 33.6 m | 0.035% |
-| EPSG:26332 — Minna / Nigeria Mid Belt | 7.5 m | 21.6 m | 33.2 m | 0.034% |
-| EPSG:3857 — Web Mercator | 1,382.6 m | 2,554.6 m | 3,350.1 m | 2.665% |
-| ESRI:102022 — Africa Albers Equal Area | 1,737.1 m | 4,658.6 m | 6,758.5 m | 4.995% |
+| **EPSG:32632 - WGS 84 / UTM zone 32N** | **7.8 m** | 21.9 m | 33.6 m | 0.035% |
+| EPSG:26332 - Minna / Nigeria Mid Belt | 7.5 m | 21.6 m | 33.2 m | 0.034% |
+| EPSG:3857 - Web Mercator | 1,382.6 m | 2,554.6 m | 3,350.1 m | 2.665% |
+| ESRI:102022 - Africa Albers Equal Area | 1,737.1 m | 4,658.6 m | 6,758.5 m | 4.995% |
 
-### Error at short range — the scale a settlement tolerance actually operates at
+### Error at short range - the scale a settlement tolerance actually operates at
 
 | CRS | Median error | Max abs. error |
 |---|---|---|
@@ -435,22 +435,22 @@ Study area: longitude 6.954–8.429, latitude 10.366–11.573.
   4.4% on ward area would corrupt any density or rate.
 - **Africa Albers is the right tool for the wrong job here.** It is the best area
   projection measured (0.000% median), and the worst distance one. This analysis is
-  dominated by buffers and distances, so it is not the working CRS — though it remains the
+  dominated by buffers and distances, so it is not the working CRS - though it remains the
   correct choice if an area-normalised statistic is ever wanted. At this extent UTM's area
   error of 0.03% makes that unnecessary.
 - **UTM 32N over Minna Mid Belt**, despite Minna being nominally 0.3 m better across 4,000
-  pairs — a difference far below GPS noise and therefore not a reason. The real reason is
+  pairs - a difference far below GPS noise and therefore not a reason. The real reason is
   **datum**: the track data is GPS, i.e. WGS84. UTM 32N is WGS84-based, so reprojection is a
   pure map projection with no datum change. EPSG:26332 sits on the Minna datum
   (Clarke 1880), so using it introduces a datum transformation whose own uncertainty is of
-  the order of metres — buying nothing measurable and adding an error term.
-- **The study area sits entirely inside zone 32** (6°E–12°E), so UTM's real weakness,
+  the order of metres - buying nothing measurable and adding an error term.
+- **The study area sits entirely inside zone 32** (6°E-12°E), so UTM's real weakness,
   straddling a zone boundary, does not arise. Worth stating, because it is the first thing
   a reviewer should check.
 
 ---
 
-## D-005 — Attribution tolerance ← **needs your decision**
+## D-005 - Attribution tolerance ← **needs your decision**
 
 ### What bounds the tolerance: how far apart settlements are
 
@@ -465,8 +465,8 @@ Distance to nearest other settlement, projected to UTM 32N:
 
 Overall median 734 m, 5th percentile 194 m, 1st percentile 79 m, minimum 8 m.
 
-**Note the urban LGA is not much denser than the rural ones** — median 669 m against
-734–834 m. The usual justification for a tighter urban tolerance ("settlements are packed
+**Note the urban LGA is not much denser than the rural ones** - median 669 m against
+734-834 m. The usual justification for a tighter urban tolerance ("settlements are packed
 closer together in town") is not supported here, and I would be wrong to assert it.
 
 ### What a wider tolerance costs: settlement buffers begin to overlap
@@ -493,7 +493,7 @@ A point inside two settlements' buffers cannot be attributed unambiguously.
 | 300 m | 4,765 | 1,415 | 55.2% | 1,196 | 219 | 827 |
 | 500 m | 14,601 | 1,652 | 64.5% | 1,360 | 292 | 663 |
 
-### Accuracy-scaled tolerance — `tolerance = base + 2 × reported accuracy`
+### Accuracy-scaled tolerance - `tolerance = base + 2 × reported accuracy`
 
 This is the mechanism D-004d promised: a point's search radius widens with its own
 reported error rather than the whole tier being excluded.
@@ -513,7 +513,7 @@ Compare like for like:
 | Fixed 100 m | 1,069 | **501** |
 | Scaled, base 50 m | 1,071 | **253** |
 
-**Same coverage, half the ambiguity.** The accuracy-scaled tolerance is not a compromise —
+**Same coverage, half the ambiguity.** The accuracy-scaled tolerance is not a compromise -
 it dominates the fixed tolerance on both axes at equivalent reach. That is an independent
 vindication of D-004d: information in the accuracy field that a fixed cut throws away is
 doing real work.
@@ -533,7 +533,7 @@ firmware, not a documented fact about these devices, and the write-up will say s
 **Track-derived coverage is far below the reported e-tally at every tolerance.**
 
 At the recommended setting, 1,071 settlements have track evidence against **2,023 reported
-in the e-tally** — 1,069 settlements report doses administered with no supporting track.
+in the e-tally** - 1,069 settlements report doses administered with no supporting track.
 Even at an absurd 500 m tolerance, 663 remain unexplained.
 
 This is not a tolerance artefact. It is the reconciliation finding the question asks for,
@@ -544,13 +544,13 @@ and no defensible tolerance closes the gap.
 If the duty-hours rule were cutting real work, teams would report doses on days their
 loggers show nothing usable. Measured across all 155 e-tally team-days:
 
-**Exactly one team-day has fewer than 60 usable fixes** — T14 on 12 March, with **11 usable
+**Exactly one team-day has fewer than 60 usable fixes** - T14 on 12 March, with **11 usable
 fixes against 16 settlements and 2,207 doses reported**. That is the day its logger died at
 07:38.
 
 So the duty window is not manufacturing the discrepancy: 154 of 155 reporting team-days
 have ample usable tracking. And T14 is the clean example of the distinction the question
-asks for — a settlement with no tracks may have been missed *or* the logger may have
+asks for - a settlement with no tracks may have been missed *or* the logger may have
 failed, and here it is provably the logger, because the failure is visible in the fix
 sequence rather than inferred from absence.
 
@@ -558,8 +558,8 @@ sequence rather than inferred from absence.
 
 ## What I need from you
 
-1. **D-003 — CRS.** UTM 32N as recommended?
-2. **D-005 — tolerance.** Accuracy-scaled base 50 m, k = 2? Or fixed, if you would rather
+1. **D-003 - CRS.** UTM 32N as recommended?
+2. **D-005 - tolerance.** Accuracy-scaled base 50 m, k = 2? Or fixed, if you would rather
    defend a simpler rule at the walkthrough.
 
 ---
@@ -581,7 +581,7 @@ team as a median or a majority, never by `any_value`. Not used in any result abo
 
 # Two coordinate defects the QA rule set did not catch
 
-Found at stage 03, not stage 02 — the attribution stage asked "why did 83.7% of usable
+Found at stage 03, not stage 02 - the attribution stage asked "why did 83.7% of usable
 points match no settlement?" and the answer surfaced them. Recording that honestly: the
 rule set as designed missed both, and a rule set that only looks at time, speed, accuracy
 and sequence has no way of noticing that a coordinate is *geographically* impossible.
@@ -593,13 +593,13 @@ Across the whole store of 929,733 points:
 | Defect | Points | Signature |
 |---|---|---|
 | Null island | **71** | `longitude = 0, latitude = 0` exactly |
-| Latitude/longitude transposed | **199** | longitude 10.3–11.6, latitude 6.9–8.5 — the state's own bounding box with the axes exchanged |
+| Latitude/longitude transposed | **199** | longitude 10.3-11.6, latitude 6.9-8.5 - the state's own bounding box with the axes exchanged |
 
 Restricted to the 150,948 points that passed QA and were used for coverage: **27** fall
-outside the state polygon — 8 null island and 19 transposed. The two subsets account for
+outside the state polygon - 8 null island and 19 transposed. The two subsets account for
 all 27 exactly.
 
-The state bounding box is longitude 7.000–8.441, latitude 10.343–11.598. A point at
+The state bounding box is longitude 7.000-8.441, latitude 10.343-11.598. A point at
 longitude 11.1003, latitude 7.0660 is not in a neighbouring state; it is the same location
 with the axes swapped.
 
@@ -620,7 +620,7 @@ has one explanation.
 
 ## Why this matters more than 199 points
 
-The count is trivial — 0.02% of the store. The finding is not, for three reasons.
+The count is trivial - 0.02% of the store. The finding is not, for three reasons.
 
 1. **It is the clearest available example of the distinction the question asks for.** A
    settlement with no tracks may have been missed, or the logger may have failed, or the
@@ -632,13 +632,13 @@ The count is trivial — 0.02% of the store. The finding is not, for three reaso
 3. **The transposed points are recoverable, and null island is not.** They are different
    defects that a single "bad coordinate" rule would wrongly merge.
 
-## Proposed rule QA08 — geographic validity
+## Proposed rule QA08 - geographic validity
 
 Two sub-rules, because the dispositions differ:
 
 | Sub-rule | Test | Points | Disposition |
 |---|---|---|---|
-| QA08a null island | `longitude = 0 AND latitude = 0` | 71 | exclude — position is unrecoverable |
+| QA08a null island | `longitude = 0 AND latitude = 0` | 71 | exclude - position is unrecoverable |
 | QA08b transposed | outside the state polygon, but inside it when axes are swapped | 199 | **decision required** |
 
 For QA08b the options are:
@@ -646,7 +646,7 @@ For QA08b the options are:
 - **Exclude.** Safe, costs 199 points (0.02%), and never edits field data. But it discards
   a position we can demonstrate we know.
 - **Correct, flagged and auditable.** Swap the axes, mark the row `corrected_transposed`,
-  retain the original values alongside. The evidence meets any reasonable standard — 198 of
+  retain the original values alongside. The evidence meets any reasonable standard - 198 of
   199 land within 500 m of a contemporaneous fix. Defensible precisely because it is
   recorded rather than silent, and reversible.
 - **Correct only where corroborated.** Apply the swap solely to points whose swapped
@@ -662,7 +662,7 @@ point whose true position is provably known is also a distortion, just a less vi
 
 Stage 02 should gain QA08 and run it **before** attribution, so that geographic validity is
 a stated rule with a count rather than something attribution happens to notice. That the
-defect was found downstream is itself worth reporting — a rule set is only as good as the
+defect was found downstream is itself worth reporting - a rule set is only as good as the
 failure modes its author thought of, and this one was found by asking why a number looked
 wrong.
 
@@ -685,7 +685,7 @@ wrong.
 | **Claimed in the e-tally** | **2,023** | 79.0% |
 | Classified inaccessible before the round | 75 | 2.9% |
 
-Doses: **170,104 reported against a planned under-5 target of 255,931 — 66.5%.** Eight
+Doses: **170,104 reported against a planned under-5 target of 255,931 - 66.5%.** Eight
 settlements carry no denominator at all and are excluded from that ratio rather than
 counted as zero.
 
@@ -696,13 +696,13 @@ store. First match wins.
 
 | Cause class | Claims | % | Doses |
 |---|---|---|---|
-| `confirmed` — tracks put the claiming team there ≥ 5 min | 556 | 27.5% | 34,286 |
-| **`team_elsewhere`** — team had ample tracking that day, none near this settlement | **1,336** | **66.0%** | 123,653 |
-| `near_miss` — a usable fix within 250 m, just outside tolerance | 66 | 3.3% | 6,930 |
-| `brief_presence` — team was there, below the dwell threshold | 37 | 1.8% | 2,955 |
-| `logger_failed` — claiming team had < 60 usable fixes that day | 16 | 0.8% | 2,207 |
-| `not_in_masterlist` — settlement has no coordinate; unverifiable by construction | 7 | 0.3% | 300 |
-| `security_excluded` — classified inaccessible, yet doses reported | 5 | 0.2% | 73 |
+| `confirmed` - tracks put the claiming team there ≥ 5 min | 556 | 27.5% | 34,286 |
+| **`team_elsewhere`** - team had ample tracking that day, none near this settlement | **1,336** | **66.0%** | 123,653 |
+| `near_miss` - a usable fix within 250 m, just outside tolerance | 66 | 3.3% | 6,930 |
+| `brief_presence` - team was there, below the dwell threshold | 37 | 1.8% | 2,955 |
+| `logger_failed` - claiming team had < 60 usable fixes that day | 16 | 0.8% | 2,207 |
+| `not_in_masterlist` - settlement has no coordinate; unverifiable by construction | 7 | 0.3% | 300 |
+| `security_excluded` - classified inaccessible, yet doses reported | 5 | 0.2% | 73 |
 
 ## Three alternative explanations, tested and rejected
 
@@ -733,14 +733,14 @@ usable fix that day sits a median of **3.47 km** from the settlement (p25 1.44 k
 **Supported:** two-thirds of reported claims have no supporting track evidence; the
 claiming team was kilometres away; no other team covered those settlements; and the gap is
 not explained by identifier error, date shift, coordinate offset, or the analyst's
-thresholds — it persists at every dwell value from 1 to 15 minutes.
+thresholds - it persists at every dwell value from 1 to 15 minutes.
 
 **Not supported:** that the doses were not administered. The analysis observes where
 *loggers* were, not where *people* were. At least three benign mechanisms would produce the
 same pattern and cannot be separated with the data supplied:
 
 - the logger stayed with a vehicle or a team leader while members worked on foot;
-- the logger was switched off during work and on during transit — plausible given eight
+- the logger was switched off during work and on during transit - plausible given eight
   loggers ran continuously for three weeks, showing switching discipline was not uniform;
 - one logger per team was issued, but teams split to cover more ground.
 
@@ -751,7 +751,7 @@ logger did not corroborate its report, which is not the same as a team that did 
 ## Which source goes to the Incident Manager
 
 **Neither alone. The e-tally as the operational figure, with the track data as a
-verification overlay — and the disagreement reported, not resolved.**
+verification overlay - and the disagreement reported, not resolved.**
 
 The reasoning:
 
@@ -771,7 +771,7 @@ The reasoning:
 
 **What I would put in front of the Incident Manager:** reported coverage of 66.5% of the
 under-5 target, flagged as unverified; 797 settlements with independent presence evidence;
-and 1,336 claims requiring supervisory confirmation before the round is signed off — with
+and 1,336 claims requiring supervisory confirmation before the round is signed off - with
 the honest statement that the tracking data can neither confirm nor refute them, and that
 the fastest route to an answer is a supervisor spot-check of a sample, not more analysis.
 
@@ -797,31 +797,31 @@ The 75 settlements classified inaccessible on security grounds before the round 
 reached, and including them would manufacture hot spots in exactly the wards the programme
 had already written off.
 
-**2,487 settlements analysed. 444 missed — 17.9%.**
+**2,487 settlements analysed. 444 missed - 17.9%.**
 
 ## Method, stated once in full
 
 | | |
 |---|---|
 | **Statistic** | **Getis-Ord Gi\*** (Ord & Getis 1995), the local form, computed with `esda.getisord.G_Local(star=True)` |
-| **Why this statistic** | The operational question is one-directional — *where do missed settlements concentrate* — and Gi\* answers exactly that, separating hot spots from cold. Local Moran's I detects spatial association of any kind, including outliers, which is a different question |
+| **Why this statistic** | The operational question is one-directional - *where do missed settlements concentrate* - and Gi\* answers exactly that, separating hot spots from cold. Local Moran's I detects spatial association of any kind, including outliers, which is a different question |
 | **Weights** | **Queen contiguity**, row-standardised, zero islands (final analysis). Row standardisation matters: it makes the local weighted *sum* a local weighted *mean*, so Gi\* compares a neighbourhood's missed **rate** against the study-area rate rather than rewarding neighbourhoods that simply contain more settlements |
-| **Significance** | **Conditional permutation, 9,999 draws.** No normality assumption is made — the analytical p-value assumes a distribution this data does not satisfy |
-| **Multiple-testing correction** | **Benjamini–Hochberg false discovery rate**, α = 0.05, implemented directly rather than imported. Testing 40 wards at 5% yields two false positives by construction; testing 2,487 settlements yields ~124 |
-| **Global check** | **Global Moran's I**, same permutation scheme, run first — to confirm spatial structure exists at all before mapping local clusters |
+| **Significance** | **Conditional permutation, 9,999 draws.** No normality assumption is made - the analytical p-value assumes a distribution this data does not satisfy |
+| **Multiple-testing correction** | **Benjamini-Hochberg false discovery rate**, α = 0.05, implemented directly rather than imported. Testing 40 wards at 5% yields two false positives by construction; testing 2,487 settlements yields ~124 |
+| **Global check** | **Global Moran's I**, same permutation scheme, run first - to confirm spatial structure exists at all before mapping local clusters |
 
 Abbreviations used below: **Gi\*** for Getis-Ord Gi\*, **BH FDR** for the
-Benjamini–Hochberg false discovery rate correction.
+Benjamini-Hochberg false discovery rate correction.
 
 ## The analysis was run twice, because the first version was not trustworthy
 
-### Attempt 1 — Gi\* on the binary indicator at settlement level. Rejected.
+### Attempt 1 - Gi\* on the binary indicator at settlement level. Rejected.
 
 | | |
 |---|---|
 | Weights | k-nearest neighbours, k = 8, row-standardised |
 | Inference | conditional permutation, 9,999 draws |
-| Global Moran's I | **0.0032, p = 0.34 — not significant** |
+| Global Moran's I | **0.0032, p = 0.34 - not significant** |
 | Hot spots, raw p ≤ 0.05 | 77 |
 | Hot spots after BH FDR | 8 |
 | "Cold spots" after BH FDR | 516 |
@@ -829,7 +829,7 @@ Benjamini–Hochberg false discovery rate correction.
 The 516 cold spots are an **artefact and are not reported as a finding.** The diagnostic:
 
 - Every one has a pseudo p of exactly **0.00010**, the floor of 9,999 permutations.
-- Their z-scores span only **−0.47 to −0.18** — nowhere near unusual.
+- Their z-scores span only **−0.47 to −0.18** - nowhere near unusual.
 - The binary indicator over 8 neighbours produces just **20 distinct local values** across
   2,487 locations.
 
@@ -842,7 +842,7 @@ permutation distribution, not a cluster. The surviving 8 hot spots carry a maxim
 **Reporting the 516 as cold spots would have been the single biggest error available in
 this question.** They are a property of the arithmetic, not of the campaign.
 
-### Attempt 2 — Gi\* on the ward-level missed *rate*. Reported.
+### Attempt 2 - Gi\* on the ward-level missed *rate*. Reported.
 
 | | |
 |---|---|
@@ -850,8 +850,8 @@ this question.** They are a property of the arithmetic, not of the campaign.
 | Variable | proportion of settlements missed (min 0.039, median 0.174, max 0.340) |
 | Weights | **Queen contiguity**, row-standardised, 0 islands |
 | Inference | conditional permutation, 9,999 draws |
-| Distinct pseudo p-values | **40** — continuous variable, no degeneracy |
-| Global Moran's I | **0.3560, p = 0.0004 — significant** |
+| Distinct pseudo p-values | **40** - continuous variable, no degeneracy |
+| Global Moran's I | **0.3560, p = 0.0004 - significant** |
 | Hot spots, raw p ≤ 0.05 | 15 |
 | **Hot spots after BH FDR** | **3** |
 | Cold spots after BH FDR | 0 |
@@ -859,7 +859,7 @@ this question.** They are a property of the arithmetic, not of the campaign.
 Three reasons this is the right unit: the variable is continuous, so the inference means
 what it claims; the ward is the unit mop-up is actually deployed by; and 40 tests are
 tractable where 2,487 are not. Queen contiguity replaces KNN because wards are polygons
-that tile the study area — shared boundaries are the natural neighbour definition and no
+that tile the study area - shared boundaries are the natural neighbour definition and no
 distance threshold has to be invented.
 
 ## Result
@@ -874,19 +874,19 @@ distance threshold has to be invented.
 
 **227 settlements, 51 of them missed, 31,950 under-5 children in the cluster.**
 
-Baluru dominates the population at stake — 27,137 of the 31,950 — because it is a large
+Baluru dominates the population at stake - 27,137 of the 31,950 - because it is a large
 urban ward. Rate and burden are different quantities and the brief must not conflate them.
 
 ### Highest rate is not the same as hot spot
 
 | Ward | Missed rate | Gi\* z | p | Hot spot? |
 |---|---|---|---|---|
-| W023 Suwade | **0.340** — the highest in the study area | 0.82 | 0.0103 | **No** |
+| W023 Suwade | **0.340** - the highest in the study area | 0.82 | 0.0103 | **No** |
 | W025 Okriba | 0.324 | 0.04 | 0.2322 | No |
 | W031 Satide | 0.308 | 0.99 | 0.0190 | No |
 
 Suwade has the worst missed rate of any ward and is **not** a hot spot, because its
-neighbours do not share the pattern — it is an isolated poor performer, not a cluster. That
+neighbours do not share the pattern - it is an isolated poor performer, not a cluster. That
 distinction is the entire point of using a local spatial statistic rather than a ranking,
 and it changes the response: Suwade needs a ward-level intervention, the Katsuma cluster
 needs an area-level one.
@@ -899,7 +899,7 @@ covered; a settlement outside every hot spot may have been missed entirely. The 
 inference is the ward, and the map must be read at that unit.
 
 **It does not license any statement about an individual child.** Nothing here measures
-vaccination status. "Missed" means no dose was reported and no track confirms a visit — an
+vaccination status. "Missed" means no dose was reported and no track confirms a visit - an
 absence of *evidence about a settlement*, not an observation of any child's status.
 
 **It does not license a causal claim.** The analysis says where missed settlements
@@ -907,7 +907,7 @@ concentrate, not why. Terrain, distance, team assignment, insecurity spillover a
 discipline are all untested candidates.
 
 **It does not license treating the point-level result as corroboration.** The two levels
-disagree — settlement-level Moran's I is not significant, ward-level is strongly so — and
+disagree - settlement-level Moran's I is not significant, ward-level is strongly so - and
 that is not a contradiction to be smoothed over. Individual missed settlements are
 interspersed with covered ones, so there is no clustering *among settlements*; but wards
 differ systematically in their missed rate, and the high-rate wards adjoin one another.
@@ -917,7 +917,7 @@ finding** and would not survive being restated at settlement level.
 **Sensitivity.** The hot-spot set was computed on the both-sources definition of missed. A
 track-only definition would classify far more settlements as missed (1,765 rather than 444)
 and is not used, because 83.7% of usable fixes fall more than a tolerance from any planned
-settlement — a track-only definition measures logger discipline as much as coverage.
+settlement - a track-only definition measures logger discipline as much as coverage.
 
 
 
@@ -930,7 +930,7 @@ settlement — a track-only definition measures logger discipline as much as cov
 # Telling a data artefact from a programmatic failure
 
 The question asks how a settlement with no tracks is distinguished from a settlement that
-was genuinely missed — and what is done when the two cannot be separated. This is the
+was genuinely missed - and what is done when the two cannot be separated. This is the
 consolidated answer. Every row is measured; the underlying working is in the linked
 documents.
 
@@ -945,32 +945,32 @@ For every anomaly, three questions in order:
    demonstrated without going back to the field, the record is repairable. If not, it is
    only excludable.
 3. **If neither question resolves it, what would?** An undecidable case is escalated to the
-   method that *can* decide it — usually a field check — rather than assigned to whichever
+   method that *can* decide it - usually a field check - rather than assigned to whichever
    class looks more likely.
 
 ## What was found, and how it was classified
 
 | # | Observation | Verdict | Evidence that decided it | Disposition |
 |---|---|---|---|---|
-| 1 | Eight loggers report ~36 m accuracy, twenty-four report ~8 m | **Artefact** — equipment tier, **not** urban multipath | The eight report ~36 m in rural Gwarin as well as urban Idi-Oro; the clean twenty-four report ~8 m *inside* Idi-Oro. Stationary scatter confirms the field is honest: 30.7 m actual against 39.2 m reported, versus 7.2 m against 8.0 m | **Not excluded.** Accuracy scales the attribution tolerance instead. A 30 m cut would have removed 62% of those eight teams' tracks and made them appear to have visited nothing |
-| 2 | T14 has 210 distinct minutes on 12 March, ending 07:38 | **Artefact** — logger failure, not absence of work | The failure is *visible in the fix sequence*, not inferred from missing data. The team reported 2,207 doses across 16 settlements that day | Claims from that team-day classed `logger_failed`. The e-tally is the better source for them |
-| 3 | 199 points outside the state | **Artefact — recoverable** | Median 510.7 km from the same team's fixes within ±10 min as supplied; **60.4 m** once the axes are swapped; 198 of 199 within 500 m | **Corrected**, flagged, originals retained. The 1 that failed corroboration was **excluded, not corrected** |
-| 4 | 71 points at exactly (0, 0) | **Artefact — unrecoverable** | Null island. No information survives to reconstruct the true position | **Excluded.** Deliberately *not* merged with row 3 — same symptom, opposite disposition |
-| 5 | 501 further points outside the state | **Neither** — real movement | Median 10.7 km outside the boundary, max 70 km, overwhelmingly post-campaign dates, 428 of 501 from the eight never-switched-off loggers | Excluded from coverage as outside the operational area. Relabelled from "unexplained" once measured |
+| 1 | Eight loggers report ~36 m accuracy, twenty-four report ~8 m | **Artefact** - equipment tier, **not** urban multipath | The eight report ~36 m in rural Gwarin as well as urban Idi-Oro; the clean twenty-four report ~8 m *inside* Idi-Oro. Stationary scatter confirms the field is honest: 30.7 m actual against 39.2 m reported, versus 7.2 m against 8.0 m | **Not excluded.** Accuracy scales the attribution tolerance instead. A 30 m cut would have removed 62% of those eight teams' tracks and made them appear to have visited nothing |
+| 2 | T14 has 210 distinct minutes on 12 March, ending 07:38 | **Artefact** - logger failure, not absence of work | The failure is *visible in the fix sequence*, not inferred from missing data. The team reported 2,207 doses across 16 settlements that day | Claims from that team-day classed `logger_failed`. The e-tally is the better source for them |
+| 3 | 199 points outside the state | **Artefact - recoverable** | Median 510.7 km from the same team's fixes within ±10 min as supplied; **60.4 m** once the axes are swapped; 198 of 199 within 500 m | **Corrected**, flagged, originals retained. The 1 that failed corroboration was **excluded, not corrected** |
+| 4 | 71 points at exactly (0, 0) | **Artefact - unrecoverable** | Null island. No information survives to reconstruct the true position | **Excluded.** Deliberately *not* merged with row 3 - same symptom, opposite disposition |
+| 5 | 501 further points outside the state | **Neither** - real movement | Median 10.7 km outside the boundary, max 70 km, overwhelmingly post-campaign dates, 428 of 501 from the eight never-switched-off loggers | Excluded from coverage as outside the operational area. Relabelled from "unexplained" once measured |
 | 6 | 516 Gi\* "cold spots" at settlement level | **Statistical artefact** | All at pseudo p = 0.00010, the permutation floor, with z of only −0.47 to −0.18. The binary indicator over 8 neighbours yields 20 distinct values across 2,487 sites, so no permutation can beat the minimum | **Not reported as a finding.** Analysis moved to ward level, where the variable is continuous and the inference means what it claims |
-| 7 | 633,207 points outside the campaign window; 585,951 minutes in dispute | **Artefact** — procedural, loggers never switched off | T01 records continuously to 29 March, around the clock at 60-second intervals | Excluded as a *counted* QA rule, never silently at ingest — a two-thirds cut must be visible |
-| 8 | 201 e-tally records with doses exceeding target population | **Programmatic** — reporting or denominator error | Arithmetic, internal to the e-tally | Reported. Not corrected — the denominator may be wrong rather than the numerator, and we cannot tell which |
-| 9 | 5 security-classified settlements reporting doses | **Undecided — programmatic either way** | Could be an out-of-date classification, a keying error, or a team working where it was told not to | **Escalated.** Named in the decision brief as a same-day phone call, not resolved analytically |
+| 7 | 633,207 points outside the campaign window; 585,951 minutes in dispute | **Artefact** - procedural, loggers never switched off | T01 records continuously to 29 March, around the clock at 60-second intervals | Excluded as a *counted* QA rule, never silently at ingest - a two-thirds cut must be visible |
+| 8 | 201 e-tally records with doses exceeding target population | **Programmatic** - reporting or denominator error | Arithmetic, internal to the e-tally | Reported. Not corrected - the denominator may be wrong rather than the numerator, and we cannot tell which |
+| 9 | 5 security-classified settlements reporting doses | **Undecided - programmatic either way** | Could be an out-of-date classification, a keying error, or a team working where it was told not to | **Escalated.** Named in the decision brief as a same-day phone call, not resolved analytically |
 | 10 | 1,336 claims with no corroborating track | **Undecidable from this data** | See below | **Escalated** to a supervisor spot-check |
 
-## Row 10 — the case that cannot be decided, and what was done about it
+## Row 10 - the case that cannot be decided, and what was done about it
 
 Two thirds of reported claims have no supporting track, with the claiming team a median
 **3.47 km** away. Three artefact explanations were tested and **rejected**:
 
 | Hypothesis | Test | Result |
 |---|---|---|
-| Team identifiers differ between the two sources | Were those settlements visited by *another* team the same day? | **1 of 1,336.** Rejected — 100% of confirmed claims match |
+| Team identifiers differ between the two sources | Were those settlements visited by *another* team the same day? | **1 of 1,336.** Rejected - 100% of confirmed claims match |
 | Work happened on a different day | Visited by any team on any day? | **192 of 1,336 (14.4%).** Rejected as a general explanation |
 | Masterlist coordinates are systematically offset | Distance where tracks *do* match | **11.3 m median.** An offset would cluster distances at the offset value |
 
@@ -978,7 +978,7 @@ Two thirds of reported claims have no supporting track, with the claiming team a
 mechanisms produce an identical signature:
 
 - the logger travelled with a vehicle or team leader while members worked on foot;
-- the logger was switched off during work and on during transit — plausible, since eight
+- the logger was switched off during work and on during transit - plausible, since eight
   loggers ran for three weeks straight, so switching discipline was demonstrably uneven;
 - one device per team, but the team split to cover more ground.
 
@@ -993,7 +993,7 @@ cheaper than the analysis already done.
 ## The principle, stated once
 
 **Where the data can decide, it decides and the reasoning is recorded. Where it cannot, the
-uncertainty is named and routed to something that can — never resolved by assumption.**
+uncertainty is named and routed to something that can - never resolved by assumption.**
 
 Concretely, this is why:
 
@@ -1001,7 +1001,7 @@ Concretely, this is why:
   from an equipment property);
 - transposed coordinates were **corrected but only where corroborated**, with the single
   uncorroborated point excluded rather than carried on the strength of the pattern;
-- unevaluable implied speed is stored **NULL** — unknown, not passing;
+- unevaluable implied speed is stored **NULL** - unknown, not passing;
 - the settlement-level cluster result was **discarded rather than reported**, despite being
   the more eye-catching output;
 - and `team_elsewhere` is described as *uncorroborated*, never as *false*.
@@ -1025,29 +1025,29 @@ Concretely, this is why:
 
 
 
-# DECISION BRIEF — where to send 24 hours of mop-up
+# DECISION BRIEF - where to send 24 hours of mop-up
 
 **To:** Incident Manager, Bansara State SIA · **From:** Data and GIS Analytics · **14 March 2026**
-**Round:** 9–13 March 2026 · **Decision needed:** where to deploy, today.
+**Round:** 9-13 March 2026 · **Decision needed:** where to deploy, today.
 
 ---
 
 ## Recommendation
 
-**Daberi and Kungomi first as a single deployment — they share a boundary. Then Baluru.**
+**Daberi and Kungomi first as a single deployment - they share a boundary. Then Baluru.**
 
 | | Ward | LGA | Settlements missed | Under-5 in ward | Why |
 |---|---|---|---|---|---|
-| **1** | Daberi + Kungomi | Katsuma | 20 | 4,813 | Adjacent, confirmed cluster — one team covers both in a day |
+| **1** | Daberi + Kungomi | Katsuma | 20 | 4,813 | Adjacent, confirmed cluster - one team covers both in a day |
 | **2** | Baluru | Idi-Oro | 31 | 27,137 | Largest child population of any hot spot; urban, so travel is quick |
-| **3** | Suwade | Katsuma | 16 | 2,593 | Worst rate in the state (34%) but **isolated** — a ward problem, not an area problem |
+| **3** | Suwade | Katsuma | 16 | 2,593 | Worst rate in the state (34%) but **isolated** - a ward problem, not an area problem |
 
 Suwade is the trap in this data. Its neighbours performed normally, so an area-level
 response there wastes capacity. Fix it as a single ward.
 
 ## What we found
 
-Of **2,487 planned settlements** (excluding 75 classified inaccessible), **444 — 17.9% —
+Of **2,487 planned settlements** (excluding 75 classified inaccessible), **444 - 17.9% -
 have no evidence of being reached**: no doses reported and no GPS track placing a team
 there. Those gaps are not evenly spread. Three wards form a genuine cluster, and that
 holds after allowing for the fact that testing 40 wards throws up false alarms by chance.
@@ -1061,8 +1061,8 @@ at the time, and no other team went there either.
 **This does not mean the vaccinations did not happen.** We measured where *loggers* were,
 not where *people* were. A logger left in a vehicle, switched off during work, or carried
 by one half of a team that split would each produce this exact pattern. We tested and ruled
-out the data explanations — mismatched team numbers, wrong dates, faulty settlement
-coordinates — but cannot rule out those operational ones from GPS alone.
+out the data explanations - mismatched team numbers, wrong dates, faulty settlement
+coordinates - but cannot rule out those operational ones from GPS alone.
 
 **What it means for you: 444 is a floor, not a ceiling.** If a meaningful share of those
 1,336 visits did not happen, the real gap is larger and may sit in different wards than
@@ -1073,7 +1073,7 @@ this map shows.
 1. **Spot-check 30 of the 1,336 unverified claims at random** while mop-up runs. That
    settles more than any further analysis. If they check out, this map is your targeting
    tool; if not, the round needs a different conversation.
-2. **Treat reported coverage — 170,104 doses against a 255,931 target, 66.5% — as
+2. **Treat reported coverage - 170,104 doses against a 255,931 target, 66.5% - as
    unverified** until those checks return.
 3. **Call about the five inaccessible settlements that reported doses.** Either the
    security classification is stale or the reporting is wrong.
@@ -1082,15 +1082,15 @@ this map shows.
 
 | Finding | Confidence |
 |---|---|
-| 444 settlements show no coverage in **either** source | **High** — both sources agree |
-| They cluster in Daberi, Kungomi and Baluru | **High** — survives correction for multiple testing |
-| Reported coverage of 66.5% | **Low** — two-thirds uncorroborated |
-| The true missed total is 444 | **Low** — a floor; the ceiling is unknown |
+| 444 settlements show no coverage in **either** source | **High** - both sources agree |
+| They cluster in Daberi, Kungomi and Baluru | **High** - survives correction for multiple testing |
+| Reported coverage of 66.5% | **Low** - two-thirds uncorroborated |
+| The true missed total is 444 | **Low** - a floor; the ceiling is unknown |
 
 This brief says **nothing about any individual child** (no vaccination status was
 measured), **nothing reliable about any individual settlement** (the finding holds at ward
-level — a settlement inside a hot-spot ward may have been covered perfectly), **nothing
-about why** the gaps concentrate, and **nothing about any team's honesty** — poor
+level - a settlement inside a hot-spot ward may have been covered perfectly), **nothing
+about why** the gaps concentrate, and **nothing about any team's honesty** - poor
 corroboration describes a logger, not the people carrying it.
 
 *From 956,702 GPS fixes across 160 logger files, of which 150,940 (16.2%) were usable after
@@ -1102,7 +1102,7 @@ quality control. Method and limitations in the accompanying technical note.*
 <w:p><w:r><w:br w:type="page"/></w:r></w:p>
 ```
 
-# PART 2 — Question 3
+# PART 2 - Question 3
 
 ## Converting a paper questionnaire into a digital form
 
@@ -1120,7 +1120,7 @@ Each entry states the disposition and why. Numbering follows the paper form.
 
 ## A. Internal contradictions
 
-### A1 — Column (7) is "office use, leave blank", yet 3.02 asks the enumerator to read it
+### A1 - Column (7) is "office use, leave blank", yet 3.02 asks the enumerator to read it
 **Severity: high. This one stops the form working.**
 
 The roster instruction says *"Column (7) is completed by the office and must be left blank
@@ -1131,13 +1131,13 @@ The enumerator is instructed to read a total from a column they were forbidden t
 On paper a clerk resolves this silently. A digital form cannot.
 
 **Disposition: resolved in the form, and it resolves itself.** Eligibility is derived from
-the roster ages rather than transcribed — the count of residents with age 9–59 completed
+the roster ages rather than transcribed - the count of residents with age 9-59 completed
 months is calculated. 3.02 becomes a read-only calculated field, and column (7) disappears
 as a field-entered concept. **Escalated as a note** because the paper instrument's
 intent is ambiguous: it is not certain whether the office was meant to determine
 eligibility on a different rule.
 
-### A2 — 4.08 asks for a three-way distinction and offers a two-way code
+### A2 - 4.08 asks for a three-way distinction and offers a two-way code
 **Severity: medium.**
 
 *"Record whether a card, a card copy, or an electronic record was seen by you."* Coding
@@ -1153,14 +1153,14 @@ two-way code and adds an optional follow-up capturing document type **only when
 `card_seen = 1`**, flagged in the codebook as an addition not present on paper. Recommend
 the paper form be corrected at the next revision.
 
-### A3 — Section 5 says "every eligible child", 5.01 restricts to 12 months and over
+### A3 - Section 5 says "every eligible child", 5.01 restricts to 12 months and over
 **Severity: medium.**
 
 Section 5's instruction reads *"A stool specimen is sought from every eligible child."*
-Eligible children are 9–59 months (per Section 4). But 5.01 asks *"Is the child aged 12
+Eligible children are 9-59 months (per Section 4). But 5.01 asks *"Is the child aged 12
 completed months or older?"* with `No → Section 6`.
 
-Children aged 9–11 months are eligible for Section 4 and ineligible for a specimen. The
+Children aged 9-11 months are eligible for Section 4 and ineligible for a specimen. The
 instruction and the filter contradict each other.
 
 **Disposition: resolved in the form.** 5.01 is calculated from `age_months`, not asked, so
@@ -1168,7 +1168,7 @@ the filter governs and the contradiction cannot produce inconsistent data. The i
 text is corrected to "every eligible child aged 12 months or older". **Escalated** so the
 paper wording is fixed.
 
-### A4 — Roster holds 12 lines; household size accepts two digits
+### A4 - Roster holds 12 lines; household size accepts two digits
 **Severity: medium.**
 
 3.01 records household size in a two-digit field (up to 99). The roster table has **12
@@ -1180,7 +1180,7 @@ disagree by construction, and the paper form gives the enumerator nowhere to put
 constraint vanishes. The consistency check between 3.01 and the roster count (see F4) then
 becomes meaningful rather than an artefact of table height.
 
-### A5 — Section 4 page number is one digit; eligible-children count is two
+### A5 - Section 4 page number is one digit; eligible-children count is two
 **Severity: low.**
 
 *"Section 4 page number ⌷ of ⌷"* allows 9 children; 3.02 accepts up to 99. Same class of
@@ -1192,26 +1192,26 @@ error as A4, and it disappears with a repeat group.
 
 ## B. Missing or ambiguous skip instructions
 
-### B1 — 5.02 has no skip instruction at all
+### B1 - 5.02 has no skip instruction at all
 **Severity: high. This is the missing skip the assessment refers to.**
 
-5.02 asks *"Was a stool specimen obtained from this child?"* `Yes 1 / No 2` — and the SKIP
+5.02 asks *"Was a stool specimen obtained from this child?"* `Yes 1 / No 2` - and the SKIP
 column is **empty**.
 
 The following questions are 5.03 label, 5.04 time into cold box, 5.05 cold-box
 temperature, then 5.06 *reason no specimen was obtained*. So:
 
 - if a specimen **was** obtained, 5.06 should not be asked, and it has no filter;
-- if a specimen was **not** obtained, 5.03–5.05 are unanswerable, and there is no skip.
+- if a specimen was **not** obtained, 5.03-5.05 are unanswerable, and there is no skip.
 
 On paper, a clerk diagonal-lines the inapplicable boxes. In a digital form this must be
 explicit or the data is uninterpretable.
 
-**Disposition: resolved in the form.** `5.02 = 1` → 5.03–5.05 required, 5.06–5.07 hidden.
-`5.02 = 2` → 5.03–5.05 hidden, 5.06 required. This does not change what is asked of any
+**Disposition: resolved in the form.** `5.02 = 1` → 5.03-5.05 required, 5.06-5.07 hidden.
+`5.02 = 2` → 5.03-5.05 hidden, 5.06 required. This does not change what is asked of any
 respondent; it enforces the logic the paper form leaves to a clerk.
 
-### B2 — 5.01 skips to Section 6, abandoning the remaining children
+### B2 - 5.01 skips to Section 6, abandoning the remaining children
 **Severity: high.**
 
 5.01 `No → Section 6`. Section 5 is completed **per child**; Section 6 is household-level
@@ -1224,8 +1224,8 @@ The skip target is wrong: it should be *next child*, not *Section 6*.
 "skip" means "end this child's iteration". The paper defect cannot occur. **Escalated**,
 because on paper this will already have cost data in previous rounds.
 
-### B3 — 2.01 records that consent was not read, and proceeds anyway
-**Severity: high — ethical, not just structural.**
+### B3 - 2.01 records that consent was not read, and proceeds anyway
+**Severity: high - ethical, not just structural.**
 
 2.01 *"Consent statement read aloud to the respondent in full?"* `Yes 1 / No 2`, no skip.
 A `No` is recorded and the interview continues to 2.02, where consent may then be "given".
@@ -1242,7 +1242,7 @@ Flagged to the ethics committee as a paper-form correction.
 
 ## C. Data the paper design permits that cannot be analysed
 
-### C1 — 4.13 discards multiple antibiotics in an antimicrobial resistance survey
+### C1 - 4.13 discards multiple antibiotics in an antimicrobial resistance survey
 **Severity: high, analytically.**
 
 *"Which antibiotic was taken? ... Where more than one was taken, record the most recent."*
@@ -1253,33 +1253,33 @@ discards it, keeping one drug with no record that others existed.
 
 **Disposition: escalated, not changed.** Converting to select-multiple changes what is
 asked and what the variable means, so it cannot be done unilaterally on an approved
-instrument. The form adds **one** yes/no — *was more than one antibiotic taken?* — which
+instrument. The form adds **one** yes/no - *was more than one antibiotic taken?* - which
 does not alter 4.13 but lets the analysis know when the single code is incomplete.
 Recommended as a priority correction before the next round.
 
-### C2 — 6.07 allows "None of these" together with owned assets
+### C2 - 6.07 allows "None of these" together with owned assets
 **Severity: medium.**
 
-*"Which of the following does this household own? Record all that apply."* Options A–G are
+*"Which of the following does this household own? Record all that apply."* Options A-G are
 assets; **H is "None of these"**. Nothing prevents H being marked alongside D.
 
 **Disposition: resolved in the form.** H is made exclusive by constraint. This corrects a
 logical impossibility rather than changing the question.
 
-### C3 — 5.05 cannot record a cold-chain failure
+### C3 - 5.05 cannot record a cold-chain failure
 **Severity: medium, and easy to miss.**
 
-Cold-box temperature is captured as `⌷ . ⌷ °C` — one digit and one decimal, so 0.0 to 9.9.
+Cold-box temperature is captured as `⌷ . ⌷ °C` - one digit and one decimal, so 0.0 to 9.9.
 
-The acceptable range is roughly 2–8 °C, so the field holds valid readings comfortably. It
+The acceptable range is roughly 2-8 °C, so the field holds valid readings comfortably. It
 **cannot record a failure**: a box at 15.0 °C, or one that has frozen below zero, has no
 representable value. The field can only record success, which makes it useless as a
 quality control.
 
 **Disposition: escalated, and widened in the form** to accept −20.0 to 40.0 with a warning
-outside 2–8. Widening a measurement range does not change what is asked.
+outside 2-8. Widening a measurement range does not change what is asked.
 
-### C4 — 1.05 collects an alternative settlement name as free text
+### C4 - 1.05 collects an alternative settlement name as free text
 **Severity: low.**
 
 Useful operationally, unanalysable as supplied, and it will produce spelling variants.
@@ -1293,35 +1293,35 @@ intended for analysis.
 The completion notes define: **8 / 98** = does not know; **9 / 99** = asked, no answer
 obtained; **96** = Other. Three collisions follow from that rule.
 
-### D1 — 6.02 codes 8 AND 9 both collide
+### D1 - 6.02 codes 8 AND 9 both collide
 **Severity: high.**
 
 **Corrected after a systematic scan.** This entry originally named code 9 only.
 `scan_sentinels.py` checks every coding category against the declared sentinels
-and found **six collisions across four questions**, not three — code `8` also
+and found **six collisions across four questions**, not three - code `8` also
 collides in both 6.01 and 6.02 (`Bucket` and `Unprotected spring` respectively).
 Written from reading, the first pass missed them. See `docs/coding_scheme.md`
 for the full table; the scan is now the authority.
 
 6.02 has nine categories and its ninth is `No facility or bush . . . 9`. In a single-digit
-field, 9 is the standard no-answer sentinel. **Open defecation — the single most important
-category in a sanitation question — is indistinguishable from a missing answer.**
+field, 9 is the standard no-answer sentinel. **Open defecation - the single most important
+category in a sanitation question - is indistinguishable from a missing answer.**
 
 **Disposition: resolved in storage, not in the question.** The category set and the numbers
 read to the respondent are unchanged. The digital form stores the response and the
 non-response reason in **separate fields**, so `9` always means "no facility or bush" and
 missingness is carried elsewhere. Escalated for paper renumbering.
 
-### D2 — 6.01 code 9 is "Rainwater", with an 11-category list
+### D2 - 6.01 code 9 is "Rainwater", with an 11-category list
 **Severity: medium.**
 
 Same mechanism. The list runs to 11, so the field is arguably two-digit and the sentinel
-would be 99 — but the form does not say so, and `9` is genuinely ambiguous between
+would be 99 - but the form does not say so, and `9` is genuinely ambiguous between
 "rainwater" and "no answer" for anyone applying the completion note literally.
 
 **Disposition: as D1.** Sentinels never share a field with substantive values.
 
-### D3 — 99 is both "Not measured" and a plausible child height
+### D3 - 99 is both "Not measured" and a plausible child height
 **Severity: high. This is the sentinel-inside-a-measurement case the brief warns about.**
 
 4.06 records length or height as `⌷⌷⌷ . ⌷ cm` with `Not measured . . . 99`.
@@ -1340,7 +1340,7 @@ storage decision in the form.
 
 ## E. Problems with the external files, not the questionnaire
 
-### E1 — The medicine list does not exist
+### E1 - The medicine list does not exist
 **Severity: high. Blocking.**
 
 4.13 says *"Record from the medicine list."* The data pack README states the reference
@@ -1356,10 +1356,10 @@ coded lookup without the codelist. The form implements it as a coded select agai
 **placeholder list built from the WHO AWaRe classification**, clearly marked as a
 substitute, so the mechanism is demonstrable and the real list can be dropped in by
 replacing one CSV. Every occurrence is flagged in the codebook. **The real list must be
-obtained before deployment** — a substituted codelist would silently recode the AMR
+obtained before deployment** - a substituted codelist would silently recode the AMR
 variable.
 
-### E2 — Code-box widths do not match the identifiers they hold
+### E2 - Code-box widths do not match the identifiers they hold
 **Severity: low, but it affects validation.**
 
 1.02 LGA `Code ⌷⌷⌷` against actual `LGA02` (five characters); 1.03 Ward `⌷⌷⌷` against
@@ -1369,17 +1369,17 @@ The boxes plausibly hold the numeric part with the prefix implied, but the form 
 say so. **Disposition: resolved.** All three become cascading selects from the reference
 files, so codes are chosen rather than typed and the width question disappears.
 
-### E3 — The check digit can be `X`, and the paper form provides a digit box
+### E3 - The check digit can be `X`, and the paper form provides a digit box
 **Severity: medium.**
 
 `specimen_label_allocation.csv` gives the scheme as *"Modulus 11, weights 2 to 7 applied
 right to left, remainder 10 recorded as X"*. Label format at 5.03 is `BSN ⌷⌷⌷⌷⌷⌷ - ⌷`.
 
 Roughly one label in eleven carries a check character of `X`, which a digit box cannot
-hold. **Disposition: resolved in the form** — the check character field accepts `0–9` and
+hold. **Disposition: resolved in the form** - the check character field accepts `0-9` and
 `X`. Escalated for the paper form.
 
-### E4 — Supervisor codes legitimately use the `ENU` prefix
+### E4 - Supervisor codes legitimately use the `ENU` prefix
 **Not a defect. Recorded so it is not "fixed".**
 
 7.04 labels the supervisor field `ENU ⌷⌷⌷`, which looks like a copy-paste error from 1.08.
@@ -1391,23 +1391,23 @@ whose role is supervisor, and leaves the prefix alone.
 
 ## F. Tension between the questionnaire and the stated operating conditions
 
-### F1 — The form says fieldwork runs 1–30 June; the operating conditions say 14 days
+### F1 - The form says fieldwork runs 1-30 June; the operating conditions say 14 days
 The header reads *"Fieldwork period 1 to 30 June 2026."* The brief states fieldwork runs
 14 days.
 
-**Disposition:** the date constraint uses **1–30 June**, the ethics-approved window, since
+**Disposition:** the date constraint uses **1-30 June**, the ethics-approved window, since
 narrowing it could reject a legitimate submission if the 14 days shift. The 14-day
 expectation is enforced as a **soft warning**, not a block. Recorded in the constraint
 register as a deliberate choice with the reasoning.
 
-### F2 — Names are collected where line numbers would serve
+### F2 - Names are collected where line numbers would serve
 Roster column (2) and 4.02 both collect *"name or initials"*, alongside GPS to six decimal
 places at the dwelling entrance, structure number, and the previous round's household
 identifier.
 
 Together these identify a specific dwelling and the children in it. **Disposition: raised
 under data protection** (see the data protection note) rather than as a form defect. The
-recommendation is that 4.02 be dropped entirely — it duplicates the roster line reference
+recommendation is that 4.02 be dropped entirely - it duplicates the roster line reference
 at 4.01, which is sufficient to link child to roster.
 
 ---
@@ -1459,7 +1459,7 @@ sentinel used **correctly** as its own category (`8 = Do not know` at 1.12, 4.10
 | **6.01** Drinking water | `9` | Rainwater | No answer obtained | High |
 | **6.02** Toilet facility | `8` | Bucket | Do not know | High |
 | **6.02** Toilet facility | `9` | **No facility or bush** | No answer obtained | **Highest** |
-| **4.05** Weight | `99` | — (sentinel inside a measurement) | Not measured | High |
+| **4.05** Weight | `99` | - (sentinel inside a measurement) | Not measured | High |
 | **4.06** Height | `99` | **99.0 cm is an ordinary height** | Not measured | **Highest** |
 
 Two of these are worse than the rest:
@@ -1476,7 +1476,7 @@ entirely typical. A measured child and an unmeasured child are recorded
 identically, and no amount of downstream cleaning can separate them.
 
 **My earlier defect report understated this.** It named 6.01 code 9, 6.02 code 9
-and the 99 measurements, and missed code `8` in both 6.01 and 6.02 — because it
+and the 99 measurements, and missed code `8` in both 6.01 and 6.02 - because it
 was written from reading rather than scanning. The scan is now in the repository
 and is the authority.
 
@@ -1517,8 +1517,8 @@ construction rather than by remembering to filter.
 
 ### 2. Categorical answers: values re-based off the sentinel range
 
-The choice lists for 6.01 and 6.02 are stored with prefixed values —
-`w01`–`w11`, `t01`–`t09` — rather than `1`–`11` and `1`–`9`.
+The choice lists for 6.01 and 6.02 are stored with prefixed values -
+`w01`-`w11`, `t01`-`t09` - rather than `1`-`11` and `1`-`9`.
 
 The categories, their order, and the numbers **read aloud to the respondent** are
 unchanged, so paper and digital rounds remain comparable. What changes is the
@@ -1531,7 +1531,7 @@ prefixing.
 ### 3. "Do not know" stays a first-class answer
 
 Where the paper form offers `8 = Do not know`, the digital form keeps it as an
-explicit choice — because *the respondent not knowing* is a substantive finding,
+explicit choice - because *the respondent not knowing* is a substantive finding,
 particularly for 4.15 (was the antibiotic obtained without prescription) and
 6.04 (were antibiotics given to livestock). It is stored as `8`, matching paper.
 
@@ -1577,7 +1577,7 @@ doorstep instead.
 
 ## The two the question requires
 
-### 1. Stated household size against the roster — **warns**
+### 1. Stated household size against the roster - **warns**
 
 ```
 3.01 = "How many people usually live in this household?"
@@ -1593,7 +1593,7 @@ When they disagree, a warning names both numbers:
 resident may be absent and the respondent unable to give their age or
 relationship; a household may include someone the respondent counts and the
 enumerator cannot describe. Blocking would leave the enumerator with one way
-out — **invent a line to clear the error** — and a fabricated roster row is
+out - **invent a line to clear the error** - and a fabricated roster row is
 worse than a recorded discrepancy.
 
 So the discrepancy is surfaced, recorded, and left in the data where the
@@ -1604,7 +1604,7 @@ two digits, so a household of fifteen produces a discrepancy the paper form
 cannot even represent (defect A4). Here the repeat is unbounded, so the check
 measures a real disagreement rather than an artefact of table height.
 
-### 2. Stated eligible children against child modules completed — **cannot disagree**
+### 2. Stated eligible children against child modules completed - **cannot disagree**
 
 The paper form asks the enumerator to read a count from an office-use column
 (3.02, defect A1), then to complete that many Section 4 pages, and relies on the
@@ -1624,21 +1624,21 @@ quantity, so a check would compare a number to itself.
 **This is the stronger form of the requirement.** A consistency check that can
 fail is a check someone must monitor; a design where the inconsistency is
 unrepresentable needs no monitoring. Where that was achievable it was preferred,
-and where it was not — as in check 1 — the check warns and records.
+and where it was not - as in check 1 - the check warns and records.
 
 ## Further checks, not required but cheap once the structure exists
 
 | Check | Rule | Action | Why |
 |---|---|---|---|
-| Child module points at an eligible child | `indexed-repeat(${r_eligible}, ${roster}, ${q4_01_line}) = 1` | **blocks** | The paper form cannot verify 4.01 at all — a module can point at an adult |
+| Child module points at an eligible child | `indexed-repeat(${r_eligible}, ${roster}, ${q4_01_line}) = 1` | **blocks** | The paper form cannot verify 4.01 at all - a module can point at an adult |
 | Specimen eligibility follows recorded age | `q5_01` calculated from `q4_03_age_months` | derived | Removes the 5.01 contradiction (defect A3) |
 | Measurement position against age | recumbent < 24 months | **warns** | WHO convention; warns because a child who cannot stand is legitimately measured recumbent |
-| Weight and height against age | WHO growth standards | **warns** | Clinical implausibility must never block — see the constraint register |
-| Label serial within the team's allocation | `range_start`–`range_end` for the signed-in team | **blocks** | Catches another team's book, which the check digit cannot |
+| Weight and height against age | WHO growth standards | **warns** | Clinical implausibility must never block - see the constraint register |
+| Label serial within the team's allocation | `range_start`-`range_end` for the signed-in team | **blocks** | Catches another team's book, which the check digit cannot |
 | Label unique within the submission | `count(...) = 1` | **blocks** | Same label for two children in one household |
 | Enumerator LGA against assignment | `staff_roster.csv` | **blocks** | Relaxed for supervisors |
-| Visit date within the fieldwork window | 1–30 June 2026 | **blocks** | Catches a wrong device date |
-| Cold-box temperature against 2–8 °C | | **warns** + instructs | Blocking would leave the failure unrecorded, which is the defect being fixed |
+| Visit date within the fieldwork window | 1-30 June 2026 | **blocks** | Catches a wrong device date |
+| Cold-box temperature against 2-8 °C | | **warns** + instructs | Blocking would leave the failure unrecorded, which is the defect being fixed |
 
 ## The pattern
 
@@ -1659,11 +1659,11 @@ connectivity, which matters given nine days offline.
 Three things are deliberately left to back-office QA rather than enforced in the
 form:
 
-- **Duplicate labels beyond one submission of history** — impossible on device
+- **Duplicate labels beyond one submission of history** - impossible on device
   (`docs/label_reuse.md`).
-- **Fabrication patterns** — only visible across submissions and across
+- **Fabrication patterns** - only visible across submissions and across
   enumerators, so they belong in the daily check (`docs/fabrication_detection.md`).
-- **GPS plausibility against the selected settlement** — not enforced, because a
+- **GPS plausibility against the selected settlement** - not enforced, because a
   settlement centroid is not a household location and a geofence would block
   legitimate dwellings at the edge of a settlement. Better handled as a
   back-office flag than a doorstep block.
@@ -1676,11 +1676,11 @@ form:
 
 
 
-# Constraint register — Form HH/2026/v1
+# Constraint register - Form HH/2026/v1
 
 **Generated** by `build_register.py` from `build_form.py` (the form) and
 `constraint_sources.py` (the justifications). It is not maintained by hand,
-and **the build fails if any rule in the form has no documented source** —
+and **the build fails if any rule in the form has no documented source** -
 so a constraint cannot be added without stating where its value came from.
 
 16 blocking constraints · 6 warnings · 22 rules documented
@@ -1694,23 +1694,23 @@ so a constraint cannot be added without stating where its value came from.
 | Published standard | Named, external and checkable |
 | **My judgement** | Mine, with reasoning. Never left unlabelled. |
 
-## Blocking versus warning — and why the split matters
+## Blocking versus warning - and why the split matters
 
 A rule **blocks** only when continuing would produce data that is
 meaningless or unsafe. Everything else **warns**, because a block that an
 enumerator cannot satisfy honestly is a block they will satisfy
-dishonestly — inventing a roster line to clear an error is worse than the
+dishonestly - inventing a roster line to clear an error is worse than the
 error. There is exactly one hard block on a judgement call in this form:
 the consent statement at 2.01.
 
-Two rules are deliberately **wider** than clinical plausibility — child
+Two rules are deliberately **wider** than clinical plausibility - child
 weight and height. Their hard bounds are typo guards; implausibility is
 raised as a warning. A clinical range enforced as a block would delete the
 severely malnourished children the survey exists to count.
 
 ## Blocking constraints
 
-### `pin_entered` — Enter your 4-digit PIN
+### `pin_entered` - Enter your 4-digit PIN
 
 | | |
 |---|---|
@@ -1721,7 +1721,7 @@ severely malnourished children the survey exists to count.
 | **Source** | Reference data |
 | **Detail** | 4-digit PIN held per enumerator in staff_roster.csv. The paper form has no equivalent: 1.08 is a code anyone can write. |
 
-### `q1_02_lga` — 1.02 Local Government Area
+### `q1_02_lga` - 1.02 Local Government Area
 
 | | |
 |---|---|
@@ -1732,7 +1732,7 @@ severely malnourished children the survey exists to count.
 | **Source** | Reference data |
 | **Detail** | staff_roster.csv assigned_lga. Relaxed for supervisors, who legitimately move between LGAs. |
 
-### `q1_06_structure` — 1.06 Structure number painted on the dwelling
+### `q1_06_structure` - 1.06 Structure number painted on the dwelling
 
 | | |
 |---|---|
@@ -1743,7 +1743,7 @@ severely malnourished children the survey exists to count.
 | **Source** | Paper form |
 | **Detail** | 1.06 provides three coding boxes, so 1-999. |
 
-### `q1_07_hh_serial` — 1.07 Household serial number within the settlement
+### `q1_07_hh_serial` - 1.07 Household serial number within the settlement
 
 | | |
 |---|---|
@@ -1754,7 +1754,7 @@ severely malnourished children the survey exists to count.
 | **Source** | Paper form |
 | **Detail** | 1.07 provides three coding boxes, so 1-999. |
 
-### `q1_10_visit_date` — 1.10 Date of visit
+### `q1_10_visit_date` - 1.10 Date of visit
 
 | | |
 |---|---|
@@ -1765,7 +1765,7 @@ severely malnourished children the survey exists to count.
 | **Source** | Paper form |
 | **Detail** | Header states 'Fieldwork period 1 to 30 June 2026'. The operating conditions say fieldwork runs 14 days, which is narrower. The ETHICS-APPROVED window is enforced as the hard constraint and the 14-day expectation is a soft warning, because a hard 14-day rule would reject legitimate submissions if the schedule shifts. |
 
-### `q2_01_statement_read` — 2.01 Consent statement read aloud to the respondent in full?
+### `q2_01_statement_read` - 2.01 Consent statement read aloud to the respondent in full?
 
 | | |
 |---|---|
@@ -1776,7 +1776,7 @@ severely malnourished children the survey exists to count.
 | **Source** | **My judgement** |
 | **Detail** | The paper form records 'No' and continues to 2.02, where consent may then be given. Consent recorded after an unread statement is not informed consent. This is the ONLY hard block in the form; every other rule warns. Escalated to the ethics committee as a paper-form correction. See defect B3. |
 
-### `q3_01_hh_size` — 3.01 How many people usually live in this household?
+### `q3_01_hh_size` - 3.01 How many people usually live in this household?
 
 | | |
 |---|---|
@@ -1787,7 +1787,7 @@ severely malnourished children the survey exists to count.
 | **Source** | **My judgement** |
 | **Detail** | Upper bound 40. The paper field accepts two digits (to 99) and the paper roster holds 12 lines, so the instrument itself is inconsistent (defect A4). 40 is set well above any plausible single household while still catching a slipped digit. It is my judgement, not a published figure. A household above 40 is referred to the supervisor rather than silently truncated. |
 
-### `r_age_years` — (5) Age in completed years
+### `r_age_years` - (5) Age in completed years
 
 | | |
 |---|---|
@@ -1798,7 +1798,7 @@ severely malnourished children the survey exists to count.
 | **Source** | Paper form |
 | **Detail** | Roster instruction: ages in YEARS for residents five and over, MONTHS for under-fives. Lower bound 5 enforces that split. Upper bound 120 is my judgement as an implausibility guard. |
 
-### `r_age_months` — (6) Age in completed months
+### `r_age_months` - (6) Age in completed months
 
 | | |
 |---|---|
@@ -1809,7 +1809,7 @@ severely malnourished children the survey exists to count.
 | **Source** | Paper form |
 | **Detail** | Roster instruction, column (6): 'under 5 only', so 0-59 completed months. |
 
-### `q4_01_line` — 4.01 Line number of this child in the Section 3 roster
+### `q4_01_line` - 4.01 Line number of this child in the Section 3 roster
 
 | | |
 |---|---|
@@ -1820,7 +1820,7 @@ severely malnourished children the survey exists to count.
 | **Source** | Paper form |
 | **Detail** | 4.01 asks for the roster line number. The paper form cannot check it; indexed-repeat() validates against the roster itself. |
 
-### `q4_05_weight_kg` — 4.05 Weight in kg
+### `q4_05_weight_kg` - 4.05 Weight in kg
 
 | | |
 |---|---|
@@ -1831,7 +1831,7 @@ severely malnourished children the survey exists to count.
 | **Source** | **My judgement** |
 | **Detail** | Hard bounds 2.0-30.0 kg are a TYPO guard, deliberately wider than clinical plausibility, so that a genuinely severely wasted child is never blocked from being recorded. Clinical implausibility is handled by a separate soft warning against WHO Child Growth Standards, which flags rather than blocks. Blocking on clinical range would delete the very cases the survey exists to find. |
 
-### `q4_06_height_cm` — 4.06 Length or height in cm
+### `q4_06_height_cm` - 4.06 Length or height in cm
 
 | | |
 |---|---|
@@ -1842,7 +1842,7 @@ severely malnourished children the survey exists to count.
 | **Source** | **My judgement** |
 | **Detail** | Hard bounds 45.0-130.0 cm on the same principle as weight: a typo guard, not a clinical filter, with WHO-based implausibility raised as a warning. |
 
-### `q5_03_label_serial` — 5.03 Specimen label serial (6 digits, after BSN)
+### `q5_03_label_serial` - 5.03 Specimen label serial (6 digits, after BSN)
 
 | | |
 |---|---|
@@ -1853,7 +1853,7 @@ severely malnourished children the survey exists to count.
 | **Source** | Reference data |
 | **Detail** | range_start and range_end per team in specimen_label_allocation.csv. Six digits enforced by regex. |
 
-### `q5_03_check_digit` — 5.03 Check character (after the hyphen)
+### `q5_03_check_digit` - 5.03 Check character (after the hyphen)
 
 | | |
 |---|---|
@@ -1864,7 +1864,7 @@ severely malnourished children the survey exists to count.
 | **Source** | Reference data |
 | **Detail** | Scheme stated in specimen_label_allocation.csv: 'Modulus 11, weights 2 to 7 applied right to left, remainder 10 recorded as X'. The check character field accepts X as well as 0-9, which the paper form's digit box cannot (defect E3). |
 
-### `q5_05_coldbox_temp` — 5.05 Temperature shown on the cold box thermometer
+### `q5_05_coldbox_temp` - 5.05 Temperature shown on the cold box thermometer
 
 | | |
 |---|---|
@@ -1875,7 +1875,7 @@ severely malnourished children the survey exists to count.
 | **Source** | **My judgement** |
 | **Detail** | Widened to -20.0 to 40.0 as a device-range guard. The acceptable 2-8 degree range is enforced as a WARNING that tells the enumerator to notify their supervisor, not as a block - blocking would leave the failure unrecorded, which is the defect being fixed. See defect C3. |
 
-### `q6_07_assets` — 6.07 Which of the following does this household own?
+### `q6_07_assets` - 6.07 Which of the following does this household own?
 
 | | |
 |---|---|
@@ -1888,7 +1888,7 @@ severely malnourished children the survey exists to count.
 
 ## Warnings
 
-### `roster_mismatch_note` — ⚠ You recorded ${q3_01_hh_size} usual residents but listed ${roster_count}. Check the roster before continuing.
+### `roster_mismatch_note` - ⚠ You recorded ${q3_01_hh_size} usual residents but listed ${roster_count}. Check the roster before continuing.
 
 | | |
 |---|---|
@@ -1898,7 +1898,7 @@ severely malnourished children the survey exists to count.
 | **Source** | **My judgement** |
 | **Detail** | Required by the question: reconcile stated household size against the roster. Implemented as a WARNING, not a block: the two legitimately differ when a usual resident is absent and the enumerator cannot obtain their details. Blocking would push enumerators to invent a line to clear the error. |
 
-### `weight_implausible_warn` — ⚠ This weight is outside the usual range for a child aged ${q4_03_age_months} months. Re-weigh to confirm, then record what you measure.
+### `weight_implausible_warn` - ⚠ This weight is outside the usual range for a child aged ${q4_03_age_months} months. Re-weigh to confirm, then record what you measure.
 
 | | |
 |---|---|
@@ -1908,7 +1908,7 @@ severely malnourished children the survey exists to count.
 | **Source** | Published standard |
 | **Detail** | WHO Child Growth Standards, approximately -4 SD to +4 SD across 9-59 months. Warns; never blocks. |
 
-### `height_implausible_warn` — ⚠ This height is outside the usual range for a child aged ${q4_03_age_months} months. Re-measure to confirm, then record what you measure.
+### `height_implausible_warn` - ⚠ This height is outside the usual range for a child aged ${q4_03_age_months} months. Re-measure to confirm, then record what you measure.
 
 | | |
 |---|---|
@@ -1918,7 +1918,7 @@ severely malnourished children the survey exists to count.
 | **Source** | Published standard |
 | **Detail** | WHO Child Growth Standards, approximately -4 SD to +4 SD across 9-59 months. Warns; never blocks. |
 
-### `q4_07_position_warn` — ⚠ Convention is recumbent below 24 months and standing at 24 months and above. Confirm this was intended.
+### `q4_07_position_warn` - ⚠ Convention is recumbent below 24 months and standing at 24 months and above. Confirm this was intended.
 
 | | |
 |---|---|
@@ -1928,7 +1928,7 @@ severely malnourished children the survey exists to count.
 | **Source** | Published standard |
 | **Detail** | WHO Child Growth Standards: recumbent length below 24 months, standing height at 24 months and above. Warns rather than blocks, because a child who cannot stand is legitimately measured recumbent at any age. |
 
-### `q4_13_placeholder_warning` — ⚠ PLACEHOLDER MEDICINE LIST - NOT FOR DEPLOYMENT. The codelist referenced by the paper form was not supplied. See defect E1.
+### `q4_13_placeholder_warning` - ⚠ PLACEHOLDER MEDICINE LIST - NOT FOR DEPLOYMENT. The codelist referenced by the paper form was not supplied. See defect E1.
 
 | | |
 |---|---|
@@ -1938,7 +1938,7 @@ severely malnourished children the survey exists to count.
 | **Source** | **My judgement** |
 | **Detail** | The medicine list referenced by 4.13 is absent from the data pack (defect E1). The substitute uses WHO ATC codes, which cannot be confused with the two-digit local codes the paper form expects, so placeholder data is self-identifying. This banner is the second guard: the substitution is visible at the point of capture, not only in documentation nobody reads in the field. |
 
-### `q5_05_temp_warn` — ⚠ Temperature is outside 2-8 °C. Report to your supervisor now - the cold chain may have failed.
+### `q5_05_temp_warn` - ⚠ Temperature is outside 2-8 °C. Report to your supervisor now - the cold chain may have failed.
 
 | | |
 |---|---|
@@ -1954,13 +1954,13 @@ Every constraint message exists in **Hausa and English**, Hausa default.
 Interviews are conducted in Hausa and 38% of enumerators are not confident
 readers of English, so an English-only message is a message that does not
 exist. **The Hausa strings are indicative and require native-speaker review
-before deployment** — they are my own and have not been checked.
+before deployment** - they are my own and have not been checked.
 
 ## What is not constrained, and why
 
-- **`q1_05_alt_name`, `q4_14_medicine_other`, `q5_07_reason_other`, `q7_02_observation`** — free text by design. Constraining an other-specify field defeats its purpose.
-- **`q1_11_gps`** — no geofence. A settlement centroid is not a household location, and a boundary constraint would block legitimate dwellings on the edge of a settlement. Out-of-area points are better found in back-office QA against the settlement list than blocked at the doorstep.
-- **`q4_13_medicine`** — no validity constraint beyond selection from the list, because the real codelist does not exist. See defect E1.
+- **`q1_05_alt_name`, `q4_14_medicine_other`, `q5_07_reason_other`, `q7_02_observation`** - free text by design. Constraining an other-specify field defeats its purpose.
+- **`q1_11_gps`** - no geofence. A settlement centroid is not a household location, and a boundary constraint would block legitimate dwellings on the edge of a settlement. Out-of-area points are better found in back-office QA against the settlement list than blocked at the doorstep.
+- **`q4_13_medicine`** - no validity constraint beyond selection from the list, because the real codelist does not exist. See defect E1.
 
 
 
@@ -1985,8 +1985,8 @@ being asked to render a form whose lookup tables are absent.
 
 The distinction matters: **conversion succeeded, form loading failed.** Any form
 that serves a 2,524-row settlement list from external media will behave this way
-in that preview. The alternative — putting 2,524 settlements on the `choices`
-worksheet so the preview works — is the design this question explicitly rules
+in that preview. The alternative - putting 2,524 settlements on the `choices`
+worksheet so the preview works - is the design this question explicitly rules
 out.
 
 ## What was validated, and with what
@@ -2008,7 +2008,7 @@ through:
 1. A `jr://file-csv/x.csv` reference with no matching media file.
 2. An `instance('x')` call inside a **constraint or calculation** where `x` was
    never declared. pyxform declares external instances only for
-   `select_one_from_file` *types* — an `instance()` call in an expression is
+   `select_one_from_file` *types* - an `instance()` call in an expression is
    invisible to it.
 3. A path naming a column the CSV does not contain.
 
@@ -2018,12 +2018,12 @@ All three convert clean, validate clean, and fail on the device.
 than by any validator. The specimen serial-range constraint referenced
 `instance('specimen_label_allocation')`, which no question declared. At runtime
 that lookup returns an empty nodeset, `number()` of empty is `NaN`, and the
-comparison is false — so **the constraint would have rejected every valid
+comparison is false - so **the constraint would have rejected every valid
 specimen label in the field**, on a form that all tooling reported as correct.
 
 The fix is not a dummy declaration. The enumerator now confirms the label book
 issued to their team at sign-in; the filter leaves exactly one option, so it is
-one tap, and it catches a team working from the wrong book — an error the check
+one tap, and it catches a team working from the wrong book - an error the check
 digit cannot detect, because a label from another team's book is internally
 valid. A defect found once by hand is now found automatically by
 `validate_media.py`.
@@ -2051,14 +2051,14 @@ and the seven CSVs into a folder beside it named `bansala_hh_2026-media/`.
 | `staff_roster.csv` | 120 | enumerator sign-in, PIN, supervisor at 7.04 |
 | `previous_round_households.csv` | 3,982 | 1.13, filtered by settlement |
 | `specimen_label_allocation.csv` | 24 | label-range constraint at 5.03 |
-| `medicines.csv` | 23 | 4.13 — **placeholder, see defect E1** |
+| `medicines.csv` | 23 | 4.13 - **placeholder, see defect E1** |
 
 Built by `python part2_q3/prepare_media.py`, which reads the supplied reference
 files and **never modifies them**.
 
 ## Known limitation of this validation
 
-None of the above proves the form behaves correctly for a *respondent* — only
+None of the above proves the form behaves correctly for a *respondent* - only
 that it loads and that its references resolve. Behavioural correctness is
 covered by the test plan in `test_plan.md`, which specifies expected results for
 boundary and negative cases, including the specimen eligibility cut, the
@@ -2078,22 +2078,22 @@ that has been written is not a test plan that has been run.
 
 
 
-# Test plan — Form HH/2026/v1
+# Test plan - Form HH/2026/v1
 
 **Partly generated.** Every numeric range in the form produces four cases
-automatically — below minimum, at minimum, at maximum, above maximum — read
+automatically - below minimum, at minimum, at maximum, above maximum - read
 from the form's own constraints by `build_test_plan.py`. Add a range and its
 boundary cases appear here; change a bound and the expected values follow.
 The plan cannot drift from the form.
 
-**54 cases** — 29 negative, 20 boundary, 5 positive/behavioural.
+**54 cases** - 29 negative, 20 boundary, 5 positive/behavioural.
 
 ## Execution status
 
 **These cases are specified. They have not been executed against a running
 instance**, because no ODK Central project was available inside the
-submission window. The check-digit logic behind S09 *is* executed —
-exhaustively — in `tests/test_check_digit.py`. Everything else is a
+submission window. The check-digit logic behind S09 *is* executed -
+exhaustively - in `tests/test_check_digit.py`. Everything else is a
 specification awaiting a device.
 
 Saying so matters: a test plan that has been written is not a test plan that
@@ -2116,7 +2116,7 @@ bottom recording actual against expected.
 
 ## Scenario cases
 
-### S01 — Specimen eligibility cut, lower side **[REQUIRED BY THE QUESTION]**
+### S01 - Specimen eligibility cut, lower side **[REQUIRED BY THE QUESTION]**
 
 | | |
 |---|---|
@@ -2128,7 +2128,7 @@ bottom recording actual against expected.
 | **Why it matters** | The paper form sends this child to Section 6, abandoning every remaining child in the household (defect B2). Here the skip ends only this child's iteration. |
 | **Result** | _not yet executed_ |
 
-### S02 — Specimen eligibility cut, upper side **[REQUIRED BY THE QUESTION]**
+### S02 - Specimen eligibility cut, upper side **[REQUIRED BY THE QUESTION]**
 
 | | |
 |---|---|
@@ -2140,7 +2140,7 @@ bottom recording actual against expected.
 | **Why it matters** | 12 months is the cut stated at 5.01. Paired with S01 it brackets it. |
 | **Result** | _not yet executed_ |
 
-### S03 — Measurement position change, below the cut **[REQUIRED BY THE QUESTION]**
+### S03 - Measurement position change, below the cut **[REQUIRED BY THE QUESTION]**
 
 | | |
 |---|---|
@@ -2152,7 +2152,7 @@ bottom recording actual against expected.
 | **Why it matters** | WHO convention is recumbent below 24 months. It warns rather than blocks: a child who cannot stand is legitimately measured recumbent at any age. |
 | **Result** | _not yet executed_ |
 
-### S04 — Measurement position change, at the cut **[REQUIRED BY THE QUESTION]**
+### S04 - Measurement position change, at the cut **[REQUIRED BY THE QUESTION]**
 
 | | |
 |---|---|
@@ -2164,7 +2164,7 @@ bottom recording actual against expected.
 | **Why it matters** | 24 months and above is standing height. S03/S04 bracket the cut. |
 | **Result** | _not yet executed_ |
 
-### S05 — Date before the fieldwork window **[REQUIRED BY THE QUESTION]**
+### S05 - Date before the fieldwork window **[REQUIRED BY THE QUESTION]**
 
 | | |
 |---|---|
@@ -2176,7 +2176,7 @@ bottom recording actual against expected.
 | **Why it matters** | Most often a device with the wrong date, or a form completed later from paper notes. |
 | **Result** | _not yet executed_ |
 
-### S06 — Date after the fieldwork window **[REQUIRED BY THE QUESTION]**
+### S06 - Date after the fieldwork window **[REQUIRED BY THE QUESTION]**
 
 | | |
 |---|---|
@@ -2187,7 +2187,7 @@ bottom recording actual against expected.
 | **Why it matters** | The window enforced is 1-30 June, the ethics-approved one, not the 14-day operational expectation. See the constraint register. |
 | **Result** | _not yet executed_ |
 
-### S07 — Roster disagrees with stated household size **[REQUIRED BY THE QUESTION]**
+### S07 - Roster disagrees with stated household size **[REQUIRED BY THE QUESTION]**
 
 | | |
 |---|---|
@@ -2199,7 +2199,7 @@ bottom recording actual against expected.
 | **Why it matters** | Warns rather than blocks: the two legitimately differ when a usual resident is absent and cannot be described. A block would push enumerators to invent a line to clear the error. |
 | **Result** | _not yet executed_ |
 
-### S08 — Consent statement not read
+### S08 - Consent statement not read
 
 | | |
 |---|---|
@@ -2210,7 +2210,7 @@ bottom recording actual against expected.
 | **Why it matters** | The only hard block in the form. The paper form records No and continues to 2.02 where consent may be given (defect B3). |
 | **Result** | _not yet executed_ |
 
-### S09 — Transposed pair of digits in the specimen serial
+### S09 - Transposed pair of digits in the specimen serial
 
 | | |
 |---|---|
@@ -2222,7 +2222,7 @@ bottom recording actual against expected.
 | **Why it matters** | Proven exhaustively in tests/test_check_digit.py: 292,960 transpositions tested, none escaped. |
 | **Result** | _not yet executed_ |
 
-### S10 — Label from another team's book
+### S10 - Label from another team's book
 
 | | |
 |---|---|
@@ -2234,7 +2234,7 @@ bottom recording actual against expected.
 | **Why it matters** | This label passes the check digit - it is internally valid. Only the range constraint catches it. |
 | **Result** | _not yet executed_ |
 
-### S11 — Same label used twice in one household
+### S11 - Same label used twice in one household
 
 | | |
 |---|---|
@@ -2246,7 +2246,7 @@ bottom recording actual against expected.
 | **Why it matters** | The most common genuine duplicate: two entries minutes apart from the same book. |
 | **Result** | _not yet executed_ |
 
-### S12 — Label reused from the previous submission
+### S12 - Label reused from the previous submission
 
 | | |
 |---|---|
@@ -2258,7 +2258,7 @@ bottom recording actual against expected.
 | **Why it matters** | last-saved covers one submission of history only. Submission n-2 and earlier are NOT caught - see docs/label_reuse.md. |
 | **Result** | _not yet executed_ |
 
-### S13 — 'None of these' selected with an owned asset
+### S13 - 'None of these' selected with an owned asset
 
 | | |
 |---|---|
@@ -2269,7 +2269,7 @@ bottom recording actual against expected.
 | **Why it matters** | A logical impossibility the paper form permits (defect C2). |
 | **Result** | _not yet executed_ |
 
-### S14 — Wrong PIN for the selected enumerator code
+### S14 - Wrong PIN for the selected enumerator code
 
 | | |
 |---|---|
@@ -2280,7 +2280,7 @@ bottom recording actual against expected.
 | **Why it matters** | Prevents one enumerator submitting under another's code - the precondition for the fabrication pattern in the operating conditions. |
 | **Result** | _not yet executed_ |
 
-### S15 — LGA not assigned to this enumerator
+### S15 - LGA not assigned to this enumerator
 
 | | |
 |---|---|
@@ -2292,7 +2292,7 @@ bottom recording actual against expected.
 | **Why it matters** | staff_roster.csv assigned_lga. |
 | **Result** | _not yet executed_ |
 
-### S16 — Skip logic when no specimen is obtained
+### S16 - Skip logic when no specimen is obtained
 
 | | |
 |---|---|
@@ -2303,7 +2303,7 @@ bottom recording actual against expected.
 | **Why it matters** | 5.02 has NO skip instruction on the paper form at all (defect B1). This is the case that defect produces. |
 | **Result** | _not yet executed_ |
 
-### S17 — Skip logic when a specimen IS obtained
+### S17 - Skip logic when a specimen IS obtained
 
 | | |
 |---|---|
@@ -2314,7 +2314,7 @@ bottom recording actual against expected.
 | **Why it matters** | The mirror of S16. On paper, 5.06 applies to everyone. |
 | **Result** | _not yet executed_ |
 
-### S18 — Child module pointed at an adult
+### S18 - Child module pointed at an adult
 
 | | |
 |---|---|
@@ -2326,7 +2326,7 @@ bottom recording actual against expected.
 | **Why it matters** | Validated with indexed-repeat() against the roster. The paper form cannot check this. |
 | **Result** | _not yet executed_ |
 
-### S19 — Result of visit is not 'Completed'
+### S19 - Result of visit is not 'Completed'
 
 | | |
 |---|---|
@@ -2337,7 +2337,7 @@ bottom recording actual against expected.
 | **Why it matters** | Mirrors the paper instruction after 1.14. |
 | **Result** | _not yet executed_ |
 
-### S20 — Eligible-children count is derived, not typed
+### S20 - Eligible-children count is derived, not typed
 
 | | |
 |---|---|
@@ -2349,7 +2349,7 @@ bottom recording actual against expected.
 | **Why it matters** | Brackets BOTH ends of the 9-59 eligibility window in one case, and demonstrates defect A1's fix: the count is derived from roster ages, never transcribed from an office-use column. This is also the second cross-question consistency check - stated eligible children and modules completed cannot disagree because they are the same quantity. |
 | **Result** | _not yet executed_ |
 
-### S21 — Clinically implausible but typeable weight
+### S21 - Clinically implausible but typeable weight
 
 | | |
 |---|---|
@@ -2361,7 +2361,7 @@ bottom recording actual against expected.
 | **Why it matters** | The hard bounds are a typo guard; clinical implausibility warns. Blocking here would delete the severely wasted children the survey exists to count. |
 | **Result** | _not yet executed_ |
 
-### S22 — Placeholder medicine list is visible at the point of capture
+### S22 - Placeholder medicine list is visible at the point of capture
 
 | | |
 |---|---|
@@ -2422,7 +2422,7 @@ just outside that must be rejected.
   a cognitive-interview question, not a test case. The strings need
   native-speaker review before deployment.
 - **Duplicate labels beyond one submission of history.** Out of scope by
-  construction — see `docs/label_reuse.md`.
+  construction - see `docs/label_reuse.md`.
 - **Encryption round-trip.** The public key in settings is a placeholder;
   decryption cannot be tested until the real keypair is issued.
 
@@ -2444,7 +2444,7 @@ Not because ODK lacks a feature, but because of what "self-contained" means. A
 form instance is a document. It is filled, saved and submitted, and it has no
 writable store that outlives it. Detecting reuse against *every* earlier
 submission requires state that persists across instances and is consulted before
-the current one is saved — which is, definitionally, not something the form
+the current one is saved - which is, definitionally, not something the form
 holds.
 
 Anything claiming otherwise is either checking a narrower thing (the last
@@ -2458,35 +2458,35 @@ worth being precise about which error each one stops.
 
 | Layer | Rule | Catches | Misses |
 |---|---|---|---|
-| **1. Allocation range** | serial within the signed-in team's `range_start`–`range_end` | A label from another team's book — which the **check digit cannot detect**, because such a label is internally valid | Reuse within the team's own range |
-| **2. Within this submission** | `count(/data/child/s5_specimen[q5_03_label_serial = current()/.]) = 1` | The same label entered for two children in the same household — the most common real duplicate, since both entries happen minutes apart from one book | Anything from an earlier household |
+| **1. Allocation range** | serial within the signed-in team's `range_start`-`range_end` | A label from another team's book - which the **check digit cannot detect**, because such a label is internally valid | Reuse within the team's own range |
+| **2. Within this submission** | `count(/data/child/s5_specimen[q5_03_label_serial = current()/.]) = 1` | The same label entered for two children in the same household - the most common real duplicate, since both entries happen minutes apart from one book | Anything from an earlier household |
 | **3. Previous submission** | `count(${last-saved#q5_03_label_serial}[. = current()/.]) = 0` | Re-entering the label from the household just completed, typically because the enumerator re-read the same sticker | Submission *n−2* and earlier |
 
 Layer 3 uses ODK's `last-saved` instance, which holds **only the immediately
-preceding submission**. It is genuinely useful — consecutive re-entry is a common
-slip — but it is one step of history, not a ledger. Describing it as duplicate
+preceding submission**. It is genuinely useful - consecutive re-entry is a common
+slip - but it is one step of history, not a ledger. Describing it as duplicate
 detection would be overclaiming.
 
 **A note on how this was found.** The first implementation called
 `instance('last-saved')` directly. pyxform exposes the previous submission only
 through its own `${last-saved#field}` syntax and names the instance
 `__last-saved`, so the raw call converted cleanly, passed ODK Validate, and
-would have resolved to an empty nodeset in the field — making the constraint
+would have resolved to an empty nodeset in the field - making the constraint
 pass unconditionally and silently disabling layer 3. `validate_media.py` caught
 it. That is the second time the same class of defect has appeared in this form,
 which is why the check is automated rather than remembered.
 
 ## What the requirement is really about
 
-The labels are **pre-printed and physically affixed** — 5.03 says *"Affix the
+The labels are **pre-printed and physically affixed** - 5.03 says *"Affix the
 specimen label in the box."* A physical sticker can be applied to exactly one
 container. So a duplicated label number in the data is, in the overwhelming
 majority of cases, **a transcription error rather than genuine reuse**: the
 enumerator read the wrong line of the book, or typed the previous child's serial
 from memory.
 
-That matters, because transcription errors are precisely what layers 1–3 and the
-check digit are good at. Genuine reuse — the same sticker on two containers —
+That matters, because transcription errors are precisely what layers 1-3 and the
+check digit are good at. Genuine reuse - the same sticker on two containers -
 is a physical impossibility unless labels were reprinted, which is a printing
 control problem, not a form design problem.
 
@@ -2495,7 +2495,7 @@ twice"*, and most of that is achievable on the device.
 
 ## The architecture that can enforce it fully
 
-### Server-side uniqueness at submission — the authoritative layer
+### Server-side uniqueness at submission - the authoritative layer
 
 A `UNIQUE` constraint on the specimen identifier in the receiving store, applied
 when a submission arrives. This is the only layer that is genuinely complete: it
@@ -2503,7 +2503,7 @@ sees every submission from every device, needs no device state, and cannot be
 outrun by an enumerator who reinstalls the app.
 
 **On ODK Central this is a validation step behind the submission endpoint**, not
-a Central feature in itself — Central accepts submissions and does not reject on
+a Central feature in itself - Central accepts submissions and does not reject on
 content. In practice: submissions stream to a store, a job asserts uniqueness on
 `specimen_label_full`, and a duplicate raises a flag on both submissions for
 supervisor resolution. The laboratory then receives a reconciled list rather
@@ -2513,7 +2513,7 @@ than a raw one.
 It cannot stop the collection of a duplicate; it can stop a duplicate reaching
 the laboratory, which is what the requirement asks for.
 
-### ODK Entities — preventive, but defeated by the offline window
+### ODK Entities - preventive, but defeated by the offline window
 
 ODK Entities let a submission create or update a shared dataset that later form
 downloads receive as an attachment. A `used_labels` entity list would make prior
@@ -2528,7 +2528,7 @@ right architecture for a connected deployment and the wrong one here.
 Recording that explicitly, because "use Entities" is the fashionable answer and
 it is wrong for this fieldwork.
 
-### Procedural control — the layer that actually prevents
+### Procedural control - the layer that actually prevents
 
 The one control that operates at the moment of the error: **the label book
 itself.** Serials are issued to a team as a physical range; the enumerator
@@ -2540,11 +2540,11 @@ data is recorded rather than after. It is also the layer most likely to be
 skipped under time pressure, which is why the digital layers exist alongside it
 rather than instead of it.
 
-### Laboratory reconciliation — the backstop that already exists
+### Laboratory reconciliation - the backstop that already exists
 
 The operating conditions state that the laboratory reconciles against the form
 data and that an unmatched specimen is discarded and the child revisited. That
-is a real, working duplicate detector — with a cost of one wasted specimen and
+is a real, working duplicate detector - with a cost of one wasted specimen and
 one revisit per occurrence. Every layer above exists to reduce how often that
 cost is paid.
 
@@ -2552,15 +2552,15 @@ cost is paid.
 
 | Layer | Preventive or detective | Works offline | Complete |
 |---|---|---|---|
-| Label book strike-through | **Preventive** | Yes | No — depends on discipline |
-| Form: allocation range | Preventive | Yes | No — within-range reuse passes |
-| Form: within submission | Preventive | Yes | No — this household only |
-| Form: last-saved | Preventive | Yes | No — one submission of history |
+| Label book strike-through | **Preventive** | Yes | No - depends on discipline |
+| Form: allocation range | Preventive | Yes | No - within-range reuse passes |
+| Form: within submission | Preventive | Yes | No - this household only |
+| Form: last-saved | Preventive | Yes | No - one submission of history |
 | Server-side uniqueness | Detective | **No** | **Yes** |
-| Laboratory reconciliation | Detective | Yes | Yes — at the cost of a revisit |
+| Laboratory reconciliation | Detective | Yes | Yes - at the cost of a revisit |
 
 **No single layer satisfies the requirement.** The form contributes the three it
-can, and the write-up says plainly which errors still get through — because a
+can, and the write-up says plainly which errors still get through - because a
 supervisor who believes the form prevents duplicates will stop checking the
 label book, and that trade is a net loss.
 
@@ -2580,7 +2580,7 @@ The operating conditions state the failure this has to prevent:
 > of 4 minutes and almost no vaccination cards sighted. **This was discovered
 > only after fieldwork had closed.**
 
-The detection was not the problem — the pattern is obvious once you look. The
+The detection was not the problem - the pattern is obvious once you look. The
 *timing* was. Ninety-four households were spent and the round could not be
 repaired. So the requirement is not "can this be detected" but "is it detected
 while there is still something to do about it".
@@ -2596,15 +2596,15 @@ cannot have them, and they are what makes daily detection possible at all.
 
 | Field | Type | What it enables |
 |---|---|---|
-| `start_time` | `start` | Interview duration — the primary fabrication signal |
+| `start_time` | `start` | Interview duration - the primary fabrication signal |
 | `end_time` | `end` | as above |
 | `interview_duration_min` | calculated | Duration in minutes, so no analyst has to derive it consistently |
 | `device_id` | `deviceid` | Detects one device submitting under several enumerator codes |
 | `audit` | `audit` with `track-changes`, `identify-user`, `track-changes-reasons` | Per-question timing and a change log. Reveals a form filled in one pass with no back-navigation, which real interviews do not look like |
-| `today_date` | `today` | Device date, comparable against `q1_10_visit_date` — catches back-dating |
+| `today_date` | `today` | Device date, comparable against `q1_10_visit_date` - catches back-dating |
 | `pin_entered` | text, masked | Binds a submission to a person, not just to a typed code |
 
-**Dual-purpose fields** — operationally necessary, and also QA evidence:
+**Dual-purpose fields** - operationally necessary, and also QA evidence:
 `q1_11_gps` (household location; also reveals a stationary enumerator),
 `q4_08_card` (a substantive coverage variable; also the second signal in the
 described pattern), `q4_16_photo` (medicine packaging; also independently
@@ -2635,9 +2635,9 @@ specifically because a fabricator's extreme values inflate the SD and help hide
 them inside their own outlier; the median and MAD are unmoved by contamination
 up to half the sample.
 
-**Conjunction, not any-single-signal.** Short interviews alone are weak — a
+**Conjunction, not any-single-signal.** Short interviews alone are weak - a
 household of two with no eligible children is legitimately quick. Low card
-sighting alone is weak — some settlements genuinely have few cards. The
+sighting alone is weak - some settlements genuinely have few cards. The
 described pattern is *both, at high volume, from one person*. Requiring signals
 to co-occur is what keeps the list short enough that supervisors actually work
 it. A flag list nobody reads is worse than no flag list, because it looks like
@@ -2671,7 +2671,7 @@ Every escalation carries the same action:
 
 > Supervisor accompanies this enumerator tomorrow and re-interviews three
 > households already submitted. **Do not confront on the basis of this report
-> alone — it is evidence for a visit, not a finding.**
+> alone - it is evidence for a visit, not a finding.**
 
 That wording is deliberate. These indicators identify an enumerator whose data
 *looks* different, which has innocent explanations: a dense urban ward with
@@ -2691,7 +2691,7 @@ someone who can resolve it.
   impossible.
 - **Whole-team collusion.** Every indicator is relative to the cohort. If a
   whole team fabricates together, they become the cohort. Cross-LGA comparison
-  partly mitigates this and is not implemented — noted as a limitation rather
+  partly mitigates this and is not implemented - noted as a limitation rather
   than claimed.
 - **Fabrication that produces plausible data.** Nothing here inspects whether
   the answers are true, only whether the process that produced them looks like
@@ -2713,7 +2713,7 @@ someone who can resolve it.
 The question asks for a view, not compliance. Mine is that **this instrument
 collects more identifying information than its analysis needs, and the digital
 version I have built makes two of those exposures worse than the paper form
-did** — which is worth stating before anything else, because both are mine.
+did** - which is worth stating before anything else, because both are mine.
 
 ## What the submission actually contains
 
@@ -2721,8 +2721,8 @@ A completed form holds, for one dwelling: GPS to six decimal places taken at the
 entrance, the structure number painted on it, the settlement, the household
 serial, the initials and ages of every resident, the name or initials of each
 child under five, their weight, height, vaccination and antibiotic history, a
-photograph of medicine packaging, a biological specimen identifier, and — where
-the household was visited before — the identifier linking it to the October 2025
+photograph of medicine packaging, a biological specimen identifier, and - where
+the household was visited before - the identifier linking it to the October 2025
 round.
 
 That is not "survey data with some identifiers in it". **It is a re-identifiable
@@ -2738,7 +2738,7 @@ settlement, it describes a doorway.
 | PIN entry | `appearance: masked` | Shoulder-surfing at a doorstep is a real threat model |
 | Photograph size | `max-pixels=1024` | Enough to read a medicine box; not enough to identify a room or a face in the background |
 | Roster names | hint says **initials only**, in both languages | The paper column says "Name or initials"; the digital form pushes toward the minimising option |
-| Audit log | `identify-user=true` | Accountability, and itself personal data about staff — retention applies to it too |
+| Audit log | `identify-user=true` | Accountability, and itself personal data about staff - retention applies to it too |
 | Supervisor field | filtered to roster supervisors | Prevents an arbitrary code being typed |
 
 **Encryption is live, not stubbed.** The `public_key` in `settings` is a **real
@@ -2748,8 +2748,8 @@ mechanism documented and disabled, which is the failure the automatic-loss rule
 exists to catch.
 
 **The matching private key is deliberately not in this repository.** It is held
-outside the working tree and gitignored. That is the correct arrangement — a
-private key in a public repository would make the encryption decorative — and it
+outside the working tree and gitignored. That is the correct arrangement - a
+private key in a public repository would make the encryption decorative - and it
 carries the real consequence that submissions encrypted to this key can only be
 decrypted by the holder of that file. A deployment substitutes the survey
 manager's own keypair, generated by them and never transmitted.
@@ -2761,7 +2761,7 @@ Both come from external media, and neither is hypothetical.
 ### 1. `staff_roster.csv` puts all 120 PINs on all 120 devices
 
 The PIN check I added at sign-in reads from `staff_roster.csv`, which is
-attached to the form as media — so **every device carries every enumerator's
+attached to the form as media - so **every device carries every enumerator's
 PIN in cleartext**, readable by anyone who opens the file.
 
 That does not merely weaken the control, it **inverts** it. The PIN exists to
@@ -2784,7 +2784,7 @@ control**, and the constraint register describes it as such.
 
 ### 2. `previous_round_households.csv` ships a 3,982-household PII database to every tablet
 
-To support 1.13 — recording the identifier from the October 2025 round — the
+To support 1.13 - recording the identifier from the October 2025 round - the
 form attaches the previous round's household register: **3,982 households with
 initials, structure numbers, settlement, and GPS coordinates**, on all 120
 devices, for 14 days, including 9 consecutive days offline with no ability to
@@ -2797,10 +2797,10 @@ handful of households that enumerator visited.
 assigned to Gwarin needs Gwarin's households, not Katsuma's. `prepare_media.py`
 already builds these files from source, so partitioning is a change to that
 script, not a change to the form. Estimated exposure reduction: from 3,982
-households to roughly 300–400 per device.
+households to roughly 300-400 per device.
 
 **I have not implemented the partition**, because it changes the deployment
-model — one media set becomes twenty-four — and that decision belongs to the
+model - one media set becomes twenty-four - and that decision belongs to the
 survey manager. It is listed in the deliberate-scope note rather than left
 unsaid.
 
@@ -2809,10 +2809,10 @@ unsaid.
 | Item | Why it is questionable | Proposal |
 |---|---|---|
 | **4.02 child name or initials** | Wholly redundant. 4.01 already records the roster line, which identifies the child within the household unambiguously. The name is copied from the roster and then never used analytically | **Remove.** The strongest single minimisation available, and it costs nothing |
-| **Roster column (2) names** | Needed to conduct the interview — you must be able to ask about a specific person — but not needed *after* it | **Retain in the field, strip at ingest.** Names serve the interview; the analytical extract should carry line numbers only |
+| **Roster column (2) names** | Needed to conduct the interview - you must be able to ask about a specific person - but not needed *after* it | **Retain in the field, strip at ingest.** Names serve the interview; the analytical extract should carry line numbers only |
 | **GPS at six decimal places** | ~0.1 m. Justified operationally for revisit and for the QA checks in F11. Not justified for analysis, which works at settlement level | **Retain raw during fieldwork, truncate to three decimals (~100 m) in the analytical release.** Preserves settlement-level analysis, removes doorway-level precision |
 | **Structure number + GPS + previous-round ID together** | Individually defensible; together they make the record trivially re-identifiable, and the previous-round link makes it longitudinal | **Retain, but treat the joined dataset as restricted.** Access to the linkage key should be separable from access to the survey data |
-| **`consent_to_follow_up` in the previous-round file** | Present in the attachment but never checked by the form. A household that declined follow-up can still be selected | **Wire it into 1.13's choice filter** so declining follow-up actually prevents it. Not implemented — flagged in the deliberate-scope note. That a consent flag exists and is ignored is a governance defect, not a technical one |
+| **`consent_to_follow_up` in the previous-round file** | Present in the attachment but never checked by the form. A household that declined follow-up can still be selected | **Wire it into 1.13's choice filter** so declining follow-up actually prevents it. Not implemented - flagged in the deliberate-scope note. That a consent flag exists and is ignored is a governance defect, not a technical one |
 
 ## What I would put to the ethics committee
 
@@ -2863,12 +2863,12 @@ So this plan assumes a mid-round change rather than hoping to avoid one.
 | Element | Value | Rule |
 |---|---|---|
 | `form_id` | `bansara_hh_2026` | **Never changes.** Changing it creates a *different form* on Central, and submissions against the old id become an orphaned dataset |
-| `version` | `2026063001` — `yyyymmddnn` | Increments on every publish, including a one-character label fix |
+| `version` | `2026063001` - `yyyymmddnn` | Increments on every publish, including a one-character label fix |
 | `form_version` | a calculate holding the same string | Stamped into the **data**, not only the metadata |
 
 The last row matters more than it looks. Central records the version against each
 submission, but metadata is the first thing lost when someone reshapes an export
-in Excel — and a mixed-version round is precisely when that happens. A field in
+in Excel - and a mixed-version round is precisely when that happens. A field in
 the record itself survives the reshaping.
 
 ## What may and may not change mid-round
@@ -2883,10 +2883,10 @@ negotiable by urgency.
 - **Loosening a constraint.** Data already collected remains valid.
 - **Fixing a label, hint or translation.** No stored value changes.
 - **Correcting a relevance rule** so a question appears where it should have.
-- **Replacing a media file** — for example the real medicine list arriving. New
+- **Replacing a media file** - for example the real medicine list arriving. New
   attachment, new version, no form logic change.
 
-### Unsafe — do not do mid-round
+### Unsafe - do not do mid-round
 
 - **Renaming a field.** Central treats it as delete-plus-add. The old column
   stops and a new one starts, and the analysis team must union two columns that
@@ -2895,7 +2895,7 @@ negotiable by urgency.
   means something different. This is the failure that recodes a variable
   silently. Change the *label* freely; never the value.
 - **Tightening a constraint.** Records already saved under the looser rule cannot
-  be revalidated, and drafts on devices may become unfinishable — the enumerator
+  be revalidated, and drafts on devices may become unfinishable - the enumerator
   cannot advance and cannot save.
 - **Removing a field**, or making an optional field required.
 
@@ -2920,8 +2920,8 @@ anyone's control.
 4. **Do not force an update.** ODK Collect finalises a form under the version it
    was **started** with. Forcing a refresh mid-interview is how a partially
    completed submission is lost.
-5. **Accept a mixed-version round.** For a period — potentially the full nine
-   days — some records are version *n* and some *n+1*. That is not a failure
+5. **Accept a mixed-version round.** For a period - potentially the full nine
+   days - some records are version *n* and some *n+1*. That is not a failure
    state to be prevented; it is the normal consequence of offline work, and the
    design has to make it analysable rather than avoid it.
 
@@ -2945,7 +2945,7 @@ handling:
 
 1. **`form_version` in every record.** Survives any export, reshape or merge.
 2. **Central's submission metadata**, which records the version served.
-3. **A published change log** — `docs/version_history.md`, one entry per publish:
+3. **A published change log** - `docs/version_history.md`, one entry per publish:
    version, date, what changed, which fields affected, and what the analysis team
    must do about it.
 
@@ -2955,8 +2955,8 @@ The third is the one that actually matters. Knowing a record is version
 ### The change log entry format
 
 ```
-## 2026063002 — 8 June 2026
-Changed:  q4_13_medicine — placeholder list replaced with the ministry codelist
+## 2026063002 - 8 June 2026
+Changed:  q4_13_medicine - placeholder list replaced with the ministry codelist
 Affects:  child.q4_13_medicine
 Analysis: records with form_version = 2026063001 carry WHO ATC codes;
           records from 2026063002 carry ministry two-digit codes.
@@ -2969,7 +2969,7 @@ Analysis: records with form_version = 2026063001 carry WHO ATC codes;
   scan. No enumerator types a URL.
 - **Per-user accounts, not a shared one.** A shared login makes `device_id` the
   only identity in the data, which defeats the fabrication checks.
-- **Media pre-loaded before deployment.** 389 KB across seven files — trivial on
+- **Media pre-loaded before deployment.** 389 KB across seven files - trivial on
   arrival, painful over a rural connection on day one.
 - **Storage headroom checked**: photographs at `max-pixels=1024` are roughly
   150 KB each; a 2 GB device with the OS and Collect installed has room for a
@@ -3004,7 +3004,7 @@ what changed in `002`.
 
 Format is fixed so it can be parsed later if it ever needs to be.
 
-## 2026063001 — 30 June 2026 — initial release
+## 2026063001 - 30 June 2026 - initial release
 
     Changed:  initial publication of Form HH/2026/v1 as a digital instrument
     Affects:  all fields
@@ -3025,7 +3025,7 @@ Format is fixed so it can be parsed later if it ever needs to be.
 
 
 
-# Codebook — `bansara_hh_2026` version `2026063001`
+# Codebook - `bansara_hh_2026` version `2026063001`
 
 **Generated** from the form definition by `build_codebook.py`. Not
 maintained by hand, so it cannot drift from the instrument.
@@ -3051,15 +3051,15 @@ household  ── one row per submission (one dwelling visited)
 
 | Table | Primary key | Foreign key | Notes |
 |---|---|---|---|
-| `household` | `meta/instanceID` | — | ODK's submission UUID. Stable, globally unique, and the only key that survives a resubmission |
+| `household` | `meta/instanceID` | - | ODK's submission UUID. Stable, globally unique, and the only key that survives a resubmission |
 | `roster` | (`PARENT_KEY`, `line_no`) | `PARENT_KEY` → `instanceID` | `line_no` is `position(..)`, so it matches the paper roster line |
 | `child` | (`PARENT_KEY`, `child_index`) | `PARENT_KEY` → `instanceID` | `q4_01_line` joins a child back to its `roster` row |
 
 **A natural key also exists** and should be used for deduplication against
 paper rounds, not for joins:
 `(q1_04_settlement, q1_06_structure, q1_07_hh_serial, q1_10_visit_date)`.
-It is not guaranteed unique — two teams could in principle number the same
-dwelling — which is exactly why `instanceID` is the primary key.
+It is not guaranteed unique - two teams could in principle number the same
+dwelling - which is exactly why `instanceID` is the primary key.
 
 **`specimen_label_full`** (`BSN######-C`) is the join key to the laboratory
 system. It is unique per child where a specimen was obtained, and null
@@ -3070,24 +3070,24 @@ otherwise.
 A null in this dataset is never ambiguous, which is the main gain over the
 paper round. Every field below lists the **relevance rule** that governs
 when it is asked. If a field is null, either its relevance rule was false
-— in which case the question was never put to the respondent — or a
+- in which case the question was never put to the respondent - or a
 measurement status field says explicitly why no value exists.
 
 **No sentinel value is ever stored in a numeric field.** See
 `coding_scheme.md`.
 
-## Table: `household` — one row per submission
+## Table: `household` - one row per submission
 
 43 fields.
 
 | Field | Type | Question / meaning | Null when |
 |---|---|---|---|
-| `start_time` | start | — | `never (always collected)` |
-| `end_time` | end | — | `never (always collected)` |
-| `today_date` | today | — | `never (always collected)` |
+| `start_time` | start | - | `never (always collected)` |
+| `end_time` | end | - | `never (always collected)` |
+| `today_date` | today | - | `never (always collected)` |
 | `form_version` | calculate | derived: `'2026063001'` | `never (always collected)` |
-| `device_id` | deviceid | — | `never (always collected)` |
-| `audit` | audit | — | `never (always collected)` |
+| `device_id` | deviceid | - | `never (always collected)` |
+| `audit` | audit | - | `never (always collected)` |
 | `enumerator_code` | select_one_from_file | Enumerator code (1.08) | `never (always collected)` |
 | `enum_team` | calculate | derived: `instance('staff_roster')/root/item[name=${enumerator_cod` | `never (always collected)` |
 | `enum_role` | calculate | derived: `instance('staff_roster')/root/item[name=${enumerator_cod` | `never (always collected)` |
@@ -3126,7 +3126,7 @@ measurement status field says explicitly why no value exists.
 | `q7_04_supervisor` | select_one_from_file | 7.04 Supervisor code | `never (always collected)` |
 | `q7_05_supervisor_decision` | select_one | 7.05 Supervisor decision on this form | `${q7_04_supervisor} != ''` |
 
-## Table: `roster` — one row per usual resident
+## Table: `roster` - one row per usual resident
 
 8 fields.
 
@@ -3141,7 +3141,7 @@ measurement status field says explicitly why no value exists.
 | `r_age_months` | integer | (6) Age in completed months | `${r_age_unit} = 'months'` |
 | `r_eligible` | calculate | derived: `if(${r_age_unit} = 'months' and ${r_age_months} >= 9 and` | `never (always collected)` |
 
-## Table: `child` — one row per eligible child, including specimen
+## Table: `child` - one row per eligible child, including specimen
 
 32 fields.
 
@@ -3182,47 +3182,47 @@ measurement status field says explicitly why no value exists.
 
 ## Value labels
 
-**`age_unit`** — `years` Years · `months` Months (under 5 years)
+**`age_unit`** - `years` Years · `months` Months (under 5 years)
 
-**`assets`** — `A` Radio · `B` Television · `C` Mobile telephone · `D` Bicycle · `E` Motorcycle · `F` Car or truck · `G` Refrigerator · `H` None of these
+**`assets`** - `A` Radio · `B` Television · `C` Mobile telephone · `D` Bicycle · `E` Motorcycle · `F` Car or truck · `G` Refrigerator · `H` None of these
 
-**`card_seen`** — `1` Card seen · `2` No card seen
+**`card_seen`** - `1` Card seen · `2` No card seen
 
-**`consent`** — `1` Consent given · `2` Consent refused
+**`consent`** - `1` Consent given · `2` Consent refused
 
-**`document_type`** — `card` Vaccination card · `copy` Card copy · `electronic` Electronic record
+**`document_type`** - `card` Vaccination card · `copy` Card copy · `electronic` Electronic record
 
-**`handwashing`** — `1` Observed, soap and water · `2` Reported only, not observed · `3` Not present
+**`handwashing`** - `1` Observed, soap and water · `2` Reported only, not observed · `3` Not present
 
-**`measure_position`** — `1` Recumbent length · `2` Standing height
+**`measure_position`** - `1` Recumbent length · `2` Standing height
 
-**`measured`** — `measured` Measured · `not_measured` Not measured
+**`measured`** - `measured` Measured · `not_measured` Not measured
 
-**`no_specimen_reason`** — `1` Caregiver refused · `2` Child absent · `3` Unable to produce · `4` Container spoiled · `96` Other
+**`no_specimen_reason`** - `1` Caregiver refused · `2` Child absent · `3` Unable to produce · `4` Container spoiled · `96` Other
 
-**`photo_taken`** — `1` Yes · `2` No, not available · `3` Caregiver declined
+**`photo_taken`** - `1` Yes · `2` No, not available · `3` Caregiver declined
 
-**`relationship`** — `1` Head · `2` Spouse · `3` Son or daughter · `4` Parent · `5` Other relative · `6` Not related
+**`relationship`** - `1` Head · `2` Spouse · `3` Son or daughter · `4` Parent · `5` Other relative · `6` Not related
 
-**`result_of_visit`** — `1` Completed · `2` Refused · `3` No competent adult after three visits · `4` Dwelling vacant or demolished
+**`result_of_visit`** - `1` Completed · `2` Refused · `3` No competent adult after three visits · `4` Dwelling vacant or demolished
 
-**`sex`** — `1` Male · `2` Female
+**`sex`** - `1` Male · `2` Female
 
-**`supervisor_decision`** — `1` Accept · `2` Return for correction · `3` Void
+**`supervisor_decision`** - `1` Accept · `2` Return for correction · `3` Void
 
-**`toilet`** — `t01` Flush to sewer · `t02` Flush to septic tank · `t03` Flush to pit latrine · `t04` Ventilated improved pit · `t05` Pit latrine with slab · `t06` Pit latrine without slab · `t07` Composting toilet · `t08` Bucket · `t09` No facility or bush
+**`toilet`** - `t01` Flush to sewer · `t02` Flush to septic tank · `t03` Flush to pit latrine · `t04` Ventilated improved pit · `t05` Pit latrine with slab · `t06` Pit latrine without slab · `t07` Composting toilet · `t08` Bucket · `t09` No facility or bush
 
-**`water_source`** — `w01` Piped into dwelling · `w02` Piped into compound · `w03` Public tap or standpipe · `w04` Tube well or borehole · `w05` Protected dug well · `w06` Unprotected dug well · `w07` Protected spring · `w08` Unprotected spring · `w09` Rainwater · `w10` Tanker or cart · `w11` Surface water
+**`water_source`** - `w01` Piped into dwelling · `w02` Piped into compound · `w03` Public tap or standpipe · `w04` Tube well or borehole · `w05` Protected dug well · `w06` Unprotected dug well · `w07` Protected spring · `w08` Unprotected spring · `w09` Rainwater · `w10` Tanker or cart · `w11` Surface water
 
-**`yes_no`** — `1` Yes · `2` No
+**`yes_no`** - `1` Yes · `2` No
 
-**`yes_no_dk`** — `1` Yes · `2` No · `8` Do not know
+**`yes_no_dk`** - `1` Yes · `2` No · `8` Do not know
 
 ## Paper-to-digital crosswalk
 
 Two lists were re-based so that no stored value can collide with a
 non-response sentinel (see `coding_scheme.md`). **The categories and the
-numbers read aloud to the respondent are unchanged** — only the stored
+numbers read aloud to the respondent are unchanged** - only the stored
 value differs. Concatenating a paper round with a digital round without
 this mapping will produce nonsense.
 
@@ -3260,13 +3260,13 @@ this mapping will produce nonsense.
 
 | Field | Why it exists |
 |---|---|
-| `start_time`, `end_time`, `interview_duration_min` | Fabrication detection — see `fabrication_detection.md` |
+| `start_time`, `end_time`, `interview_duration_min` | Fabrication detection - see `fabrication_detection.md` |
 | `device_id`, `audit` | as above |
 | `enumerator_code`, `pin_entered` | Binds a submission to a person. 1.08 on paper is a code anyone can write |
 | `q0_label_range` | Confirms the team's specimen label book |
 | `q4_08a_doc_type` | 4.08 asks for a three-way distinction its coding cannot hold (defect A2) |
 | `q4_12a_more_than_one` | Lets analysis know when 4.13's single code is incomplete (defect C1) |
-| `form_version` | Stamped into the data so mixed-version rounds are separable — see `deployment_plan.md` |
+| `form_version` | Stamped into the data so mixed-version rounds are separable - see `deployment_plan.md` |
 
 ## Fields on the paper form that are NOT collected
 
@@ -3275,7 +3275,7 @@ this mapping will produce nonsense.
 | 1.01 State | Single-valued. Stored as a constant, not asked |
 | Roster column (7) *Eligible for Section 4* | Office-use column the enumerator was told to leave blank, then asked to read (defect A1). Eligibility is derived from roster ages |
 | Roster column (8) *Section 4 page number* | Replaced by the repeat index |
-| 4.02 child name | Recommended for removal — redundant against 4.01. Retained pending ethics approval; see `data_protection.md` |
+| 4.02 child name | Recommended for removal - redundant against 4.01. Retained pending ethics approval; see `data_protection.md` |
 | 5.01 specimen eligibility | Calculated from age, not asked (defect A3) |
 | 7.03, 7.06 signatures | Replaced by authenticated submission and the supervisor review fields |
 | 8.01-8.03 office use | Data entry and second-entry verification do not exist in a digital pipeline. This is the largest single saving: an entire double-entry step removed |
@@ -3298,7 +3298,7 @@ reason, and every one is cross-referenced to where it is discussed.
 
 ### The real medicine codelist
 4.13 says *"record from the medicine list"* and the pack README claims one is
-supplied. It is not — verified by searching every file in the pack, and inside
+supplied. It is not - verified by searching every file in the pack, and inside
 the `.docx` for embedded objects. A clearly-marked WHO ATC placeholder is
 implemented instead, so the mechanism is demonstrable and the real list drops in
 by replacing one CSV.
@@ -3319,8 +3319,8 @@ change. The round-trip is untestable until the keypair is issued.
 ### Per-team partitioning of the media files
 `previous_round_households.csv` ships **3,982 households with initials, structure
 numbers and GPS to all 120 devices**, and `staff_roster.csv` ships **all 120
-PINs to all 120 devices**. Both should be partitioned per team — exposure drops
-from 3,982 households to roughly 300–400, and from 120 PINs to five.
+PINs to all 120 devices**. Both should be partitioned per team - exposure drops
+from 3,982 households to roughly 300-400, and from 120 PINs to five.
 
 `prepare_media.py` already builds these files, so partitioning is a change to
 that script rather than to the form. **Not implemented because it turns one
@@ -3338,8 +3338,8 @@ committee approval. Escalated with a recommendation rather than done.
 The previous-round file carries a follow-up consent flag that nothing checks, so
 a household that declined can still be selected. Implementing the filter is two
 lines. **Not implemented** because a household refusing follow-up and then being
-visited anyway is a governance question — someone must decide whether the flag is
-authoritative — and silently enforcing it could suppress legitimate revisits
+visited anyway is a governance question - someone must decide whether the flag is
+authoritative - and silently enforcing it could suppress legitimate revisits
 that were consented verbally. Escalated as the second of three items for the
 ethics committee.
 
@@ -3348,16 +3348,16 @@ ethics committee.
 ### Cross-submission duplicate label detection
 A self-contained form cannot check a label against every earlier submission,
 because it has no writable store outliving the instance. Three layers are
-implemented — allocation range, within-submission uniqueness, and the
-`last-saved` instance — and the write-up states plainly which errors still get
+implemented - allocation range, within-submission uniqueness, and the
+`last-saved` instance - and the write-up states plainly which errors still get
 through. ODK Entities would solve it for a connected deployment and is **wrong
 here**, because entity updates propagate on sync and these devices are offline up
 to nine days. → `label_reuse.md`
 
 ### Hashing the PIN
 XForms has no hash function, so an in-form PIN check must compare against a
-value shipped in the media. The fix is architectural — Central per-user accounts
-— not a form change. → `data_protection.md`
+value shipped in the media. The fix is architectural - Central per-user accounts
+- not a form change. → `data_protection.md`
 
 ## Left out because it needs a device or a person
 
@@ -3377,8 +3377,8 @@ both need doing before deployment.
 
 ### Device testing under memory pressure
 A 40-person roster with eight eligible children on a 2 GB tablet needs a real
-device. The external-media design exists precisely to keep memory pressure low —
-2,524 settlements queried from SQLite rather than parsed into RAM — but the claim
+device. The external-media design exists precisely to keep memory pressure low -
+2,524 settlements queried from SQLite rather than parsed into RAM - but the claim
 is reasoned, not measured. → `prepare_media.py`
 
 ## Left out on judgement
@@ -3386,7 +3386,7 @@ is reasoned, not measured. → `prepare_media.py`
 ### A GPS geofence on 1.11
 No constraint that the household falls inside the selected settlement. A
 settlement centroid is not a household location, and a boundary rule would block
-legitimate dwellings at the edge of a settlement — which are disproportionately
+legitimate dwellings at the edge of a settlement - which are disproportionately
 the poorest. Out-of-area points are better surfaced as a back-office flag than
 blocked at a doorstep. → `consistency_checks.md`
 
@@ -3397,7 +3397,7 @@ clinical range enforced as a block would delete the severely malnourished
 children the survey exists to count. → `constraint_register.md`
 
 ### Converting 4.13 to select-multiple
-The single most valuable analytical fix available — an AMR survey that records
+The single most valuable analytical fix available - an AMR survey that records
 only the most recent antibiotic is discarding its central measurement. **Not
 done**, because it changes what the variable means and requires re-approval. One
 added yes/no lets analysis know when the code is incomplete, without altering
@@ -3418,10 +3418,10 @@ correctly out of scope.
 <w:p><w:r><w:br w:type="page"/></w:r></w:p>
 ```
 
-# PART 3 — Question 5
+# PART 3 - Question 5
 
 
-# Q5 — Coordinating delivery through the round
+# Q5 - Coordinating delivery through the round
 
 Day 3 of 7. Four things have arrived at once and only one is genuinely urgent.
 
@@ -3430,22 +3430,22 @@ Day 3 of 7. Four things have arrived at once and only one is genuinely urgent.
 Ordering principle: **contain, protect today's deliverable, then diagnose.**
 Diagnosing first lets the corruption grow while I investigate it.
 
-**0–15 min · Freeze writes to the settlement layer**, reads unaffected. Cheap and
+**0-15 min · Freeze writes to the settlement layer**, reads unaffected. Cheap and
 reversible; every hour of open editing adds records I must later adjudicate.
 
-**15–45 min · Tell the EOC before they ask** that the figure is under
+**15-45 min · Tell the EOC before they ask** that the figure is under
 verification, with a time for the answer. It is already being discussed
 nationally, and arriving second to my own problem costs more than the error does.
 
-**45 min–3 h · Test whether the duplicates and the discrepancy are one incident.**
+**45 min-3 h · Test whether the duplicates and the discrepancy are one incident.**
 Duplicated settlements change the denominator. If that is the cause I have one
 problem and one fix, not two workstreams.
 
-**3–8 h · Reconstruct the figure** from the last known-good state (§2), then
+**3-8 h · Reconstruct the figure** from the last known-good state (§2), then
 **issue today's product caveated, or hold it with a stated reason.** The EOC
 deploys against this daily; silence is a decision to give them nothing.
 
-**8–16 h ·** Root cause on the concurrency failure (§3), then handover triage —
+**8-16 h ·** Root cause on the concurrency failure (§3), then handover triage -
 credentials and access only (§5).
 
 **Within 24 h · Confirm the counterpart's training dates.** Two minutes.
@@ -3457,7 +3457,7 @@ edit was correct destroys the audit trail and leaves a corrected figure with no
 explanation for why it moved. Not **publish a corrected figure**: a second wrong
 number is far worse than the first, because the first is an error and the second
 is a pattern. Not **argue the discrepancy on the merits** before checking my own
-figure — that turns a technical disagreement into an institutional one. And not
+figure - that turns a technical disagreement into an institutional one. And not
 the **handover documentation or the partner report**: both feel productive, both
 have over a week of runway against four days of live round.
 
@@ -3472,14 +3472,14 @@ method. **Same answer** means the difference is *method*, and the fix is a
 written definition rather than a data repair. **Different answer** means it is
 *data*, and the duplicates are the first suspect.
 
-Root cause, cheapest first: **definitional** — same quantity? planned
+Root cause, cheapest first: **definitional** - same quantity? planned
 settlements or those with a target, inaccessible in or out, cumulative or daily,
 sync time or end of day (most field discrepancies are definitional, and this
-costs one phone call); then **duplicates** — do they change the denominator by
-the size of the gap; then **latency** — does the state hold submissions I have
+costs one phone call); then **duplicates** - do they change the denominator by
+the size of the gap; then **latency** - does the state hold submissions I have
 not received; then **genuine divergence**, only if the first three are excluded.
 
-**To national level, before I know** — *would claim:* the figures differ by X,
+**To national level, before I know** - *would claim:* the figures differ by X,
 both are being recomputed from a common base, the likely causes are definitional
 or a contained integrity issue, and I will have an answer by 14:00 tomorrow.
 *Would not claim:* which figure is correct, that the state is wrong, a cause, or
@@ -3503,7 +3503,7 @@ have detected, not avoided.
 creating a settlement offline cannot collide, with identity separately protected
 by a **`UNIQUE` constraint on the natural key** (settlement code within ward).
 The UUID prevents accidental collision; the constraint prevents genuine
-duplication. The current incident is the second kind — two rows, two ids, one
+duplication. The current incident is the second kind - two rows, two ids, one
 settlement.
 
 **3 · Conflict detection by optimistic concurrency, not locking.** Every feature
@@ -3514,29 +3514,29 @@ connected, and a lock held from a disconnected session blocks a whole ward.
 
 **4 · Staged merge.** Analysts write to a personal staging schema; a merge
 applies only if the §4 validation passes, so nothing enters the authoritative
-layer unvalidated — the property that would have stopped this incident reaching
+layer unvalidated - the property that would have stopped this incident reaching
 the daily product.
 
 **5 · Append-only audit by trigger.** Who, when, before, after, which merge
-accepted it. **Records are superseded, never deleted** — which is what makes
+accepted it. **Records are superseded, never deleted** - which is what makes
 *"which of these two edits was correct"* answerable, and why my first action was
 a freeze rather than a cleanup.
 
 ## 4. Automated data quality rules
 
-**Blocked** — rejected, because accepting produces data nobody can later
+**Blocked** - rejected, because accepting produces data nobody can later
 untangle: invalid geometry; a settlement outside its declared ward; a duplicate
 natural key; referential integrity failure; coordinates outside the state
 boundary; a version conflict.
 
-**Flagged** — applied, recorded and queued, because the change may be correct: a
+**Flagged** - applied, recorded and queued, because the change may be correct: a
 settlement moved more than 200 m; target population changed by more than 20%; a
 first settlement created in a ward; an implausible route length for one team-day;
 any edit outside working hours.
 
 **The reasoning.** Block only where the data would be wrong irrecoverably.
 Everything else flags, because **a block an analyst cannot satisfy honestly is a
-block they will satisfy dishonestly** — refuse a settlement that genuinely moved
+block they will satisfy dishonestly** - refuse a settlement that genuinely moved
 and it reappears under a new code, and the duplicate problem returns wearing a
 different hat. **The bar is higher mid-round than between rounds:** a rule that
 halts a state analyst on day 4 of 7 is an operational failure even when
@@ -3546,17 +3546,17 @@ technically correct.
 
 **Do not ask them to write documentation.** Written from memory under notice, it
 records what they believe they do. Instead the **successor performs the task
-while the departing analyst watches and corrects** — faster, and it produces a
+while the departing analyst watches and corrects** - faster, and it produces a
 procedure known to work because it has just been used. The handover is complete
-when the successor completes the daily product **without asking a question** —
+when the successor completes the daily product **without asking a question** -
 deliberately the same test as level 3 in the counterpart competency framework
 (Q6).
 
-**Days 1–2: credentials and access** — miss this and nothing else matters.
-**Days 3–5: the daily EOC product**, successor running it shadowed while the
-analyst corrects but does not touch the keyboard. **Days 6–8: reverse-shadow**,
+**Days 1-2: credentials and access** - miss this and nothing else matters.
+**Days 3-5: the daily EOC product**, successor running it shadowed while the
+analyst corrects but does not touch the keyboard. **Days 6-8: reverse-shadow**,
 successor unaided, every question asked marking a gap in the procedure that gets
-written down. **Days 9–10:** the known-issues list — which settlements are
+written down. **Days 9-10:** the known-issues list - which settlements are
 known-bad, which contacts answer, which manual steps exist and why.
 
 **What I accept losing:** their counterpart relationships, their tacit sense of
@@ -3567,7 +3567,7 @@ the pipeline by accident.
 
 ## 6. Delegating without becoming the single point of failure
 
-**Four problems, four named owners, four deadlines** — not "the team will look at
+**Four problems, four named owners, four deadlines** - not "the team will look at
 it". Coverage figure to a named central analyst; the integrity fix to the data
 engineer who found it; handover to the two state supervisors; partner report to a
 central analyst from day 5. **I keep two things only:** the sequencing decision
@@ -3586,7 +3586,7 @@ distributed tasks while keeping the dependencies.
 
 **And the connection to the other half of this scenario:** two resignations
 threaten delivery only because knowledge lived in two people rather than in a
-process — the same finding as the counterpart department's 1.5 out of 5 for
+process - the same finding as the counterpart department's 1.5 out of 5 for
 documenting a reproducible workflow. The handover method above and the standard
 that department drafts on day 3 of its training are the same artefact, and
 building it once, in the open, serves both.
@@ -3597,13 +3597,13 @@ building it once, in the open, serves both.
 <w:p><w:r><w:br w:type="page"/></w:r></w:p>
 ```
 
-# PART 3 — Question 6
+# PART 3 - Question 6
 
 
-# Q6 — Building capability in the counterpart agency
+# Q6 - Building capability in the counterpart agency
 
-**Main response: 6 pages; Annexes A–E excluded**, per the question. The annexes
-carry artefacts to be used — the session, the grid, the instrument, the datasets,
+**Main response: 6 pages; Annexes A-E excluded**, per the question. The annexes
+carry artefacts to be used - the session, the grid, the instrument, the datasets,
 the session-by-session plan. The response carries the argument.
 
 ---
@@ -3620,20 +3620,20 @@ Four findings, and three of them contradict the obvious course.
 | Objective knowledge test | **57%** across 12 items |
 
 These do not agree, and the gap is the design brief. Recalling 57% while scoring
-36 on applied capability is not a knowledge problem — **it is an application
+36 on applied capability is not a knowledge problem - **it is an application
 problem.** That rules out the default response: more instruction closes a
 knowledge gap, and this cohort has already met the material and cannot convert it
 into work. The lever is supervised practice, which is why the course runs at
 **70% hands-on** and every block ends in a product rather than a summary.
 
-### 1.2 They cannot judge their own competence — so nothing self-reported can steer the design
+### 1.2 They cannot judge their own competence - so nothing self-reported can steer the design
 
 A correlation of **0.11** between self-rating and tested knowledge is not weak.
 It is *nothing*: knowing someone's self-assessment tells you essentially nothing
 about their ability. Three consequences follow, and each removes a tool I would
 normally use.
 
-- **No streaming by self-assessment** — groups formed by confidence would be
+- **No streaming by self-assessment** - groups formed by confidence would be
   uncorrelated with ability. Streaming comes from the demonstrated
   pre-assessment (Annex C).
 - **Stated demand is not a needs analysis.** Demand is *"near universal"*, from a
@@ -3652,7 +3652,7 @@ finish, followed immediately by the technique that makes it tractable. The
 realisation is theirs and the recovery is immediate. Facilitator rule throughout:
 **never name an individual's score, never compare two participants aloud.**
 
-### 1.3 The binding constraint is software access — and the finding is stranger than it looks
+### 1.3 The binding constraint is software access - and the finding is stranger than it looks
 
 **Zero of 21 have access to QGIS or ArcGIS.**
 
@@ -3662,32 +3662,32 @@ administrative rights to install; or machines too old or too few; or an IT polic
 blocking installations; or no machines allocated to this work at all.
 
 **These have entirely different remedies and nobody has established which
-applies** — a single unanswered question that decides whether the constraint
+applies** - a single unanswered question that decides whether the constraint
 lifts in two weeks or two quarters. Establishing it is action one of the 90-day
 plan (§6), scheduled *before* the course.
 
 It also settles the platform. I will not teach on software the department cannot
 open on Monday; that produces a pleasant week and zero transfer. The course runs
-on **QGIS Portable from USB — installs nothing, needs no administrative rights**
-— and each participant keeps the stick. If the cause is rights or policy, the
+on **QGIS Portable from USB - installs nothing, needs no administrative rights**
+- and each participant keeps the stick. If the cause is rights or policy, the
 constraint lifts on day one. If it is hardware, portable QGIS proves it
 immediately and the escalation becomes a costed case with evidence behind it.
 
 ### 1.4 The weakest competency is also the highest-leverage one
 
-**Documenting a reproducible cleaning workflow: 1.5 / 5** — the lowest measured
+**Documenting a reproducible cleaning workflow: 1.5 / 5** - the lowest measured
 score.
 
 Fortunate, because it is also the skill that determines whether anything else
 survives: a department that cannot document a cleaning workflow cannot hand work
-over, audit a number, or absorb a resignation — the same fragility as the
+over, audit a number, or absorb a resignation - the same fragility as the
 coordination scenario, in a different building (§7). So documentation is not a
 module here. **It is the spine**, and every other block is assessed by whether
 its output can be re-run by someone else.
 
 ### 1.5 The one thing they want, used rather than refused
 
-Strongest stated demand is **map production and cartography** — not what they
+Strongest stated demand is **map production and cartography** - not what they
 most need, but refusing it would be a mistake: it is the visible end of this work
 and where the department already feels ownership. **So it becomes the vehicle,
 not the syllabus.** Every exercise ends in a map, and every map is accepted only
@@ -3723,13 +3723,13 @@ output matches. It either does or it does not.
 
 ### 2.2 The target, and its limit
 
-Baseline for documentation is **1.5** — between "keeps a copy when reminded" and
+Baseline for documentation is **1.5** - between "keeps a copy when reminded" and
 "can describe it from memory today". The course targets **level 3 for the whole
 cohort on one workflow**: not level 3 across all six domains, which is not
 achievable in five days, and claiming it would read well and not survive the
 post-assessment.
 
-Full grid — six domains × five levels, each cell an observable behaviour — in
+Full grid - six domains × five levels, each cell an observable behaviour - in
 **Annex A**.
 
 ---
@@ -3738,7 +3738,7 @@ Full grid — six domains × five levels, each cell an observable behaviour — 
 
 **Ratio: 70% hands-on, 30% instruction.** Instruction blocks are capped at 20
 minutes and each is followed immediately by the task that uses it. This follows
-directly from §1.1 — the cohort's deficit is application, and lecture is the
+directly from §1.1 - the cohort's deficit is application, and lecture is the
 wrong instrument for an application deficit.
 
 Learning outcomes are written at the cognitive level the evidence supports.
@@ -3746,22 +3746,22 @@ Nothing is set at *evaluate* or *create* on day one for a cohort scoring 36.
 
 ### Day allocation and outcomes
 
-Full session-by-session detail — every exercise, dataset and duration — in
+Full session-by-session detail - every exercise, dataset and duration - in
 **Annex E**. Learning outcomes are written at the cognitive level the evidence
 supports; nothing is set at *evaluate* or *create* on day one for a cohort
 scoring 36.
 
 | Day | Focus | Outcome | Hands-on |
 |---|---|---|---|
-| **1** | What is actually in the data | **Apply** — given an unfamiliar dataset, produce a written inventory of its defects, in counts rather than impressions, without cleaning anything | 260 / 20 min |
-| **2** | Cleaning that can be checked | **Apply** — clean a dataset so every change is counted and no record is silently dropped | 240 / 20 min |
-| **3** | **Reproducibility — the spine** | **Apply → analyse** — produce a record from which a colleague reproduces your cleaned dataset without speaking to you | 240 / 0 min |
-| **4** | Spatial data, and the map they came for | **Apply** — produce a correctly projected, properly furnished map, and state what it does not show | 255 / 20 min |
-| **5** | Their own work, and what happens next | **Apply → evaluate** — complete a real departmental product to level 3, and review a colleague's to level 4 | 270 / 0 min |
+| **1** | What is actually in the data | **Apply** - given an unfamiliar dataset, produce a written inventory of its defects, in counts rather than impressions, without cleaning anything | 260 / 20 min |
+| **2** | Cleaning that can be checked | **Apply** - clean a dataset so every change is counted and no record is silently dropped | 240 / 20 min |
+| **3** | **Reproducibility - the spine** | **Apply → analyse** - produce a record from which a colleague reproduces your cleaned dataset without speaking to you | 240 / 0 min |
+| **4** | Spatial data, and the map they came for | **Apply** - produce a correctly projected, properly furnished map, and state what it does not show | 255 / 20 min |
+| **5** | Their own work, and what happens next | **Apply → evaluate** - complete a real departmental product to level 3, and review a colleague's to level 4 | 270 / 0 min |
 
 Three sessions carry the design. **Day 1 opens with a task they cannot finish**
 (§1.2) and still ends in a product, so the morning's discomfort resolves the same
-day. **Day 3 session 1 — "Make your work someone else's" — is the session
+day. **Day 3 session 1 - "Make your work someone else's" - is the session
 developed in full as Annex B**, and session 3 has the cohort draft *their own*
 documentation standard, because a standard issued to this department will not be
 followed and one they wrote and tested might be. **Day 5 uses the department's
@@ -3777,16 +3777,16 @@ considered and cut.
 
 | Not taught | Why |
 |---|---|
-| **Spatial statistics** | Requires trust in the underlying data. This cohort cannot yet establish that a dataset is clean, so a significance test would be a confident answer resting on unexamined input — actively worse than no answer |
+| **Spatial statistics** | Requires trust in the underlying data. This cohort cannot yet establish that a dataset is clean, so a significance test would be a confident answer resting on unexamined input - actively worse than no answer |
 | **Remote sensing** | An entire discipline. Five days would produce vocabulary and no capability, and there is no departmental workflow currently demanding it |
 | **Web mapping / dashboards** | Publishing is the last problem this department has. It would put unverified data in front of more people, faster |
-| **Python / R automation** | The one I most wanted to include, and cutting it was the hardest call. It adds a *second* novel discipline — programming — on top of the first, reproducibility, before the first is secure. Reproducibility is achievable with the tools they have; automation is a later programme for those who reach level 4 |
+| **Python / R automation** | The one I most wanted to include, and cutting it was the hardest call. It adds a *second* novel discipline - programming - on top of the first, reproducibility, before the first is secure. Reproducibility is achievable with the tools they have; automation is a later programme for those who reach level 4 |
 | **Geodatabase administration** | No database to administer until access is resolved |
 | **Advanced cartographic design** | Their strongest demand, and deliberately capped at competent-and-honest rather than beautiful. Beauty is not the department's constraint |
 
 **The principle:** at capability 36 with the weakest score in documentation,
 breadth produces people who can *name* techniques and *deliver* none. Depth on
-one chain — profile, clean, document, map, hand over — produces people who can
+one chain - profile, clean, document, map, hand over - produces people who can
 complete a real task and prove it. Nothing here is permanently excluded; each is
 a candidate for the programme after the 90 days, conditional on measured
 progress.
@@ -3796,12 +3796,12 @@ progress.
 ## 5. Pre and post assessment
 
 **Demonstrated capability only.** No confidence items, no satisfaction items, no
-self-rating as an outcome — §1.2 disqualifies all three. Full instrument, rubric
+self-rating as an outcome - §1.2 disqualifies all three. Full instrument, rubric
 and datasets in **Annex C**.
 
-A **practical task**: 8 items scored 0–4 against the level definitions, 32
+A **practical task**: 8 items scored 0-4 against the level definitions, 32
 points, 3 hours, blind marked. Identical tasks and rubric at both administrations
-on **parallel datasets** — same defect specification, same frequencies, different
+on **parallel datasets** - same defect specification, same frequencies, different
 values, so the difficulty matches and the post-test cannot be passed from memory.
 The parallel-form claim is *verified rather than asserted*: the dataset generator
 compares defect profiles across the files and fails if they differ.
@@ -3810,13 +3810,13 @@ compares defect profiles across the files and fails if they differ.
 submitted work goes to an assessor who has not seen it, with the raw data and no
 access to the author; the score is whether the output reproduces. It is the only
 item that tests level 3 directly, and the only one that cannot be faked, coached
-or inflated by a confident participant. Someone can score well on tasks 1–7 and
-**zero on 8** — which is precisely this department's present condition, so the
+or inflated by a confident participant. Someone can score well on tasks 1-7 and
+**zero on 8** - which is precisely this department's present condition, so the
 instrument has to be able to detect it.
 
 **One secondary measure, never an outcome.** The self-rating item is retained
 only to recompute the 0.11 correlation as a measure of *calibration*. If it
-rises, participants have learned to judge their own competence — and a department
+rises, participants have learned to judge their own competence - and a department
 that knows what it cannot do asks for help before producing a wrong number.
 Reported on its own line, never as evidence of capability.
 
@@ -3827,7 +3827,7 @@ Reported on its own line, never as evidence of capability.
 Training that ends when the course ends is the failure mode this section exists
 to prevent.
 
-### Days −14 to 0 — before the course: resolve the binding constraint
+### Days −14 to 0 - before the course: resolve the binding constraint
 
 **This runs before day one, not after.** Nothing transfers if participants cannot
 open the software on the Monday afterwards.
@@ -3837,32 +3837,32 @@ open the software on the Monday afterwards.
    distinguishes admin rights from hardware from policy. Until this is known,
    every remedy is a guess.
 2. **Deploy QGIS Portable on USB** to all 21. No administrative rights, no
-   installation — it removes the constraint immediately if the cause is rights or
+   installation - it removes the constraint immediately if the cause is rights or
    policy, and demonstrates it hard if the cause is hardware.
 3. **Escalate with evidence, not a request.** If hardware is the cause, the ask
    to the counterpart's management is specific and costed, and carries the
    finding: a department contractually committed to geospatial output with zero
    capacity to run geospatial software.
 
-### Days 1–30 — applied work under review
+### Days 1-30 - applied work under review
 
 Each participant leaves day 5 with **one named real product, a delivery date and
-a named reviewer.** Fortnightly 60-minute remote clinics — not teaching;
+a named reviewer.** Fortnightly 60-minute remote clinics - not teaching;
 participants bring work that is stuck. Every product passes **peer reproduction**
 before acceptance, so the level-3 test becomes routine practice rather than an
 assessment event.
 
-### Days 31–60 — the standard becomes binding
+### Days 31-60 - the standard becomes binding
 
 The documentation standard drafted on day 3 is **formally adopted** by the
 department head, having been tested on 30 days of real work rather than issued
 from outside. Two or three participants reaching level 4 take over **reviewing**
-others' work — capability transfers when the review stops being mine. **Access is
+others' work - capability transfers when the review stops being mine. **Access is
 resolved or formally escalated**; if neither, the programme reports it as a
 failure of the commitment rather than of the training, and that distinction
 belongs on the record.
 
-### Days 61–90 — measure, and decide what is next
+### Days 61-90 - measure, and decide what is next
 
 - **Post-assessment**, including the independent reproduction task.
 - **Capability transfer measured**, not satisfaction:
@@ -3880,7 +3880,7 @@ belongs on the record.
 or number trained. Every one of them can be excellent while nothing changed.
 
 - **The next programme is conditional.** Automation and spatial statistics become
-  available to participants who reach level 4 — earned by demonstration, not by
+  available to participants who reach level 4 - earned by demonstration, not by
   attendance. A cohort that has not reached level 3 gets a repeat of this
   programme, and saying so at the outset is what makes level 3 mean something.
 
@@ -3891,14 +3891,14 @@ or number trained. Every one of them can be excellent while nothing changed.
 The scenario presents two obligations competing for my time. They are one
 problem.
 
-Two of six state analysts resign and delivery is threatened — true only because
+Two of six state analysts resign and delivery is threatened - true only because
 their knowledge was never written down. The counterpart department scores **1.5
 out of 5 on documenting a reproducible workflow.** The same finding in two
 organisations: capability living in individuals rather than in the process, so
 competence is exactly as durable as staffing.
 
-That is why documentation is the spine of this course, and why level 3 — *a
-colleague reproduces it without asking you* — is the threshold the programme is
+That is why documentation is the spine of this course, and why level 3 - *a
+colleague reproduces it without asking you* - is the threshold the programme is
 built around. It is the operational definition of knowledge that has left
 someone's head.
 
@@ -3916,7 +3916,7 @@ argument holds.
 
 ### Annexes (excluded from the page limit)
 
-**A** competency framework · **B** the 90-minute session in full — facilitator
+**A** competency framework · **B** the 90-minute session in full - facilitator
 guide, participant briefs, model answer and dataset generator · **C** pre/post
 assessment instrument · **D** dataset specifications · **E** session-by-session
 course plan
@@ -3932,7 +3932,7 @@ course plan
 Excluded from the Q6 page limit, as the question permits.
 
 
-# Annex A — Competency framework
+# Annex A - Competency framework
 
 Six domains × five levels. Excluded from the Q6 page limit.
 
@@ -3956,7 +3956,7 @@ beginner/intermediate/advanced scale would not do. "Can do it alone" is where
 most training stops and where this department's problem begins: twenty-one people
 at level 2 still produce a department that cannot survive one resignation.
 
-Level 3 is scored without judgement — hand the artefact to a colleague with the
+Level 3 is scored without judgement - hand the artefact to a colleague with the
 raw data, forbid questions, and see whether the output matches. It does or it
 does not.
 
@@ -3980,16 +3980,16 @@ does not.
 | 1 | Fixes defects that are pointed out, one at a time, in the order given |
 | 2 | Finds defects unaided, fixes them, and the output is correct |
 | 3 | Expresses each fix as a **rule with a count of rows affected**, and reconciles input rows against output rows so that no record is silently lost |
-| 4 | Distinguishes a defect from a finding — recognises when unusual data is real and must be preserved rather than corrected |
+| 4 | Distinguishes a defect from a finding - recognises when unusual data is real and must be preserved rather than corrected |
 
-## D3 · Documenting a reproducible workflow — **weakest measured competency, 1.5 / 5**
+## D3 · Documenting a reproducible workflow - **weakest measured competency, 1.5 / 5**
 
 | L | Observable behaviour |
 |---|---|
 | 0 | Cleans by editing cells directly. No record of what changed |
 | 1 | Keeps the raw file untouched and works on a copy, when reminded |
 | 2 | Keeps raw and working copies separate and can describe the changes from memory, on the same day |
-| 3 | Leaves a written record naming every change, its reason, and the rows affected — **and a colleague reproduces the cleaned file from the raw file using only that record** |
+| 3 | Leaves a written record naming every change, its reason, and the rows affected - **and a colleague reproduces the cleaned file from the raw file using only that record** |
 | 4 | Reviews a colleague's record, identifies the step that cannot be repeated, and rewrites it so the next person does not hit the same gap |
 
 ## D4 · Spatial data handling
@@ -4002,14 +4002,14 @@ does not.
 | 3 | States the CRS in use and why, converts deliberately rather than by accident, and **reports join failures with a count** instead of quietly losing the unmatched rows |
 | 4 | Chooses a projection appropriate to the measurement being made, and can say what the choice costs |
 
-## D5 · Map production and cartography — **strongest stated demand**
+## D5 · Map production and cartography - **strongest stated demand**
 
 | L | Observable behaviour |
 |---|---|
 | 0 | Produces a screenshot of the map canvas |
 | 1 | Produces a map with a title and a legend, following a checklist |
 | 2 | Produces a complete map unaided: title, legend, scale, north arrow, source, date |
-| 3 | The map states its **projection and its data source**, and a colleague can rebuild it from the record — and it says what it does **not** show |
+| 3 | The map states its **projection and its data source**, and a colleague can rebuild it from the record - and it says what it does **not** show |
 | 4 | Chooses the symbology to fit the question, and can explain why a different choice would mislead |
 
 ## D6 · Interpretation and communication
@@ -4031,13 +4031,13 @@ does not.
 | D1 Acquisition and structure | ~1 | 2 | 3 |
 | D2 Cleaning and validation | ~1 | 2 | 3 |
 | **D3 Documentation** | **1.5 (measured)** | **3 on one workflow** | **3 across routine work** |
-| D4 Spatial handling | ~1 | 2 | 2–3 |
+| D4 Spatial handling | ~1 | 2 | 2-3 |
 | D5 Map production | ~2 (strongest) | 3 | 3 |
-| D6 Interpretation | ~1 | 2 | 2–3 |
+| D6 Interpretation | ~1 | 2 | 2-3 |
 
 **Only D3 is targeted at level 3 within the week, and only on one workflow.**
 Claiming level 3 across six domains in five days would be the same design failure
-as promising spatial statistics and remote sensing — it would read well and
+as promising spatial statistics and remote sensing - it would read well and
 would not survive contact with the post-assessment.
 
 Baselines other than D3 are inferred from the composite score of 36 and are
@@ -4053,25 +4053,25 @@ before day one rather than relying on the composite.
 
 
 
-# Annex B — The 90-minute session, in full
+# Annex B - The 90-minute session, in full
 
 **"Make your work someone else's"** · Day 3, session 1 · 21 participants in pairs.
 
 The question asks for one session developed as *an artefact a colleague could
 deliver in my absence*. That is the standard this annex is written to, so it is
-four separate documents rather than one description — a facilitator running it
+four separate documents rather than one description - a facilitator running it
 needs the guide in hand, the briefs printed, and the model answer withheld.
 
 | File | What it is | Who sees it |
 |---|---|---|
 | `facilitator_guide.md` | Minute-by-minute timings, verbatim wording where it matters, expected errors and interventions | Facilitator |
-| `participant_brief.md` | Briefs A and B. **B is held back until minute 25** — issuing both at once lets participants write the record with the reproduction task already in mind, which is what the session tests them not to do | Participants |
-| `model_answer.md` | The level-3 exemplar, the reconciliation numbers, and what to look for when judging | **Facilitator only — do not distribute** |
-| `make_dataset.py` | Generates the dataset. Fixed seed, so a colleague produces exactly the file the model answer expects | — |
+| `participant_brief.md` | Briefs A and B. **B is held back until minute 25** - issuing both at once lets participants write the record with the reproduction task already in mind, which is what the session tests them not to do | Participants |
+| `model_answer.md` | The level-3 exemplar, the reconciliation numbers, and what to look for when judging | **Facilitator only - do not distribute** |
+| `make_dataset.py` | Generates the dataset. Fixed seed, so a colleague produces exactly the file the model answer expects | - |
 | `D1_facilities_raw.csv` | The teaching dataset for Days 2 and 3 | Participants |
 | `D_PRE_…`, `D_POST_…` | Parallel forms for the pre/post assessment (Annex C) | Assessor |
 
-**Why the session exists.** Participants discover — by failing — that work they
+**Why the session exists.** Participants discover - by failing - that work they
 can repeat themselves cannot be repeated by anyone else. That gap is the
 difference between level 2 and level 3 in the competency framework, and it is
 the single most important thing in the five days.
@@ -4086,7 +4086,7 @@ Full specification of every dataset in **Annex D**.
 
 
 
-# Facilitator guide — "Make your work someone else's"
+# Facilitator guide - "Make your work someone else's"
 
 **Day 3, session 1 · 90 minutes · 21 participants in pairs (one three)**
 
@@ -4097,7 +4097,7 @@ matters, it is given verbatim in quotes. Where it does not, it says so.
 
 ## What this session is for
 
-Participants discover — by failing — that work they can repeat *themselves*
+Participants discover - by failing - that work they can repeat *themselves*
 cannot be repeated by *anyone else*. That gap is the difference between level 2
 and level 3 in the competency framework, and it is the single most important
 thing in the five days.
@@ -4118,13 +4118,13 @@ managing how it feels is most of your job here.
 |---|---|
 | Dataset loaded | `D1_facilities_raw.csv` on every machine, in `Day3/` |
 | Yesterday's work | Each participant has their own cleaned file and whatever notes they made on Day 2. **Do not let them redo the cleaning** |
-| Pairing list | Prepared in advance — see pairing rule below |
+| Pairing list | Prepared in advance - see pairing rule below |
 | Printed briefs | One per participant. Brief A at the start; **hold Brief B back** |
 | Timer | Visible to the room |
 | Flip chart | Headed "What stopped us" |
 
-**Pairing rule.** Pair across the pre-assessment range — a higher scorer with a
-lower scorer — but **never announce why pairs were formed**. Same-level pairs
+**Pairing rule.** Pair across the pre-assessment range - a higher scorer with a
+lower scorer - but **never announce why pairs were formed**. Same-level pairs
 produce either two failures with no diagnosis, or two people who assume the tool
 is broken.
 
@@ -4136,9 +4136,9 @@ where the learning is.
 
 ## Minute by minute
 
-### 0–8 · Framing
+### 0-8 · Framing
 
-Say, roughly — this wording is not load-bearing:
+Say, roughly - this wording is not load-bearing:
 
 > "Yesterday you each cleaned the facility list. This morning we are going to
 > check something simple: whether the work you did is *usable by the department*
@@ -4151,7 +4151,7 @@ Then, verbatim, because this line prevents the session being read as a test:
 
 Hand out **Brief A**. Do not hand out Brief B.
 
-### 8–25 · Task A — write the record (17 min)
+### 8-25 · Task A - write the record (17 min)
 
 Participants work **alone**, writing the record of what they did yesterday. Brief
 A gives them the format.
@@ -4164,12 +4164,12 @@ If asked *"how much detail?"*, reply:
 
 > **"Enough that someone else could do exactly what you did."**
 
-Then leave. Do not elaborate — the ambiguity is the point, and most will resolve
+Then leave. Do not elaborate - the ambiguity is the point, and most will resolve
 it too thinly.
 
 At 25 minutes, stop them **whether or not they have finished.** Collect nothing.
 
-### 25–50 · Task B — reproduce your partner's work (25 min)
+### 25-50 · Task B - reproduce your partner's work (25 min)
 
 Hand out **Brief B**. Announce the rule, verbatim:
 
@@ -4184,7 +4184,7 @@ and attempt to produce the partner's cleaned file.
 usually by the record's author leaning in to explain. That instinct is exactly
 what the session is about. Intervene with:
 
-> "That is the fourth thing you have had to explain. Write each one down — that
+> "That is the fourth thing you have had to explain. Write each one down - that
 > list is your real output this morning."
 
 **Your job in this phase is to notice, not to help.** Track which failures recur;
@@ -4193,11 +4193,11 @@ you will need them at 50 minutes.
 At 45 minutes, ask each pair to note **row counts** for the file they produced
 and the partner's original.
 
-### 50–65 · What stopped us (15 min)
+### 50-65 · What stopped us (15 min)
 
 Round the room. Each pair gives **one** thing the record failed to tell them.
 Write them on the flip chart, grouped as they emerge. Do not attribute to
-individuals — say "a pair found", never a name.
+individuals - say "a pair found", never a name.
 
 **Expected groupings** (see the errors table below): order not stated, "cleaned"
 without saying how, decisions not recorded, source file ambiguous, counts absent.
@@ -4212,30 +4212,30 @@ the session exists for.** Do not rescue it, and do not lecture. Say only:
 
 > "So the work was right, and it did not survive the handover."
 
-### 65–83 · Repair and re-test (18 min)
+### 65-83 · Repair and re-test (18 min)
 
 Participants take back their own record and rewrite it using the flip chart.
 **10 minutes.**
 
 Then **re-pair with a different partner** and give **8 minutes** to attempt
 reproduction again. Eight minutes is not enough to finish, and it does not need
-to be — what is being tested is whether the second reader gets *further*, not
+to be - what is being tested is whether the second reader gets *further*, not
 whether they finish.
 
 Ask for a show of hands: **"Who got further this time?"** Near-universal, and it
 is the first evidence they have that the fix is achievable.
 
-### 83–90 · Consolidate
+### 83-90 · Consolidate
 
 Ask the room for the minimum a record must contain. Take five or six items only.
 You will get most of the model answer back; supply nothing they do not offer,
-and do not correct omissions — Day 3 session 3 is where they draft the full
+and do not correct omissions - Day 3 session 3 is where they draft the full
 standard, and it must be theirs.
 
 Close, verbatim:
 
 > **"Your cleaning was not the problem. Every one of you could repeat your own
-> work. The department cannot, and that is a different skill — it is the one we
+> work. The department cannot, and that is a different skill - it is the one we
 > are building this week."**
 
 ---
@@ -4243,19 +4243,19 @@ Close, verbatim:
 ## Common errors, and how to intervene
 
 Ranked by how often they occur. **Interventions are all delayed to the 50-minute
-discussion unless flagged otherwise** — correcting during Task B removes the
+discussion unless flagged otherwise** - correcting during Task B removes the
 evidence.
 
 | # | What you will see | Why it happens | Intervention |
 |---|---|---|---|
-| 1 | *"Removed duplicates"* — no key, no count, no rule for which was kept | Deduplication feels self-evident to the person who did it | At 50 min: "Which of the two rows survived? Did your partner keep the same one?" |
+| 1 | *"Removed duplicates"* - no key, no count, no rule for which was kept | Deduplication feels self-evident to the person who did it | At 50 min: "Which of the two rows survived? Did your partner keep the same one?" |
 | 2 | Steps in the wrong order, or no order at all | They remember the *set* of actions, not the sequence | Ask a pair to state what happens if trimming spaces comes after grouping names. Let them work it out |
 | 3 | *"Corrected the LGA names"* with no mapping | The variants were obvious on the day | "Your partner has seen `Idi Oro`, `IDI-ORO` and `Idi-oro`. Which is correct, and how would they know?" |
 | 4 | No row counts anywhere | Counting feels bureaucratic until reproduction fails | This is why the row-count check at 45 min exists. Let the numbers make the argument |
-| 5 | Source file ambiguous — several files named `facilities_final` | Nobody names a file for a reader | Ask which file the partner opened. Often the wrong one, and everything after was wasted |
-| 6 | Judgement calls not recorded at all | The 5 facilities with no coordinates were dropped, or kept, and it seemed obvious | The most important error in the session. "You made a decision. Your partner made the opposite one. Neither of you is wrong — but the numbers now differ and nobody knows why" |
-| 7 | The record describes *intent*, not *action* — "made the data consistent" | Writing about work is a different skill from doing it | "Read that sentence and tell me the first thing your partner should click" |
-| 8 | Author explains verbally, then insists the record was fine | The gap is genuinely invisible from inside | **Intervene immediately.** "Stop — write down what you just said. That sentence is the missing line" |
+| 5 | Source file ambiguous - several files named `facilities_final` | Nobody names a file for a reader | Ask which file the partner opened. Often the wrong one, and everything after was wasted |
+| 6 | Judgement calls not recorded at all | The 5 facilities with no coordinates were dropped, or kept, and it seemed obvious | The most important error in the session. "You made a decision. Your partner made the opposite one. Neither of you is wrong - but the numbers now differ and nobody knows why" |
+| 7 | The record describes *intent*, not *action* - "made the data consistent" | Writing about work is a different skill from doing it | "Read that sentence and tell me the first thing your partner should click" |
+| 8 | Author explains verbally, then insists the record was fine | The gap is genuinely invisible from inside | **Intervene immediately.** "Stop - write down what you just said. That sentence is the missing line" |
 
 ### Two situations that need handling on the spot
 
@@ -4265,7 +4265,7 @@ room. Ask the *reproducer*, not the author: *"What did their record have that
 made this possible?"* Their answer goes on the flip chart and carries more weight
 than anything you say.
 
-**A participant becomes defensive** — usually a senior one whose record failed
+**A participant becomes defensive** - usually a senior one whose record failed
 publicly. Redirect to the artefact, never the person: *"The record is the thing
 we are fixing, not the cleaning. Your cleaning was correct."* If it persists,
 move them into the repair phase early and let them succeed at the rewrite.
@@ -4276,9 +4276,9 @@ move them into the repair phase early and let them succeed at the rewrite.
 
 Cut in this order:
 
-1. **The second re-pair at 75 min** — shorten to 5 minutes. Getting further is
+1. **The second re-pair at 75 min** - shorten to 5 minutes. Getting further is
    the point; finishing is not.
-2. **The consolidation at 83 min** — Day 3 session 3 covers it.
+2. **The consolidation at 83 min** - Day 3 session 3 covers it.
 3. **Never cut the reproduction attempt or the row-count check.** Without them the
    session is a lecture about documentation, which is what the department has
    already had and has not acted on.
@@ -4299,10 +4299,10 @@ what makes them do it next week when nobody is watching.
 
 
 
-# Participant briefs — "Make your work someone else's"
+# Participant briefs - "Make your work someone else's"
 
 Two briefs. **Brief A is handed out at the start. Brief B is held back until
-minute 25** — issuing both together lets participants write the record with the
+minute 25** - issuing both together lets participants write the record with the
 reproduction task already in mind, which is precisely what the session is
 testing them not to do.
 
@@ -4311,7 +4311,7 @@ Print single-sided, one set per participant.
 ---
 ---
 
-# BRIEF A — Write the record
+# BRIEF A - Write the record
 
 **Time: 17 minutes. Work alone.**
 
@@ -4350,7 +4350,7 @@ That is all. You have 17 minutes.
 ---
 ---
 
-# BRIEF B — Reproduce your partner's work
+# BRIEF B - Reproduce your partner's work
 
 **Time: 25 minutes. Work at one machine, together.**
 
@@ -4371,7 +4371,7 @@ file**, starting from the raw data.
 - A cleaned file, produced by following their record.
 - A list headed **"What the record did not tell me"**.
 
-That list is the important output. It is not a criticism of your partner — the
+That list is the important output. It is not a criticism of your partner - the
 same list is being written about your record, at the same time, by someone else.
 
 ## Before time is called
@@ -4393,7 +4393,7 @@ You will be asked for these.
 
 
 
-## Model answer — "Make your work someone else's"
+## Model answer - "Make your work someone else's"
 
 For the facilitator. **Do not distribute.** Participants draft the standard
 themselves in Day 3 session 3, and handing them the answer removes the reason
@@ -4401,7 +4401,7 @@ they would follow it.
 
 ---
 
-## Part 1 — What a level-3 record looks like
+## Part 1 - What a level-3 record looks like
 
 This is the exemplar, not a template to issue. Compare participant records
 against it to judge *what is missing*, not to mark them.
@@ -4471,7 +4471,7 @@ RESULT
     Facilities mappable: 195. Not mappable: 5 (D3).
 ```
 
-## Part 2 — The numbers
+## Part 2 - The numbers
 
 Use these to check whether a pair actually reproduced the file.
 
@@ -4489,10 +4489,10 @@ Use these to check whether a pair actually reproduced the file.
 | `staff_total = 999` | **3** |
 
 **A pair has reproduced the work when the row count matches and the same
-facilities are present.** Exact column-by-column equality is not the standard —
+facilities are present.** Exact column-by-column equality is not the standard -
 the standard is that the department would report the same numbers.
 
-## Part 3 — Why participants get different answers, and why that is the lesson
+## Part 3 - Why participants get different answers, and why that is the lesson
 
 Three defects have **no single correct treatment**: D1, D2 and D3 above.
 
@@ -4512,17 +4512,17 @@ recording the choices**, because the steps are usually recoverable by inspection
 and the choices never are.
 
 If the discussion at minute 50 reaches this on its own, the session has done
-more than it needed to. If it does not, do not supply it — Day 3 session 3 is
+more than it needed to. If it does not, do not supply it - Day 3 session 3 is
 where they will reach it while drafting their own standard, and it lands harder
 there.
 
-## Part 4 — What to look for when judging level 3
+## Part 4 - What to look for when judging level 3
 
 Not a mark scheme. A prompt for what to notice while walking the room.
 
 | Signal | Level |
 |---|---|
-| Record describes intent — "made the data consistent" | 1 |
+| Record describes intent - "made the data consistent" | 1 |
 | Steps listed, no counts, no order stated | 2 |
 | Steps in order, with counts, no decisions recorded | 2 (the most common outcome) |
 | Steps, counts, order **and** decisions with their alternatives | **3** |
@@ -4531,7 +4531,7 @@ Not a mark scheme. A prompt for what to notice while walking the room.
 **Expect the whole room at 2 or below on the first attempt.** The department's
 measured baseline for this competency is 1.5 out of 5, and a single morning does
 not move a department to level 3. What it moves is their understanding of what
-level 3 requires — the remaining distance is closed over the 90 days, on real
+level 3 requires - the remaining distance is closed over the 90 days, on real
 work, under review.
 
 
@@ -4542,7 +4542,7 @@ work, under review.
 
 
 
-# Annex C — Pre and post assessment instrument
+# Annex C - Pre and post assessment instrument
 
 Excluded from the Q6 page limit.
 
@@ -4561,22 +4561,22 @@ Annex A. Participants do the work; the work is marked.
 |---|---|
 | Format | Practical, at a machine, individual |
 | Duration | **3 hours** including a 15-minute break |
-| Items | 8 tasks, scored 0–4 | **32 points** |
-| Administered | Days −7 (pre) and 61–90 (post) |
+| Items | 8 tasks, scored 0-4 | **32 points** |
+| Administered | Days −7 (pre) and 61-90 (post) |
 | Datasets | `D_PRE_facilities_raw.csv` / `D_POST_facilities_raw.csv` |
-| Marking | Blind — no names, no administration order |
+| Marking | Blind - no names, no administration order |
 
 ---
 
 ## The eight tasks
 
-Tasks 1–7 are performed by the participant. **Task 8 is performed on them.**
+Tasks 1-7 are performed by the participant. **Task 8 is performed on them.**
 
 | # | Task | Domain | What a 4 looks like |
 |---|---|---|---|
-| **1** | **Profile the file.** Report what it contains and what is wrong with it. Change nothing. | D1 | Row count, column types, what one row represents, and a defect inventory **with counts** — not impressions |
+| **1** | **Profile the file.** Report what it contains and what is wrong with it. Change nothing. | D1 | Row count, column types, what one row represents, and a defect inventory **with counts** - not impressions |
 | **2** | **Canonicalise names.** Reduce `lga_name` and `facility_type` to their true values. | D2 | Correct mapping, stated as a table, with rows affected. Trimming done **before** grouping, and the reason given |
-| **3** | **Handle the coordinates.** Find and treat every coordinate defect. | D2, D4 | All three classes found — decimal comma, transposition, missing — each fixed or retained deliberately, with counts |
+| **3** | **Handle the coordinates.** Find and treat every coordinate defect. | D2, D4 | All three classes found - decimal comma, transposition, missing - each fixed or retained deliberately, with counts |
 | **4** | **Identify the judgement calls.** Which defects have no single correct treatment? | D2, D6 | Names all three (duplicates, missing coordinates, `999`), states a decision for each **and the defensible alternative** |
 | **5** | **Write the record.** So that a colleague could reproduce your cleaned file. | **D3** | Source, ordered steps with counts, decisions with alternatives, rows in and rows out with the difference explained |
 | **6** | **Join to wards and report failures.** | D4 | Join performed, unmatched rows **counted and reported** rather than silently dropped |
@@ -4587,8 +4587,8 @@ Tasks 1–7 are performed by the participant. **Task 8 is performed on them.**
 
 It is the only item that tests **level 3 directly**, and the only one that cannot
 be inflated by a confident participant, coached by a supervisor, or improved by
-knowing the marker. A participant can produce excellent work on tasks 1–7 and
-still score zero on 8 — and that combination is precisely the department's
+knowing the marker. A participant can produce excellent work on tasks 1-7 and
+still score zero on 8 - and that combination is precisely the department's
 current condition, so the instrument has to be able to detect it.
 
 It is also the item most likely to be dropped for being inconvenient. It costs an
@@ -4603,10 +4603,10 @@ Each task scored against Annex A's levels:
 | Score | Meaning |
 |---|---|
 | **0** | Not attempted, or attempted with no correct element |
-| **1** | Assisted standard — correct only where the task itself supplied the procedure |
-| **2** | Independent standard — correct output, not reproducible |
-| **3** | Reproducible standard — correct, counted, and documented |
-| **4** | Improving standard — as 3, plus identifies a problem the task did not ask about |
+| **1** | Assisted standard - correct only where the task itself supplied the procedure |
+| **2** | Independent standard - correct output, not reproducible |
+| **3** | Reproducible standard - correct, counted, and documented |
+| **4** | Improving standard - as 3, plus identifies a problem the task did not ask about |
 
 **Total 32.** Reported as a total *and* as a per-domain profile, because a
 department that moves from 12 to 18 by improving map production while
@@ -4616,12 +4616,12 @@ documentation stays at 1 has not achieved what this programme is for.
 
 | Total | Reading |
 |---|---|
-| 0–8 | Level 0–1. Cannot yet work unsupervised |
-| 9–16 | Level 1–2. Produces correct work that cannot be handed over. **Expected baseline** |
-| 17–24 | Level 2–3. Reproducible on familiar tasks |
-| 25–32 | Level 3–4. Can review others' work |
+| 0-8 | Level 0-1. Cannot yet work unsupervised |
+| 9-16 | Level 1-2. Produces correct work that cannot be handed over. **Expected baseline** |
+| 17-24 | Level 2-3. Reproducible on familiar tasks |
+| 25-32 | Level 3-4. Can review others' work |
 
-**Expected pre-assessment total: 11–14.** Consistent with a composite of 36 and
+**Expected pre-assessment total: 11-14.** Consistent with a composite of 36 and
 a documentation score of 1.5. If the cohort scores materially above this, the
 composite was mismeasured and the course design should be revisited before
 delivery rather than after.
@@ -4651,7 +4651,7 @@ same test:
    | `facility_type` variants | 9 | 9 | 9 |
    | comma in longitude | 6 | 6 | 6 |
 
-   Same difficulty, different values — so the post-test cannot be passed from
+   Same difficulty, different values - so the post-test cannot be passed from
    memory of the pre-test, and cannot be *harder* either, which is the failure
    that makes a genuine improvement invisible.
 
@@ -4666,7 +4666,7 @@ for two full days, and testing on it would measure recall of a specific file.
 
 ---
 
-## The calibration measure — reported, never as an outcome
+## The calibration measure - reported, never as an outcome
 
 One self-rating item is retained at both administrations: *"Rate your ability to
 document a cleaning workflow so a colleague could repeat it, 1 to 5."*
@@ -4681,7 +4681,7 @@ correlation between self-rating and tested score.
 
 A department that can judge its own competence asks for help before producing a
 wrong number, and stops asking for training it does not need. That is a real
-result, worth measuring — and it is reported in its own line, never as evidence
+result, worth measuring - and it is reported in its own line, never as evidence
 of capability, because that is exactly the conflation §1.2 rules out.
 
 ---
@@ -4709,7 +4709,7 @@ Stated so nobody claims it does.
 
 
 
-# Annex D — Dataset specifications
+# Annex D - Dataset specifications
 
 Excluded from the Q6 page limit.
 
@@ -4738,12 +4738,12 @@ that defects cannot be found by eye; small enough to finish.
 
 | # | Defect | Count | Judgement call? |
 |---|---|---|---|
-| 1 | `lga_name` variants — spacing, case, hyphenation | 16 variants → 4 real LGAs | No |
-| 2 | Duplicate `facility_id`, **rows differ** | 3 pairs | **Yes** — which row survives? |
-| 3 | Missing coordinates | 5 rows | **Yes** — drop, or keep unmapped? |
+| 1 | `lga_name` variants - spacing, case, hyphenation | 16 variants → 4 real LGAs | No |
+| 2 | Duplicate `facility_id`, **rows differ** | 3 pairs | **Yes** - which row survives? |
+| 3 | Missing coordinates | 5 rows | **Yes** - drop, or keep unmapped? |
 | 4 | Latitude/longitude transposed | 2 rows | No |
 | 5 | Leading/trailing whitespace in names | 24 rows | No |
-| 6 | `staff_total = 999` | 3 rows | **Yes** — sentinel, or real? |
+| 6 | `staff_total = 999` | 3 rows | **Yes** - sentinel, or real? |
 | 7 | `facility_type` spelling variants | 9 variants → 3 real types | No |
 | 8 | Decimal comma in `longitude` | 6 rows | No |
 
@@ -4752,12 +4752,12 @@ that defects cannot be found by eye; small enough to finish.
 Defects 2, 3 and 6 are the reason the design works.
 
 A dataset containing only mechanical defects teaches participants that
-documentation means listing steps. It does not — steps are usually recoverable by
+documentation means listing steps. It does not - steps are usually recoverable by
 inspecting the output. **Choices never are.**
 
 With these three present, two participants can both clean the file competently
 and arrive at 203, 200 or 195 rows. All three are defensible. **None is
-reproducible unless the decision was written down** — which is the moment the
+reproducible unless the decision was written down** - which is the moment the
 90-minute session is built around, and the thing tasks 4 and 5 of the assessment
 are testing.
 
@@ -4785,11 +4785,11 @@ Defects invented to be tidy teach people to spot invented defects.
 
 
 
-# Annex E — Five-day course, session by session
+# Annex E - Five-day course, session by session
 
 Excluded from the Q6 page limit. The main response gives the day allocation,
 the learning outcome for each day and the hands-on ratio; this is the
-operational detail a facilitator needs — every session with its exercise,
+operational detail a facilitator needs - every session with its exercise,
 dataset and duration.
 
 Datasets D1, D2 and the assessment forms are specified
@@ -4797,32 +4797,32 @@ in **Annex D**; the Day 3 session marked in full is **Annex B**.
 
 ---
 
-### Day 1 — What is actually in the data
+### Day 1 - What is actually in the data
 **Outcome (apply):** Given an unfamiliar dataset, produce a written inventory of
-its defects — counts, not impressions — without cleaning anything.
+its defects - counts, not impressions - without cleaning anything.
 
 | Session | Min | Exercise | Dataset |
 |---|---|---|---|
 | The task you cannot yet do | 60 | Produce a facility map from raw data, unaided. Most will not finish | D1 (Annex D) |
-| Why it failed | 20 | Facilitated, findings collected from the room, no individual named | — |
+| Why it failed | 20 | Facilitated, findings collected from the room, no individual named | - |
 | Profiling before touching | 90 | Count rows, duplicates, blanks, out-of-range values, name variants | D1 |
 | Writing a defect register | 90 | Produce a defect table: what, how many, how found | D1 |
 
 Day 1 is the day the self-assessment gap gets closed by experience rather than by
 being told. It ends with a product, so the discomfort of the morning resolves.
 
-### Day 2 — Cleaning that can be checked
+### Day 2 - Cleaning that can be checked
 **Outcome (apply):** Clean a dataset so that every change is counted and no
 record is silently dropped.
 
 | Session | Min | Exercise | Dataset |
 |---|---|---|---|
-| Rules, not repairs | 20 | Instruction | — |
+| Rules, not repairs | 20 | Instruction | - |
 | Cleaning to a rule set | 120 | Fix each defect from Day 1 as a stated rule; record rows affected | D1 |
 | Nothing disappears | 60 | Reconcile input rows against output rows; account for every difference | D1 |
 | Ambiguous cases | 60 | Cases with no correct answer. Decide, and write down why | D1 |
 
-### Day 3 — Reproducibility (the spine)
+### Day 3 - Reproducibility (the spine)
 **Outcome (apply → analyse):** Produce a record from which a colleague
 reproduces your cleaned dataset without speaking to you.
 
@@ -4830,18 +4830,18 @@ reproduces your cleaned dataset without speaking to you.
 |---|---|---|---|
 | **Make your work someone else's** | **90** | **Full artefact in Annex B** | D1 / D2 |
 | Repairing the record | 60 | Rewrite the documentation that failed; re-test with a different partner | D1 |
-| The department's own standard | 90 | The cohort drafts the minimum documentation standard *they* will use | — |
+| The department's own standard | 90 | The cohort drafts the minimum documentation standard *they* will use | - |
 
 Drafting the standard themselves is deliberate. A standard issued to this
 department will not be followed; one they wrote and immediately tested might be.
 
-### Day 4 — Spatial data, and the map they came for
+### Day 4 - Spatial data, and the map they came for
 **Outcome (apply):** Produce a correctly projected, properly furnished map from a
 cleaned dataset, and state what it does not show.
 
 | Session | Min | Exercise | Dataset |
 |---|---|---|---|
-| Coordinates, joins, and why maps lie | 20 | Instruction | — |
+| Coordinates, joins, and why maps lie | 20 | Instruction | - |
 | Joining and checking | 90 | Join facilities to wards; find and count the failures | D2 |
 | Projection, in practice not theory | 45 | Measure the same distance in three CRS; see the answers differ | D2 |
 | Map production | 120 | Full cartographic furniture; every map states its projection and source | D2 |
@@ -4850,7 +4850,7 @@ The projection block teaches by consequence, not by theory. Measuring one
 distance three ways and getting three answers takes fifteen minutes and is
 remembered; a lecture on datums is not.
 
-### Day 5 — Their own work, and what happens next
+### Day 5 - Their own work, and what happens next
 **Outcome (apply → evaluate):** Complete a real departmental product to level 3,
 and review a colleague's to level 4.
 
@@ -4858,7 +4858,7 @@ and review a colleague's to level 4.
 |---|---|---|---|
 | Bring your own task | 150 | Each participant works a real, current departmental task | Their own |
 | Peer reproduction | 60 | Exchange and attempt to reproduce. This is the post-assessment (§5) | Their own |
-| The 90 days | 60 | Each participant leaves with a named product, a date, and a reviewer | — |
+| The 90 days | 60 | Each participant leaves with a named product, a date, and a reviewer | - |
 
 Day 5 uses the department's real work deliberately. Training data produces
 training-shaped competence, and the transfer problem is the one this programme
