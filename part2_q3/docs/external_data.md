@@ -37,11 +37,11 @@ columns cost import time and storage on every device, 120 times over:
 | `settlements.csv` | 2,524 | 212.5 KB | **88.6 KB** |
 | `previous_round_households.csv` | 3,982 | 328.8 KB | 289.3 KB |
 | `wards.csv` | 40 | 1.1 KB | 1.1 KB |
-| `staff_roster.csv` | 120 | 6.5 KB | 6.6 KB |
+| `staff_roster.csv` | 120 | 6.5 KB | 7.3 KB |
 | `specimen_label_allocation.csv` | 24 | 2.5 KB | 1.3 KB |
 | `medicines.csv` | 23 | - | 1.9 KB |
 | `lgas.csv` | 4 | 0.1 KB | 0.1 KB |
-| **Total shipped to each device** | | 551.4 KB | **388.9 KB** |
+| **Total shipped to each device** | | 551.4 KB | **389.6 KB** |
 
 Built by `prepare_media.py`, which reads the supplied reference files and
 **never modifies them**.

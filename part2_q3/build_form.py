@@ -96,8 +96,12 @@ def survey_rows() -> list[dict]:
         calculation="instance('staff_roster')/root/item[name=${enumerator_code}]/team_code")
     row(type="calculate", name="enum_role",
         calculation="instance('staff_roster')/root/item[name=${enumerator_code}]/role")
+    # assigned_lga_code, not assigned_lga. The supplied roster records the LGA
+    # label where lgas.csv keys on the code, so comparing the 1.02 selection
+    # against the raw column is code-against-label and never matches. The code
+    # column is derived in prepare_media.py; see the note there.
     row(type="calculate", name="enum_lga",
-        calculation="instance('staff_roster')/root/item[name=${enumerator_code}]/assigned_lga")
+        calculation="instance('staff_roster')/root/item[name=${enumerator_code}]/assigned_lga_code")
     row(type="calculate", name="enum_pin",
         calculation="instance('staff_roster')/root/item[name=${enumerator_code}]/pin")
 

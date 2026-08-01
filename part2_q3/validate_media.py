@@ -113,7 +113,50 @@ def main() -> None:
             print(f"  {label:44s} {'yes' if ok else 'NO':>15}")
             break
 
-    # --- 4. choice_filter columns ------------------------------------------
+    # --- 4. cross-file value domains ---------------------------------------
+    #
+    # The checks above prove a column EXISTS. They do not prove the values in
+    # it mean the same thing as the values it is compared against, and that is
+    # a distinct failure: staff_roster.assigned_lga resolved perfectly well
+    # while holding "Gwarin" where lgas.csv keys on "LGA02", so the 1.02
+    # constraint compared a code to a label, never matched, and blocked all 96
+    # enumerators at the first question of the form.
+    #
+    # A resolving reference that joins to nothing is worse than a broken one,
+    # because every tool in the chain reports success.
+    print()
+    print("  cross-file value domains                     values join")
+    print("  " + "-" * 62)
+
+    def domain(filename: str, column: str) -> set[str]:
+        rows = list(csv.DictReader(
+            (MEDIA / filename).open(encoding="utf-8-sig")))
+        return {r[column].strip() for r in rows if r.get(column, "").strip()}
+
+    # (child file, column) must be a subset of (parent file, column)
+    JOINS = [
+        ("staff_roster.csv",   "assigned_lga_code", "lgas.csv",  "name"),
+        ("wards.csv",          "lga_code",          "lgas.csv",  "name"),
+        ("settlements.csv",    "ward_code",         "wards.csv", "name"),
+        ("settlements.csv",    "lga_code",          "lgas.csv",  "name"),
+        ("previous_round_households.csv", "settlement_id",
+                                                    "settlements.csv", "name"),
+    ]
+    for child, ccol, parent, pcol in JOINS:
+        try:
+            orphans = domain(child, ccol) - domain(parent, pcol)
+        except KeyError as exc:
+            failures.append(f"{child} has no column {exc}")
+            continue
+        label = f"{child.replace('.csv','')}.{ccol} -> {parent.replace('.csv','')}.{pcol}"
+        print(f"  {label:48s} {'yes' if not orphans else 'NO':>11}")
+        if orphans:
+            sample = ", ".join(sorted(orphans)[:3])
+            failures.append(
+                f"{child}.{ccol} holds {len(orphans)} value(s) absent from "
+                f"{parent}.{pcol} (e.g. {sample}). The lookup will resolve and "
+                f"match nothing.")
+
     print()
     print("=" * 68)
     if failures:
