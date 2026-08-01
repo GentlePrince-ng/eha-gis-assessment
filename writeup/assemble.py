@@ -58,6 +58,7 @@ SECTIONS: list[tuple[str, list[str]]] = [
      ]),
     ("# PART 2 - Question 3\n\n## Converting a paper questionnaire into a digital form\n",
      [
+         "part2_q3/docs/deliverables.md",
          "part2_q3/docs/defect_report.md",
          "part2_q3/docs/coding_scheme.md",
          "part2_q3/docs/consistency_checks.md",
@@ -117,6 +118,9 @@ def main() -> None:
         [str(PANDOC), str(combined), "-o", str(out),
          "--from", "markdown+pipe_tables+raw_attribute",
          "--reference-doc", str(HERE / "reference.docx"),
+         # images are written repo-root-relative, so pandoc can find them
+         # from a combined document that lives in writeup/
+         "--resource-path", str(ROOT),
          "-V", "lang=en-GB"],
         capture_output=True, text=True)
     if result.returncode != 0:
